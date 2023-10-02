@@ -5,6 +5,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix time: <http://www.w3.org/2006/time#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
 @base <http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto> .
 
 
@@ -25,18 +27,34 @@
 	  rdfs:comment " "@en .
 
 
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasBeginTime
+:hasBeginTime rdf:type owl:ObjectProperty ;
+	  rdfs:subPropertyOf :hasTime;
+          rdfs:domain :Project ;
+          rdfs:range  time:Instance ;
+	  rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasEndTime
+:hasEndTime rdf:type owl:ObjectProperty ;
+	  rdfs:subPropertyOf :hasTime ;
+          rdfs:domain :Project ;
+          rdfs:range  time:Instance ;
+	  rdfs:comment " "@en .
+
+
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#duration
 :duration rdf:type owl:ObjectProperty ;
           rdfs:domain :Project ;
           rdfs:range  time:Interval, time:TemporalDuration, time:DateTimeInterval, time:Duration ;
-	  rdfs:comment " "@en .
+	  rdfs:comment "Duration of an activity in minute"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#belongsTo
 :belongsTo rdf:type owl:ObjectProperty ;
            rdfs:domain :Context ;
            rdfs:range :Agent ;
-           rdfs:comment "A context (location, resource) may belong to an agent"@en .
+           rdfs:comment "A context (location, resource) may belong to an agent. This agent is the owner of this context"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#contains
@@ -120,7 +138,7 @@
 :hasSubject rdf:type owl:ObjectProperty ;
             rdfs:domain :Activity ;
             rdfs:range :Agent ;
-	    rdfs:comment " "@en .
+	    rdfs:comment "The person carrying out the activity"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isAssignedAction
@@ -167,6 +185,21 @@
           rdfs:range :Resource ;
 	  rdfs:comment " "@en .
 
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isPartOfOrganization
+:isPartOfOrganization rdf:type owl:ObjectProperty ;
+          rdfs:domain :Agent ;
+          rdfs:range :Organization ;
+	  rdfs:comment "An agent can be part of an organization"@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isPartOf
+:isPartOfGroup rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :isPartOfOrganization ;
+          rdfs:domain :Agent ;
+          rdfs:range :Group ;
+	  rdfs:comment " "@en .
+
+
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isPrecededBy
 :isPrecededBy rdf:type owl:ObjectProperty ,
@@ -194,6 +227,19 @@
                           :Activity ,
                           :Operation ;
               rdfs:range :Resource .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isSubGoalOf
+:isSubGoalOf rdf:type owl:ObjectProperty ;
+              rdfs:domain :Goal ;
+              rdfs:range :Goal .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isSubActivityOf
+:isSubActivityOf rdf:type owl:ObjectProperty ;
+              rdfs:domain :Activity ;
+              rdfs:range :Activity .
+
 
 
 #################################################################
@@ -241,7 +287,7 @@
               rdfs:range xsd:string ;
 	      rdfs:comment " "@en .
 
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#resourceName
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#agentName
 :agentName rdf:type owl:DatatypeProperty ;
               rdfs:domain :Agent ;
               rdfs:range xsd:string ;
@@ -255,127 +301,256 @@
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Action
 :Action rdf:type owl:Class ;
+	rdfs:subClassOf skos:Concept ;
         rdfs:subClassOf :Activity ;
 	rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Activity
 :Activity rdf:type owl:Class ;
+	  rdfs:subClassOf skos:Concept ;
           rdfs:subClassOf :Project ;
 	  rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Agent
 :Agent rdf:type owl:Class ;
+       rdfs:subClassOf skos:Concept ;
        rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Automaton
 :Automaton rdf:type owl:Class ;
+	   rdfs:subClassOf skos:Concept ;
            rdfs:subClassOf :Individual ;
 	   rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Constraint
 :Constraint rdf:type owl:Class ;
+	    rdfs:subClassOf skos:Concept ;
             rdfs:subClassOf :Rule ;
 	    rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Context
 :Context rdf:type owl:Class ;
+	 rdfs:subClassOf skos:Concept ;
 	 rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Event
 :Event rdf:type owl:Class ;
+       rdfs:subClassOf skos:Concept ;
        rdfs:subClassOf :Activity ;
        rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Goal
 :Goal rdf:type owl:Class ;
+      rdfs:subClassOf skos:Concept ;
       rdfs:subClassOf :Governance ;
       rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Governance
 :Governance rdf:type owl:Class ;
+	    rdfs:subClassOf skos:Concept ;
 	    rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Group
 :Group rdf:type owl:Class ;
+       rdfs:subClassOf skos:Concept ;
        rdfs:subClassOf :Organization ;
        rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#HardResource
 :HardResource rdf:type owl:Class ;
+	      rdfs:subClassOf skos:Concept ;
               rdfs:subClassOf :Resource ;
 	      rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Individual
 :Individual rdf:type owl:Class ;
+	    rdfs:subClassOf skos:Concept ;
             rdfs:subClassOf :Agent ;
 	    rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Location
 :Location rdf:type owl:Class ;
+	  rdfs:subClassOf skos:Concept ;
           rdfs:subClassOf :Context ;
 	  rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Motive
 :Motive rdf:type owl:Class ;
+	rdfs:subClassOf skos:Concept ;
         rdfs:subClassOf :Governance ;
 	rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Objective
 :Objective rdf:type owl:Class ;
+	   rdfs:subClassOf skos:Concept ;
            rdfs:subClassOf :Governance ;
 	   rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Operation
 :Operation rdf:type owl:Class ;
+	   rdfs:subClassOf skos:Concept ;
            rdfs:subClassOf :Action ;
 	   rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Organization
 :Organization rdf:type owl:Class ;
+	      rdfs:subClassOf skos:Concept ;
               rdfs:subClassOf :Agent ;
+	      rdfs:comment " "@en .
+
+:Group rdf:type owl:Class ;
+	      rdfs:subClassOf skos:Concept ;
+              rdfs:subClassOf :Organization ;
 	      rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Person
 :Person rdf:type owl:Class ;
+	rdfs:subClassOf skos:Concept ;
         rdfs:subClassOf :Individual ;
 	rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Project
 :Project rdf:type owl:Class ;
+	 rdfs:subClassOf skos:Concept ;
 	 rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Resource
 :Resource rdf:type owl:Class ;
+	  rdfs:subClassOf skos:Concept ;
           rdfs:subClassOf :Context ;
 	  rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Rule
 :Rule rdf:type owl:Class ;
+      rdfs:subClassOf skos:Concept ;
       rdfs:subClassOf :Governance ;
       rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#SoftResource
 :SoftResource rdf:type owl:Class ;
+	      rdfs:subClassOf skos:Concept ;
               rdfs:subClassOf :Resource ;
-	      rdfs:comment " "@en .
+	      rdfs:comment "Intangible resources used to carry out an activity"@en .
+
+
+#################################################################
+#    Instances
+#################################################################
+
+####################### Agent ###################################
+:Teacher a :Agent.
+
+:Teacher1 a skos:Concept ;
+	  skos:narrower  :Teacher ;
+	  skos:prefLabel  "Database teacher".
+
+:Teacher2 a skos:Concept ;
+	   skos:narrower  :Teacher ;
+	  skos:prefLabel  "Python teacher".
+
+:Teacher3 a skos:Concept ;
+	   skos:narrower  :Teacher ;
+	  skos:prefLabel  "UI teacher".
+
+:Teacher4 a skos:Concept ;
+	   skos:narrower  :Teacher ;
+	  skos:prefLabel  "Project Management teacher".
+
+:Teacher5 a skos:Concept ;
+	   skos:narrower  :Teacher ;
+	  skos:prefLabel  "Software Engineering teacher".
+
+
+####################### Activity ###################################
+
+:DataBase a :Activity ;
+	  skos:prefLabel  "Database" ;
+	  :duration 120 ;
+	  :usesResource  :MysqlBook, Computer003 ;
+	  :hasLocation :ComputerRoom ;
+	  :hasSubject :Teacher1.
+
+:Python a :Activity;
+	skos:prefLabel  "Python Programming" ;
+	:hasBeginTime 8 ;
+	:hasEndTime 10 ;
+	:usesResource  :PythonBook, Computer002 ;
+	:hasLocation :ComputerRoom ;
+	:hasSubject :Teacher2.
+
+:UserInterface a :Activity ;
+	  skos:prefLabel  "User Interface" ;
+	  :hasBeginTime 10 ;
+	  :hasEndTime 12 ;
+	  :hasLocation :CompterRoom ;
+	  :usesResource  :HTMLBook ;
+	  :hasSubject :Teacher3.
+
+:ProjectManagement a :
+	  skos:prefLabel  "Project Management" ;
+	  :hasBeginTime 8 ;
+	  :hasEndTime 10 ;
+	  :hasLocation :ClassRoom ;
+	  :usesResource  :PMBook ;
+	  :hasSubject :Teacher4.
+
+:SoftwareEng a skos:Concept ;
+	  skos:prefLabel  "Software Engineering" ;
+	  :duration 120 ;
+	  :hasLocation :TutorialRoom ;
+	  :usesResource  :SoftwareMysql, Computer001 ;
+	  :hasSubject :Teacher5 .
+
+####################### Location ###################################
+
+:ClassRoom a :Location .
+
+:ComputerRoom a :Location .
+
+:TutorialRoom a :Location .
+
+
+####################### Resource ###################################
+
+:Book a :HardResource .
+
+:MysqlBook a skos:Concept ;
+	   skos:narrower :Book .
+
+:PMBook a skos:Concept ;
+	   skos:narrower :Book .
+
+:PythonBook a skos:Concept ;
+	   skos:narrower :Book .
+
+:HTMLBook a skos:Concept ;
+	   skos:narrower :Book .
+
+:Computer001 a :HardResource .
+
+:Computer002 a :HardResource .
+
+:Computer003 a :HardResource .
+
+:SoftwareMysql a :SoftResource .
