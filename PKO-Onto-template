@@ -1,0 +1,12 @@
+pko:Class[! owl:Class ?identifier, ? owl:Class ?super, ? xsd:string ?label, ? xsd:string ?comment]::{
+		       ottr:Triple(?identifier, rdf:type, owl:Class),
+		       ottr:Triple(?identifier, rdfs:label, ?label),
+		       ottr:Triple(?identifier, rdfs:comment, ?comment),
+		       ottr:Triple(?identifier, rdfs:subClassOf, skos:Concept),
+		       pko:SubClassOf(?identifier, ?super)
+			 }
+			 
+pko:SubClassOf[?sub, ?super]::{
+		     ottr:Triple(?sub, rdfs:subClassOf, ?super)
+		     }
+			    

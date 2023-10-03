@@ -1,0 +1,101 @@
+
+#################################################################
+#    Instances
+#################################################################
+
+####################### Agent ###################################
+:Teacher a :Agent.
+
+:Teacher1 a skos:Concept ;
+	  skos:narrower  :Teacher ;
+	  skos:prefLabel  "Database teacher".
+
+:Teacher2 a skos:Concept ;
+	   skos:narrower  :Teacher ;
+	  skos:prefLabel  "Python teacher".
+
+:Teacher3 a skos:Concept ;
+	   skos:narrower  :Teacher ;
+	  skos:prefLabel  "UI teacher".
+
+:Teacher4 a skos:Concept ;
+	   skos:narrower  :Teacher ;
+	  skos:prefLabel  "Project Management teacher".
+
+:Teacher5 a skos:Concept ;
+	   skos:narrower  :Teacher ;
+	  skos:prefLabel  "Software Engineering teacher".
+
+
+####################### Activity ###################################
+
+:DataBase a :Activity ;
+	  skos:prefLabel  "Database" ;
+	  :duration 120 ;
+	  :usesResource  :MysqlBook, Computer003 ;
+	  :hasLocation :ComputerRoom ;
+	  :hasSubject :Teacher1.
+
+:Python a :Activity;
+	skos:prefLabel  "Python Programming" ;
+	:hasBeginTime 8 ;
+	:hasEndTime 10 ;
+	:usesResource  :PythonBook, Computer002 ;
+	:hasLocation :ComputerRoom ;
+	:hasSubject :Teacher2.
+
+:UserInterface a :Activity ;
+	  skos:prefLabel  "User Interface" ;
+	  :hasBeginTime 10 ;
+	  :hasEndTime 12 ;
+	  :hasLocation :CompterRoom ;
+	  :usesResource  :HTMLBook ;
+	  :hasSubject :Teacher3.
+
+:ProjectManagement a :
+	  skos:prefLabel  "Project Management" ;
+	  :hasBeginTime 8 ;
+	  :hasEndTime 10 ;
+	  :hasLocation :ClassRoom ;
+	  :usesResource  :PMBook ;
+	  :hasSubject :Teacher4.
+
+:SoftwareEng a skos:Concept ;
+	  skos:prefLabel  "Software Engineering" ;
+	  :duration 120 ;
+	  :hasLocation :TutorialRoom ;
+	  :usesResource  :SoftwareMysql, Computer001 ;
+	  :hasSubject :Teacher5 .
+
+####################### Location ###################################
+
+:ClassRoom a :Location .
+
+:ComputerRoom a :Location .
+
+:TutorialRoom a :Location .
+
+
+####################### Resource ###################################
+
+:Book a :HardResource .
+
+:MysqlBook a skos:Concept ;
+	   skos:narrower :Book .
+
+:PMBook a skos:Concept ;
+	   skos:narrower :Book .
+
+:PythonBook a skos:Concept ;
+	   skos:narrower :Book .
+
+:HTMLBook a skos:Concept ;
+	   skos:narrower :Book .
+
+:Computer001 a :HardResource .
+
+:Computer002 a :HardResource .
+
+:Computer003 a :HardResource .
+
+:SoftwareMysql a :SoftResource .
