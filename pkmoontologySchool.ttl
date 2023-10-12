@@ -563,7 +563,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  rdfs:label "Software Engineering course" ;
 	  :duration 120 ;
 	  :hasObjective :ObjectiveSoftwareEng ;
-	  :hasLocation ::ComputerRoom02 ;
+	  :hasLocation :ComputerRoom02 ;
 	  :hasSubject :Teacher5 .
 
 :SoftwareEngProject a :Activity;
