@@ -8,8 +8,6 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @base <http://www.w3.org/2002/07/owl#> .
 
-[ rdf:type owl:Ontology
- ] .
 
 #################################################################
 #    Object Properties
@@ -598,7 +596,7 @@ time:TemporalDuration rdf:type owl:Class ;
 
 ####################### Resource ###################################
 
-:LCDProjector a HardResource .
+:LCDProjector a :HardResource .
 
 :MysqlBook a :HardResource .
 
@@ -634,19 +632,19 @@ time:TemporalDuration rdf:type owl:Class ;
 
 ####################### Objective ###################################
 
-:ObjectivePython a Objective ;
+:ObjectivePython a :Objective ;
 		:objectiveDescription "This course is intended to introduce Python programming to level 01 students" .
 
-:ObjectiveMysql a Objective ;
+:ObjectiveMysql a :Objective ;
 		:objectiveDescription "This course is intended to introduce Database modeling to level 03 students" .
 
-:ObjectiveHTML a Objective ;
+:ObjectiveHTML a :Objective ;
 		:objectiveDescription "This course is intended to introduce Web interface programming to level 02 students. It will enables them to designer and display elements such as text, images, forms and interactive functions in a web browser" .
 
 
-:ObjectiveSoftwareEng a Objective ;
+:ObjectiveSoftwareEng a :Objective ;
 	      :objectiveDescription "This course will enable level 03 students to systematic procedures  large-scale softwares so that their specifications correspond to the real needs of the customers" .
 
 
-:ObjectiveProjectManag a Objective ;
+:ObjectiveProjectManag a :Objective ;
 	      :objectiveDescription " The main  objective of this course is to let students acquire a global vision of projects, provide then with practical tools for anticipating drifts in costs, deadlines and performance of industrial projects" .
