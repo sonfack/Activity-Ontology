@@ -4,11 +4,12 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix time: <http://www.w3.org/2006/time#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@base <http://www.w3.org/2002/07/owl#> .
 
-@base <http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto> .
-
+[ rdf:type owl:Ontology
+ ] .
 
 #################################################################
 #    Object Properties
@@ -18,36 +19,7 @@
 :affectes rdf:type owl:ObjectProperty ;
           rdfs:domain :Rule ;
           rdfs:range :Goal ;
-	  rdfs:comment " "@en .
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasTime
-:hasTime rdf:type owl:ObjectProperty ;
-          rdfs:domain :Project ;
-          rdfs:range  time:Instance ;
-	  rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasBeginTime
-:hasBeginTime rdf:type owl:ObjectProperty ;
-	  rdfs:subPropertyOf :hasTime;
-          rdfs:domain :Project ;
-          rdfs:range  time:Instance ;
-	  rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasEndTime
-:hasEndTime rdf:type owl:ObjectProperty ;
-	  rdfs:subPropertyOf :hasTime ;
-          rdfs:domain :Project ;
-          rdfs:range  time:Instance ;
-	  rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#duration
-:duration rdf:type owl:ObjectProperty ;
-          rdfs:domain :Project ;
-          rdfs:range  time:Interval, time:TemporalDuration, time:DateTimeInterval, time:Duration ;
-	  rdfs:comment "Duration of an activity in minute"@en .
+          rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#belongsTo
@@ -65,25 +37,32 @@
                    owl:IrreflexiveProperty ;
           rdfs:domain :Resource ;
           rdfs:range :Resource ;
-	  rdfs:comment " "@en .
+          rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#determines
 :determines rdf:type owl:ObjectProperty ;
             rdfs:domain :Rule ;
             rdfs:range :Operation ;
-	    rdfs:comment " "@en .
+            rdfs:comment " "@en .
 
 
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isFollowedBy
-:isFollowedBy rdf:type owl:ObjectProperty ;
-         owl:inverseOf :isPrecededBy ;
-         rdf:type owl:AsymmetricProperty ,
-                  owl:TransitiveProperty ,
-                  owl:IrreflexiveProperty ;
-         rdfs:domain :Project ;
-         rdfs:range :Project ;
-	 rdfs:comment " "@en .
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#duration
+:duration rdf:type owl:ObjectProperty ;
+          rdfs:domain :Project ;
+          rdfs:range time:DateTimeInterval ,
+                     time:Duration ,
+                     time:Interval ,
+                     time:TemporalDuration ;
+          rdfs:comment "Duration of an activity in minute"@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasBeginTime
+:hasBeginTime rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasTime ;
+              rdfs:domain :Project ;
+              rdfs:range time:Instance ;
+              rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasCommnunity
@@ -98,13 +77,21 @@
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain :Activity ;
                rdfs:range :Constraint ;
-	       rdfs:comment " "@en .
+               rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasContext
 :hasContext rdf:type owl:ObjectProperty ;
             rdfs:domain :Activity ;
             rdfs:range :Context .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasEndTime
+:hasEndTime rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasTime ;
+            rdfs:domain :Project ;
+            rdfs:range time:Instance ;
+            rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasLocation
@@ -115,7 +102,7 @@
                          :Operation ,
                          :Resource ;
              rdfs:range :Location ;
-	     rdfs:comment " "@en .
+             rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasObject
@@ -123,7 +110,7 @@
            rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:domain :Activity ;
            rdfs:range :Objective ;
-	   rdfs:comment " "@en .
+           rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasRule
@@ -131,30 +118,37 @@
          rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:domain :Activity ;
          rdfs:range :Rule ;
-	 rdfs:comment " "@en .
+         rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasSubject
 :hasSubject rdf:type owl:ObjectProperty ;
             rdfs:domain :Activity ;
             rdfs:range :Agent ;
-	    rdfs:comment "The person carrying out the activity"@en .
+            rdfs:comment "The person carrying out the activity"@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasTime
+:hasTime rdf:type owl:ObjectProperty ;
+         rdfs:domain :Project ;
+         rdfs:range time:Instance ;
+         rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isAssignedAction
 :isAssignedAction rdf:type owl:ObjectProperty ;
-              rdfs:domain :Agent ;
-              rdfs:range :Action ;
-	      rdfs:comment " "@en .
+                  rdfs:domain :Agent ;
+                  rdfs:range :Action ;
+                  rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isAssignedOperation
 :isAssignedOperation rdf:type owl:ObjectProperty ,
-                       owl:SymmetricProperty ,
-                       owl:IrreflexiveProperty ;
-              rdfs:domain :Agent ;
-              rdfs:range :Operation ;
-	      rdfs:comment " "@en .
+                              owl:SymmetricProperty ,
+                              owl:IrreflexiveProperty ;
+                     rdfs:domain :Agent ;
+                     rdfs:range :Operation ;
+                     rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isComposedOf
@@ -167,7 +161,18 @@
               rdfs:range :Action ,
                          :Activity ,
                          :Operation ;
-	      rdfs:comment " "@en .
+              rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isFollowedBy
+:isFollowedBy rdf:type owl:ObjectProperty ;
+              owl:inverseOf :isPrecededBy ;
+              rdf:type owl:AsymmetricProperty ,
+                       owl:TransitiveProperty ,
+                       owl:IrreflexiveProperty ;
+              rdfs:domain :Project ;
+              rdfs:range :Project ;
+              rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isMotivatedBy
@@ -175,7 +180,7 @@
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain :Activity ;
                rdfs:range :Motive ;
-	       rdfs:comment " "@en .
+               rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isPartOf
@@ -183,33 +188,44 @@
           rdfs:subPropertyOf :hasContext ;
           rdfs:domain :Resource ;
           rdfs:range :Resource ;
-	  rdfs:comment " "@en .
+          rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isPartOfGroup
+:isPartOfGroup rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :isPartOfOrganization ;
+               rdfs:domain :Agent ;
+               rdfs:range :Group ;
+               rdfs:comment " "@en .
+
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isPartOfOrganization
 :isPartOfOrganization rdf:type owl:ObjectProperty ;
-          rdfs:domain :Agent ;
-          rdfs:range :Organization ;
-	  rdfs:comment "An agent can be part of an organization"@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isPartOf
-:isPartOfGroup rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf :isPartOfOrganization ;
-          rdfs:domain :Agent ;
-          rdfs:range :Group ;
-	  rdfs:comment " "@en .
-
+                      rdfs:domain :Agent ;
+                      rdfs:range :Organization ;
+                      rdfs:comment "An agent can be part of an organization"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isPrecededBy
 :isPrecededBy rdf:type owl:ObjectProperty ,
-                   owl:AsymmetricProperty ,
-                   owl:TransitiveProperty ,
-                   owl:IrreflexiveProperty ;
-	  owl:inverseOf :isFollowedBy ;
-          rdfs:domain :Project ;
-          rdfs:range :Project ;
-	  rdfs:comment " "@en .
+                       owl:AsymmetricProperty ,
+                       owl:TransitiveProperty ,
+                       owl:IrreflexiveProperty ;
+              rdfs:domain :Project ;
+              rdfs:range :Project ;
+              rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isSubActivityOf
+:isSubActivityOf rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Activity ;
+                 rdfs:range :Activity .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isSubGoalOf
+:isSubGoalOf rdf:type owl:ObjectProperty ;
+             rdfs:domain :Goal ;
+             rdfs:range :Goal .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#resultsIn
@@ -217,7 +233,7 @@
                     owl:IrreflexiveProperty ;
            rdfs:domain :Goal ;
            rdfs:range :Action ;
-	   rdfs:comment " "@en .
+           rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#usesResource
@@ -229,19 +245,6 @@
               rdfs:range :Resource .
 
 
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isSubGoalOf
-:isSubGoalOf rdf:type owl:ObjectProperty ;
-              rdfs:domain :Goal ;
-              rdfs:range :Goal .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isSubActivityOf
-:isSubActivityOf rdf:type owl:ObjectProperty ;
-              rdfs:domain :Activity ;
-              rdfs:range :Activity .
-
-
-
 #################################################################
 #    Data properties
 #################################################################
@@ -250,49 +253,49 @@
 :activityName rdf:type owl:DatatypeProperty ;
               rdfs:domain :Activity ;
               rdfs:range xsd:string ;
-	      rdfs:comment " "@en .
+              rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#agentName
+:agentName rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Agent ;
+           rdfs:range xsd:string ;
+           rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasAddress
 :hasAddress rdf:type owl:DatatypeProperty ;
             rdfs:domain :Location ;
             rdfs:range xsd:string ;
-	    rdfs:comment " "@en .
+            rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#objectiveDescription
 :objectiveDescription rdf:type owl:DatatypeProperty ;
                       rdfs:domain :Objective ;
                       rdfs:range xsd:string ;
-		      rdfs:comment " "@en .
+                      rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#projectDescription
 :projectDescription rdf:type owl:DatatypeProperty ;
                     rdfs:domain :Project ;
                     rdfs:range xsd:string ;
-		    rdfs:comment " "@en .
+                    rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#projectName
 :projectName rdf:type owl:DatatypeProperty ;
              rdfs:domain :Project ;
              rdfs:range xsd:string ;
-	     rdfs:comment " "@en .
+             rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#resourceName
 :resourceName rdf:type owl:DatatypeProperty ;
               rdfs:domain :Resource ;
               rdfs:range xsd:string ;
-	      rdfs:comment " "@en .
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#agentName
-:agentName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Agent ;
-              rdfs:range xsd:string ;
-	      rdfs:comment " "@en .
-
+              rdfs:comment " "@en .
 
 
 #################################################################
@@ -301,154 +304,179 @@
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Action
 :Action rdf:type owl:Class ;
-	rdfs:subClassOf skos:Concept ;
         rdfs:subClassOf :Activity ;
-	rdfs:comment " "@en .
+        rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Activity
 :Activity rdf:type owl:Class ;
-	  rdfs:subClassOf skos:Concept ;
           rdfs:subClassOf :Project ;
-	  rdfs:comment " "@en .
+          rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Agent
 :Agent rdf:type owl:Class ;
-       rdfs:subClassOf skos:Concept ;
        rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#AudioResource
+:AudioResource rdf:type owl:Class ;
+               rdfs:subClassOf :SoftResource ;
+               rdfs:comment "Audio resource"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Automaton
 :Automaton rdf:type owl:Class ;
-	   rdfs:subClassOf skos:Concept ;
            rdfs:subClassOf :Individual ;
-	   rdfs:comment " "@en .
+           rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Constraint
 :Constraint rdf:type owl:Class ;
-	    rdfs:subClassOf skos:Concept ;
             rdfs:subClassOf :Rule ;
-	    rdfs:comment " "@en .
+            rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Context
 :Context rdf:type owl:Class ;
-	 rdfs:subClassOf skos:Concept ;
-	 rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Event
-:Event rdf:type owl:Class ;
-       rdfs:subClassOf skos:Concept ;
-       rdfs:subClassOf :Activity ;
-       rdfs:comment " "@en .
+         rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Goal
 :Goal rdf:type owl:Class ;
-      rdfs:subClassOf skos:Concept ;
       rdfs:subClassOf :Governance ;
       rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Governance
 :Governance rdf:type owl:Class ;
-	    rdfs:subClassOf skos:Concept ;
-	    rdfs:comment " "@en .
+            rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Group
 :Group rdf:type owl:Class ;
-       rdfs:subClassOf skos:Concept ;
        rdfs:subClassOf :Organization ;
-       rdfs:comment " "@en .
+       rdfs:comment "Agents having individual goals "@en .
 
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Team
+:Team rdf:type owl:Class ;
+       rdfs:subClassOf :Organization ;
+       rdfs:comment "Agents having a common goal"@en .
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#HardResource
 :HardResource rdf:type owl:Class ;
-	      rdfs:subClassOf skos:Concept ;
               rdfs:subClassOf :Resource ;
-	      rdfs:comment " "@en .
+              rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#ImageResource
+:ImageResource rdf:type owl:Class ;
+               rdfs:subClassOf :SoftResource ;
+               rdfs:comment "Image resource"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Individual
 :Individual rdf:type owl:Class ;
-	    rdfs:subClassOf skos:Concept ;
             rdfs:subClassOf :Agent ;
-	    rdfs:comment " "@en .
+            rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Location
 :Location rdf:type owl:Class ;
-	  rdfs:subClassOf skos:Concept ;
           rdfs:subClassOf :Context ;
-	  rdfs:comment " "@en .
+          rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#MixedResource
+:MixedResource rdf:type owl:Class ;
+               rdfs:subClassOf :SoftResource ;
+               rdfs:comment "Mixed resource"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Motive
 :Motive rdf:type owl:Class ;
-	rdfs:subClassOf skos:Concept ;
         rdfs:subClassOf :Governance ;
-	rdfs:comment " "@en .
+        rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Objective
 :Objective rdf:type owl:Class ;
-	   rdfs:subClassOf skos:Concept ;
            rdfs:subClassOf :Governance ;
-	   rdfs:comment " "@en .
+           rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Operation
 :Operation rdf:type owl:Class ;
-	   rdfs:subClassOf skos:Concept ;
            rdfs:subClassOf :Action ;
-	   rdfs:comment " "@en .
+           rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Organization
 :Organization rdf:type owl:Class ;
-	      rdfs:subClassOf skos:Concept ;
               rdfs:subClassOf :Agent ;
-	      rdfs:comment " "@en .
-
-:Group rdf:type owl:Class ;
-	      rdfs:subClassOf skos:Concept ;
-              rdfs:subClassOf :Organization ;
-	      rdfs:comment " "@en .
+              rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Person
 :Person rdf:type owl:Class ;
-	rdfs:subClassOf skos:Concept ;
         rdfs:subClassOf :Individual ;
-	rdfs:comment " "@en .
+        rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Project
 :Project rdf:type owl:Class ;
-	 rdfs:subClassOf skos:Concept ;
-	 rdfs:comment " "@en .
+         rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Resource
 :Resource rdf:type owl:Class ;
-	  rdfs:subClassOf skos:Concept ;
           rdfs:subClassOf :Context ;
-	  rdfs:comment " "@en .
+          rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Rule
 :Rule rdf:type owl:Class ;
-      rdfs:subClassOf skos:Concept ;
       rdfs:subClassOf :Governance ;
       rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#SoftResource
 :SoftResource rdf:type owl:Class ;
-	      rdfs:subClassOf skos:Concept ;
               rdfs:subClassOf :Resource ;
-	      rdfs:comment "Intangible resources used to carry out an activity"@en .
+              rdfs:comment "Intangible resources used to carry out an activity"@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Time
+:Time rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#VideoResource
+:VideoResource rdf:type owl:Class ;
+               rdfs:subClassOf :SoftResource ;
+               rdfs:comment "Video resource"@en .
+
+
+###  http://www.w3.org/2006/time#DateTimeInterval
+time:DateTimeInterval rdf:type owl:Class ;
+                      rdfs:subClassOf :Time .
+
+
+###  http://www.w3.org/2006/time#Duration
+time:Duration rdf:type owl:Class ;
+                      rdfs:subClassOf :Time .
+
+
+###  http://www.w3.org/2006/time#Instance
+time:Instance rdf:type owl:Class ;
+                      rdfs:subClassOf :Time .
+
+
+###  http://www.w3.org/2006/time#Interval
+time:Interval rdf:type owl:Class ;
+                      rdfs:subClassOf :Time .
+
+
+###  http://www.w3.org/2006/time#TemporalDuration
+time:TemporalDuration rdf:type owl:Class ;
+                      rdfs:subClassOf :Time .
