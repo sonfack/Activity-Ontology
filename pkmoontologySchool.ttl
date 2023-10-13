@@ -46,7 +46,7 @@
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#duration
-:duration rdf:type owl:ObjectProperty ;
+:hasDuration rdf:type owl:ObjectProperty ;
           rdfs:domain :Project ;
           rdfs:range time:DateTimeInterval ,
                      time:Duration ,
@@ -467,8 +467,7 @@ time:Duration rdf:type owl:Class ;
 
 
 ###  http://www.w3.org/2006/time#Instance
-time:Instance rdf:type owl:Class ;
-                      rdfs:subClassOf :Time .
+time:Instance rdfs:subClassOf :Time .
 
 
 ###  http://www.w3.org/2006/time#Interval
@@ -487,10 +486,17 @@ time:TemporalDuration rdf:type owl:Class ;
 
 ####################### Agent ###################################
 
-:Teacher1 a :Person ;
+:DBTeacher1 a :Person ;
 	   rdfs:label  "Database teacher".
 
-:Teacher2 a :Person ;
+:DBTeacher2 a :Person ;
+	   rdfs:label  "Database teacher".
+
+
+:PyTeacher1 a :Person ;
+	   rdfs:label  "Python teacher".
+
+:PyTeacher2 a :Person ;
 	   rdfs:label  "Python teacher".
 
 :Teacher3 a :Person ;
@@ -504,27 +510,46 @@ time:TemporalDuration rdf:type owl:Class ;
 
 ####################### Activity ###################################
 
-:DataBase a :Activity ;
-	  rdfs:label "Database course" ;
-	  :duration 120 ;
+:DataBaseCourse a :Activity ;
+	  rdfs:label "Database Course" ;
+	  :hasDuration :120min ;
+	  :hasObjective :ObjectiveMysql ;
+	  :hasLocation :ClassRoom ;
+	  :usesResource  :MysqlBook, :PDFMysql ;
+	  :hasSubject :DBTeacher1.
+
+:DataBaseTutorial a :Activity ;
+	  rdfs:label "Database Tutorial" ;
+	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveMysql ;
 	  :hasLocation :ComputerRoom01, :ClassRoom ;
 	  :usesResource  :MysqlBook, :ComputerHardware, :PDFMysql ;
-	  :hasSubject :Teacher1.
+	  :hasSubject :DBTeacher2.
 
-:Python a :Activity;
-	rdfs:label "Python Programming course" ;
-	:hasBeginTime 8 ;
-	:hasEndTime 10 ;
+
+:PythonCourse a :Activity;
+	rdfs:label "Python Programming Course" ;
+	:hasBeginTime :8AM_F ;
+	:hasEndTime :10AM_F ;
 	:hasObjective :ObjectivePython ;
 	:hasLocation :ComputerRoom02, :TutorialRoom01 ;
 	:usesResource  :PythonBook, :ComputerIntroduction, :Laptop01, :VideoPython ;
-	:hasSubject :Teacher2.
+	:hasSubject :PyTeacher1.
+
+
+:PythonPractical a :Activity;
+	rdfs:label "Python Programming Practical" ;
+	:hasBeginTime :8AM_M ;
+	:hasEndTime :10AM_M ;
+	:hasObjective :ObjectivePython ;
+	:hasLocation :ComputerRoom02, :TutorialRoom01 ;
+	:usesResource  :PythonBook, :ComputerIntroduction, :Laptop03 ;
+	:hasSubject :PyTeacher2.
 
 :UserInterface a :Activity ;
-	  rdfs:label "User Interface course" ;
-	  :hasBeginTime 10 ;
-	  :hasEndTime 12 ;
+	  rdfs:label "User Interface Course" ;
+	  :hasBeginTime :10AM_W ;
+	  :hasEndTime :12AM_W ;
 	  :hasObjective :ObjectiveHTML ;
 	  :hasLocation :CompterRoom03, :ClassRoom04 ;
 	  :usesResource  :HTMLBook, :PPTHTML, :VideoHTML ;
@@ -532,16 +557,16 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :ProjectManagement a :Activity ;
           rdfs:label "Project Management course" ;
-	  :hasBeginTime 8 ;
-	  :hasEndTime 10 ;
+	  :hasBeginTime :8AM_T ;
+	  :hasEndTime :10AM_T ;
 	  :hasObjective :ObjectiveProjectManag ;
 	  :hasLocation :ClassRoom04 ;
 	  :usesResource  :PMBook, :XSLCourse, :Laptop02 ;
 	  :hasSubject :Teacher4.
 
-:SoftwareEng a :Activity;
-	  rdfs:label "Software Engineering course" ;
-	  :duration 120 ;
+:SoftwareEngCourse a :Activity;
+	  rdfs:label "Software Engineering Course" ;
+	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveSoftwareEng ;
 	  :isComposedOf :SoftwareEngTutorial, :SoftwareEngPractical, :SoftwareEngProject ; 
 	  :hasLocation  :ClassRoom03 ;
@@ -550,23 +575,23 @@ time:TemporalDuration rdf:type owl:Class ;
 
 
 :SoftwareEngTutorial a :Activity;
-	  rdfs:label "Software Engineering course" ;
-	  :duration 120 ;
+	  rdfs:label "Software Engineering Tutorial" ;
+	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveSoftwareEng ;
 	  :hasLocation :TutorialRoom01 ;
 	  :hasSubject :Teacher5 .
 
 
 :SoftwareEngPractical a :Activity;
-	  rdfs:label "Software Engineering course" ;
-	  :duration 120 ;
+	  rdfs:label "Software Engineering Practical" ;
+	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveSoftwareEng ;
 	  :hasLocation :ComputerRoom02 ;
 	  :hasSubject :Teacher5 .
 
 :SoftwareEngProject a :Activity;
-	  rdfs:label "Software Engineering course" ;
-	  :duration 120 ;
+	  rdfs:label "Software Engineering Project" ;
+	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveSoftwareEng ;
 	  :hasLocation :ComputerRoom02 ;
 	  :usesResource  :LCDProjector  ;
@@ -604,6 +629,8 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :Laptop02 a :HardResource .
 
+:Laptop03 a :HardResource .
+
 :Desktop a :HardResource .
 
 :PMBook a :HardResource .
@@ -620,11 +647,11 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :SoftwareMysql a :SoftResource .
 
-:VideoPython a :SoftResource .
+:VideoPython a :VideoResource .
 
 :PPTHTML a :SoftResource .
 
-:VideoHTML a :SoftResource .
+:VideoHTML a :VideoResource .
 
 :PDFMysql a :SoftResource .
 
@@ -648,3 +675,33 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :ObjectiveProjectManag a :Objective ;
 	      :objectiveDescription " The main  objective of this course is to let students acquire a global vision of projects, provide then with practical tools for anticipating drifts in costs, deadlines and performance of industrial projects" .
+
+
+
+####################### Time ###################################
+
+:8AM_M a time:Instance .
+
+:10AM_M a time:Instance .
+
+:12AM_M a time:Instance .
+
+:8AM_T a time:Instance .
+
+:10AM_T a time:Instance .
+
+:12AM_T a time:Instance .
+
+:8AM_W a time:Instance .
+
+:10AM_W a time:Instance .
+
+:12AM_W a time:Instance .
+
+:8AM_F a time:Instance .
+
+:10AM_F a time:Instance .
+
+:12AM_F a time:Instance .
+
+:120min  a time:Duration .
