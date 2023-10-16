@@ -251,7 +251,7 @@
 :activityName rdf:type owl:DatatypeProperty ;
               rdfs:domain :Activity ;
               rdfs:range xsd:string ;
-              rdfs:comment " "@en .
+              rdfs:comment " The name of the activity"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#agentName
@@ -392,6 +392,11 @@
                rdfs:subClassOf :SoftResource ;
                rdfs:comment "Mixed resource"@en .
 
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#DocResource
+:DocResource rdf:type owl:Class ;
+               rdfs:subClassOf :SoftResource ;
+               rdfs:comment "Document resource"@en .
+
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Motive
 :Motive rdf:type owl:Class ;
@@ -487,31 +492,56 @@ time:TemporalDuration rdf:type owl:Class ;
 ####################### Agent ###################################
 
 :DBTeacher1 a :Person ;
-	   rdfs:label  "Database teacher".
+	   rdfs:label  "DB course teacher".
 
 :DBTeacher2 a :Person ;
-	   rdfs:label  "Database teacher".
+	   rdfs:label  "DB tutorial teacher".
 
 
 :PyTeacher1 a :Person ;
-	   rdfs:label  "Python teacher".
+	   rdfs:label  "Python course teacher".
 
 :PyTeacher2 a :Person ;
-	   rdfs:label  "Python teacher".
+	   rdfs:label  "Python practical teacher".
 
-:Teacher3 a :Person ;
+:UITeacher3 a :Person ;
 	   rdfs:label  "UI teacher".
 
-:Teacher4 a :Person ;
-	   rdfs:label  "Project Management teacher".
+:PMTeacher4 a :Person ;
+	   rdfs:label  "PM teacher".
 
-:Teacher5 a :Person ;
-	   rdfs:label  "Software Engineering teacher".
+:SETeacher5 a :Person ;
+	   rdfs:label  "SE course teacher".
+
+:SETeacher6 a :Person ;
+	   rdfs:label  "SE tutorial teacher".
+
+:SETeacher7 a :Person ;
+	   rdfs:label  "SE practical teacher".
+
+:SETeacher8 a :Person ;
+	   rdfs:label  "SE project teacher".
+
+####################### Project ###################################
+
+:Education a :Project;
+	   rdfs:label "Education and course programming";
+	   :isComposedOf :DataBaseCourse,
+	   		 :DataBaseTutorial,
+			 :PythonCourse,
+			 :PythonPractical,
+			 :UserInterface,
+			 :ProjectManagement,
+			 :SoftwareEngTutorial,
+			 :SoftwareEngPractical,
+			 :SoftwareEngCourse,
+			 :SoftwareEngProject .
 
 ####################### Activity ###################################
 
 :DataBaseCourse a :Activity ;
 	  rdfs:label "Database Course" ;
+	  :activityName "DB Course" ;
 	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveMysql ;
 	  :hasLocation :ClassRoom ;
@@ -520,6 +550,7 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :DataBaseTutorial a :Activity ;
 	  rdfs:label "Database Tutorial" ;
+	  :activityName "DB Tutorial" ;
 	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveMysql ;
 	  :hasLocation :ComputerRoom01, :ClassRoom ;
@@ -529,6 +560,7 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :PythonCourse a :Activity;
 	rdfs:label "Python Programming Course" ;
+	:activityName "Py Course" ;
 	:hasBeginTime :8AM_F ;
 	:hasEndTime :10AM_F ;
 	:hasObjective :ObjectivePython ;
@@ -539,6 +571,7 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :PythonPractical a :Activity;
 	rdfs:label "Python Programming Practical" ;
+	:activityName "Py Practical" ;
 	:hasBeginTime :8AM_M ;
 	:hasEndTime :10AM_M ;
 	:hasObjective :ObjectivePython ;
@@ -548,54 +581,60 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :UserInterface a :Activity ;
 	  rdfs:label "User Interface Course" ;
+	  :activityName "UI Course" ;
 	  :hasBeginTime :10AM_W ;
 	  :hasEndTime :12AM_W ;
 	  :hasObjective :ObjectiveHTML ;
 	  :hasLocation :CompterRoom03, :ClassRoom04 ;
 	  :usesResource  :HTMLBook, :PPTHTML, :VideoHTML ;
-	  :hasSubject :Teacher3.
+	  :hasSubject :UITeacher3.
 
 :ProjectManagement a :Activity ;
           rdfs:label "Project Management course" ;
+	  :activityName "PM Course" ;
 	  :hasBeginTime :8AM_T ;
 	  :hasEndTime :10AM_T ;
 	  :hasObjective :ObjectiveProjectManag ;
 	  :hasLocation :ClassRoom04 ;
 	  :usesResource  :PMBook, :XSLCourse, :Laptop02 ;
-	  :hasSubject :Teacher4.
+	  :hasSubject :PMTeacher4.
 
 :SoftwareEngCourse a :Activity;
 	  rdfs:label "Software Engineering Course" ;
+	  :activityName "SE Course" ;
 	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveSoftwareEng ;
 	  :isComposedOf :SoftwareEngTutorial, :SoftwareEngPractical, :SoftwareEngProject ; 
 	  :hasLocation  :ClassRoom03 ;
 	  :usesResource  :SoftwareMysql, :ComputerHardware ;
-	  :hasSubject :Teacher5 .
+	  :hasSubject :SETeacher5 .
 
 
 :SoftwareEngTutorial a :Activity;
 	  rdfs:label "Software Engineering Tutorial" ;
+	  :activityName "SE Tutorial" ;
 	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveSoftwareEng ;
 	  :hasLocation :TutorialRoom01 ;
-	  :hasSubject :Teacher5 .
+	  :hasSubject :SETeacher6 .
 
 
 :SoftwareEngPractical a :Activity;
 	  rdfs:label "Software Engineering Practical" ;
+	  :activityName "SE Practical" ;
 	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveSoftwareEng ;
 	  :hasLocation :ComputerRoom02 ;
-	  :hasSubject :Teacher5 .
+	  :hasSubject :SETeacher7 .
 
 :SoftwareEngProject a :Activity;
 	  rdfs:label "Software Engineering Project" ;
+	  :activityName "SE Project" ;
 	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveSoftwareEng ;
 	  :hasLocation :ComputerRoom02 ;
 	  :usesResource  :LCDProjector  ;
-	  :hasSubject :Teacher5 .
+	  :hasSubject :SETeacher8 .
 
 
 ####################### Location ###################################
@@ -653,7 +692,7 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :VideoHTML a :VideoResource .
 
-:PDFMysql a :SoftResource .
+:PDFMysql a :DocResource .
 
 :XSLCourse a :SoftResource .
 
@@ -666,15 +705,15 @@ time:TemporalDuration rdf:type owl:Class ;
 		:objectiveDescription "This course is intended to introduce Database modeling to level 03 students" .
 
 :ObjectiveHTML a :Objective ;
-		:objectiveDescription "This course is intended to introduce Web interface programming to level 02 students. It will enables them to designer and display elements such as text, images, forms and interactive functions in a web browser" .
+		:objectiveDescription """This course is intended to introduce Web interface programming to level 02 students. It will enables them to designer and display elements such as text, images, forms and interactive functions in a web browser""" .
 
 
 :ObjectiveSoftwareEng a :Objective ;
-	      :objectiveDescription "This course will enable level 03 students to systematic procedures  large-scale softwares so that their specifications correspond to the real needs of the customers" .
+	      :objectiveDescription """This course will enable level 03 students to systematic procedures  large-scale softwares so that their specifications correspond to the real needs of the customers""" .
 
 
 :ObjectiveProjectManag a :Objective ;
-	      :objectiveDescription " The main  objective of this course is to let students acquire a global vision of projects, provide then with practical tools for anticipating drifts in costs, deadlines and performance of industrial projects" .
+	      :objectiveDescription """ The main  objective of this course is to let students acquire a global vision of projects, provide then with practical tools for anticipating drifts in costs, deadlines and performance of industrial projects""" .
 
 
 
