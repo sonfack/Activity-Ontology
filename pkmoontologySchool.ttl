@@ -100,12 +100,11 @@
                          :Operation ,
                          :Resource ;
              rdfs:range :Location ;
-             rdfs:comment " "@en .
+             rdfs:comment "Links a domain to a geographical position"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasObject
 :hasObject rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:domain :Activity ;
            rdfs:range :Objective ;
            rdfs:comment " "@en .
@@ -113,7 +112,6 @@
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#hasRule
 :hasRule rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:domain :Activity ;
          rdfs:range :Rule ;
          rdfs:comment " "@en .
@@ -133,20 +131,12 @@
          rdfs:comment " "@en .
 
 
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isAssignedAction
-:isAssignedAction rdf:type owl:ObjectProperty ;
-                  rdfs:domain :Agent ;
-                  rdfs:range :Action ;
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isAssignedTo
+:isAssignedTo rdf:type owl:ObjectProperty ;
+	      rdfs:subPropertyOf :hasSubject ;
+                  rdfs:domain :Action, :Operation ;
+                  rdfs:range :Agent ;
                   rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isAssignedOperation
-:isAssignedOperation rdf:type owl:ObjectProperty ,
-                              owl:SymmetricProperty ,
-                              owl:IrreflexiveProperty ;
-                     rdfs:domain :Agent ;
-                     rdfs:range :Operation ;
-                     rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isComposedOf
@@ -303,13 +293,13 @@
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Action
 :Action rdf:type owl:Class ;
         rdfs:subClassOf :Activity ;
-        rdfs:comment " "@en .
+        rdfs:comment """A well define and specific work that one can carry out in an activity"""@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Activity
 :Activity rdf:type owl:Class ;
           rdfs:subClassOf :Project ;
-          rdfs:comment " "@en .
+          rdfs:comment """An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"""@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Agent
@@ -326,7 +316,7 @@
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Automaton
 :Automaton rdf:type owl:Class ;
            rdfs:subClassOf :Individual ;
-           rdfs:comment " "@en .
+           rdfs:comment "An automomous or self-operating agent"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Constraint
@@ -371,6 +361,7 @@
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#ImageResource
 :ImageResource rdf:type owl:Class ;
+	       rdfs:labe "Image";
                rdfs:subClassOf :SoftResource ;
                rdfs:comment "Image resource"@en .
 
@@ -384,13 +375,14 @@
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Location
 :Location rdf:type owl:Class ;
           rdfs:subClassOf :Context ;
-          rdfs:comment " "@en .
+          rdfs:comment "A geographical location"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#MixedResource
 :MixedResource rdf:type owl:Class ;
+	       rdfs:lable "Mixed contain" ;
                rdfs:subClassOf :SoftResource ;
-               rdfs:comment "Mixed resource"@en .
+               rdfs:comment "Mixed resource containing multiple type of modalities"@en .
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#DocResource
 :DocResource rdf:type owl:Class ;
@@ -424,8 +416,9 @@
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Person
 :Person rdf:type owl:Class ;
+	rdfs:label "Person" ;
         rdfs:subClassOf :Individual ;
-        rdfs:comment " "@en .
+        rdfs:comment "Humans being"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Project
@@ -491,20 +484,20 @@ time:TemporalDuration rdf:type owl:Class ;
 
 ####################### Agent ###################################
 
-:DBTeacher1 a :Person ;
+:DBTeacher1 rdf:type :Person ;
 	   rdfs:label  "DB course teacher".
 
-:DBTeacher2 a :Person ;
+:DBTeacher2 rdf:type :Person ;
 	   rdfs:label  "DB tutorial teacher".
 
 
-:PyTeacher1 a :Person ;
+:PyTeacher1 rdf:type :Person ;
 	   rdfs:label  "Python course teacher".
 
-:PyTeacher2 a :Person ;
+:PyTeacher2 rdf:type :Person ;
 	   rdfs:label  "Python practical teacher".
 
-:UITeacher3 a :Person ;
+:UITeacher3 rdf:type :Person ;
 	   rdfs:label  "UI teacher".
 
 :PMTeacher4 a :Person ;
@@ -526,18 +519,17 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :Education a :Project;
 	   rdfs:label "Education and course programming";
-	   :isComposedOf :DataBaseCourse,
-	   		 :DataBaseTutorial,
-			 :PythonCourse,
-			 :PythonPractical,
-			 :UserInterface,
-			 :ProjectManagement,
-			 :SoftwareEngTutorial,
-			 :SoftwareEngPractical,
-			 :SoftwareEngCourse,
-			 :SoftwareEngProject .
+	   :isComposedOf :DataBaseTeaching,
+			 :PythonTeaching,
+			 :UserInterfaceTeaching,
+			 :ProjectManagementTeaching,
+			 :SoftwareEngTeaching .
 
 ####################### Activity ###################################
+
+:DataBaseTeaching rdf:type :Activity ;
+ 		  rdfs:label "DataBase teaching unit" ;
+	   	  :isComposedOf :DataBaseCourse, :DataBaseTutorial .
 
 :DataBaseCourse a :Activity ;
 	  rdfs:label "Database Course" ;
@@ -546,6 +538,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  :hasObjective :ObjectiveMysql ;
 	  :hasLocation :ClassRoom ;
 	  :usesResource  :MysqlBook, :PDFMysql ;
+	  :isFollowedBy  :DataBaseTutorial ;
 	  :hasSubject :DBTeacher1.
 
 :DataBaseTutorial a :Activity ;
@@ -558,6 +551,11 @@ time:TemporalDuration rdf:type owl:Class ;
 	  :hasSubject :DBTeacher2.
 
 
+:PythonTeaching rdf:type :Activity ;
+ 		  rdfs:label "Python programming teaching unit" ;
+	   	  :isComposedOf :PythonCourse, :PythonPractical .
+
+
 :PythonCourse a :Activity;
 	rdfs:label "Python Programming Course" ;
 	:activityName "Py Course" ;
@@ -566,6 +564,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	:hasObjective :ObjectivePython ;
 	:hasLocation :ComputerRoom02, :TutorialRoom01 ;
 	:usesResource  :PythonBook, :ComputerIntroduction, :Laptop01, :VideoPython ;
+	:isFollowedBy :PythonPractical ;
 	:hasSubject :PyTeacher1.
 
 
@@ -579,7 +578,12 @@ time:TemporalDuration rdf:type owl:Class ;
 	:usesResource  :PythonBook, :ComputerIntroduction, :Laptop03 ;
 	:hasSubject :PyTeacher2.
 
-:UserInterface a :Activity ;
+:UserInterfaceTeaching rdf:type :Activity ;
+ 		  rdfs:label "User interface teaching unit" ;
+	   	  :isComposedOf :UserInterfaceCourse .
+
+
+:UserInterfaceCourse a :Activity ;
 	  rdfs:label "User Interface Course" ;
 	  :activityName "UI Course" ;
 	  :hasBeginTime :10AM_W ;
@@ -589,7 +593,13 @@ time:TemporalDuration rdf:type owl:Class ;
 	  :usesResource  :HTMLBook, :PPTHTML, :VideoHTML ;
 	  :hasSubject :UITeacher3.
 
-:ProjectManagement a :Activity ;
+
+:ProjectManagementTeaching rdf:type :Activity ;
+ 		  rdfs:label "Project management teaching unit" ;
+	   	  :isComposedOf :ProjectManagementCourse .
+
+
+:ProjectManagementCourse a :Activity ;
           rdfs:label "Project Management course" ;
 	  :activityName "PM Course" ;
 	  :hasBeginTime :8AM_T ;
@@ -599,14 +609,20 @@ time:TemporalDuration rdf:type owl:Class ;
 	  :usesResource  :PMBook, :XSLCourse, :Laptop02 ;
 	  :hasSubject :PMTeacher4.
 
+
+:SoftwareEngTeaching rdf:type :Activity ;
+ 		  rdfs:label "Software engineering teaching unit";
+	   	  :isComposedOf :SoftwareEngCourse, :SoftwareEngTutorial, :SoftwareEngPractical, :SoftwareEngProject .
+
+
 :SoftwareEngCourse a :Activity;
 	  rdfs:label "Software Engineering Course" ;
 	  :activityName "SE Course" ;
 	  :hasDuration :120min ;
-	  :hasObjective :ObjectiveSoftwareEng ;
-	  :isComposedOf :SoftwareEngTutorial, :SoftwareEngPractical, :SoftwareEngProject ; 
+	  :hasObjective :ObjectiveSoftwareEng ; 
 	  :hasLocation  :ClassRoom03 ;
 	  :usesResource  :SoftwareMysql, :ComputerHardware ;
+	  :isFollowedBy :SoftwareEngTutorial ; 
 	  :hasSubject :SETeacher5 .
 
 
@@ -616,6 +632,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveSoftwareEng ;
 	  :hasLocation :TutorialRoom01 ;
+	  :isFollowedBy :SoftwareEngPractical ;
 	  :hasSubject :SETeacher6 .
 
 
@@ -625,6 +642,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  :hasDuration :120min ;
 	  :hasObjective :ObjectiveSoftwareEng ;
 	  :hasLocation :ComputerRoom02 ;
+	  :isFollowedBy :SoftwareEngProject ;
 	  :hasSubject :SETeacher7 .
 
 :SoftwareEngProject a :Activity;
