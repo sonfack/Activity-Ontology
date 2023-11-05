@@ -706,13 +706,13 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :VideoPython a :VideoResource .
 
-:PPTHTML a :SoftResource .
+:PPTHTML a :DocResource .
 
 :VideoHTML a :VideoResource .
 
 :PDFMysql a :DocResource .
 
-:XSLCourse a :SoftResource .
+:XSLCourse a :DocResource .
 
 ####################### Objective ###################################
 
