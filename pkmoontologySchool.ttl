@@ -13,11 +13,20 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#isMemberOf
+:isMemberOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :Physical ;
+          rdfs:range :Moral ;
+          rdfs:comment "a physical subject is member of a moral agent (organization, group, ...)"@en .
+
+
+
+
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#affectes
 :affectes rdf:type owl:ObjectProperty ;
           rdfs:domain :Rule ;
           rdfs:range :Goal ;
-          rdfs:comment " "@en .
+          rdfs:comment "A rule affects a goal"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#belongsTo
@@ -271,7 +280,6 @@
                     rdfs:range xsd:string ;
                     rdfs:comment " "@en .
 
-
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#projectName
 :projectName rdf:type owl:DatatypeProperty ;
              rdfs:domain :Project ;
@@ -283,17 +291,17 @@
 :resourceName rdf:type owl:DatatypeProperty ;
               rdfs:domain :Resource ;
               rdfs:range xsd:string ;
-              rdfs:comment " "@en .
+              rdfs:comment "The name of the resource"@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Action
-:Action rdf:type owl:Class ;
-        rdfs:subClassOf :Activity ;
-        rdfs:comment """A well define and specific work that one can carry out in an activity"""@en .
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Project
+:Project rdf:type owl:Class ;
+         rdfs:comment " "@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Activity
@@ -302,128 +310,67 @@
           rdfs:comment """An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"""@en .
 
 
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Action
+:Action rdf:type owl:Class ;
+        rdfs:subClassOf :Activity ;
+        rdfs:comment """A well define and specific work that one can carry out in an activity"""@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Action
+:Operation rdf:type owl:Class ;
+        rdfs:subClassOf :Action ;
+        rdfs:comment " "@en .
+
+#################################################################
+
+
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Agent
-:Agent rdf:type owl:Class ;
+:Subject rdf:type owl:Class ;
        rdfs:comment " "@en .
 
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Individual
+:Physical rdf:type owl:Class ;
+            rdfs:subClassOf :Subject ;
+            rdfs:comment " Physical entity"@en .
 
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#AudioResource
-:AudioResource rdf:type owl:Class ;
-               rdfs:subClassOf :SoftResource ;
-               rdfs:comment "Audio resource"@en .
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Individual
+:Moral rdf:type owl:Class ;
+            rdfs:subClassOf :Subject ;
+            rdfs:comment "Moral entity eg: a company"@en .
 
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Automaton
-:Automaton rdf:type owl:Class ;
-           rdfs:subClassOf :Individual ;
-           rdfs:comment "An automomous or self-operating agent"@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Constraint
-:Constraint rdf:type owl:Class ;
-            rdfs:subClassOf :Rule ;
-            rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Context
-:Context rdf:type owl:Class ;
-         rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Goal
-:Goal rdf:type owl:Class ;
-      rdfs:subClassOf :Governance ;
-      rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Governance
-:Governance rdf:type owl:Class ;
-            rdfs:comment " "@en .
-
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Organization
+:Organization rdf:type owl:Class ;
+              rdfs:subClassOf :Moral ;
+              rdfs:comment " "@en .
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Group
 :Group rdf:type owl:Class ;
        rdfs:subClassOf :Organization ;
-       rdfs:comment "Agents having individual goals "@en .
+       rdfs:comment ""@en .
 
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Team
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Group
 :Team rdf:type owl:Class ;
-       rdfs:subClassOf :Organization ;
-       rdfs:comment "Agents having a common goal"@en .
+       rdfs:subClassOf :Group ;
+       rdfs:comment "A group with a common goal"@en .
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Group
+:Community rdf:type owl:Class ;
+       rdfs:subClassOf :Group ;
+       rdfs:comment ""@en .
 
 
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#HardResource
-:HardResource rdf:type owl:Class ;
-              rdfs:subClassOf :Resource ;
-              rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#ImageResource
-:ImageResource rdf:type owl:Class ;
-	       rdfs:labe "Image";
-               rdfs:subClassOf :SoftResource ;
-               rdfs:comment "Image resource"@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Individual
-:Individual rdf:type owl:Class ;
-            rdfs:subClassOf :Agent ;
-            rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Location
-:Location rdf:type owl:Class ;
-          rdfs:subClassOf :Context ;
-          rdfs:comment "A geographical location"@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#MixedResource
-:MixedResource rdf:type owl:Class ;
-	       rdfs:lable "Mixed contain" ;
-               rdfs:subClassOf :SoftResource ;
-               rdfs:comment "Mixed resource containing multiple type of modalities"@en .
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#DocResource
-:DocResource rdf:type owl:Class ;
-               rdfs:subClassOf :SoftResource ;
-               rdfs:comment "Document resource"@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Motive
-:Motive rdf:type owl:Class ;
-        rdfs:subClassOf :Governance ;
-        rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Objective
-:Objective rdf:type owl:Class ;
-           rdfs:subClassOf :Governance ;
-           rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Operation
-:Operation rdf:type owl:Class ;
-           rdfs:subClassOf :Action ;
-           rdfs:comment " "@en .
-
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Organization
-:Organization rdf:type owl:Class ;
-              rdfs:subClassOf :Agent ;
-              rdfs:comment " "@en .
-
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Automaton
+:Automaton rdf:type owl:Class ;
+           rdfs:subClassOf :Physical ;
+           rdfs:comment "An automomous or self-operating agent"@en .
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Person
-:Person rdf:type owl:Class ;
-	rdfs:label "Person" ;
-        rdfs:subClassOf :Individual ;
+:Human rdf:type owl:Class ;
+	rdfs:label "Human" ;
+        rdfs:subClassOf :Physical ;
         rdfs:comment "Humans being"@en .
 
-
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Project
-:Project rdf:type owl:Class ;
-         rdfs:comment " "@en .
+###############################################################
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Resource
@@ -432,26 +379,111 @@
           rdfs:comment " "@en .
 
 
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Rule
-:Rule rdf:type owl:Class ;
-      rdfs:subClassOf :Governance ;
-      rdfs:comment " "@en .
-
-
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#SoftResource
 :SoftResource rdf:type owl:Class ;
               rdfs:subClassOf :Resource ;
               rdfs:comment "Intangible resources used to carry out an activity"@en .
 
 
-###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Time
-:Time rdf:type owl:Class .
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#HardResource
+:HardResource rdf:type owl:Class ;
+              rdfs:subClassOf :Resource ;
+              rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#SoftResource
+:DigitalResource rdf:type owl:Class ;
+              rdfs:subClassOf :SoftResource ;
+              rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Image
+:Image rdf:type owl:Class ;
+	       rdfs:labe "Image";
+               rdfs:subClassOf :DigitalResource ;
+               rdfs:comment "Image resource"@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Multimodal
+:Multimodal rdf:type owl:Class ;
+	       rdfs:lable "Mixed contain" ;
+               rdfs:subClassOf :DigitalResource ;
+               rdfs:comment "Mixed resource containing multiple type of modalities such as web pages"@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#DocResource
+:File rdf:type owl:Class ;
+               rdfs:subClassOf :DigitalResource ;
+               rdfs:comment "Document resource"@en .
 
 
 ###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#VideoResource
-:VideoResource rdf:type owl:Class ;
-               rdfs:subClassOf :SoftResource ;
+:Video rdf:type owl:Class ;
+               rdfs:subClassOf :DigitalResource ;
                rdfs:comment "Video resource"@en .
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#AudioResource
+:Audio rdf:type owl:Class ;
+               rdfs:subClassOf :DigitalResource ;
+               rdfs:comment "Audio resource"@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Communication
+:CommunicationalResource rdf:type owl:Class ;
+              rdfs:subClassOf :SoftResource ;
+              rdfs:comment " "@en .
+	      
+
+###################################################################
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Governance
+:Governance rdf:type owl:Class ;
+            rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Goal
+:Goal rdf:type owl:Class ;
+      rdfs:subClassOf :Motive ;
+      rdfs:comment "The goal of an action"@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Rule
+:Rule rdf:type owl:Class ;
+      rdfs:subClassOf :Governance ;
+      rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Constraint
+:Constraint rdf:type owl:Class ;
+            rdfs:subClassOf :Rule ;
+            rdfs:comment " "@en .
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Motive
+:Motive rdf:type owl:Class ;
+        rdfs:subClassOf :Object ;
+        rdfs:comment " "@en .
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Object
+:Object rdf:type owl:Class ;
+           rdfs:subClassOf :Governance ;
+           rdfs:comment "Objective leading to outcome "@en .
+
+
+
+####################################################################
+
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Location
+:Location rdf:type owl:Class ;
+	  rdfs:lable "Location";
+          rdfs:comment "A geographical location"@en .
+
+####################################################################
+
+###  http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#Time
+:Time rdf:type owl:Class .
 
 
 ###  http://www.w3.org/2006/time#DateTimeInterval
@@ -517,7 +549,7 @@ time:TemporalDuration rdf:type owl:Class ;
 
 ####################### Project ###################################
 
-:Education a :Project;
+:Education rdf:type :Project;
 	   rdfs:label "Education and course programming";
 	   :isComposedOf :DataBaseTeaching,
 			 :PythonTeaching,
@@ -531,7 +563,7 @@ time:TemporalDuration rdf:type owl:Class ;
  		  rdfs:label "DataBase teaching unit" ;
 	   	  :isComposedOf :DataBaseCourse, :DataBaseTutorial .
 
-:DataBaseCourse a :Activity ;
+:DataBaseCourse rdf:type :Activity ;
 	  rdfs:label "Database Course" ;
 	  :activityName "DB Course" ;
 	  :hasDuration :120min ;
@@ -541,7 +573,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  :isFollowedBy  :DataBaseTutorial ;
 	  :hasSubject :DBTeacher1.
 
-:DataBaseTutorial a :Activity ;
+:DataBaseTutorial rdf:type :Activity ;
 	  rdfs:label "Database Tutorial" ;
 	  :activityName "DB Tutorial" ;
 	  :hasDuration :120min ;
@@ -556,7 +588,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	   	  :isComposedOf :PythonCourse, :PythonPractical .
 
 
-:PythonCourse a :Activity;
+:PythonCourse rdf:type :Activity;
 	rdfs:label "Python Programming Course" ;
 	:activityName "Py Course" ;
 	:hasBeginTime :8AM_F ;
@@ -568,7 +600,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	:hasSubject :PyTeacher1.
 
 
-:PythonPractical a :Activity;
+:PythonPractical rdf:type :Activity;
 	rdfs:label "Python Programming Practical" ;
 	:activityName "Py Practical" ;
 	:hasBeginTime :8AM_M ;
@@ -583,7 +615,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	   	  :isComposedOf :UserInterfaceCourse .
 
 
-:UserInterfaceCourse a :Activity ;
+:UserInterfaceCourse rdf:type :Activity ;
 	  rdfs:label "User Interface Course" ;
 	  :activityName "UI Course" ;
 	  :hasBeginTime :10AM_W ;
@@ -599,7 +631,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	   	  :isComposedOf :ProjectManagementCourse .
 
 
-:ProjectManagementCourse a :Activity ;
+:ProjectManagementCourse rdf:type :Activity ;
           rdfs:label "Project Management course" ;
 	  :activityName "PM Course" ;
 	  :hasBeginTime :8AM_T ;
@@ -615,7 +647,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	   	  :isComposedOf :SoftwareEngCourse, :SoftwareEngTutorial, :SoftwareEngPractical, :SoftwareEngProject .
 
 
-:SoftwareEngCourse a :Activity;
+:SoftwareEngCourse rdf:type :Activity;
 	  rdfs:label "Software Engineering Course" ;
 	  :activityName "SE Course" ;
 	  :hasDuration :120min ;
@@ -626,7 +658,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  :hasSubject :SETeacher5 .
 
 
-:SoftwareEngTutorial a :Activity;
+:SoftwareEngTutorial rdf:type :Activity;
 	  rdfs:label "Software Engineering Tutorial" ;
 	  :activityName "SE Tutorial" ;
 	  :hasDuration :120min ;
@@ -636,7 +668,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  :hasSubject :SETeacher6 .
 
 
-:SoftwareEngPractical a :Activity;
+:SoftwareEngPractical rdf:type :Activity;
 	  rdfs:label "Software Engineering Practical" ;
 	  :activityName "SE Practical" ;
 	  :hasDuration :120min ;
@@ -645,7 +677,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  :isFollowedBy :SoftwareEngProject ;
 	  :hasSubject :SETeacher7 .
 
-:SoftwareEngProject a :Activity;
+:SoftwareEngProject rdf:type :Activity;
 	  rdfs:label "Software Engineering Project" ;
 	  :activityName "SE Project" ;
 	  :hasDuration :120min ;
@@ -657,46 +689,46 @@ time:TemporalDuration rdf:type owl:Class ;
 
 ####################### Location ###################################
 
-:ClassRoom01 a :Location .
+:ClassRoom01 rdf:type :Location .
 
-:ClassRoom03 a :Location .
+:ClassRoom03 rdf:type :Location .
 
-:ClassRoom04 a :Location .
+:ClassRoom04 rdf:type :Location .
 
-:ClassRoom05 a :Location .
+:ClassRoom05 rdf:type :Location .
 
-:ComputerRoom01 a :Location .
+:ComputerRoom01 rdf:type :Location .
 
-:TutorialRoom01 a :Location .
+:TutorialRoom01 rdf:type :Location .
 
-:ClassRoom02 a :Location .
+:ClassRoom02 rdf:type :Location .
 
-:ComputerRoom02 a :Location .
+:ComputerRoom02 rdf:type :Location .
 
-:TutorialRoom02 a :Location .
+:TutorialRoom02 rdf:type :Location .
 
 
 ####################### Resource ###################################
 
-:LCDProjector a :HardResource .
+:LCDProjector rdf:type :HardResource .
 
-:MysqlBook a :HardResource .
+:MysqlBook rdf:type :HardResource .
 
-:Laptop01 a :HardResource .
+:Laptop01 rdf:type :HardResource .
 
-:Laptop02 a :HardResource .
+:Laptop02 rdf:type :HardResource .
 
-:Laptop03 a :HardResource .
+:Laptop03 rdf:type :HardResource .
 
-:Desktop a :HardResource .
+:Desktop rdf:type :HardResource .
 
-:PMBook a :HardResource .
+:PMBook rdf:type :HardResource .
 
-:PythonBook a :HardResource .
+:PythonBook rdf:type :HardResource .
 
-:HTMLBook a  :HardResource .
+:HTMLBook rdf:type  :HardResource .
 
-:ComputerIntroduction a :HardResource .
+:ComputerIntroduction rdf:type :HardResource .
 
 :ComputerLanguage a :HardResource .
 
@@ -716,21 +748,21 @@ time:TemporalDuration rdf:type owl:Class ;
 
 ####################### Objective ###################################
 
-:ObjectivePython a :Objective ;
+:ObjectivePython a :Object ;
 		:objectiveDescription "This course is intended to introduce Python programming to level 01 students" .
 
-:ObjectiveMysql a :Objective ;
+:ObjectiveMysql a :Object ;
 		:objectiveDescription "This course is intended to introduce Database modeling to level 03 students" .
 
-:ObjectiveHTML a :Objective ;
+:ObjectiveHTML a :Object ;
 		:objectiveDescription """This course is intended to introduce Web interface programming to level 02 students. It will enables them to designer and display elements such as text, images, forms and interactive functions in a web browser""" .
 
 
-:ObjectiveSoftwareEng a :Objective ;
+:ObjectiveSoftwareEng a :Object ;
 	      :objectiveDescription """This course will enable level 03 students to systematic procedures  large-scale softwares so that their specifications correspond to the real needs of the customers""" .
 
 
-:ObjectiveProjectManag a :Objective ;
+:ObjectiveProjectManag a :Object ;
 	      :objectiveDescription """ The main  objective of this course is to let students acquire a global vision of projects, provide then with practical tools for anticipating drifts in costs, deadlines and performance of industrial projects""" .
 
 
