@@ -76,10 +76,11 @@
           rdfs:range :Rule ;
           rdfs:comment "An activity is governed by a rule"@en .
 
-:hasSubject rdf:type owl:ObjectProperty ;
-          rdfs:domain :Activity ;
-          rdfs:range :Subject ;
-          rdfs:comment "An activity has a subject that carries it out"@en .
+:isSubjectOf rdf:type owl:ObjectProperty ;
+             rdfs:domain :Subject ;
+             rdfs:range :Activity ;
+	     owl:propertyChainAxiom ( :hasRole  :carriesOut) ;
+             rdfs:comment "An activity has a subject that carries it out"@en .
 
 :isAccomplishedBy rdf:type owl:ObjectProperty ;
           rdfs:domain :Action ;
@@ -208,6 +209,10 @@
        rdfs:comment "Humans being"@en .
 
 ##################
+:hasRole rdf:type owl:ObjectProperty ;
+	 rdfs:domain :Subject ;
+	 rdfs:range :Role ;
+	 rdfs:comment "A subject has a role"@en .
 
 :subjectName rdf:type owl:DatatypeProperty ;
            rdfs:domain :Subject ;
@@ -301,6 +306,22 @@
 :Governance rdf:type owl:Class ;
             rdfs:comment " "@en .
 
+:Role rdf:type owl:Class ;
+           rdfs:subClassOf :Governance ;
+           rdfs:comment "Role of subject within an organization"@en .
+
+:Operator rdf:type owl:Class ;
+           rdfs:subClassOf :Management ;
+           rdfs:comment "Role of those who run operational activities"@en .
+
+:Management rdf:type owl:Class ;
+           rdfs:subClassOf :TopManagement ;
+           rdfs:comment "Role of those who control the organization at take tactical decisions"@en .
+	   
+:TopManagement rdf:type owl:Class ;
+           rdfs:subClassOf :Role ;
+           rdfs:comment "Role of those who control the organization and take strategical decisions"@en .
+
 :Object rdf:type owl:Class ;
            rdfs:subClassOf :Governance ;
            rdfs:comment "Objective leading to outcome "@en .
@@ -326,6 +347,11 @@
             rdfs:comment "Something that limits what you can do"@en .
 
 ##############
+:carriesOut rdf:type owl:ObjectProperty ;
+	    rdfs:domain :Role ;
+	    rdfs:range :Activity ;
+	    rdfs:comment "A subject under a role carries out an activity"@en .
+
 :objectDescription rdf:type owl:DatatypeProperty ;
                       rdfs:domain :Object ;
                       rdfs:range xsd:string ;
