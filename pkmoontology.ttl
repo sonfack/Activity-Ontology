@@ -43,9 +43,9 @@
               rdfs:range xsd:string ;
               rdfs:comment "The name of the activity"@en .
 	    
-:isMadeUpOf rdf:type owl:ObjectProperty ;
+:isMadeUpOf rdf:type owl:ObjectProperty, owl:TransitiveProperty ;
 	  rdfs:domain :Project ;
-	  rdfs:range  :Activity ;
+	  rdfs:range  :project, :Activity ;
 	  rdfs:comment "An action is part of an activity"@en .
 
 :isPartOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
