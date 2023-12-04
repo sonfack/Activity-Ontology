@@ -2,7 +2,35 @@
 #    Instances
 #################################################################
 
-####################### Agent ###################################
+####################### Role ###################################
+
+:Lecturer rdf:type :Role .
+:AssistantLecturer rdf:type :Role .
+
+
+##################### Position ################################
+:DBLecturer rdf:type :Position .
+
+:PyLecturer rdf:type :Position .
+
+:SELecturer rdf:type :Position .
+
+:UILecturer rdf:type :Position .
+
+:PMLecturer rdf:type :Position .
+
+
+:SEProjectSupervisor rdf:type :Position .
+
+:PyPracticalSupervisor rdf:type :Position .
+
+:SEProacticalSupervisor rdf:type :Position .
+
+
+:SETutor rdf:type :Position .
+
+:DBTutor rdf:type :Position .
+####################### Agent #################################
 
 :DBTeacher1 rdf:type :Human ;
 	    :hasRole :DBLecturing ;
@@ -97,6 +125,7 @@
 :SESupervisor rdf:type :Action ;
 	      :isPartOf :SoftwareEngProject ; 
 	      :carriesOut :SoftwareEngProject .
+	      
 ####################### Project ##################################
 
 :Education rdf:type :Project;
@@ -134,155 +163,148 @@
 ####################### Activity ###################################
 
 :DataBaseCourse rdf:type :Activity ;
-	  :activityName "DataBase Course" ;
-	  :hasDuration :120min ;
-	  :hasObject :ObjectiveMysql ;
-	  :hasLocation :ClassRoom ;
-	  :usesResource  :MysqlBook, :PDFMysql ;
-	  :isFollowedBy  :DataBaseTutorial ;
-	  :hasSubject :DBTeacher1.
+	  	:activityName "DataBase Course" ;
+	  	:hasDuration :120min ;
+	  	:hasObject :ObjectiveMysql ;
+	  	:hasLocation :ClassRoom ;
+	  	:isFollowedBy  :DataBaseTutorial ;
+	  	:hasSubject :DBTeacher1.
 
 :DataBaseTutorial rdf:type :Activity ;
-	  :activityName "DataBase Tutorial" ;
-	  :hasDuration :120min ;
-	  :hasObjective :ObjectiveMysql ;
-	  :hasLocation :ComputerRoom01, :ClassRoom ;
-	  :usesResource  :MysqlBook, :ComputerHardware, :PDFMysql ;
-	  :hasSubject :DBTeacher2.
+	  	  :activityName "DataBase Tutorial" ;
+	  	  :hasDuration :120min ;
+	  	  :hasObjective :ObjectiveMysql ;
+	  	  :hasLocation :ComputerRoom01, :ClassRoom ;
+	  	  :hasSubject :DBTeacher2.
 
 :PythonCourse rdf:type :Activity;
-	:activityName "Python Course" ;
-	:hasBeginTime :8AM_F ;
-	:hasEndTime :10AM_F ;
-	:hasObjective :ObjectivePython ;
-	:hasLocation :ComputerRoom02, :TutorialRoom01 ;
-	:usesResource  :PythonBook, :ComputerIntroduction, :Laptop01, :VideoPython ;
-	:isFollowedBy :PythonPractical ;
-	:hasSubject :PyTeacher1.
+	      :activityName "Python Course" ;
+	      :hasBeginTime :8AM_F ;
+	      :hasEndTime :10AM_F ;
+	      :hasObjective :ObjectivePython ;
+	      :hasLocation :ComputerRoom02, :TutorialRoom01 ;
+	      :isFollowedBy :PythonPractical ;
+	      :hasSubject :PyTeacher1.
 
 :PythonPractical rdf:type :Activity;
-	:activityName "Python Practical" ;
-	:hasRule :EnergyRule ;
-	:hasBeginTime :8AM_M ;
-	:hasEndTime :10AM_M ;
-	:hasObjective :ObjectivePython ;
-	:hasLocation :ComputerRoom02, :TutorialRoom01 ;
-	:usesResource  :PythonBook, :ComputerIntroduction, :Laptop03 ;
-	:hasSubject :PyTeacher2.
+		 :activityName "Python Practical" ;
+		 :hasRule :EnergyRule ;
+		 :hasBeginTime :8AM_M ;
+		 :hasEndTime :10AM_M ;
+		 :hasObjective :ObjectivePython ;
+		 :hasLocation :ComputerRoom02, :TutorialRoom01 ;
+		 :hasSubject :PyTeacher2.
 
 :UserInterfaceCourse rdf:type :Activity ;
-	  :activityName "UserInterface Course" ;
-	  :hasBeginTime :10AM_W ;
-	  :hasEndTime :12AM_W ;
-	  :hasObjective :ObjectiveHTML ;
-	  :hasLocation :CompterRoom03, :ClassRoom04 ;
-	  :usesResource  :HTMLBook, :PPTHTML, :VideoHTML ;
-	  :hasSubject :UITeacher3.
+	  	     :activityName "UserInterface Course" ;
+	  	     :hasBeginTime :10AM_W ;
+	  	     :hasEndTime :12AM_W ;
+	  	     :hasObjective :ObjectiveHTML ;
+	  	     :hasLocation :CompterRoom03, :ClassRoom04 ;
+	  	     :hasSubject :UITeacher3.
 
 :ProjectManagementCourse rdf:type :Activity ;
-	  :activityName "ProjectManagement Course" ;
-	  :hasBeginTime :8AM_T ;
-	  :hasEndTime :10AM_T ;
-	  :hasObjective :ObjectiveProjectManag ;
-	  :hasLocation :ClassRoom04 ;
-	  :usesResource  :PMBook, :XSLCourse, :Laptop02 ;
-	  :hasSubject :PMTeacher4.
+	  		 :activityName "ProjectManagement Course" ;
+	  		 :hasBeginTime :8AM_T ;
+	  		 :hasEndTime :10AM_T ;
+	  		 :hasObjective :ObjectiveProjectManag ;
+	  		 :hasLocation :ClassRoom04 ;
+	  		 :hasSubject :PMTeacher4.
 
 :SoftwareEngCourse rdf:type :Activity;
-	  :activityName "SoftwareEng Course" ;
-	  :hasDuration :120min ;
-	  :hasObjective :ObjectiveSoftwareEng ; 
-	  :hasLocation  :ClassRoom03 ;
-	  :usesResource  :SoftwareMysql, :ComputerHardware ;
-	  :isFollowedBy :SoftwareEngTutorial ; 
-	  :hasSubject :SETeacher5 .
+	  	   :activityName "SoftwareEng Course" ;
+	  	   :hasDuration :120min ;
+	  	   :hasObjective :ObjectiveSoftwareEng ; 
+	  	   :hasLocation  :ClassRoom03 ;
+	  	   :isFollowedBy :SoftwareEngTutorial ; 
+	  	   :hasSubject :SETeacher5 .
 
 
 :SoftwareEngTutorial rdf:type :Activity;
-	  :activityName "SoftwareEng Tutorial" ;
-	  :hasDuration :120min ;
-	  :hasObjective :ObjectiveSoftwareEng ;
-	  :hasLocation :TutorialRoom01 ;
-	  :isFollowedBy :SoftwareEngPractical ;
-	  :hasSubject :SETeacher6 .
+	  	     :activityName "SoftwareEng Tutorial" ;
+	  	     :hasDuration :120min ;
+	  	     :hasObjective :ObjectiveSoftwareEng ;
+	  	     :hasLocation :TutorialRoom01 ;
+	  	     :isFollowedBy :SoftwareEngPractical ;
+	  	     :hasSubject :SETeacher6 .
 
 
 :SoftwareEngPractical rdf:type :Activity;
-	  :activityName "SoftwareEng Practical" ;
-	  :hasRule :EnergyRule ;
-	  :hasDuration :120min ;
-	  :hasObjective :ObjectiveSoftwareEng ;
-	  :hasLocation :ComputerRoom02 ;
-	  :isFollowedBy :SoftwareEngProject ;
-	  :hasSubject :SETeacher7 .
+	  	      :activityName "SoftwareEng Practical" ;
+	  	      :hasRule :EnergyRule ;
+	  	      :hasDuration :120min ;
+	  	      :hasObjective :ObjectiveSoftwareEng ;
+	  	      :hasLocation :ComputerRoom02 ;
+	  	      :isFollowedBy :SoftwareEngProject ;
+	  	      :hasSubject :SETeacher7 .
 
 :SoftwareEngProject rdf:type :Activity;
-	  :activityName "SoftwareEng Project" ;
-	  :hasDuration :120min ;
-	  :hasObjective :ObjectiveSoftwareEng ;
-	  :hasLocation :ComputerRoom02 ;
-	  :usesResource  :LCDProjector  ;
-	  :hasSubject :SETeacher8 .
-
-
-####################### Location ###################################
-
-:ClassRoom01 rdf:type :Location .
-
-:ClassRoom03 rdf:type :Location .
-
-:ClassRoom04 rdf:type :Location .
-
-:ClassRoom05 rdf:type :Location .
-
-:ComputerRoom01 rdf:type :Location .
-
-:TutorialRoom01 rdf:type :Location .
-
-:ClassRoom02 rdf:type :Location .
-
-:ComputerRoom02 rdf:type :Location .
-
-:TutorialRoom02 rdf:type :Location .
+	  	    :activityName "SoftwareEng Project" ;
+	  	    :hasDuration :120min ;
+	  	    :hasObjective :ObjectiveSoftwareEng ;
+	  	    :hasLocation :ComputerRoom02 ;
+	  	    :hasSubject :SETeacher8 .
 
 
 ####################### Resource ###################################
 
-:LCDProjector rdf:type :HardResource .
+:LCDProjector rdf:type :Electronic;
+	      :isUsedFor :DataBaseCourse, :PythonCourse, :SoftwareEngCourse, :SoftwareEngProject. 
 
-:MysqlBook rdf:type :HardResource .
+:MysqlBook rdf:type :Document ;
+	   :isUsedFor :DataBaseCourse .
 
-:Laptop01 rdf:type :HardResource .
+:Laptop01 rdf:type :Electronic ;
+	  :isUsedFor :PythonCourse .
 
-:Laptop02 rdf:type :HardResource .
+:Laptop02 rdf:type :Electronic ;
+	  :isUsedFor :DataBaseCourse .
 
-:Laptop03 rdf:type :HardResource .
+:Laptop03 rdf:type :Electronic ;
+	  :isUsedFor  :SoftwareEngCourse.
 
-:Desktop rdf:type :HardResource .
+:Desktop rdf:type :Electronic ;
+	 :isUsedFor :SoftwareEngTutorial, :PythonPractical .
 
-:PMBook rdf:type :HardResource .
+:PMBook rdf:type :Document ;
+	:isUsedFor :ProjectManagementCourse .
 
-:PythonBook rdf:type :HardResource .
+:PythonBook rdf:type :Document ;
+	    :isUsedFor :PythonCourse, :PythonPractical  .
 
-:HTMLBook rdf:type  :HardResource .
+:HTMLBook rdf:type  :Document ;
+	  :isUsedFor  :UserInterfaceCourse .
 
-:ComputerIntroduction rdf:type :HardResource .
+:ComputerIntroduction rdf:type :Document ;
+		      :isUsedFor :PythonCourse, :SoftwareEngCourse .
 
-:ComputerLanguage rdf:type :HardResource .
+:ComputerLanguage rdf:type :Document ;
+		  :isUsedFor  :PythonCourse .
 
-:ComputerHardware rdf:type :HardResource .
+:ComputerHardware rdf:type :Document ;
+		  :isUsedFor :PythonCourse .
 
-:SoftwareMysql rdf:type :SoftResource .
+:SoftwareMysql rdf:type :DigitalResource ;
+	       :isUsedFor :DataBaseCourse .
 
-:VideoPython rdf:type :VideoResource .
+:SoftwareEngineering rdf:type :DigitalResource ;
+	       :isUsedFor :SoftwareEngCourse .
 
-:PPTHTML rdf:type :DocResource .
+:VideoPython rdf:type :Video ;
+	     :isUsedFor :PythonPractical . 
 
-:VideoHTML rdf:type :VideoResource .
+:PPTHTML rdf:type :File ;
+	 :isUsedFor :UserInterfaceCourse .
 
-:PDFMysql rdf:type :DocResource .
+:VideoHTML rdf:type :Video ;
+	   :isUsedFor 
 
-:XSLCourse rdf:type :DocResource .
+:PDFMysql rdf:type :File ;
+	  :isUsedFor :DataBaseCourse, :DataBaseTutorial .
+
+:XSLCourse rdf:type :File ;
+	   :isUsedFor  :DataBaseCourse .
+
 
 ####################### Objective ###################################
 
@@ -299,11 +321,8 @@
 :ObjectiveSoftwareEng rdf:type :Object ;
 	      :objectiveDescription """This course will enable level 03 students to systematic procedures  large-scale softwares so that their specifications correspond to the real needs of the customers""" .
 
-
 :ObjectiveProjectManag rdf:type :Object ;
 	      :objectiveDescription """ The main  objective of this course is to let students acquire a global vision of projects, provide then with practical tools for anticipating drifts in costs, deadlines and performance of industrial projects""" .
-
-
 
 ####################### Time ###################################
 
@@ -334,7 +353,28 @@
 :120min  rdf:type time:Duration .
 
 
+####################### Location ###################################
+
+:ClassRoom01 rdf:type :Location .
+
+:ClassRoom03 rdf:type :Location .
+
+:ClassRoom04 rdf:type :Location .
+
+:ClassRoom05 rdf:type :Location .
+
+:ComputerRoom01 rdf:type :Location .
+
+:TutorialRoom01 rdf:type :Location .
+
+:ClassRoom02 rdf:type :Location .
+
+:ComputerRoom02 rdf:type :Location .
+
+:TutorialRoom02 rdf:type :Location .
+
+
 ############################### Rule ##########################3
 
 :EnergyRule rdf:type :Rule ;
-	    :ruleDescription "Always check the energy availability in computer rooms before the beginning of practicals" 
+	    :ruleDescription "Always check the energy availability in computer rooms before the beginning of practicals"

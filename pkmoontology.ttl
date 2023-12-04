@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @base <http://www.w3.org/2002/07/owl#> .
 
@@ -45,7 +46,7 @@
 	    
 :isMadeUpOf rdf:type owl:ObjectProperty, owl:TransitiveProperty ;
 	  rdfs:domain :Project ;
-	  rdfs:range  :project, :Activity ;
+	  rdfs:range  :Project, :Activity ;
 	  rdfs:comment "An action is part of an activity"@en .
 
 :isPartOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
@@ -82,17 +83,23 @@
 	     owl:propertyChainAxiom ( :hasRole  :carriesOut) ;
              rdfs:comment "An activity has a subject that carries it out"@en .
 
+:hasSubject rdf:type owl:ObjectProperty ;
+          rdfs:domain :Activity ;
+          rdfs:range :Subject ;
+          rdfs:comment "A subject carries out an activity"@en .
+
+
 :isAccomplishedBy rdf:type owl:ObjectProperty ;
           rdfs:domain :Action ;
           rdfs:range :Subject ;
 	  rdfs:subPropertyOf :hasSubject ;
-          rdfs:comment "a physical subject accomplishes an action of an activity"@en .
+          rdfs:comment "A subject accomplishes an action of an activity"@en .
 
 :isPerformedBy rdf:type owl:ObjectProperty ;
           rdfs:domain :Operation ;
           rdfs:range :Subject ;
 	  rdfs:subPropertyOf :isAccomplishedBy ;
-          rdfs:comment "a physical subject performs an operation of an action"@en .
+          rdfs:comment "A subject performs an operation of an action"@en .
 
 :isMotivatedBy rdf:type owl:ObjectProperty ;
           rdfs:domain :Activity ;
@@ -163,13 +170,13 @@
 
 :Subject rdf:type owl:Class ;
 	 rdfs:label "Subject" ;
-       	 rdfs:comment " "@en .
+       	 rdfs:comment "An agent that carries out an activity"@en .
 
 
 :Physical rdf:type owl:Class ;
 	  rdfs:label "Physical agent" ;
           rdfs:subClassOf :Subject ;
-          rdfs:comment " Physical entity"@en .
+          rdfs:comment "Physical entity"@en .
 
 
 :Moral rdf:type owl:Class ;
@@ -214,6 +221,14 @@
 	 rdfs:range :Role ;
 	 rdfs:comment "A subject has a role"@en .
 
+:hasPosition rdf:type owl:ObjectProperty ;
+	     rdfs:subPropertyOf :hasRole ;
+	     rdfs:domain :Subject ;
+	     rdfs:range :Position ;
+	     rdfs:comment "A subject occupies a position"@en .
+
+
+
 :subjectName rdf:type owl:DatatypeProperty ;
            rdfs:domain :Subject ;
            rdfs:range xsd:string ;
@@ -238,7 +253,7 @@
 
 :Resource rdf:type owl:Class ;
 	  rdfs:label "Tool" ;
-          rdfs:comment " "@en .
+          rdfs:comment "The tool used to carry out an activity"@en .
 
 
 :SoftResource rdf:type owl:Class ;
@@ -256,13 +271,13 @@
 :DigitalResource rdf:type owl:Class ;
 		 rdfs:label "Digital-resource" ;
 		 rdfs:subClassOf :SoftResource ;
-              	 rdfs:comment " "@en .
+              	 rdfs:comment "Digital resource"@en .
 
 
 :Image rdf:type owl:Class ;
        rdfs:labe "Image-resource";
        rdfs:subClassOf :DigitalResource ;
-       rdfs:comment "Image resource"@en .
+       rdfs:comment "Image file resource"@en .
 
 
 :Multimodal rdf:type owl:Class ;
@@ -273,28 +288,46 @@
 
 :Document rdf:type owl:Class ;
       	  rdfs:label "Document-resource" ;
-      	  rdfs:subClassOf :DigitalResource ;
-      	  rdfs:comment "Document resource"@en .
+      	  rdfs:subClassOf :HardResource ;
+      	  rdfs:comment "Document textbook resource"@en .
 
+:Electronic rdf:type owl:Class ;
+      	  rdfs:label "Electronic-equipment" ;
+      	  rdfs:subClassOf :HardResource ;
+      	  rdfs:comment "Electronic equipment resource"@en .
+
+:Mechanic rdf:type owl:Class ;
+      	  rdfs:label "Mechanic-equipment" ;
+      	  rdfs:subClassOf :HardResource ;
+      	  rdfs:comment "Mechanic equipment resource"@en .
+
+:File rdf:type owl:Class ;
+       rdfs:lable "Digital-file" ;
+       rdfs:subClassOf :DigitalResource ;
+       rdfs:comment "Text document file resource"@en .
 
 :Video rdf:type owl:Class ;
        rdfs:lable "Video-resource" ;
        rdfs:subClassOf :DigitalResource ;
-       rdfs:comment "Video resource"@en .
+       rdfs:comment "Video file resource"@en .
 
 
 :Audio rdf:type owl:Class ;
        rdfs:label "Audio-resource" ;
        rdfs:subClassOf :DigitalResource ;
-       rdfs:comment "Audio resource"@en .
+       rdfs:comment "Audio file resource"@en .
 
 
-:CommunicationalResource rdf:type owl:Class ;
-			 rdfs:label "Communicational-resource" ;
+:CommunicationResource rdf:type owl:Class ;
+			 rdfs:label "Communication-resource" ;
               		 rdfs:subClassOf :SoftResource ;
-              		 rdfs:comment "Language, ideas "@en .
+              		 rdfs:comment "Communication resource includes: Language, ideas "@en .
 
 ###################
+:resourceName rdf:type owl:DatatypeProperty ;
+	      rdfs:domain :Resource ;
+	      rdfs:range xsd:string ;
+	      rdfs:comment "The name of a resource"@en .
 
 :isUsedFor rdf:type owl:ObjectProperty ;
 	   rdfs:domain :Resource ;
@@ -304,42 +337,44 @@
 ################# Governance
 
 :Governance rdf:type owl:Class ;
-            rdfs:comment " "@en .
+            rdfs:comment "Principles that guide activities run up"@en .
 
-:Role rdf:type owl:Class ;
-           rdfs:subClassOf :Governance ;
-           rdfs:comment "Role of subject within an organization"@en .
-
-:Operator rdf:type owl:Class ;
-           rdfs:subClassOf :Management ;
-           rdfs:comment "Role of those who run operational activities"@en .
-
-:Management rdf:type owl:Class ;
-           rdfs:subClassOf :TopManagement ;
-           rdfs:comment "Role of those who control the organization at take tactical decisions"@en .
-	   
-:TopManagement rdf:type owl:Class ;
-           rdfs:subClassOf :Role ;
-           rdfs:comment "Role of those who control the organization and take strategical decisions"@en .
+:Rule rdf:type owl:Class ;
+      rdfs:subClassOf :Governance ;
+      rdfs:comment "The rule that governs an activity"@en .
 
 :Object rdf:type owl:Class ;
            rdfs:subClassOf :Governance ;
            rdfs:comment "Objective leading to outcome "@en .
 
 
+:Role rdf:type owl:Class ;
+           rdfs:subClassOf :Governance ;
+           rdfs:comment "Role of subject within an organization"@en .
+
+:Position rdf:type owl:Class ;
+           rdfs:subClassOf :Role ;
+           rdfs:comment "The position occupied by a subject within an organization"@en .
+
+:Operator rdf:type owl:Class ;
+           rdfs:subClassOf :Role ;
+           rdfs:comment "Role of those who run operational activities"@en .
+
+:Management rdf:type owl:Class ;
+           rdfs:subClassOf :Role ;
+           rdfs:comment "Role of those who control the organization at take tactical decisions"@en .
+	   
+:TopManagement rdf:type owl:Class ;
+           rdfs:subClassOf :Management ;
+           rdfs:comment "Role of those who control the organization and take strategical decisions"@en .
+
 :Motive rdf:type owl:Class ;
         rdfs:subClassOf :Object ;
         rdfs:comment "The motivation of an activity"@en .
 	
-
 :Goal rdf:type owl:Class ;
       rdfs:subClassOf :Motive ;
       rdfs:comment "The goal of an action"@en .
-
-
-:Rule rdf:type owl:Class ;
-      rdfs:subClassOf :Governance ;
-      rdfs:comment "The rule that governs an activity"@en .
 
 
 :Constraint rdf:type owl:Class ;
