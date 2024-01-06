@@ -1,4 +1,4 @@
-@prefix : <http://www.semanticweb.org/serge/ontologies/2022/10/pko-onto#> .
+@prefix    :  <http://sonfack.com/2023/12/pao#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -7,7 +7,12 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix time: <http://www.w3.org/2006/time#> .
-@base <http://www.w3.org/2002/07/owl#> .
+
+
+<http://sonfack.com/2023/12/pao#>  rdf:type owl:Ontology ;
+   rdfs:label "Personal Activity Ontology";
+   rdfs:comment "Personal Activity Ontology is designed for the construction of personal activity knowledge" .
+
 
 #################################################################
 #    Classes
@@ -38,11 +43,25 @@
            rdfs:comment " "@en .
 
 ################
-	  
+:projectName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Project ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The name of the project"@en .
+
 :activityName rdf:type owl:DatatypeProperty ;
               rdfs:domain :Activity ;
               rdfs:range xsd:string ;
               rdfs:comment "The name of the activity"@en .
+
+:actionName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Action ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The name of the action"@en .
+
+:operationName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Operation ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The name of the operation"@en .
 	    
 :isMadeUpOf rdf:type owl:ObjectProperty, owl:TransitiveProperty ;
 	  rdfs:domain :Project ;
@@ -86,6 +105,7 @@
 :hasSubject rdf:type owl:ObjectProperty ;
           rdfs:domain :Activity ;
           rdfs:range :Subject ;
+	  owl:inverseOf :isSubjectOf ; 
           rdfs:comment "A subject carries out an activity"@en .
 
 
@@ -106,7 +126,7 @@
           rdfs:range :Motive ;
           rdfs:comment "What motivated an activity"@en .
 	  
-:hasObject rdf:type owl:ObjectProperty ;
+:hasObjective rdf:type owl:ObjectProperty ;
           rdfs:domain :Activity ;
           rdfs:range :Object ;
           rdfs:comment "The outcome of an activity"@en .
@@ -221,13 +241,6 @@
 	 rdfs:range :Role ;
 	 rdfs:comment "A subject has a role"@en .
 
-:hasPosition rdf:type owl:ObjectProperty ;
-	     rdfs:subPropertyOf :hasRole ;
-	     rdfs:domain :Subject ;
-	     rdfs:range :Position ;
-	     rdfs:comment "A subject occupies a position"@en .
-
-
 
 :subjectName rdf:type owl:DatatypeProperty ;
            rdfs:domain :Subject ;
@@ -236,7 +249,8 @@
 
 :benefitsFrom rdf:type owl:ObjectProperty ;
 	  rdfs:domain :Subject ;
-	  rdfs:range :Activity ;
+	  rdfs:range :Project, :Activity ;
+	   owl:propertyChainAxiom ( :benefitsFrom  :isMadeUPOf) ;
 	  rdfs:comment "The subject that benefits from an activity" .
 
 :isMemberOf rdf:type owl:ObjectProperty ;
@@ -352,9 +366,7 @@
            rdfs:subClassOf :Governance ;
            rdfs:comment "Role of subject within an organization"@en .
 
-:Position rdf:type owl:Class ;
-           rdfs:subClassOf :Role ;
-           rdfs:comment "The position occupied by a subject within an organization"@en .
+
 
 :Operator rdf:type owl:Class ;
            rdfs:subClassOf :Role ;

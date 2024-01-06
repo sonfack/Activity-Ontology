@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net" modified="2023-12-13T08:20:28.826Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="bjX-BOQUDOXOMLqwZoEe" version="22.1.7" type="device">
+  <diagram name="Page-1" id="jeOveQUPBHzJb6Tu7jCj">
+    <mxGraphModel dx="1364" dy="1903" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ivb4ZwobV1r9d2hcH82S-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Personal Activity Data&lt;/font&gt;&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="250" y="380" width="350" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ivb4ZwobV1r9d2hcH82S-2" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Personal Activity Information&lt;/font&gt;&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="290" y="250" width="270" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ivb4ZwobV1r9d2hcH82S-3" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Personal Activity Knowledge&lt;/font&gt;&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="315" y="120" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ivb4ZwobV1r9d2hcH82S-4" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Personal Activity Experience&lt;/font&gt;&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="340" y="-10" width="170" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ivb4ZwobV1r9d2hcH82S-5" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Personal Activity Wisdom&lt;/font&gt;&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="358" y="-140" width="140" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ivb4ZwobV1r9d2hcH82S-6" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Data produced by&lt;br&gt;&amp;nbsp;an activity&lt;/font&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="410" width="210" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
