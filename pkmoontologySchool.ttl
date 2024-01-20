@@ -625,6 +625,8 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :ComputerRoom02 rdf:type :Location .
 
+:ComputerRoom03 rdf:type :Location .
+
 :TutorialRoom02 rdf:type :Location .
 
 
@@ -680,7 +682,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	 :isUsedFor :UserInterfaceCourse .
 
 :VideoHTML rdf:type :Video ;
-	   :isUsedFor :Video .
+	   :isUsedFor :UserInterfaceCourse .
 
 :PDFMysql rdf:type :File ;
 	  :isUsedFor :DataBaseCourse, :DataBaseTutorial .
@@ -735,7 +737,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  	:activityName "DataBase Course" ;
 	  	:hasDuration :120min ;
 	  	:hasObject :ObjectiveMysql ;
-	  	:hasLocation :ClassRoom1 ;
+	  	:hasLocation :ClassRoom01 ;
 	  	:isFollowedBy  :DataBaseTutorial .
 #		:hasSubject :DBTeacher1.
 
@@ -743,7 +745,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  	  :activityName "DataBase Tutorial" ;
 	  	  :hasDuration :120min ;
 	  	  :hasObjective :ObjectiveMysql ;
-	  	  :hasLocation :ComputerRoom01, :ClassRoom3 ;
+	  	  :hasLocation :ComputerRoom01, :ClassRoom03 ;
 	  	  :hasSubject :DBTeacher2.
 
 :PythonCourse rdf:type :Activity;
@@ -769,7 +771,7 @@ time:TemporalDuration rdf:type owl:Class ;
 	  	     :hasBeginTime :10AM_W ;
 	  	     :hasEndTime :12AM_W ;
 	  	     :hasObjective :ObjectiveHTML ;
-	  	     :hasLocation :CompterRoom03, :ClassRoom04 .
+	  	     :hasLocation :ComputerRoom03, :ClassRoom04 .
 #		     :hasSubject :UITeacher3.
 
 :ProjectManagementCourse rdf:type :Activity ;
