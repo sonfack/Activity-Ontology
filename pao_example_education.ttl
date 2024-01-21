@@ -281,7 +281,7 @@
 :HardResource rdf:type owl:Class ;
 	      rdfs:label "Hard-resource" ;
               rdfs:subClassOf :Resource ;
-              rdfs:comment " "@en .
+              rdfs:comment "Tangible resources used to carry out an activity"@en .
 
 
 :DigitalResource rdf:type owl:Class ;
@@ -636,60 +636,79 @@ time:TemporalDuration rdf:type owl:Class ;
 ####################### Resource ###################################
 
 :LCDProjector rdf:type :Electronic;
+	      :resourceName "Sony Projector";
 	      :isUsedFor :DataBaseCourse, :PythonCourse, :SoftwareEngCourse, :SoftwareEngProject. 
 
 :MysqlBook rdf:type :Document ;
+	   :resourceName "Introduction to MYSQL";
 	   :isUsedFor :DataBaseCourse .
 
 :Laptop01 rdf:type :Electronic ;
+	  :resourceName "Dell laptop";
 	  :isUsedFor :PythonCourse .
 
 :Laptop02 rdf:type :Electronic ;
+	  :resourceName "HP laptop";
 	  :isUsedFor :DataBaseCourse .
 
 :Laptop03 rdf:type :Electronic ;
+	  :resourceName "Lenovo laptop";
 	  :isUsedFor  :SoftwareEngCourse.
 
 :Desktop rdf:type :Electronic ;
+	 :resourceName "IBM desktop computer";
 	 :isUsedFor :SoftwareEngTutorial, :PythonPractical .
 
 :PMBook rdf:type :Document ;
+	:resourceName "Master project management";
 	:isUsedFor :ProjectManagementCourse .
 
 :PythonBook rdf:type :Document ;
+	    :resourceName "Python programming for intermediate";
 	    :isUsedFor :PythonCourse, :PythonPractical  .
 
 :HTMLBook rdf:type  :Document ;
+	  :resourceName "Web interface with HTML";
 	  :isUsedFor  :UserInterfaceCourse .
 
 :ComputerIntroduction rdf:type :Document ;
+		      :resourceName "Computer architecture";
 		      :isUsedFor :PythonCourse, :SoftwareEngCourse .
 
 :ComputerLanguage rdf:type :Document ;
+		  :resourceName "Assembly language";
 		  :isUsedFor  :PythonCourse .
 
 :ComputerHardware rdf:type :Document ;
+		  :resourceName "Computer hardware";
 		  :isUsedFor :PythonCourse .
 
 :SoftwareMysql rdf:type :DigitalResource ;
+	       :resourceName "MySQL 8.0";
 	       :isUsedFor :DataBaseCourse .
 
 :SoftwareEngineering rdf:type :DigitalResource ;
-	       :isUsedFor :SoftwareEngCourse .
+		     :resourceName "Introduction to sofware engineering";
+	       	     :isUsedFor :SoftwareEngCourse .
 
 :VideoPython rdf:type :Video ;
+	     :resourceName "Learn Python - Full Course for Beginners";
 	     :isUsedFor :PythonPractical .
 
 :PPTHTML rdf:type :File ;
+	 :resourceName "HTML Presentation";
 	 :isUsedFor :UserInterfaceCourse .
 
 :VideoHTML rdf:type :Video ;
+	   :resourceName "HTML in 100 Seconds";
 	   :isUsedFor :UserInterfaceCourse .
 
 :PDFMysql rdf:type :File ;
+	  :resourceName "Begining database with MySQL";
 	  :isUsedFor :DataBaseCourse, :DataBaseTutorial .
 
 :XSLCourse rdf:type :File ;
+	   :resourceName "Microsoft excel course";
 	   :isUsedFor  :DataBaseCourse .
 
 
