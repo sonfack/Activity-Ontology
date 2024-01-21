@@ -9,7 +9,7 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 
 
-<http://sonfack.com/2023/12/pao#>  rdf:type owl:Ontology ;
+<http://sonfack.com/2024/01/pao#>  rdf:type owl:Ontology ;
    rdfs:label "Personal Activity Ontology";
    rdfs:comment "Personal Activity Ontology is designed for the construction of personal activity knowledge" .
 

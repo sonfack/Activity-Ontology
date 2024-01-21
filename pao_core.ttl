@@ -9,7 +9,7 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 
 
-<http://sonfack.com/2023/12/cao#>  rdf:type owl:Ontology ;
+<http://sonfack.com/2024/01/cao#>  rdf:type owl:Ontology ;
    rdfs:label "Core Activity Ontology";
    rdfs:comment "Core concepts of activities Ontology" .
 
@@ -51,11 +51,6 @@
 	  rdfs:range  :Activity ;
 	  rdfs:comment "An action is part of an activity"@en .
 
-:isComposedOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
-	  rdfs:domain :Action ;
-	  rdfs:range  :Operation ;
-	  rdfs:subPropertyOf :isPartOf ;
-	  rdfs:comment "An action is composed of operations"@en .
 
 :hasGoal rdf:type owl:ObjectProperty ;
           rdfs:domain :Action ;
