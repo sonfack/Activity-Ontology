@@ -35,7 +35,7 @@
 :Action rdf:type owl:Class ;
 	rdfs:label "Action" ;
         rdfs:subClassOf :Activity ;
-        rdfs:comment """A well define and specific work that one can carry out in an activity"""@en .
+        rdfs:comment """A well define and specific work that one can carry out in an action. It is the means to implement an action."""@en .
 
 :Operation rdf:type owl:Class ;
 	   rdfs:label  "Operation" ;
