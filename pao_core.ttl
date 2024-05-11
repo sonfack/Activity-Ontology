@@ -18,61 +18,28 @@
 #    Classes
 #################################################################
 []  rdf:type owl:AllDisjointClasses ;
-    owl:members  ( :Project :Subject :Resource :Time :Location :Governance) . 
+    owl:members  ( :Activity :Time :Location :Resource :Agent) . 
 
-################# Activity
+################# Activity #################
+############################################
 
 :Activity rdf:type owl:Class ;
 	  rdfs:label "Activity" ;
           rdfs:comment """An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"""@en .
 
 
-:Action rdf:type owl:Class ;
-	rdfs:label "Action" ;
-        rdfs:subClassOf :Activity ;
-        rdfs:comment """A well define and specific work that one can carry out in an action. It is the means to implement an action."""@en .
-
-:Operation rdf:type owl:Class ;
-	   rdfs:label  "Operation" ;
-           rdfs:subClassOf :Action ;
-           rdfs:comment " "@en .
-
-
-################
+################ Activity data property #################
+#########################################################
 
 :activityName rdf:type owl:DatatypeProperty ;
               rdfs:domain :Activity ;
               rdfs:range xsd:string ;
               rdfs:comment "The name of the activity"@en .
 
-:actionName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Action ;
-              rdfs:range xsd:string ;
-              rdfs:comment "The name of the action"@en .
 
 
-:isPartOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
-	  rdfs:domain :Action ;
-	  rdfs:range  :Activity ;
-	  rdfs:comment "An action is part of an activity"@en .
-
-
-:hasGoal rdf:type owl:ObjectProperty ;
-          rdfs:domain :Action ;
-          rdfs:range :Goal ;
-          rdfs:comment "An action has a goal"@en .
-
-
-:hasRule rdf:type owl:ObjectProperty ;
-          rdfs:domain :Activity ;
-          rdfs:range :Rule ;
-          rdfs:comment "An activity is governed by a rule"@en .
-
-:isSubjectOf rdf:type owl:ObjectProperty ;
-             rdfs:domain :Subject ;
-             rdfs:range :Activity ;
-	     owl:propertyChainAxiom ( :hasRole  :carriesOut) ;
-             rdfs:comment "An activity has a subject that carries it out"@en .
+################ Activity object property #################
+###########################################################
 
 :hasSubject rdf:type owl:ObjectProperty ;
           rdfs:domain :Activity ;
@@ -80,18 +47,10 @@
 	  owl:inverseOf :isSubjectOf ; 
           rdfs:comment "A subject carries out an activity"@en .
 
-
-:isAccomplishedBy rdf:type owl:ObjectProperty ;
-          rdfs:domain :Action ;
-          rdfs:range :Subject ;
-	  rdfs:subPropertyOf :hasSubject ;
-          rdfs:comment "A subject accomplishes an action of an activity"@en .
-
-:isPerformedBy rdf:type owl:ObjectProperty ;
-          rdfs:domain :Operation ;
-          rdfs:range :Subject ;
-	  rdfs:subPropertyOf :isAccomplishedBy ;
-          rdfs:comment "A subject performs an operation of an action"@en .
+:hasRule rdf:type owl:ObjectProperty ;
+          rdfs:domain :Activity ;
+          rdfs:range :Rule ;
+          rdfs:comment "An activity is governed by a rule"@en .
 
 :isMotivatedBy rdf:type owl:ObjectProperty ;
           rdfs:domain :Activity ;
@@ -103,40 +62,30 @@
           rdfs:range :Object ;
           rdfs:comment "The outcome of an activity"@en .
 
-:hasDuration rdf:type owl:ObjectProperty ;
-          rdfs:domain :Activity,
-		      :Action ;
-          rdfs:range time:DateTimeInterval ,
-                     time:Duration ,
-                     time:Interval ,
-                     time:TemporalDuration ;
-          rdfs:comment "Duration of an activity in minute"@en .
+:hasTemporality  rdf:type owl:ObjectProperty ;
+		 rdfs:domain :Activity ;
+		 rdfs:range time:DateTimeInterval , time:Duration , time:Interval , time:TemporalDuration, time:Instance .
 
-:hasBeginTime rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf :hasTime ;
-              rdfs:domain :Activity,
-			  :Action;
-              rdfs:range time:Instance ;
-              rdfs:comment "An activity, an action or and operation has be begining time"@en .
-	      
-:hasEndTime rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf :hasTime ;
-            rdfs:domain :Activity,
-			:Action;
-            rdfs:range time:Instance ;
-            rdfs:comment "An activity, an action or and operation has an end time"@en .
+:isBeneficialTo rdf:type owl:ObjectProperty ;
+	  rdfs:domain :Activity ;
+	  rdfs:range :Subject ;
+	  rdfs:comment "An activity is beneficial to a subject" .
 
-:hasTime rdf:type owl:ObjectProperty ;
-            rdfs:domain :Activity,
-			:Action;
-            rdfs:range time:Instance ;
-            rdfs:comment "An activity, action  has a time corresponding to when it started"@en .
+:isCarriedOutWith rdf:type owl:ObjectProperty ;
+      rdfs:domain :Activity ;
+      rdfs:range :Resource;
+      rdfs:comment "A subject uses a resource for an activity"@en .
 
 :hasLocation rdf:type owl:ObjectProperty ;
-             rdfs:domain :Activity ,
-	     		 :Action ;
+             rdfs:domain :Activity ;
              rdfs:range :Location ;
              rdfs:comment "Links a domain to a geographical position"@en .
+
+:isComposeOf rdf:type owl:ObjectProperty, owl:IrreflexiveProperty;
+	     owl:inverseOf  :isPartOf ;
+	     rdfs:domain :Activity ;
+	     rdfs:range :Action ;
+	     rdfs:comment "An activity is composed of actions or operations" .
 
 :precedes rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
 	 rdfs:domain :Activity ;
@@ -149,48 +98,141 @@
 	 rdfs:range :Activity ;
 	 rdfs:comment "An activity follows another activity"@en .
 
-################### Subject
+
+################ Action class #################
+###############################################
+
+:Action rdf:type owl:Class ;
+	rdfs:label "Action" ;
+        rdfs:subClassOf :Activity ;
+        rdfs:comment """A well define and specific work that one can carry out in an action. It is the means to implement an action."""@en .
+	
+################ Action data property #################
+#########################################################
+
+:actionName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Action ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The name of the action"@en .
+
+################ Action object property #################
+###########################################################
+
+:hasGoal rdf:type owl:ObjectProperty ;
+          rdfs:domain :Action ;
+          rdfs:range :Goal ;
+          rdfs:comment "An action has a goal"@en .
+
+:isPerformedBy rdf:type owl:ObjectProperty ;
+          rdfs:domain :Action ;
+          rdfs:range :Subject ;
+          rdfs:comment "A subject performs an operation or an  action"@en .
+
+:isPartOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
+	  owl:inverseOf :isComposeOf ;
+	  rdfs:domain :Action ;
+	  rdfs:range  :Operation ;
+	  rdfs:comment "An action is part of an Operation"@en .
+
+
+
+################ Operation class #################
+##################################################
+
+:Operation rdf:type owl:Class ;
+	   rdfs:label  "Operation" ;
+           rdfs:subClassOf :Action ;
+           rdfs:comment "An operation is a work performed by an agent"@en .
+
+
+
+################ Operation data property #################
+##########################################################
+
+:operationName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Operation ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The name of the operation"@en .
+
+
+
+################ Location class ##############
+##############################################
+
+:Location rdf:type owl:Class ;
+	  rdfs:lable "Location";
+          rdfs:comment "A geographical location or places"@en .
+
+
+################ Location data property #################
+#########################################################
+
+
+:locationName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Location ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The name of the location"@en .
+
+:hasAddress rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Location ;
+            rdfs:range xsd:string ;
+            rdfs:comment "The address of a location"@en .
+
+
+
+############### Subject class ###############
+#############################################
 
 :Subject rdf:type owl:Class ;
-	 rdfs:label "Subject" ;
+	 rdfs:label "Agent" ;
        	 rdfs:comment "An agent that carries out an activity"@en .
 
-##################
+
+############## Subject data property ##############
+###################################################
+
 :subjectName rdf:type owl:DatatypeProperty ;
            rdfs:domain :Subject ;
            rdfs:range xsd:string ;
            rdfs:comment "The name of the subject"@en .
 
-:benefitsFrom rdf:type owl:ObjectProperty ;
-	  rdfs:domain :Subject ;
-	  rdfs:range :Activity ;
-	   owl:propertyChainAxiom ( :benefitsFrom  :isMadeUPOf) ;
-	  rdfs:comment "The subject that benefits from an activity" .
 
-:usesTool rdf:type owl:ObjectProperty ;
-      rdfs:domain :Subject ;
-      rdfs:range :Resource;
-      rdfs:comment "A subject uses a resource for an activity"@en .
-      
-################### Tool
+############## Tool class ##############
+########################################
 
 :Resource rdf:type owl:Class ;
 	  rdfs:label "Tool" ;
           rdfs:comment "The tool used to carry out an activity"@en .
 
+############## Tool data property ##############
+################################################
 
-###################
 :resourceName rdf:type owl:DatatypeProperty ;
 	      rdfs:domain :Resource ;
 	      rdfs:range xsd:string ;
 	      rdfs:comment "The name of a resource"@en .
 
-:isUsedFor rdf:type owl:ObjectProperty ;
-	   rdfs:domain :Resource ;
-	   rdfs:range :Activity ;
-	   rdfs:comment "A resource is used for an activity" .
 
-################# Governance
+
+:hasDuration rdfs:subPropertyOf :hasTemporality ;
+          rdfs:comment "Duration of an activity in minute"@en .
+
+:hasTime rdfs:subPropertyOf :hasTemporality ;
+            rdfs:comment "An activity, action  has a time corresponding to when it started"@en .
+
+:hasBeginTime rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasTime ;
+              rdfs:range time:Instance ;
+              rdfs:comment "An activity, an action or and operation has be begining time"@en .
+	      
+:hasEndTime rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasTime ;
+            rdfs:range time:Instance ;
+            rdfs:comment "An activity, an action or and operation has an end time"@en .
+
+
+############## Governance Taxonomy ##############
+#################################################
 
 :Governance rdf:type owl:Class ;
             rdfs:comment "Principles that guide activities run up"@en .
@@ -203,7 +245,25 @@
            rdfs:subClassOf :Governance ;
            rdfs:comment "Objective leading to outcome "@en .
 
-##############
+############## Tool object property ##############
+##################################################
+
+:isUsedFor rdf:type owl:ObjectProperty ;
+	   owl:inverseOf :isCarriedOutWith ;
+	   rdfs:domain :Resource ;
+	   rdfs:range :Activity ;
+	   rdfs:comment "A resource is used for an activity" .
+
+
+:isSubjectOf rdf:type owl:ObjectProperty ;
+             rdfs:domain :Subject ;
+             rdfs:range :Activity ;
+	     owl:inverseOf :hasSubject ;
+	     owl:propertyChainAxiom ( :hasRole  :carriesOut) ;
+             rdfs:comment "An activity has a subject that carries it out"@en .
+
+
+
 :carriesOut rdf:type owl:ObjectProperty ;
 	    rdfs:domain :Role ;
 	    rdfs:range :Activity ;
@@ -220,19 +280,3 @@
                       rdfs:range xsd:string ;
                       rdfs:comment "The description of a rule"@en .
 		      
-############## Location
-
-:Location rdf:type owl:Class ;
-	  rdfs:lable "Location";
-          rdfs:comment "A geographical location or places"@en .
-
-##############
-
-:hasAddress rdf:type owl:DatatypeProperty ;
-            rdfs:domain :Location ;
-            rdfs:range xsd:string ;
-            rdfs:comment "The address of a location"@en .
-
-############# Time
-
-:Time rdf:type owl:Class .
