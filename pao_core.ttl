@@ -18,7 +18,7 @@
 #    Classes
 #################################################################
 []  rdf:type owl:AllDisjointClasses ;
-    owl:members  ( :Activity :Time :Location :Resource :Agent) . 
+    owl:members  ( :Activity :Action :Operation :Time :Location :Resource :Agent :Governance) . 
 
 ################# Activity #################
 ############################################
