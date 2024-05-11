@@ -84,7 +84,7 @@
 :isComposeOf rdf:type owl:ObjectProperty, owl:IrreflexiveProperty;
 	     owl:inverseOf  :isPartOf ;
 	     rdfs:domain :Activity ;
-	     rdfs:range :Action ;
+	     rdfs:range :Action, :Operation ;
 	     rdfs:comment "An activity is composed of actions or operations" .
 
 :precedes rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
@@ -141,7 +141,7 @@
 
 :Operation rdf:type owl:Class ;
 	   rdfs:label  "Operation" ;
-           rdfs:subClassOf :Action ;
+           rdfs:subClassOf :Activity ;
            rdfs:comment "An operation is a work performed by an agent"@en .
 
 
@@ -245,35 +245,18 @@
            rdfs:subClassOf :Governance ;
            rdfs:comment "Objective leading to outcome "@en .
 
-############## Tool object property ##############
-##################################################
+############## Data property ##############
+###########################################
 
-:isUsedFor rdf:type owl:ObjectProperty ;
-	   owl:inverseOf :isCarriedOutWith ;
-	   rdfs:domain :Resource ;
-	   rdfs:range :Activity ;
-	   rdfs:comment "A resource is used for an activity" .
-
-
-:isSubjectOf rdf:type owl:ObjectProperty ;
-             rdfs:domain :Subject ;
-             rdfs:range :Activity ;
-	     owl:inverseOf :hasSubject ;
-	     owl:propertyChainAxiom ( :hasRole  :carriesOut) ;
-             rdfs:comment "An activity has a subject that carries it out"@en .
-
-
-
-:carriesOut rdf:type owl:ObjectProperty ;
-	    rdfs:domain :Role ;
-	    rdfs:range :Activity ;
-	    rdfs:comment "A subject under a role carries out an activity"@en .
+:governanceDescription rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Governance ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "The description of an governance"@en .
 
 :objectDescription rdf:type owl:DatatypeProperty ;
                       rdfs:domain :Object ;
                       rdfs:range xsd:string ;
                       rdfs:comment "The description of an object"@en .
-
 
 :ruleDescription rdf:type owl:DatatypeProperty ;
                       rdfs:domain :Rule ;
