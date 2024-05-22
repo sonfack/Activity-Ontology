@@ -18,7 +18,13 @@
 #    Classes
 #################################################################
 []  rdf:type owl:AllDisjointClasses ;
-    owl:members  ( :Activity :Action :Operation :Time :Location :Resource :Agent :Governance) . 
+    owl:members  ( :Activity :Action :Operation :Time :Location :Resource :Subject :Governance) .
+
+
+:hasName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Activity, :Location, :Governance, :Subject, :Resource;
+              rdfs:range xsd:string ;
+              rdfs:comment "Activity, Location, Governance, Subject and Resource  has a name"@en .
 
 ################# Activity #################
 ############################################
@@ -31,10 +37,6 @@
 ################ Activity data property #################
 #########################################################
 
-:activityName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Activity ;
-              rdfs:range xsd:string ;
-              rdfs:comment "The name of the activity"@en .
 
 
 
@@ -98,6 +100,10 @@
 	 rdfs:range :Activity ;
 	 rdfs:comment "An activity follows another activity"@en .
 
+:hasConstraint rdf:type owl:ObjectProperty;
+	 rdfs:domain :Activity ;
+	 rdfs:range :Constraint ;
+	 rdfs:comment "An activity has a constraint"@en .
 
 ################ Action class #################
 ###############################################
@@ -110,20 +116,18 @@
 ################ Action data property #################
 #########################################################
 
-:actionName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Action ;
-              rdfs:range xsd:string ;
-              rdfs:comment "The name of the action"@en .
+
 
 ################ Action object property #################
 ###########################################################
 
 :hasGoal rdf:type owl:ObjectProperty ;
-          rdfs:domain :Action ;
-          rdfs:range :Goal ;
-          rdfs:comment "An action has a goal"@en .
+         rdfs:domain :Action ;
+         rdfs:range :Goal ;
+         rdfs:comment "An action has a goal"@en .
 
 :isPerformedBy rdf:type owl:ObjectProperty ;
+	  rdfs:subPropertyOf :hasSubject ;
           rdfs:domain :Action ;
           rdfs:range :Subject ;
           rdfs:comment "A subject performs an operation or an  action"@en .
@@ -149,10 +153,7 @@
 ################ Operation data property #################
 ##########################################################
 
-:operationName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Operation ;
-              rdfs:range xsd:string ;
-              rdfs:comment "The name of the operation"@en .
+
 
 
 
@@ -168,10 +169,7 @@
 #########################################################
 
 
-:locationName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Location ;
-              rdfs:range xsd:string ;
-              rdfs:comment "The name of the location"@en .
+
 
 :hasAddress rdf:type owl:DatatypeProperty ;
             rdfs:domain :Location ;
@@ -191,10 +189,14 @@
 ############## Subject data property ##############
 ###################################################
 
-:subjectName rdf:type owl:DatatypeProperty ;
-           rdfs:domain :Subject ;
-           rdfs:range xsd:string ;
-           rdfs:comment "The name of the subject"@en .
+
+
+
+############## Subject object property ##############
+#####################################################
+:isSubjectOf  rdf:type owlObjectProperty ;
+	      rdfs:domain :Subject ;
+	      rdfs:range :Activity .
 
 
 ############## Tool class ##############
@@ -207,10 +209,7 @@
 ############## Tool data property ##############
 ################################################
 
-:resourceName rdf:type owl:DatatypeProperty ;
-	      rdfs:domain :Resource ;
-	      rdfs:range xsd:string ;
-	      rdfs:comment "The name of a resource"@en .
+
 
 
 
@@ -240,6 +239,11 @@
 :Rule rdf:type owl:Class ;
       rdfs:subClassOf :Governance ;
       rdfs:comment "The rule that governs an activity"@en .
+
+:Constraint rdf:type owl:Class ;
+      rdfs:subClassOf :Rule ;
+      rdfs:comment "A constraint is a hard rule that impede an activity"@en .
+
 
 :Object rdf:type owl:Class ;
            rdfs:subClassOf :Governance ;
