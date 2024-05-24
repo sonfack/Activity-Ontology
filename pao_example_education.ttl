@@ -9,100 +9,44 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 
 
-<http://sonfack.com/2024/01/pao#>  rdf:type owl:Ontology ;
-   rdfs:label "Personal Activity Ontology";
-   rdfs:comment "Personal Activity Ontology is designed for the construction of personal activity knowledge" .
-
+<http://sonfack.com/2024/01/cao#>  rdf:type owl:Ontology ;
+   rdfs:label "Core Activity Ontology";
+   rdfs:comment "Core concepts of activities Ontology" .
 
 
 #################################################################
 #    Classes
 #################################################################
 []  rdf:type owl:AllDisjointClasses ;
-    owl:members  ( :Project :Subject :Resource :Time :Location :Governance) . 
+    owl:members  ( :Activity :Action :Operation :Time :Location :Resource :Subject :Governance) . 
 
-################# Project
 
+:hasName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Activity, :Location, :Governance, :Subject, :Resource;
+              rdfs:range xsd:string ;
+              rdfs:comment "Activity, Location, Governance, Subject and Resource  has a name"@en .
+	      
+
+################# Activity #################
+############################################
 :Project rdf:type owl:Class ;
-	 rdfs:label  "Project" ;
-         rdfs:comment "A carefully planned piece of work that has a particular purpose"@en .
+	  rdfs:label "Project" .
 
 :Activity rdf:type owl:Class ;
+	  rdfs:subClassOf :Project ;
 	  rdfs:label "Activity" ;
-          rdfs:subClassOf :Project ;
           rdfs:comment """An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"""@en .
 
 
-:Action rdf:type owl:Class ;
-	rdfs:label "Action" ;
-        rdfs:subClassOf :Activity ;
-        rdfs:comment """A well define and specific work that one can carry out in an activity"""@en .
-
-:Operation rdf:type owl:Class ;
-	   rdfs:label  "Operation" ;
-           rdfs:subClassOf :Action ;
-           rdfs:comment " "@en .
-
-################
-:projectName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Project ;
-              rdfs:range xsd:string ;
-              rdfs:comment "The name of the project"@en .
-
-:activityName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Activity ;
-              rdfs:range xsd:string ;
-              rdfs:comment "The name of the activity"@en .
-
-:actionName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Action ;
-              rdfs:range xsd:string ;
-              rdfs:comment "The name of the action"@en .
-
-:operationName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Operation ;
-              rdfs:range xsd:string ;
-              rdfs:comment "The name of the operation"@en .
+################ Activity data property #################
+#########################################################
 
 
-:isMadeUpOf rdf:type owl:ObjectProperty, owl:TransitiveProperty ;
-	  rdfs:domain :Project ;
-	  rdfs:range  :Project, :Activity ;
-	  rdfs:comment "An action is part of an activity"@en .
-
-:isPartOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
-	  rdfs:domain :Action ;
-	  rdfs:range  :Activity ;
-	  rdfs:subPropertyOf :isMadeUpOf ;
-	  rdfs:comment "An action is part of an activity"@en .
-
-:isComposedOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
-	  rdfs:domain :Action ;
-	  rdfs:range  :Operation ;
-	  rdfs:subPropertyOf :isPartOf ;
-	  rdfs:comment "An action is composed of operations"@en .
-
-:hasGoal rdf:type owl:ObjectProperty ;
-          rdfs:domain :Action ;
-          rdfs:range :Goal ;
-          rdfs:comment "An action has a goal"@en .
-
-:hasConstraint rdf:type owl:ObjectProperty ;
-          rdfs:domain :Operation ;
-          rdfs:range :Constraint ;
-          rdfs:comment "An activity is governed by a rule"@en .
 
 
-:hasRule rdf:type owl:ObjectProperty ;
-          rdfs:domain :Activity ;
-          rdfs:range :Rule ;
-          rdfs:comment "An activity is governed by a rule"@en .
 
-:isSubjectOf rdf:type owl:ObjectProperty ;
-             rdfs:domain :Subject ;
-             rdfs:range :Activity ;
-	     owl:propertyChainAxiom ( :hasRole  :carriesOut) ;
-             rdfs:comment "An activity has a subject that carries it out"@en .
+################ Activity object property #################
+###########################################################
 
 :hasSubject rdf:type owl:ObjectProperty ;
           rdfs:domain :Activity ;
@@ -110,18 +54,10 @@
 	  owl:inverseOf :isSubjectOf ; 
           rdfs:comment "A subject carries out an activity"@en .
 
-
-:isAccomplishedBy rdf:type owl:ObjectProperty ;
-          rdfs:domain :Action ;
-          rdfs:range :Subject ;
-	  rdfs:subPropertyOf :hasSubject ;
-          rdfs:comment "A subject accomplishes an action of an activity"@en .
-
-:isPerformedBy rdf:type owl:ObjectProperty ;
-          rdfs:domain :Operation ;
-          rdfs:range :Subject ;
-	  rdfs:subPropertyOf :isAccomplishedBy ;
-          rdfs:comment "A subject performs an operation of an action"@en .
+:hasRule rdf:type owl:ObjectProperty ;
+          rdfs:domain :Activity ;
+          rdfs:range :Rule ;
+          rdfs:comment "An activity is governed by a rule"@en .
 
 :isMotivatedBy rdf:type owl:ObjectProperty ;
           rdfs:domain :Activity ;
@@ -133,49 +69,30 @@
           rdfs:range :Object ;
           rdfs:comment "The outcome of an activity"@en .
 
-:hasDuration rdf:type owl:ObjectProperty ;
-          rdfs:domain :Project,
-	  	      :Activity,
-		      :Action,
-		      :Operation ;
-          rdfs:range time:DateTimeInterval ,
-                     time:Duration ,
-                     time:Interval ,
-                     time:TemporalDuration ;
-          rdfs:comment "Duration of an activity in minute"@en .
+:hasTemporality  rdf:type owl:ObjectProperty ;
+		 rdfs:domain :Activity ;
+		 rdfs:range time:DateTimeInterval , time:Duration , time:Interval , time:TemporalDuration, time:Instance .
 
-:hasBeginTime rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf :hasTime ;
-              rdfs:domain :Project,
-	      		  :Activity,
-			  :Action,
-			  :Operation ;
-              rdfs:range time:Instance ;
-              rdfs:comment "A project, and activity, an action or and operation has be begining time"@en .
-	      
-:hasEndTime rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf :hasTime ;
-            rdfs:domain :Project,
-	    		:Activity,
-			:Action,
-			:Operation ;
-            rdfs:range time:Instance ;
-            rdfs:comment "A project, and activity, an action or and operation has an end time"@en .
+:isBeneficialTo rdf:type owl:ObjectProperty ;
+	  rdfs:domain :Activity ;
+	  rdfs:range :Subject ;
+	  rdfs:comment "An activity is beneficial to a subject" .
 
-:hasTime rdf:type owl:ObjectProperty ;
-            rdfs:domain :Project,
-	    		:Activity,
-			:Action,
-			:Operation ;
-            rdfs:range time:Instance ;
-            rdfs:comment "A project, activity, action or operator has a time corresponding to when it started"@en .
+:isCarriedOutWith rdf:type owl:ObjectProperty ;
+      rdfs:domain :Activity ;
+      rdfs:range :Resource;
+      rdfs:comment "A subject uses a resource for an activity"@en .
 
 :hasLocation rdf:type owl:ObjectProperty ;
-             rdfs:domain :Activity ,
-	     		 :Action ,
-                         :Operation ;
+             rdfs:domain :Activity ;
              rdfs:range :Location ;
              rdfs:comment "Links a domain to a geographical position"@en .
+
+:isComposeOf rdf:type owl:ObjectProperty, owl:IrreflexiveProperty;
+	     owl:inverseOf  :isPartOf ;
+	     rdfs:domain :Activity ;
+	     rdfs:range :Action, :Operation ;
+	     rdfs:comment "An activity is composed of actions or operations" .
 
 :precedes rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
 	 rdfs:domain :Activity ;
@@ -188,169 +105,209 @@
 	 rdfs:range :Activity ;
 	 rdfs:comment "An activity follows another activity"@en .
 
-################### Subject
+:simultaneouslyWith rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
+	 rdfs:domain :Activity ;
+	 rdfs:range :Activity ;
+	 rdfs:comment "An activity is carried out simultaneously with another activity"@en .
+
+:isFollowedBy rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
+	      owl:inverseOf  :follows ;
+	      rdfs:domain :Activity ;
+	      rdfs:range :Activity ;
+	      rdfs:comment "An activity is followed by another activity"@en .
+
+:hasConstraint rdf:type owl:ObjectProperty;
+	 rdfs:domain :Activity ;
+	 rdfs:range :Constraint ;
+	 rdfs:comment "An activity has a constraint"@en .
+
+################ Action class #################
+###############################################
+
+:Action rdf:type owl:Class ;
+	rdfs:label "Action" ;
+        rdfs:subClassOf :Activity ;
+        rdfs:comment """A well define and specific work that one can carry out in an action. It is the means to implement an action."""@en .
+	
+################ Action data property #################
+#########################################################
+
+
+
+################ Action object property #################
+###########################################################
+
+:hasGoal rdf:type owl:ObjectProperty ;
+         rdfs:domain :Action ;
+         rdfs:range :Goal ;
+         rdfs:comment "An action has a goal"@en .
+
+:isPerformedBy rdf:type owl:ObjectProperty ;
+	  rdfs:subPropertyOf :hasSubject ;
+          rdfs:domain :Action ;
+          rdfs:range :Subject ;
+          rdfs:comment "A subject performs an operation or an  action"@en .
+
+:isPartOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
+	  owl:inverseOf :isComposeOf ;
+	  rdfs:domain :Action ;
+	  rdfs:range  :Operation ;
+	  rdfs:comment "An action is part of an Operation"@en .
+
+
+
+################ Operation class #################
+##################################################
+
+:Operation rdf:type owl:Class ;
+	   rdfs:label  "Operation" ;
+           rdfs:subClassOf :Activity ;
+           rdfs:comment "An operation is a work performed by an agent"@en .
+
+
+
+################ Operation data property #################
+##########################################################
+
+
+
+
+
+################ Location class ##############
+##############################################
+
+:Location rdf:type owl:Class ;
+	  rdfs:lable "Location";
+          rdfs:comment "A geographical location or places"@en .
+
+:Building rdf:type owl:Class ;
+	  rdfs:subClassOf :Location ;
+	  rdfs:lable "Building Location";
+          rdfs:comment "A geographical located building"@en .
+
+:ClassRoom rdf:type owl:Class ;
+	  rdfs:subClassOf :Building ;
+	  rdfs:lable "Classroom Location";
+          rdfs:comment "A geographical located classroom"@en .
+
+:TutorialRoom rdf:type owl:Class ;
+	  rdfs:subClassOf :Building ;
+	  rdfs:lable "Tutorialroom Location";
+          rdfs:comment "A geographical located tutorialroom"@en .
+
+:PracticalRoom rdf:type owl:Class ;
+	  rdfs:subClassOf :Building ;
+	  rdfs:lable "Practicalroom Location";
+          rdfs:comment "A geographical located practicalroom"@en .
+
+
+################ Location data property #################
+#########################################################
+
+
+
+:hasAddress rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Location ;
+            rdfs:range xsd:string ;
+            rdfs:comment "The address of a location"@en .
+
+
+:isFoundIn  rdf:type owlObjectProperty ;
+	      rdfs:domain :Location ;
+	      rdfs:range :Location;
+	      rdfs:comment "A location is found in another location" .
+
+
+############### Subject class ###############
+#############################################
 
 :Subject rdf:type owl:Class ;
-	 rdfs:label "Subject" ;
+	 rdfs:label "Agent" ;
        	 rdfs:comment "An agent that carries out an activity"@en .
 
-
 :Physical rdf:type owl:Class ;
-	  rdfs:label "Physical agent" ;
-          rdfs:subClassOf :Subject ;
-          rdfs:comment "Physical entity"@en .
-
-
-:Moral rdf:type owl:Class ;
-       rdfs:label "Moral agent" ;
-       rdfs:subClassOf :Subject ;
-       rdfs:comment "Moral entity eg: a company"@en .
-
-
-:Organization rdf:type owl:Class ;
-	      rdfs:label "Organization" ;
-              rdfs:subClassOf :Moral ;
-              rdfs:comment """An official group of people who work together for the same purpose"""@en .
-
-:Group rdf:type owl:Class ;
-       rdfs:label "Group" ;
-       rdfs:subClassOf :Organization ;
-       rdfs:comment ""@en .
-
-:Team rdf:type owl:Class ;
-      rdfs:label "Team" ;
-      rdfs:subClassOf :Group ;
-      rdfs:comment "A group with a common goal"@en .
-
-:Community rdf:type owl:Class ;
-	   rdfs:label "Community" ;
-       	   rdfs:subClassOf :Group ;
-       	   rdfs:comment "A group of people with the same interests"@en .
-
-:Automaton rdf:type owl:Class ;
-	   rdfs:label "Automaton agent" ;
-           rdfs:subClassOf :Physical ;
-           rdfs:comment "An automomous or self-operating agent"@en .
+	  rdfs:subClassOf :Subject ;
+	 rdfs:label "Physical subject" ;
+       	 rdfs:comment "Physical subject of an activity"@en .
 
 :Human rdf:type owl:Class ;
-       rdfs:label "Human agent" ;
-       rdfs:subClassOf :Physical ;
-       rdfs:comment "Humans being"@en .
+	  rdfs:subClassOf :Physical ;
+	  rdfs:label "Human subject" ;
+       	  rdfs:comment "Human subject of an activity"@en .
 
-##################
-:hasRole rdf:type owl:ObjectProperty ;
-	 rdfs:domain :Subject ;
-	 rdfs:range :Role ;
-	 rdfs:comment "A subject has a role"@en .
+:Automaton rdf:type owl:Class ;
+	  rdfs:subClassOf :Physical ;
+	  rdfs:label "Automaton subject" ;
+       	  rdfs:comment "Automaton subject of an activity"@en .
+
+:Moral rdf:type owl:Class ;
+	  rdfs:subClassOf :Subject ;
+	 rdfs:label "Moral subject" ;
+       	 rdfs:comment "Moral subject of an activity"@en .
+
+:Organization rdf:type owl:Class ;
+	  rdfs:subClassOf :Moral ;
+	  rdfs:label "Organization subject" ;
+       	  rdfs:comment "Organization subject of an activity"@en .
+
+:Community rdf:type owl:Class ;
+	  rdfs:subClassOf :Moral ;
+	  rdfs:label "Community subject" ;
+       	  rdfs:comment "Community subject of an activity"@en .
 
 
-:subjectName rdf:type owl:DatatypeProperty ;
-           rdfs:domain :Subject ;
-           rdfs:range xsd:string ;
-           rdfs:comment "The name of the subject"@en .
+:Group rdf:type owl:Class ;
+	  rdfs:subClassOf :Community ;
+	  rdfs:label "Group subject" ;
+       	  rdfs:comment "Group subject of an activity"@en .
 
-:benefitsFrom rdf:type owl:ObjectProperty ;
-	  rdfs:domain :Subject ;
-	  rdfs:range :Project, :Activity ;
-	   owl:propertyChainAxiom ( :benefitsFrom  :isMadeUPOf) ;
-	  rdfs:comment "The subject that benefits from an activity" .
 
-:isMemberOf rdf:type owl:ObjectProperty ;
-          rdfs:domain :Physical ;
-          rdfs:range :Moral ;
-          rdfs:comment "a physical subject (agent) is member of a moral subject such as and organization, a group, ..."@en .
+############## Subject data property ##############
+###################################################
 
-:usesTool rdf:type owl:ObjectProperty ;
-      rdfs:domain :Subject ;
-      rdfs:range :Resource;
-      rdfs:comment "A subject uses a resource for an activity"@en .
-      
-################### Tool
+
+
+
+############## Subject object property ##############
+#####################################################
+:isSubjectOf  rdf:type owlObjectProperty ;
+	      rdfs:domain :Subject ;
+	      rdfs:range :Activity .
+
+
+############## Tool class ##############
+########################################
 
 :Resource rdf:type owl:Class ;
 	  rdfs:label "Tool" ;
           rdfs:comment "The tool used to carry out an activity"@en .
 
-
-:SoftResource rdf:type owl:Class ;
-	      rdfs:label "Sorft-resource" ;
-              rdfs:subClassOf :Resource ;
-              rdfs:comment "Intangible resources used to carry out an activity"@en .
+############## Tool data property ##############
+################################################
 
 
-:HardResource rdf:type owl:Class ;
-	      rdfs:label "Hard-resource" ;
-              rdfs:subClassOf :Resource ;
-              rdfs:comment "Tangible resources used to carry out an activity"@en .
 
 
-:DigitalResource rdf:type owl:Class ;
-		 rdfs:label "Digital-resource" ;
-		 rdfs:subClassOf :SoftResource ;
-              	 rdfs:comment "Digital resource"@en .
+
+:hasDuration rdfs:subPropertyOf :hasTemporality ;
+          rdfs:comment "Duration of an activity in minute"@en .
+
+:hasTime rdfs:subPropertyOf :hasTemporality ;
+            rdfs:comment "An activity, action  has a time corresponding to when it started"@en .
+
+:hasBeginTime rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasTime ;
+              rdfs:range time:Instance ;
+              rdfs:comment "An activity, an action or and operation has be begining time"@en .
+	      
+:hasEndTime rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasTime ;
+            rdfs:range time:Instance ;
+            rdfs:comment "An activity, an action or and operation has an end time"@en .
 
 
-:Image rdf:type owl:Class ;
-       rdfs:labe "Image-resource";
-       rdfs:subClassOf :DigitalResource ;
-       rdfs:comment "Image file resource"@en .
-
-
-:Multimodal rdf:type owl:Class ;
-	    rdfs:lable "Mixed contain" ;
-	    rdfs:subClassOf :DigitalResource ;
-	    rdfs:comment """Mixed resource containing multiple type of modalities such as web pages"""@en .
-
-
-:Document rdf:type owl:Class ;
-      	  rdfs:label "Document-resource" ;
-      	  rdfs:subClassOf :HardResource ;
-      	  rdfs:comment "Document textbook resource"@en .
-
-:Electronic rdf:type owl:Class ;
-      	  rdfs:label "Electronic-equipment" ;
-      	  rdfs:subClassOf :HardResource ;
-      	  rdfs:comment "Electronic equipment resource"@en .
-
-:Mechanic rdf:type owl:Class ;
-      	  rdfs:label "Mechanic-equipment" ;
-      	  rdfs:subClassOf :HardResource ;
-      	  rdfs:comment "Mechanic equipment resource"@en .
-
-:File rdf:type owl:Class ;
-       rdfs:lable "Digital-file" ;
-       rdfs:subClassOf :DigitalResource ;
-       rdfs:comment "Text document file resource"@en .
-
-:Video rdf:type owl:Class ;
-       rdfs:lable "Video-resource" ;
-       rdfs:subClassOf :DigitalResource ;
-       rdfs:comment "Video file resource"@en .
-
-
-:Audio rdf:type owl:Class ;
-       rdfs:label "Audio-resource" ;
-       rdfs:subClassOf :DigitalResource ;
-       rdfs:comment "Audio file resource"@en .
-
-
-:CommunicationResource rdf:type owl:Class ;
-			 rdfs:label "Communication-resource" ;
-              		 rdfs:subClassOf :SoftResource ;
-              		 rdfs:comment "Communication resource includes: Language, ideas "@en .
-
-###################
-:resourceName rdf:type owl:DatatypeProperty ;
-	      rdfs:domain :Resource ;
-	      rdfs:range xsd:string ;
-	      rdfs:comment "The name of a resource"@en .
-
-:isUsedFor rdf:type owl:ObjectProperty ;
-	   rdfs:domain :Resource ;
-	   rdfs:range :Activity ;
-	   rdfs:comment "A resource is used for an activity" .
-
-################# Governance
+############## Governance Taxonomy ##############
+#################################################
 
 :Governance rdf:type owl:Class ;
             rdfs:comment "Principles that guide activities run up"@en .
@@ -359,112 +316,32 @@
       rdfs:subClassOf :Governance ;
       rdfs:comment "The rule that governs an activity"@en .
 
+:Constraint rdf:type owl:Class ;
+      rdfs:subClassOf :Rule ;
+      rdfs:comment "A constraint is a hard rule that impede an activity"@en .
+
+
 :Object rdf:type owl:Class ;
            rdfs:subClassOf :Governance ;
            rdfs:comment "Objective leading to outcome "@en .
 
+############## Data property ##############
+###########################################
 
-:Role rdf:type owl:Class ;
-           rdfs:subClassOf :Governance ;
-           rdfs:comment "Role of subject within an organization"@en .
-
-
-
-:Operator rdf:type owl:Class ;
-           rdfs:subClassOf :Role ;
-           rdfs:comment "Role of those who run operational activities"@en .
-
-:Management rdf:type owl:Class ;
-           rdfs:subClassOf :Role ;
-           rdfs:comment "Role of those who control the organization at take tactical decisions"@en .
-	   
-:TopManagement rdf:type owl:Class ;
-           rdfs:subClassOf :Management ;
-           rdfs:comment "Role of those who control the organization and take strategical decisions"@en .
-
-:Motive rdf:type owl:Class ;
-        rdfs:subClassOf :Object ;
-        rdfs:comment "The motivation of an activity"@en .
-	
-:Goal rdf:type owl:Class ;
-      rdfs:subClassOf :Motive ;
-      rdfs:comment "The goal of an action"@en .
-
-
-:Constraint rdf:type owl:Class ;
-            rdfs:subClassOf :Rule ;
-            rdfs:comment "Something that limits what you can do"@en .
-
-##############
-:carriesOut rdf:type owl:ObjectProperty ;
-	    rdfs:domain :Role ;
-	    rdfs:range :Activity ;
-	    rdfs:comment "A subject under a role carries out an activity"@en .
+:governanceDescription rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Governance ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "The description of an governance"@en .
 
 :objectDescription rdf:type owl:DatatypeProperty ;
                       rdfs:domain :Object ;
                       rdfs:range xsd:string ;
                       rdfs:comment "The description of an object"@en .
 
-
-:MotiveDescription rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :Motive ;
-                      rdfs:range xsd:string ;
-                      rdfs:comment "The description of a motive"@en .
-
-:goalDescription rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :Goal ;
-                      rdfs:range xsd:string ;
-                      rdfs:comment "The description of a goal"@en .
-
-
 :ruleDescription rdf:type owl:DatatypeProperty ;
                       rdfs:domain :Rule ;
                       rdfs:range xsd:string ;
                       rdfs:comment "The description of a rule"@en .
-		      
-:constraintDescription rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :Constraint ;
-                      rdfs:range xsd:string ;
-                      rdfs:comment "The description of a goal"@en .
-
-
-############## Location
-
-:Location rdf:type owl:Class ;
-	  rdfs:lable "Location";
-          rdfs:comment "A geographical location or places"@en .
-
-##############
-
-:hasAddress rdf:type owl:DatatypeProperty ;
-            rdfs:domain :Location ;
-            rdfs:range xsd:string ;
-            rdfs:comment "The address of a location"@en .
-
-############# Time
-
-:Time rdf:type owl:Class .
-
-
-time:DateTimeInterval rdf:type owl:Class ;
-                      rdfs:subClassOf :Time .
-
-
-time:Duration rdf:type owl:Class ;
-              rdfs:subClassOf :Time .
-
-
-time:Instance rdfs:subClassOf :Time .
-
-
-time:Interval rdf:type owl:Class ;
-              rdfs:subClassOf :Time .
-
-
-time:TemporalDuration rdf:type owl:Class ;
-                      rdfs:subClassOf :Time .
-
 
 ###############################################################
 
@@ -481,77 +358,77 @@ time:TemporalDuration rdf:type owl:Class ;
 
 ##################### Operator ################################
 :DBLecturer rdf:type :Operator;
-	    :carriesOut :DataBaseCourse .
+	    :carriesOut :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
 :PyLecturer rdf:type :Operator ;
 	    :carriesOut :PythonCourse .
 
 :SELecturer rdf:type :Operator ;
-	    :carriesOut :SoftwareEngCourse .
+	    :carriesOut :secourse/511f491d-ea2b-428f-900e-604ea778dab5 .
 
 :UILecturer rdf:type :Operator ;
-	    :carriesOut :UserInterfaceCourse .
+	    :carriesOut :uicourse/eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
 :PMLecturer rdf:type :Operator ;
-	    :carriesOut :ProjectManagementCourse .
+	    :carriesOut :pmcourse/adee0f07-9e90-412b-95d4-b45d7a7476bb .
 
 :SEProjectSupervisor rdf:type :Operator ; 
-	      	     :carriesOut :SoftwareEngProject .
+	      	     :carriesOut :seproject/d3e90a3c-f550-45eb-b00e-59a3c6120318 .
 
 :PyPracticalSupervisor rdf:type :Operator ;
-	     :carriesOut :PythonPractical .
+	     :carriesOut :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 
-:SEPracticalSupervisor rdf:type :Operator ;
-		        :carriesOut :SoftwareEngPractical .
+:practical/4f989887-eb53-431f-b188-c9662a042f51Supervisor rdf:type :Operator ;
+		        :carriesOut :sepractical/88ca540f-fd64-4a3c-92fd-590a12f1f46b .
 
 
 :SETutor rdf:type :Operator ;
-	 :carriesOut :SoftwareEngTutorial .
+	 :carriesOut :setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9 .
 
 :DBTutor rdf:type :Operator ;
-	  :carriesOut :DataBaseTutorial .
+	  :carriesOut :dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 .
 ####################### Agent #################################
 
 :DBTeacher1 rdf:type :Human ;
 	    :hasRole :DBLecturer, :Director ;
-	    :subjectName  "DB course teacher".
+	    :hasName  "DB course teacher".
 
 :DBTeacher2 rdf:type :Human ;
 	    :hasRole :DBTutor ;
-	    :subjectName  "DB tutorial teacher".
+	    :hasName  "DB tutorial teacher".
 
 
 :PyTeacher1 rdf:type :Human ;
 	    :hasRole :PyLecturer ;
-	    :subjectName  "Python course teacher".
+	    :hasName  "Python course teacher".
 
 :PyTeacher2 rdf:type :Human ;
 	    :hasRole :PyPracticalSupervisor ;
-	    :subjectName  "Python practical teacher".
+	    :hasName  "Python practical teacher".
 
 :UITeacher3 rdf:type :Human ;
 	    :hasRole :UILecturer ;
-	    :subjectName  "UI course teacher".
+	    :hasName  "UI course teacher".
 
 :PMTeacher4 rdf:type :Human ;
 	    :hasRole :PMLecturer, :ITUnitHead ;
-	    :subjectName  "PM course teacher".
+	    :hasName  "PM course teacher".
 
 :SETeacher5 rdf:type :Human ;
 	    :hasRole :SELecturer ;
-	   :subjectName  "SE course teacher".
+	   :hasName  "SE course teacher".
 
 :SETeacher6 a :Human ;
 	    :hasRole :SETutor ;
-	   :subjectName  "SE tutorial teacher".
+	   :hasName  "SE tutorial teacher".
 
 :SETeacher7 a :Human ;
-	    :hasRole :SEPracticalSupervisor ;
-	   :subjectName  "SE practical teacher".
+	    :hasRole :practical/4f989887-eb53-431f-b188-c9662a042f51Supervisor ;
+	   :hasName  "SE practical teacher".
 
 :SETeacher8 a :Human ;
 	    :hasRole :SEProjectSupervisor ;
-	   :subjectName  "SE project teacher".
+	   :hasName  "SE project teacher".
 
 
 ############################### Rule ##########################3
@@ -636,80 +513,80 @@ time:TemporalDuration rdf:type owl:Class ;
 ####################### Resource ###################################
 
 :LCDProjector rdf:type :Electronic;
-	      :resourceName "Sony Projector";
-	      :isUsedFor :DataBaseCourse, :PythonCourse, :SoftwareEngCourse, :SoftwareEngProject. 
+	      :hasName "Sony Projector";
+	      :isUsedFor :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272, :PythonCourse, :secourse/511f491d-ea2b-428f-900e-604ea778dab5, :seproject/d3e90a3c-f550-45eb-b00e-59a3c6120318. 
 
 :MysqlBook rdf:type :Document ;
-	   :resourceName "Introduction to MYSQL";
-	   :isUsedFor :DataBaseCourse .
+	   :hasName "Introduction to MYSQL";
+	   :isUsedFor :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
 :Laptop01 rdf:type :Electronic ;
-	  :resourceName "Dell laptop";
+	  :hasName "Dell laptop";
 	  :isUsedFor :PythonCourse .
 
 :Laptop02 rdf:type :Electronic ;
-	  :resourceName "HP laptop";
-	  :isUsedFor :DataBaseCourse .
+	  :hasName "HP laptop";
+	  :isUsedFor :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
 :Laptop03 rdf:type :Electronic ;
-	  :resourceName "Lenovo laptop";
-	  :isUsedFor  :SoftwareEngCourse.
+	  :hasName "Lenovo laptop";
+	  :isUsedFor  :secourse/511f491d-ea2b-428f-900e-604ea778dab5.
 
 :Desktop rdf:type :Electronic ;
-	 :resourceName "IBM desktop computer";
-	 :isUsedFor :SoftwareEngTutorial, :PythonPractical .
+	 :hasName "IBM desktop computer";
+	 :isUsedFor :setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9, :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 
 :PMBook rdf:type :Document ;
-	:resourceName "Master project management";
-	:isUsedFor :ProjectManagementCourse .
+	:hasName "Master project management";
+	:isUsedFor :pmcourse/adee0f07-9e90-412b-95d4-b45d7a7476bb .
 
 :PythonBook rdf:type :Document ;
-	    :resourceName "Python programming for intermediate";
-	    :isUsedFor :PythonCourse, :PythonPractical  .
+	    :hasName "Python programming for intermediate";
+	    :isUsedFor :PythonCourse, :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668  .
 
 :HTMLBook rdf:type  :Document ;
-	  :resourceName "Web interface with HTML";
-	  :isUsedFor  :UserInterfaceCourse .
+	  :hasName "Web interface with HTML";
+	  :isUsedFor  :uicourse/eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
 :ComputerIntroduction rdf:type :Document ;
-		      :resourceName "Computer architecture";
-		      :isUsedFor :PythonCourse, :SoftwareEngCourse .
+		      :hasName "Computer architecture";
+		      :isUsedFor :PythonCourse, :secourse/511f491d-ea2b-428f-900e-604ea778dab5 .
 
 :ComputerLanguage rdf:type :Document ;
-		  :resourceName "Assembly language";
+		  :hasName "Assembly language";
 		  :isUsedFor  :PythonCourse .
 
 :ComputerHardware rdf:type :Document ;
-		  :resourceName "Computer hardware";
+		  :hasName "Computer hardware";
 		  :isUsedFor :PythonCourse .
 
 :SoftwareMysql rdf:type :DigitalResource ;
-	       :resourceName "MySQL 8.0";
-	       :isUsedFor :DataBaseCourse .
+	       :hasName "MySQL 8.0";
+	       :isUsedFor :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
 :SoftwareEngineering rdf:type :DigitalResource ;
-		     :resourceName "Introduction to sofware engineering";
-	       	     :isUsedFor :SoftwareEngCourse .
+		     :hasName "Introduction to sofware engineering";
+	       	     :isUsedFor :secourse/511f491d-ea2b-428f-900e-604ea778dab5 .
 
 :VideoPython rdf:type :Video ;
-	     :resourceName "Learn Python - Full Course for Beginners";
-	     :isUsedFor :PythonPractical .
+	     :hasName "Learn Python - Full Course for Beginners";
+	     :isUsedFor :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 
 :PPTHTML rdf:type :File ;
-	 :resourceName "HTML Presentation";
-	 :isUsedFor :UserInterfaceCourse .
+	 :hasName "HTML Presentation";
+	 :isUsedFor :uicourse/eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
 :VideoHTML rdf:type :Video ;
-	   :resourceName "HTML in 100 Seconds";
-	   :isUsedFor :UserInterfaceCourse .
+	   :hasName "HTML in 100 Seconds";
+	   :isUsedFor :uicourse/eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
 :PDFMysql rdf:type :File ;
-	  :resourceName "Begining database with MySQL";
-	  :isUsedFor :DataBaseCourse, :DataBaseTutorial .
+	  :hasName "Begining database with MySQL";
+	  :isUsedFor :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272, :dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 .
 
 :XSLCourse rdf:type :File ;
-	   :resourceName "Microsoft excel course";
-	   :isUsedFor  :DataBaseCourse .
+	   :hasName "Microsoft excel course";
+	   :isUsedFor  :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
 
 
@@ -717,69 +594,69 @@ time:TemporalDuration rdf:type owl:Class ;
 
 :Education rdf:type :Project;
 	   rdfs:label "IT course programming";
-	   :projectName "Information technology programme" ;
-	   :isMadeUpOf :DataBaseTeaching,
-			 :PythonTeaching,
-			 :UserInterfaceTeaching,
-			 :ProjectManagementTeaching,
-			 :SoftwareEngTeaching .
+	   :hasName "Information technology programme" ;
+	   :isMadeUpOf :dbteaching/17846d45-bd08-43cb-9be6-480eca09185a,
+			 :pyteaching/2fb39e42-31b2-4df8-8555-108aed00e714,
+			 :uiteaching/d3baecd6-aa6e-4800-b198-78315c6c3458,
+			 :pmteaching/a6dee58f-ef25-4779-8b48-8604e56a3314,
+			 :seteaching/9701297e-a195-4c5f-a99f-f35525a48933 .
 
 #######################
 
-:DataBaseTeaching rdf:type :Project ;
+:dbteaching/17846d45-bd08-43cb-9be6-480eca09185a rdf:type :Project ;
  		  rdfs:label "DataBase teaching unit" ;
-		  :projectName "Database unit" ;
-	   	  :isMadeUpOf :DataBaseCourse, :DataBaseTutorial .
+		  :hasName "Database unit" ;
+	   	  :isMadeUpOf :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272, :dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 .
 
-:PythonTeaching rdf:type :Project ;
+:pyteaching/2fb39e42-31b2-4df8-8555-108aed00e714 rdf:type :Project ;
  		  rdfs:label "Python programming teaching unit" ;
-		  :projectName "Python prgramming unit" ;
-	   	  :isMadeUpOf :PythonCourse, :PythonPractical .
+		  :hasName "Python prgramming unit" ;
+	   	  :isMadeUpOf :PythonCourse, :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 
-:UserInterfaceTeaching rdf:type :Project ;
+:uiteaching/d3baecd6-aa6e-4800-b198-78315c6c3458 rdf:type :Project ;
  		  rdfs:label "User interface teaching unit" ;
-		  :projectName "User interface unit" ;
-	   	  :isMadeUpOf :UserInterfaceCourse .
+		  :hasName "User interface unit" ;
+	   	  :isMadeUpOf :uicourse/eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
-:ProjectManagementTeaching rdf:type :Project ;
+:pmteaching/a6dee58f-ef25-4779-8b48-8604e56a3314 rdf:type :Project ;
  		  rdfs:label "Project management teaching unit" ;
-		  :projectName "Project management unit" ;
-	   	  :isMadeUpOf :ProjectManagementCourse .
+		  :hasName "Project management unit" ;
+	   	  :isMadeUpOf :pmcourse/adee0f07-9e90-412b-95d4-b45d7a7476bb .
 
-:SoftwareEngTeaching rdf:type :Project ;
+:seteaching/9701297e-a195-4c5f-a99f-f35525a48933 rdf:type :Project ;
  		  rdfs:label "Software engineering teaching unit";
-		  :projectName "Software engineering unit" ;
-	   	  :isMadeUpOf :SoftwareEngCourse, :SoftwareEngTutorial, :SoftwareEngPractical, :SoftwareEngProject .
+		  :hasName "Software engineering unit" ;
+	   	  :isMadeUpOf :secourse/511f491d-ea2b-428f-900e-604ea778dab5, :setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9, :sepractical/88ca540f-fd64-4a3c-92fd-590a12f1f46b, :seproject/d3e90a3c-f550-45eb-b00e-59a3c6120318 .
 
 
 ####################### Activity ###################################
 
-:DataBaseCourse rdf:type :Activity ;
-	  	:activityName "DataBase Course" ;
+:dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272 rdf:type :Activity ;
+	  	:hasName "DataBase Course" ;
 	  	:hasDuration :120min ;
 	  	:hasObject :ObjectiveMysql ;
 	  	:hasLocation :ClassRoom01 ;
-	  	:isFollowedBy  :DataBaseTutorial .
-#		:hasSubject :DBTeacher1.
+	  	:isFollowedBy  :dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 .
+		:hasSubject :DBTeacher1.
 
-:DataBaseTutorial rdf:type :Activity ;
-	  	  :activityName "DataBase Tutorial" ;
+:dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 rdf:type :Activity ;
+	  	  :hasName "DataBase Tutorial" ;
 	  	  :hasDuration :120min ;
 	  	  :hasObjective :ObjectiveMysql ;
 	  	  :hasLocation :ComputerRoom01, :ClassRoom03 ;
 	  	  :hasSubject :DBTeacher2.
 
-:PythonCourse rdf:type :Activity;
-	      :activityName "Python Course" ;
+:pycourse/3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b rdf:type :Activity;
+	      :hasName "Python Course" ;
 	      :hasBeginTime :8AM_F ;
 	      :hasEndTime :10AM_F ;
 	      :hasObjective :ObjectivePython ;
 	      :hasLocation :ComputerRoom02, :TutorialRoom01 ;
-	      :isFollowedBy :PythonPractical .
-#	      :hasSubject :PyTeacher1.
+	      :isFollowedBy :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 .
+	      :hasSubject :PyTeacher1.
 
-:PythonPractical rdf:type :Activity;
-		 :activityName "Python Practical" ;
+:pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 rdf:type :Activity;
+		 :hasName "Python Practical" ;
 		 :hasRule :EnergyRule ;
 		 :hasBeginTime :8AM_M ;
 		 :hasEndTime :10AM_M ;
@@ -787,51 +664,51 @@ time:TemporalDuration rdf:type owl:Class ;
 		 :hasLocation :ComputerRoom02, :TutorialRoom01 ;
 		 :hasSubject :PyTeacher2.
 
-:UserInterfaceCourse rdf:type :Activity ;
-	  	     :activityName "UserInterface Course" ;
+:uicourse/eaf2d283-4eb8-4024-a2c5-539984984fdd rdf:type :Activity ;
+	  	     :hasName "UserInterface Course" ;
 	  	     :hasBeginTime :10AM_W ;
 	  	     :hasEndTime :12AM_W ;
 	  	     :hasObjective :ObjectiveHTML ;
 	  	     :hasLocation :ComputerRoom03, :ClassRoom04 .
-#		     :hasSubject :UITeacher3.
+		     :hasSubject :UITeacher3.
 
-:ProjectManagementCourse rdf:type :Activity ;
-	  		 :activityName "ProjectManagement Course" ;
+:pmcourse/adee0f07-9e90-412b-95d4-b45d7a7476bb rdf:type :Activity ;
+	  		 :hasName "ProjectManagement Course" ;
 	  		 :hasBeginTime :8AM_T ;
 	  		 :hasEndTime :10AM_T ;
 	  		 :hasObjective :ObjectiveProjectManag ;
 	  		 :hasLocation :ClassRoom02 .
-#	  		 :hasSubject :PMTeacher4.
+	  		 :hasSubject :PMTeacher4.
 
-:SoftwareEngCourse rdf:type :Activity;
-	  	   :activityName "SoftwareEng Course" ;
+:secourse/511f491d-ea2b-428f-900e-604ea778dab5 rdf:type :Activity;
+	  	   :hasName "SoftwareEng Course" ;
 	  	   :hasDuration :120min ;
 	  	   :hasObjective :ObjectiveSoftwareEng ; 
 	  	   :hasLocation  :ClassRoom05 ;
-	  	   :isFollowedBy :SoftwareEngTutorial ; 
+	  	   :isFollowedBy :setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9 ; 
 	  	   :hasSubject :SETeacher5 .
 
 
-:SoftwareEngTutorial rdf:type :Activity;
-	  	     :activityName "SoftwareEng Tutorial" ;
+:setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9 rdf:type :Activity;
+	  	     :hasName "SoftwareEng Tutorial" ;
 	  	     :hasDuration :120min ;
 	  	     :hasObjective :ObjectiveSoftwareEng ;
 	  	     :hasLocation :TutorialRoom01 ;
-	  	     :isFollowedBy :SoftwareEngPractical ;
+	  	     :isFollowedBy :sepractical/88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
  	     	     :hasSubject :SETeacher6 .
 
 
-:SoftwareEngPractical rdf:type :Activity;
-	  	      :activityName "SoftwareEng Practical" ;
+:sepractical/88ca540f-fd64-4a3c-92fd-590a12f1f46b rdf:type :Activity;
+	  	      :hasName "SoftwareEng Practical" ;
 	  	      :hasRule :EnergyRule ;
 	  	      :hasDuration :120min ;
 	  	      :hasObjective :ObjectiveSoftwareEng ;
 	  	      :hasLocation :ComputerRoom02 ;
-	  	      :isFollowedBy :SoftwareEngProject ;
+	  	      :isFollowedBy :seproject/d3e90a3c-f550-45eb-b00e-59a3c6120318 ;
 	  	      :hasSubject :SETeacher7 .
 
-:SoftwareEngProject rdf:type :Activity;
-	  	    :activityName "SoftwareEng Project" ;
+:seproject/d3e90a3c-f550-45eb-b00e-59a3c6120318 rdf:type :Activity;
+	  	    :hasName "SoftwareEng Project" ;
 	  	    :hasDuration :120min ;
 	  	    :hasObjective :ObjectiveSoftwareEng ;
 	  	    :hasLocation :ComputerRoom02 ;
@@ -840,58 +717,62 @@ time:TemporalDuration rdf:type owl:Class ;
 
 
 ####################### Action ################################
-:DBLecturing rdf:type :Action ;
-	     :actionName "Database lecture" ;
-	     :isPartOf :DataBaseCourse ;
+:lecturing/9246b9e2-d557-4869-885a-c541257280eb rdf:type :Action ;
+	     :hasName "Database lecture" ;
+	     :isPartOf :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272 ;
 	     :isAccomplishedBy :DBTeacher1 .
 	     
-:PyLecturing rdf:type :Action ;
-	     :actionName "Python programming lecture" ;
-	     :isPartOf :PythonCourse ;
+:lecturing/5737c363-39a6-405a-87d1-9f15bee9e464 rdf:type :Action ;
+	     :hasName "Python programming lecture" ;
+	     :isPartOf :pycourse/3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b ;
 	     :isAccomplishedBy :PyTeacher1 .
 	     
-:UILecturing rdf:type :Action ;
-	     :actionName "User Interface designing lecture" ;
-	     :isPartOf :UserInterfaceCourse ;
+:lecturing/5923c0c5-fe15-4cf9-8dc1-e3f5e73ba02a rdf:type :Action ;
+	     :hasName "User Interface designing lecture" ;
+	     :isPartOf :uicourse/eaf2d283-4eb8-4024-a2c5-539984984fdd ;
 	     :isAccomplishedBy :UITeacher3 .
 	     
-:PMLecturing rdf:type :Action ;
-	     :actionName "Project management lecture" ;
-	     :isPartOf :ProjectManagementCourse ;
+:lecturing/12b5c207-f470-4bf3-bb3d-e6b31c954954 rdf:type :Action ;
+	     :hasName "Project management lecture" ;
+	     :isPartOf :pmcourse/adee0f07-9e90-412b-95d4-b45d7a7476bb ;
 	     :isAccomplishedBy :PMTeacher4 .
 	     
-:SELecturing rdf:type :Action ;
-	     :actionName "Software Engineering lecture" ;
-	     :isPartOf :SoftwareEngCourse ;
+:lecturing/14868c21-cca2-436b-9ccc-23c411ab22ca rdf:type :Action ;
+	     :hasName "Software Engineering lecture" ;
+	     :isPartOf :secourse/511f491d-ea2b-428f-900e-604ea778dab5 ;
 	     :isAccomplishedBy :SETeacher5 .
 	     
-:DBTutoring rdf:type :Action ;
-	    :actionName "Database tutorial" ;
-	    :isPartOf :DataBaseTutorial .
+:tutoring/75f9b050-39ca-4751-83d0-1298ec31bbdf rdf:type :Action ;
+	    :hasName "Database tutorial" ;
+	    :isPartOf :dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 .
 	    
-:SETutoring rdf:type :Action ;
-	    :actionName "Software Engineering tutorial" ;
-	    :isPartOf :SoftwareEngTutorial  .
+:tutoring/bb6311ad-c7a3-412c-84f1-4f5cf76b4a75 rdf:type :Action ;
+	    :hasName "Software Engineering tutorial" ;
+	    :isPartOf :setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9  .
 	    
-:PyPractical rdf:type :Action ;
-	     :actionName "Python programming practical" ;
-	     :isPartOf :PythonPractical .
+:practical/fa779b89-5ec8-48f1-b5c3-bda3968382ca rdf:type :Action ;
+	     :hasName "Python programming practical" ;
+	     :isPartOf :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 	     
-:SEPractical rdf:type :Action ;
-	     :actionName "Software Engineering practical" ;
-	     :isPartOf :SoftwareEngPractical  .
+:practical/4f989887-eb53-431f-b188-c9662a042f51 rdf:type :Action ;
+	     :hasName "Software Engineering practical" ;
+	     :isPartOf :sepractical/88ca540f-fd64-4a3c-92fd-590a12f1f46b  .
 	     
-:SESupervisor rdf:type :Action ;
-	      :actionName "Software Engineering project" ;
-	      :isPartOf :SoftwareEngProject  .
+:supervision/b45158d0-f812-4ee9-976b-809df57824f2 rdf:type :Action ;
+	      :hasName "Software Engineering project" ;
+	      :isPartOf :seproject/d3e90a3c-f550-45eb-b00e-59a3c6120318  .
 
 
 ####################### Community ################################
 
-:Bsc1  rdf:type :Community;
-       :benefitsFrom :UserInterfaceTeaching .
+:bsc/a00ac66e-e5df-4a66-9691-42d318700616 rdf:type :Community;
+					   :hasName "Bsc year 1";
+					   rdfs:comment "Bsc 1 students" .
 
-:Bsc2  rdf:type :Community ;
-       :benefitsFrom :DataBaseTeaching,
-		      :ProjectManagementTeaching,
-		      :SoftwareEngTeaching .
+:bsc/09c739e7-2a77-4b4c-9197-cdba96c340dd  rdf:type :Community ;
+					   :hasName "Bsc year 2";
+       					   rdfs:comment "Bsc 2 students" .
+
+:bsc/410688e8-e5d3-4e9c-9ca4-c28bf92827af  rdf:type :Community ;
+ 					   :hasName "Bsc year 3";
+       					   rdfs:comment "Bsc 3 students" .
