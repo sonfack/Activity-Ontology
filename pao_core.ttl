@@ -105,6 +105,11 @@
 	 rdfs:range :Constraint ;
 	 rdfs:comment "An activity has a constraint"@en .
 
+:simultaneouslyWith rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
+	 rdfs:domain :Activity ;
+	 rdfs:range :Activity ;
+	 rdfs:comment "An activity is carried out simultaneously with another activity"@en .
+
 ################ Action class #################
 ###############################################
 
