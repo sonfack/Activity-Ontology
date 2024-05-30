@@ -6,12 +6,14 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 
 
 <http://sonfack.com/2024/01/cao#>  rdf:type owl:Ontology ;
-   rdfs:label "Core Activity Ontology";
-   rdfs:comment "Core concepts of activities Ontology" .
+				   dc:title "Core Activity Ontology" ;
+				   dc:date "2023-12-15" ;
+				   dc:description """This ontology defines core concepts and their relations to represent activities knowledge within an organization.""" .
 
 
 #################################################################
@@ -78,6 +80,11 @@
       rdfs:range :Resource;
       rdfs:comment "A subject uses a resource for an activity"@en .
 
+:isCarriedOutBy rdf:type owl:ObjectProperty ;
+      rdfs:domain :Activity ;
+      rdfs:range :Subject ;
+      rdfs:comment "An activity is carried out by a subject"@en .
+
 :hasLocation rdf:type owl:ObjectProperty ;
              rdfs:domain :Activity ;
              rdfs:range :Location ;
@@ -138,7 +145,6 @@
           rdfs:comment "A subject performs an operation or an  action"@en .
 
 :isPartOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
-	  owl:inverseOf :isComposedOf ;
 	  rdfs:domain :Action ;
 	  rdfs:range  :Operation ;
 	  rdfs:comment "An action is part of an Operation"@en .
@@ -213,10 +219,6 @@
 
 ############## Tool data property ##############
 ################################################
-
-
-
-
 
 :hasDuration rdfs:subPropertyOf :hasTemporality ;
           rdfs:comment "Duration of an activity in minute"@en .
