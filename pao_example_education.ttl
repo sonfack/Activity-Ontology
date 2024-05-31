@@ -19,22 +19,19 @@
 #    Classes
 #################################################################
 []  rdf:type owl:AllDisjointClasses ;
-    owl:members  ( :Project :Activity :Action :Operation :Time :Location :Resource :Subject :Governance) . 
+    owl:members  (  :Activity :Action :Operation :Time :Location :Resource :Subject :Governance) . 
 
 
 :hasName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Project, :Location, :Governance, :Subject, :Resource;
+              rdfs:domain :Activity, :Location, :Governance, :Subject, :Resource;
               rdfs:range xsd:string ;
               rdfs:comment "Activity, Location, Governance, Subject and Resource  has a name"@en .
 	      
 
 ################# Activity #################
 ############################################
-:Project rdf:type owl:Class ;
-	  rdfs:label "Project" .
 
 :Activity rdf:type owl:Class ;
-	  rdfs:subClassOf :Project ;
 	  rdfs:label "Activity" ;
           rdfs:comment """An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"""@en .
 
@@ -561,9 +558,7 @@
 
 ####################### Resource ###################################
 
-:projector/6579cf57-4d1d-498d-bd51-bbc0caa7105b rdf:type :Projector;
-	      :hasName "Sony Projector";
-	      :isUsedFor :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272, :pycourse/3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b, :secourse/511f491d-ea2b-428f-900e-604ea778dab5, :seproject/d3e90a3c-f550-45eb-b00e-59a3c6120318. 
+
 
 :book/b4d784d0-8be6-473f-a4cc-3c5ff8a80b6d rdf:type :HardDocument ;
 	   :hasName "Introduction to MYSQL";
@@ -639,44 +634,6 @@
 
 
 
-####################### Project ##################################
-
-:project/29dc7932-ada1-4ede-8e6b-f01ce8907052 rdf:type :Project;
-	   rdfs:label "IT course programming";
-	   :hasName "Information technology programme" ;
-	   :isComposedOf :dbteaching/17846d45-bd08-43cb-9be6-480eca09185a,
-			 :pyteaching/2fb39e42-31b2-4df8-8555-108aed00e714,
-			 :uiteaching/d3baecd6-aa6e-4800-b198-78315c6c3458,
-			 :pmteaching/a6dee58f-ef25-4779-8b48-8604e56a3314,
-			 :seteaching/9701297e-a195-4c5f-a99f-f35525a48933 .
-
-#######################
-
-:dbteaching/17846d45-bd08-43cb-9be6-480eca09185a rdf:type :Project ;
- 		  rdfs:label "DataBase teaching unit" ;
-		  :hasName "Database unit" ;
-	   	  :isComposedOf :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272, :dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 .
-
-:pyteaching/2fb39e42-31b2-4df8-8555-108aed00e714 rdf:type :Project ;
- 		  rdfs:label "Python programming teaching unit" ;
-		  :hasName "Python prgramming unit" ;
-	   	  :isComposedOf :PythonCourse, :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 .
-
-:uiteaching/d3baecd6-aa6e-4800-b198-78315c6c3458 rdf:type :Project ;
- 		  rdfs:label "User interface teaching unit" ;
-		  :hasName "User interface unit" ;
-	   	  :isComposedOf :uicourse/eaf2d283-4eb8-4024-a2c5-539984984fdd .
-
-:pmteaching/a6dee58f-ef25-4779-8b48-8604e56a3314 rdf:type :Project ;
- 		  rdfs:label "Project management teaching unit" ;
-		  :hasName "Project management unit" ;
-	   	  :isComposedOf :pmcourse/adee0f07-9e90-412b-95d4-b45d7a7476bb .
-
-:seteaching/9701297e-a195-4c5f-a99f-f35525a48933 rdf:type :Project ;
- 		  rdfs:label "Software engineering teaching unit";
-		  :hasName "Software engineering unit" ;
-	   	  :isComposedOf :secourse/511f491d-ea2b-428f-900e-604ea778dab5, :setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9, :sepractical/88ca540f-fd64-4a3c-92fd-590a12f1f46b, :seproject/d3e90a3c-f550-45eb-b00e-59a3c6120318 .
-
 
 ####################### Activity ###################################
 
@@ -685,7 +642,8 @@
 	  	:hasDuration :120min ;
 	  	:hasObject :objective/ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
 	  	:hasLocation :classroom/b2c326d0-8551-41c4-aee5-11365e117523 ;
-	  	:isFollowedBy  :dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 .
+	  	:isFollowedBy  :dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 ;
+		:isComposedOf :lecturing/9246b9e2-d557-4869-885a-c541257280eb ;
 		:hasSubject :teacher/09c4175e-f119-4d66-ac53-920a5c9dc796.
 
 :dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 rdf:type :Activity ;
@@ -693,6 +651,8 @@
 	  	  :hasDuration :120min ;
 	  	  :hasObjective :objective/ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
 	  	  :hasLocation :computerroom/4ecbe47c-8f8e-4835-93ac-16d2392e30a2, :classroom/c1a5b39b-992c-49fb-9c7e-a1ffaa92e884 ;
+		  :isFollowedBy ;
+		  :isComposedOf ;
 	  	  :hasSubject :DBTeacher2.
 
 :pycourse/3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b rdf:type :Activity;
@@ -701,7 +661,8 @@
 	      :hasEndTime :10AM_F ;
 	      :hasObjective :objective/969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
 	      :hasLocation :computerroom/5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom/351e99f6-c93b-4377-b987-511652d2eefe ;
-	      :isFollowedBy :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 .
+	      :isFollowedBy :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 ;
+	      :isComposedOf :lecturing/5737c363-39a6-405a-87d1-9f15bee9e464 ;
 	      :hasSubject :teacher/45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8.
 
 :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 rdf:type :Activity;
@@ -711,6 +672,7 @@
 		 :hasEndTime :10AM_M ;
 		 :hasObjective :objective/969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
 		 :hasLocation :computerroom/5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom/351e99f6-c93b-4377-b987-511652d2eefe ;
+		 :isComposedOf :practical/fa779b89-5ec8-48f1-b5c3-bda3968382ca ;
 		 :hasSubject :teacher/9e1c2630-6a90-43b3-bcd8-639079d43f4a .
 
 :uicourse/eaf2d283-4eb8-4024-a2c5-539984984fdd rdf:type :Activity ;
@@ -718,7 +680,9 @@
 	  	     :hasBeginTime :10AM_W ;
 	  	     :hasEndTime :12AM_W ;
 	  	     :hasObjective :objective/9a59e20a-60f0-4798-8895-50f6b79621c5 ;
-	  	     :hasLocation :computerroom/9cd6c49c-e52f-48ef-9d23-d868af4802c4, :classroom/9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 .
+	  	     :hasLocation :computerroom/9cd6c49c-e52f-48ef-9d23-d868af4802c4, :classroom/9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 ;
+		     :isFollowedBy ;
+		     :isComposedOf :lecturing/5923c0c5-fe15-4cf9-8dc1-e3f5e73ba02a ;
 		     :hasSubject :teacher/39c687e2-5671-4ade-90b1-8f1c45096ea9.
 
 :pmcourse/adee0f07-9e90-412b-95d4-b45d7a7476bb rdf:type :Activity ;
@@ -726,7 +690,8 @@
 	  		 :hasBeginTime :8AM_T ;
 	  		 :hasEndTime :10AM_T ;
 	  		 :hasObjective :objective/0b6e8fa9-d03d-4636-ab9c-b34578b4ea45 ;
-	  		 :hasLocation :classroom/3414ff41-3e7a-44de-a679-baac1ab873c2 .
+	  		 :hasLocation :classroom/3414ff41-3e7a-44de-a679-baac1ab873c2 ;
+			 :isComposedOf :lecturing/12b5c207-f470-4bf3-bb3d-e6b31c954954 ;
 	  		 :hasSubject :PMTeacher4.
 
 :secourse/511f491d-ea2b-428f-900e-604ea778dab5 rdf:type :Activity;
@@ -734,7 +699,9 @@
 	  	   :hasDuration :120min ;
 	  	   :hasObjective :objective/f4de69e1-e2ba-41a6-a268-803293e73080 ; 
 	  	   :hasLocation  :classroom/25eafa60-5f87-4e1f-9609-93bcdcfbb0c9 ;
-	  	   :isFollowedBy :setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9 ; 
+	  	   :isFollowedBy :setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
+		   :isFollowedBy :setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
+		   :isComposedOf :lecturing/14868c21-cca2-436b-9ccc-23c411ab22ca ; 
 	  	   :hasSubject :teacher/b4e46cbe-e682-4132-a2d7-ca92e404c216 .
 
 
@@ -743,6 +710,7 @@
 	  	     :hasObjective :objective/f4de69e1-e2ba-41a6-a268-803293e73080 ;
 	  	     :hasLocation :tutorialroom/351e99f6-c93b-4377-b987-511652d2eefe ;
 	  	     :isFollowedBy :sepractical/88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
+		     :isComposedOf :tutoring/bb6311ad-c7a3-412c-84f1-4f5cf76b4a75 ;
  	     	     :hasSubject :teacher/f6f76647-ad40-4a4e-93c0-6840ccec87d3 .
 
 
@@ -771,49 +739,39 @@
 ####################### Action ################################
 
 :lecturing/9246b9e2-d557-4869-885a-c541257280eb rdf:type :Action ;
-	     :hasName "Database lecture" ;
-	     :isPartOf :dbcourse/b63a9944-19f6-4f41-bcbd-9333ede86272 ;
-	     :isAccomplishedBy :teacher/09c4175e-f119-4d66-ac53-920a5c9dc796 .
+	     					:hasName "Database lecture" ;
+	     					:isCarriedOutBy :teacher/09c4175e-f119-4d66-ac53-920a5c9dc796 .
 	     
 :lecturing/5737c363-39a6-405a-87d1-9f15bee9e464 rdf:type :Action ;
-	     :hasName "Python programming lecture" ;
-	     :isPartOf :pycourse/3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b ;
-	     :isAccomplishedBy :teacher/45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8 .
+	     					:hasName "Python programming lecture" ;
+	     					:isCarriedOutBy :teacher/45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8 .
 	     
 :lecturing/5923c0c5-fe15-4cf9-8dc1-e3f5e73ba02a rdf:type :Action ;
-	     :hasName "User Interface designing lecture" ;
-	     :isPartOf :uicourse/eaf2d283-4eb8-4024-a2c5-539984984fdd ;
-	     :isAccomplishedBy :teacher/39c687e2-5671-4ade-90b1-8f1c45096ea9 .
+	     					:hasName "User Interface designing lecture" ;
+	     					:isCarriedOutBy :teacher/39c687e2-5671-4ade-90b1-8f1c45096ea9 .
 	     
 :lecturing/12b5c207-f470-4bf3-bb3d-e6b31c954954 rdf:type :Action ;
-	     :hasName "Project management lecture" ;
-	     :isPartOf :pmcourse/adee0f07-9e90-412b-95d4-b45d7a7476bb ;
-	     :isAccomplishedBy :teacher/270696cb-b304-42d7-91d9-694e5e8c0a7b .
+	     					:hasName "Project management lecture" ;
+	     					:isCarriedOutBy :teacher/270696cb-b304-42d7-91d9-694e5e8c0a7b .
 	     
 :lecturing/14868c21-cca2-436b-9ccc-23c411ab22ca rdf:type :Action ;
-	     :hasName "Software Engineering lecture" ;
-	     :isPartOf :secourse/511f491d-ea2b-428f-900e-604ea778dab5 ;
-	     :isAccomplishedBy :teacher/b4e46cbe-e682-4132-a2d7-ca92e404c216 .
+	     					:hasName "Software Engineering lecture" ;
+	     					:isCarriedOutBy :teacher/b4e46cbe-e682-4132-a2d7-ca92e404c216 .
 	     
 :tutoring/75f9b050-39ca-4751-83d0-1298ec31bbdf rdf:type :Action ;
-	    :hasName "Database tutorial" ;
-	    :isPartOf :dbtutorial/78aca3f8-53fd-4f47-9406-414b493efe19 .
+	    				       :hasName "Database tutorial" .
 	    
 :tutoring/bb6311ad-c7a3-412c-84f1-4f5cf76b4a75 rdf:type :Action ;
-	    :hasName "Software Engineering tutorial" ;
-	    :isPartOf :setutorial/adbef907-11e0-40c1-8dd2-37eb02899ea9  .
+	    				       :hasName "Software Engineering tutorial" .
 	    
 :practical/fa779b89-5ec8-48f1-b5c3-bda3968382ca rdf:type :Action ;
-	     :hasName "Python programming practical" ;
-	     :isPartOf :pypractical/f18f0361-3f12-4b3d-9459-ce2a019b4668 .
+	     					:hasName "Python programming practical" .
 	     
 :practical/4f989887-eb53-431f-b188-c9662a042f51 rdf:type :Action ;
-	     :hasName "Software Engineering practical" ;
-	     :isPartOf :sepractical/88ca540f-fd64-4a3c-92fd-590a12f1f46b  .
+	     					:hasName "Software Engineering practical" .
 	     
 :supervision/b45158d0-f812-4ee9-976b-809df57824f2 rdf:type :Action ;
-	      :hasName "Software Engineering project" ;
-	      :isPartOf :seproject/d3e90a3c-f550-45eb-b00e-59a3c6120318  .
+	      					  :hasName "Software Engineering project"  .
 
 
 ####################### Communities ################################
