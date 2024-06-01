@@ -442,7 +442,7 @@
 	    				      :hasRole :lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0 ;
 	    				      :hasName  "UI course teacher".
 
-:teacher-270696cb-b304-42d7-91d9-694e5e8c0a7brdf:type :Human ;
+:teacher-270696cb-b304-42d7-91d9-694e5e8c0a7b rdf:type :Human ;
 	    					      :hasRole :lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667, :itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 ;
 	    					      :hasName  "PM course teacher".
 
@@ -670,6 +670,7 @@
 	  				       :hasLocation :classroom-b2c326d0-8551-41c4-aee5-11365e117523 ;
 	  				       :isFollowedBy  :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 ;
 			       		       :isComposedOf :lecturing-9246b9e2-d557-4869-885a-c541257280eb ;
+					        :isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
 					       :hasSubject :teacher-09c4175e-f119-4d66-ac53-920a5c9dc796.
 
 :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 rdf:type :Activity ;
@@ -678,6 +679,7 @@
 	  	  				 :hasObjective :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
 	  	  				 :hasLocation :computerroom-4ecbe47c-8f8e-4835-93ac-16d2392e30a2, :classroom-c1a5b39b-992c-49fb-9c7e-a1ffaa92e884 ;
 		  				 :isComposedOf :tutoring-75f9b050-39ca-4751-83d0-1298ec31bbdf ;
+						  :isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
 	  	  				 :hasSubject :DBTeacher2 .
 
 :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b rdf:type :Activity;
@@ -687,6 +689,7 @@
 	      :hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
 	      :isFollowedBy :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 ;
 	      :isComposedOf :lecturing-5737c363-39a6-405a-87d1-9f15bee9e464 ;
+	       :isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
 	      :hasSubject :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8.
 
 :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 rdf:type :Activity;
@@ -696,6 +699,7 @@
 		 :hasObjective :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
 		 :hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
 		 :isComposedOf :practical-fa779b89-5ec8-48f1-b5c3-bda3968382ca ;
+		 :isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
 		 :hasSubject :teacher-9e1c2630-6a90-43b3-bcd8-639079d43f4a .
 
 :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd rdf:type :Activity ;
@@ -704,6 +708,7 @@
 	  	     :hasObjective :objective-9a59e20a-60f0-4798-8895-50f6b79621c5 ;
 	  	     :hasLocation :computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4, :classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 ;
 		     :isComposedOf :lecturing-5923c0c5-fe15-4cf9-8dc1-e3f5e73ba02a ;
+		     :isBeneficialTo :bsc-a00ac66e-e5df-4a66-9691-42d318700616 ;
 		     :hasSubject :teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9.
 
 :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb rdf:type :Activity ;
@@ -712,7 +717,7 @@
 	  		 :hasObjective :objective-0b6e8fa9-d03d-4636-ab9c-b34578b4ea45 ;
 	  		 :hasLocation :classroom-3414ff41-3e7a-44de-a679-baac1ab873c2 ;
 			 :isComposedOf :lecturing-12b5c207-f470-4bf3-bb3d-e6b31c954954 ;
-	  		 :hasSubject :PMTeacher4.
+			 :isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af .
 
 :secourse-511f491d-ea2b-428f-900e-604ea778dab5 rdf:type :Activity;
 	  	   :hasName "SoftwareEng Course" ;
@@ -720,7 +725,7 @@
 	  	   :hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ; 
 	  	   :hasLocation  :classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9 ;
 	  	   :isFollowedBy :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
-		   :isFollowedBy :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
+		   :isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
 		   :isComposedOf :lecturing-14868c21-cca2-436b-9ccc-23c411ab22ca ; 
 	  	   :hasSubject :teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216 .
 
@@ -732,6 +737,7 @@
 	  	     :hasLocation :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
 	  	     :isFollowedBy :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
 		     :isComposedOf :tutoring-bb6311ad-c7a3-412c-84f1-4f5cf76b4a75 ;
+		     :isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
  	     	     :hasSubject :teacher-f6f76647-ad40-4a4e-93c0-6840ccec87d3 .
 
 
@@ -742,7 +748,7 @@
 	  	      :hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
 	  	      :hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
 	  	      :isFollowedBy :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 ;
-		      :isBeneficialTo :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
+		      :isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
 		      :isCarriedOutWith :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b ;
 		      :isComposedOf :practical-4f989887-eb53-431f-b188-c9662a042f51 ;
 	  	      :hasSubject :teacher-019b097e-7eb4-4338-a2f5-f326477d7d20 .
