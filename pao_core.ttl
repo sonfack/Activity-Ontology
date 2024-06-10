@@ -1,4 +1,4 @@
-@prefix    :  <http://sonfack.com/2023/12/pao#> .
+@prefix    :  <http://sonfack.com/2023/12/cao#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -13,7 +13,6 @@
 
 <http://sonfack.com/2024/01/cao#>  rdf:type owl:Ontology ;
 				   dc:title "Core Activity Ontology" ;
-				   rdfs:label "Core Activity Ontology"@en ;
 				   dct:created "2023-12-15"^^xsd:date ;
   				   dct:creator <https://orcid.org/0000-0002-6085-6818> ;
   				   dct:creator <mailto:sss.sonfack@gmail.com> ;
@@ -24,7 +23,7 @@
 #    Classes
 #################################################################
 []  rdf:type owl:AllDisjointClasses ;
-    owl:members  ( :Activity :Action :Operation :Location :Resource :Subject :Governance) .
+    owl:members  ( :Activity :Location :Resource :Subject :Governance) .
 
 
 :hasName rdf:type owl:DatatypeProperty ;
