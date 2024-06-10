@@ -1,4 +1,4 @@
-@prefix    :  <http://sonfack.com/2023/12/pao#> .
+@prefix    :  <http://sonfack.com/2023/12/tao#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -12,8 +12,7 @@
 
 
 <http://sonfack.com/2024/01/cao#>  rdf:type owl:Ontology ;
-				   dc:title "Activity Ontology" ;
-				   rdfs:label "Activity Ontology"@en ;
+				   dc:title "Teaching Activity Ontology" ;
 				   dct:created "2023-12-15"^^xsd:date ;
   				   dct:creator <https://orcid.org/0000-0002-6085-6818> ;
   				   dct:creator <mailto:sss.sonfack@gmail.com> ;
@@ -25,7 +24,7 @@
 #    Classes
 #################################################################
 []  rdf:type owl:AllDisjointClasses ;
-    owl:members  (  :Activity :Action :Operation :Location :Resource :Subject :Governance) . 
+    owl:members  (:Activity :Location :Resource :Subject :Governance) . 
 
 
 :hasName rdf:type owl:DatatypeProperty ;
@@ -304,6 +303,63 @@
 	  rdfs:label "Tool" ;
           rdfs:comment "The tool used to carry out an activity"@en .
 
+
+:SoftResource rdf:type owl:Class ;
+	   rdfs:label  "Soft Resource" ;
+           rdfs:subClassOf :Resource .
+
+:DigitalResource rdf:type owl:Class ;
+	   rdfs:label  "Digital Resource" ;
+           rdfs:subClassOf :SoftResource .
+
+:Software rdf:type owl:Class ;
+	   rdfs:label  "Software" ;
+           rdfs:subClassOf :DigitalResource .
+
+:SoftDocument rdf:type owl:Class ;
+	   rdfs:label  "Soft Document" ;
+           rdfs:subClassOf :DigitalResource .
+
+:Video rdf:type owl:Class ;
+	   rdfs:label  "Video" ;
+           rdfs:subClassOf :DigitalResource .
+
+:Communication rdf:type owl:Class ;
+	   rdfs:label  "Communication" ;
+           rdfs:subClassOf :SoftResource .
+
+:HardResource rdf:type owl:Class ;
+	   rdfs:label  "Hard Resource" ;
+           rdfs:subClassOf :Resource .
+
+:TeachingMaterial rdf:type owl:Class ;
+	   rdfs:label  "Teaching Material" ;
+           rdfs:subClassOf :HardResource .
+
+:Electronic rdf:type owl:Class ;
+	   rdfs:label  "Electronic" ;
+           rdfs:subClassOf :HardResource .
+
+:Computer rdf:type owl:Class ;
+	   rdfs:label  "Computer" ;
+           rdfs:subClassOf :Electronic .
+
+:Projector rdf:type owl:Class ;
+	   rdfs:label  "Projector" ;
+           rdfs:subClassOf :Electronic .
+
+:Desktop rdf:type owl:Class ;
+	   rdfs:label  "Computer" ;
+           rdfs:subClassOf :Computer .
+
+:Laptop rdf:type owl:Class ;
+	   rdfs:label  "Laptop" ;
+           rdfs:subClassOf :Computer .
+
+:HardDocument rdf:type owl:Class ;
+	   rdfs:label  "Hard Document" ;
+           rdfs:subClassOf :HardResource .
+	   
 ############## Tool data property ##############
 ################################################
 
@@ -342,6 +398,13 @@
 :Role rdf:type owl:Class ;
            rdfs:subClassOf :Governance ;
            rdfs:comment "The role of a suject in an organization "@en .
+:Goal rdf:type owl:Class ;
+           rdfs:subClassOf :Governance ;
+           rdfs:comment "The goal of an activity"@en .
+
+:Motive rdf:type owl:Class ;
+           rdfs:subClassOf :Governance ;
+           rdfs:comment "An activity is motivated"@en .
 
 :Operator rdf:type owl:Class ;
            rdfs:subClassOf :Role ;
@@ -606,27 +669,27 @@
 	 				      :hasName "IBM desktop computer";
 	 				      :isUsedFor :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9, :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 
-:book-5afdf1f7-b15f-450b-be5f-e6e5d0505cb5 rdf:type :Document ;
+:book-5afdf1f7-b15f-450b-be5f-e6e5d0505cb5 rdf:type :HardDocument ;
 					   :hasName "Master project management";
 					   :isUsedFor :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb .
 
-:book-b2806065-7423-429f-bddd-b2208121325f rdf:type :Document ;
+:book-b2806065-7423-429f-bddd-b2208121325f rdf:type :HardDocument ;
 	    				   :hasName "Python programming for intermediate";
 	    				   :isUsedFor :PythonCourse, :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668  .
 
-:book-0626b11e-a0d8-4eab-9485-4d42a51e8581 rdf:type  :Document ;
+:book-0626b11e-a0d8-4eab-9485-4d42a51e8581 rdf:type  :HardDocument ;
 	  				   :hasName "Web interface with HTML";
 	  				   :isUsedFor  :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
-:book-236fb61b-0908-4892-9ded-974bdbf1c653 rdf:type :Document ;
+:book-236fb61b-0908-4892-9ded-974bdbf1c653 rdf:type :HardDocument ;
 		      			   :hasName "Computer architecture";
 		      			   :isUsedFor :PythonCourse, :secourse-511f491d-ea2b-428f-900e-604ea778dab5 .
 
-:book-acca8da0-a675-4e21-bbae-ff60772105d0 rdf:type :Document ;
+:book-acca8da0-a675-4e21-bbae-ff60772105d0 rdf:type :HardDocument ;
 		  			   :hasName "Assembly language";
 		  			   :isUsedFor  :PythonCourse .
 
-:book-9d0de03c-dcc8-4a6c-8dd3-3b921cba2d1b rdf:type :Document ;
+:book-9d0de03c-dcc8-4a6c-8dd3-3b921cba2d1b rdf:type :HardDocument ;
 		  			   :hasName "Computer hardware";
 		  			   :isUsedFor :PythonCourse .
 
@@ -642,7 +705,7 @@
 	     				      :hasName "Learn Python - Full Course for Beginners";
 	     				      :isUsedFor :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 
-:digital-b611ffdb-144f-4858-8519-9d6feec9f928 rdf:type :File ;
+:digital-b611ffdb-144f-4858-8519-9d6feec9f928 rdf:type :SoftDocument ;
 	 				      :hasName "HTML Presentation";
 	 				      :isUsedFor :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
@@ -650,11 +713,11 @@
 	   				      :hasName "HTML in 100 Seconds";
 	   				      :isUsedFor :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
-:digital-9840998a-2a10-46c4-a1d8-b7262bb88c76 rdf:type :File ;
+:digital-9840998a-2a10-46c4-a1d8-b7262bb88c76 rdf:type :SoftDocument ;
 	  				      :hasName "Begining database with MySQL";
 	  				      :isUsedFor :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272, :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 .
 
-:digital-f76fbf2e-b9a1-46ec-b446-b76389636810 rdf:type :File ;
+:digital-f76fbf2e-b9a1-46ec-b446-b76389636810 rdf:type :SoftDocument ;
 	   				      :hasName "Microsoft excel course";
 	   				      :isUsedFor  :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
