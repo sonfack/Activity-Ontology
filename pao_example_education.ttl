@@ -11,7 +11,7 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 
 
-<http://sonfack.com/2024/01/cao#>  rdf:type owl:Ontology ;
+<http://sonfack.com/2024/01/tao#>  rdf:type owl:Ontology ;
 				   dc:title "Teaching Activity Ontology" ;
 				   dct:created "2023-12-15"^^xsd:date ;
   				   dct:creator <https://orcid.org/0000-0002-6085-6818> ;
@@ -28,7 +28,7 @@
 
 
 :hasName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Activity, :Location, :Governance, :Subject, :Resource;
+              rdfs:domain owl:Thing;
               rdfs:range xsd:string ;
               rdfs:comment "Activity, Location, Governance, Subject and Resource  has a name"@en .
 	      
@@ -86,7 +86,7 @@
       rdfs:range :Resource;
       rdfs:comment "A subject uses a resource for an activity"@en .
 
-:isUsedFor rdf:type owl:ObjectProperty ;
+:isUsedFor owl:inverseOf :isCarriedOutWith ;
 	   rdfs:domain :Resource ;
 	   rdfs:range :Activity ;
 	   rdfs:comment "A resource is used for an activity"@en .
@@ -268,9 +268,9 @@
        	  rdfs:comment "Community subject of an activity"@en .
 
 
-:Administrators rdf:type owl:Class ;
+:AdministrativeStaff rdf:type owl:Class ;
 	  rdfs:subClassOf :Community ;
-	  rdfs:label "Administrators" ;
+	  rdfs:label "Administrative staff" ;
        	  rdfs:comment "Administrator subject community"@en .
 
 :Students rdf:type owl:Class ;
@@ -278,9 +278,9 @@
 	  rdfs:label "Students" ;
        	  rdfs:comment "Students subject community"@en .
 	  
-:Teachers rdf:type owl:Class ;
+:TeachingStaff rdf:type owl:Class ;
 	  rdfs:subClassOf :Community ;
-	  rdfs:label "Teachers" ;
+	  rdfs:label "Teaching staff" ;
        	  rdfs:comment "Teachers subject community"@en .
 
 ############## Subject data property ##############
@@ -294,6 +294,11 @@
 :isSubjectOf  rdf:type owl:ObjectProperty ;
 	      rdfs:domain :Subject ;
 	      rdfs:range :Activity .
+
+:hasRole rdf:type owl:ObjectProperty ;
+      rdfs:domain :Subject ;
+      rdfs:range :Role;
+      rdfs:comment "A subject has role a role"@en .
 
 
 ############## Tool class ##############
@@ -410,6 +415,14 @@
            rdfs:subClassOf :Role ;
            rdfs:comment "Operator role "@en .
 
+:Teacher rdf:type owl:Class ;
+           rdfs:subClassOf :Tutor ;
+           rdfs:comment "Teaching role "@en .
+	   
+:Tutor rdf:type owl:Class ;
+           rdfs:subClassOf :Operator ;
+           rdfs:comment "Tuto role "@en .
+
 :Management rdf:type owl:Class ;
            rdfs:subClassOf :Role ;
            rdfs:comment "Management role "@en .
@@ -439,6 +452,11 @@
 
 ###############################################################
 
+:carriesOut rdf:type owl:ObjectProperty ;
+      rdfs:domain :Role ;
+      rdfs:range :Activity;
+      rdfs:comment "A role carries out an activity"@en .
+
 
 #################################################################
 #    Instances
@@ -451,95 +469,121 @@
 :director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398 rdf:type :TopManagement .
 
 
-##################### Operator ################################
-:lecturer-c83b7873-f908-484d-a044-2802814f87d1 rdf:type :Operator;
-	    :carriesOut :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
+##################### Teacher ################################
 
-:lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645 rdf:type :Operator ;
-	    :carriesOut :PythonCourse .
+:lecturer-c83b7873-f908-484d-a044-2802814f87d1
+	rdf:type :Teacher;
+	:carriesOut :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
-:lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2 rdf:type :Operator ;
-	    :carriesOut :secourse-511f491d-ea2b-428f-900e-604ea778dab5 .
+:lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645
+	rdf:type :Teacher ;
+	:carriesOut :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b .
 
-:lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0 rdf:type :Operator ;
-	    :carriesOut :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd .
+:lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2
+	rdf:type :Teacher ;
+	:carriesOut :secourse-511f491d-ea2b-428f-900e-604ea778dab5 .
 
-:lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667 rdf:type :Operator ;
-	    :carriesOut :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb .
+:lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0
+	rdf:type :Teacher ;
+	:carriesOut :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
-:supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e rdf:type :Operator ; 
-	      	     :carriesOut :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 .
+:lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667
+	rdf:type :Teacher ;
+	:carriesOut :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb .
 
-:supervisor-1339002e-3ef1-4e12-8eec-8feff0a82a67 rdf:type :Operator ;
-	     :carriesOut :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 .
+:supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e
+	rdf:type :Teacher ; 
+	:carriesOut :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 .
 
-:practical-4f989887-eb53-431f-b188-c9662a042f51Supervisor rdf:type :Operator ;
-		        :carriesOut :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b .
+:supervisor-1339002e-3ef1-4e12-8eec-8feff0a82a67
+	rdf:type :Teacher ;
+	:carriesOut :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 .
+
+:practical-4f989887-eb53-431f-b188-c9662a042f51Supervisor
+	rdf:type :Teacher ;
+	:carriesOut :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b .
+
+:tutor-e4449e8b-a090-4652-9b91-231d9e7a070a
+	rdf:type :Tutor ;
+	:carriesOut :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 .
+
+:tutor-c502603b-7818-4b1f-9c62-83986bfb17bf
+	rdf:type :Teacher ;
+	:carriesOut :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 .
 
 
-:tutor-e4449e8b-a090-4652-9b91-231d9e7a070a rdf:type :Operator ;
-	 :carriesOut :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 .
 
-:tutor-c502603b-7818-4b1f-9c62-83986bfb17bf rdf:type :Operator ;
-	  :carriesOut :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 .
 	  
 ####################### Agent #################################
 
-:teacher-09c4175e-f119-4d66-ac53-920a5c9dc796 rdf:type :Human ;
-	    				      :hasRole :lecturer-c83b7873-f908-484d-a044-2802814f87d1, :director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398 ;
-	    				      :hasName  "DB course teacher".
+:teacher-09c4175e-f119-4d66-ac53-920a5c9dc796
+	rdf:type :Human ;
+	:hasRole :lecturer-c83b7873-f908-484d-a044-2802814f87d1, :director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398 ;
+	:hasName  "DB course teacher".
 
-:teacher-04ccbc2a-0abe-4d78-90a4-514e8adfda7a rdf:type :Human ;
-	    				      :hasRole :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf ;
-	    				      :hasName  "DB tutorial teacher".
+:teacher-04ccbc2a-0abe-4d78-90a4-514e8adfda7a
+	rdf:type :Human ;
+	:hasRole :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf ;
+	:hasName  "DB tutorial teacher".
 
-:teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8 rdf:type :Human ;
-	    				      :hasRole :lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645 ;
-	    				      :hasName  "Python course teacher".
+:teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8
+	rdf:type :Human ;
+	:hasRole :lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645 ;
+	:hasName  "Python course teacher".
 
-:teacher-9e1c2630-6a90-43b3-bcd8-639079d43f4a rdf:type :Human ;
-	    				      :hasRole :supervisor-1339002e-3ef1-4e12-8eec-8feff0a82a67 ;
-	    :hasName  "Python practical teacher".
+:teacher-9e1c2630-6a90-43b3-bcd8-639079d43f4a
+	rdf:type :Human ;
+	:hasRole :supervisor-1339002e-3ef1-4e12-8eec-8feff0a82a67 ;
+	:hasName  "Python practical teacher".
 
-:teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9 rdf:type :Human ;
-	    				      :hasRole :lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0 ;
-	    				      :hasName  "UI course teacher".
+:teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9
+	rdf:type :Human ;
+	:hasRole :lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0 ;
+	:hasName  "UI course teacher".
 
-:teacher-270696cb-b304-42d7-91d9-694e5e8c0a7b rdf:type :Human ;
-	    					      :hasRole :lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667, :itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 ;
-	    					      :hasName  "PM course teacher".
+:teacher-270696cb-b304-42d7-91d9-694e5e8c0a7b
+	rdf:type :Human ;
+	:hasRole :lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667, :itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 ;
+	:hasName  "PM course teacher".
 
-:teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216 rdf:type :Human ;
-	    				      :hasRole :lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2 ;
-	   				      :hasName  "SE course teacher".
+:teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216
+	rdf:type :Human ;
+	:hasRole :lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2 ;
+	:hasName  "SE course teacher".
 
-:teacher-f6f76647-ad40-4a4e-93c0-6840ccec87d3 a :Human ;
-	    				      :hasRole :tutor-e4449e8b-a090-4652-9b91-231d9e7a070a ;
-	   				      :hasName  "SE tutorial teacher".
+:teacher-f6f76647-ad40-4a4e-93c0-6840ccec87d3
+	rdf:type :Human ;
+	:hasRole :tutor-e4449e8b-a090-4652-9b91-231d9e7a070a ;
+	:hasName  "SE tutorial teacher".
 
-:teacher-019b097e-7eb4-4338-a2f5-f326477d7d20 a :Human ;
-	    				      :hasRole :practical-4f989887-eb53-431f-b188-c9662a042f51Supervisor ;
-	   				      :hasName  "SE practical teacher".
+:teacher-019b097e-7eb4-4338-a2f5-f326477d7d20
+	rdf:type :Human ;
+	:hasRole :practical-4f989887-eb53-431f-b188-c9662a042f51Supervisor ;
+	:hasName  "SE practical teacher".
 
-:teacher-a90e1d36-c79f-47f1-a2b5-c805266e2bcc a :Human ;
-	    				      :hasRole :supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e ;
-	   				      :hasName  "SE project teacher".
+:teacher-a90e1d36-c79f-47f1-a2b5-c805266e2bcc
+	rdf:type :Human ;
+	:hasRole :supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e ;
+	:hasName  "SE project teacher".
 
 
 ############################### Rule ##########################3
 
-:rule-cdc19603-45e5-4c06-8d5a-47624147f67e rdf:type :Rule ;
-	    :ruleDescription "Always check the energy availability in computer rooms before the beginning of practicals" .
+:rule-cdc19603-45e5-4c06-8d5a-47624147f67e
+	rdf:type :Rule ;
+	:ruleDescription "Always check the energy availability in computer rooms before the beginning of practicals" .
 
 
 ####################### Time ###################################
 
-:8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a rdf:type time:TemporalEntity ;
-					  time:hasBeginning :8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85 ;
-					  time:hasEnd :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec .
+:8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a
+	rdf:type time:TemporalEntity ;
+	time:hasBeginning :8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85 ;
+	time:hasEnd :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec .
 					  
-:8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85 rdf:type time:Instance ;
-					  time:inXSDDateTime "2002-05-06-08:00"^^xsd:dateTime .
+:8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85
+	rdf:type time:Instance ;
+	time:inXSDDateTime "2002-05-06-08:00"^^xsd:dateTime .
 
 :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec rdf:type time:Instance  ;
 					  time:inXSDDateTime "2002-05-06-10:00"^^xsd:dateTime .
@@ -614,34 +658,45 @@
 
 ####################### Location ###################################
 
-:classroom-b2c326d0-8551-41c4-aee5-11365e117523 rdf:type :ClassRoom ;
-						:hasName "CR001" .
-:classroom-c1a5b39b-992c-49fb-9c7e-a1ffaa92e884 rdf:type :ClassRoom ;
-						:hasName "CR002" .
+:classroom-b2c326d0-8551-41c4-aee5-11365e117523
+	rdf:type :ClassRoom ;
+	:hasName "CR001" .
+	
+:classroom-c1a5b39b-992c-49fb-9c7e-a1ffaa92e884
+	rdf:type :ClassRoom ;
+	:hasName "CR002" .
 
-:classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 rdf:type :ClassRoom ;
-						:hasName "CR003" .
+:classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7
+	rdf:type :ClassRoom ;
+	:hasName "CR003" .
 
-:classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9 rdf:type :ClassRoom ;
-						:hasName "CR004" .
+:classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9
+	rdf:type :ClassRoom ;
+	:hasName "CR004" .
 
-:classroom-3414ff41-3e7a-44de-a679-baac1ab873c2 rdf:type :ClassRoom ;
-						:hasName "CR005" .
+:classroom-3414ff41-3e7a-44de-a679-baac1ab873c2
+	rdf:type :ClassRoom ;
+	:hasName "CR005" .
 
-:computerroom-4ecbe47c-8f8e-4835-93ac-16d2392e30a2 rdf:type :PracticalRoom ;
-						   :hasName "PR001" .
+:computerroom-4ecbe47c-8f8e-4835-93ac-16d2392e30a2
+	rdf:type :PracticalRoom ;
+	:hasName "PR001" .
 
-:computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 rdf:type :PracticalRoom ;
-						   :hasName "PR002" .
+:computerroom-5a2454c8-c664-401c-86b7-425e75dddc39
+	rdf:type :PracticalRoom ;
+	:hasName "PR002" .
 
-:computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4 rdf:type :PracticalRoom ;
-						   :hasName "PR003" .
+:computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4
+	rdf:type :PracticalRoom ;
+	:hasName "PR003" .
 
-:tutorialroom-57179062-99d4-4da0-88b4-e800809fac73 rdf:type :TutorialRoom ;
-						   :hasName "TR001" .
+:tutorialroom-57179062-99d4-4da0-88b4-e800809fac73
+	rdf:type :TutorialRoom ;
+	:hasName "TR001" .
 
-:tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe rdf:type :TutorialRoom ;
-						   :hasName "TR002" .
+:tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe
+	rdf:type :TutorialRoom ;
+	:hasName "TR002" .
 
 
 
@@ -655,7 +710,7 @@
 
 :laptop-a0268cf3-8b2b-4f83-a467-eefe3a392639 rdf:type :Laptop ;
 	  				     :hasName "Dell laptop";
-	  				     :isUsedFor :PythonCourse .
+	  				     :isUsedFor :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b .
 
 :laptop-bf775e20-71f6-4587-a518-2c0e73fa7470 rdf:type :Laptop ;
 	  				     :hasName "HP laptop";
@@ -675,7 +730,7 @@
 
 :book-b2806065-7423-429f-bddd-b2208121325f rdf:type :HardDocument ;
 	    				   :hasName "Python programming for intermediate";
-	    				   :isUsedFor :PythonCourse, :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668  .
+	    				   :isUsedFor :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b, :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668  .
 
 :book-0626b11e-a0d8-4eab-9485-4d42a51e8581 rdf:type  :HardDocument ;
 	  				   :hasName "Web interface with HTML";
@@ -683,15 +738,15 @@
 
 :book-236fb61b-0908-4892-9ded-974bdbf1c653 rdf:type :HardDocument ;
 		      			   :hasName "Computer architecture";
-		      			   :isUsedFor :PythonCourse, :secourse-511f491d-ea2b-428f-900e-604ea778dab5 .
+		      			   :isUsedFor :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b, :secourse-511f491d-ea2b-428f-900e-604ea778dab5 .
 
 :book-acca8da0-a675-4e21-bbae-ff60772105d0 rdf:type :HardDocument ;
 		  			   :hasName "Assembly language";
-		  			   :isUsedFor  :PythonCourse .
+		  			   :isUsedFor  :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b .
 
 :book-9d0de03c-dcc8-4a6c-8dd3-3b921cba2d1b rdf:type :HardDocument ;
 		  			   :hasName "Computer hardware";
-		  			   :isUsedFor :PythonCourse .
+		  			   :isUsedFor :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b .
 
 :software-7b5f05b1-0701-43bb-ad0f-a98a27dc9312 rdf:type :DigitalResource ;
 	       				       :hasName "MySQL 8.0";
@@ -722,109 +777,119 @@
 	   				      :isUsedFor  :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
 
-
+:projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b
+	rdf:type :Projector ;
+	:hasName "Panasonic LCD Projector" .
 
 ####################### Activity ###################################
 
-:dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 rdf:type :Activity ;
-	  				       :hasName "DataBase Course" ;
-	  				       time:hasDuration :120min-a9060078-c2de-48c9-b394-0a7809595597 ;
-	  				       :hasObject :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
-	  				       :hasLocation :classroom-b2c326d0-8551-41c4-aee5-11365e117523 ;
-	  				       :isFollowedBy  :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 ;
-			       		       :isComposedOf :lecturing-9246b9e2-d557-4869-885a-c541257280eb ;
-					        :isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
-					       :hasSubject :teacher-09c4175e-f119-4d66-ac53-920a5c9dc796.
+:dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272
+	rdf:type :Activity ;
+	:hasName "DataBase Course" ;
+	time:hasDuration :120min-a9060078-c2de-48c9-b394-0a7809595597 ;
+	:hasObject :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
+	:hasLocation :classroom-b2c326d0-8551-41c4-aee5-11365e117523 ;
+	:isFollowedBy  :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 ;
+	:isComposedOf :lecturing-9246b9e2-d557-4869-885a-c541257280eb ;
+	:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
+	:hasSubject :teacher-09c4175e-f119-4d66-ac53-920a5c9dc796.
 
-:dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 rdf:type :Activity ;
-	  	  				 :hasName "DataBase Tutorial" ;
-	  	  				 time:hasDuration :120min-a9060078-c2de-48c9-b394-0a7809595597 ;
-	  	  				 :hasObjective :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
-	  	  				 :hasLocation :computerroom-4ecbe47c-8f8e-4835-93ac-16d2392e30a2, :classroom-c1a5b39b-992c-49fb-9c7e-a1ffaa92e884 ;
-		  				 :isComposedOf :tutoring-75f9b050-39ca-4751-83d0-1298ec31bbdf ;
-						  :isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
-	  	  				 :hasSubject :DBTeacher2 .
+:dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19
+	rdf:type :Activity ;
+	:hasName "DataBase Tutorial" ;
+	time:hasDuration :120min-a9060078-c2de-48c9-b394-0a7809595597 ;
+	:hasObjective :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
+	:hasLocation :computerroom-4ecbe47c-8f8e-4835-93ac-16d2392e30a2, :classroom-c1a5b39b-992c-49fb-9c7e-a1ffaa92e884 ;
+	:isComposedOf :tutoring-75f9b050-39ca-4751-83d0-1298ec31bbdf ;
+	:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
+	:hasSubject :teacher-04ccbc2a-0abe-4d78-90a4-514e8adfda7a .
 
-:pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b rdf:type :Activity;
-	      				       :hasName "Python Course" ;
-	      				       time:hasTime :8AM-10AM-0ea7a574-e6be-4dc7-abe1-85a6b8ce2e3d ;
-	      				       :hasObjective :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
-	      :hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
-	      :isFollowedBy :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 ;
-	      :isComposedOf :lecturing-5737c363-39a6-405a-87d1-9f15bee9e464 ;
-	       :isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
-	      :hasSubject :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8.
+:pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b
+	rdf:type :Activity;
+	:hasName "Python Course" ;
+	time:hasTime :8AM-10AM-0ea7a574-e6be-4dc7-abe1-85a6b8ce2e3d ;
+	:hasObjective :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
+	:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
+	:isFollowedBy :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 ;
+	:isComposedOf :lecturing-5737c363-39a6-405a-87d1-9f15bee9e464 ;
+	:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
+	:hasSubject :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8.
 
-:pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 rdf:type :Activity;
-		 :hasName "Python Practical" ;
-		 :hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
-		 time:hasTime :8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a ;
-		 :hasObjective :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
-		 :hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
-		 :isComposedOf :practical-fa779b89-5ec8-48f1-b5c3-bda3968382ca ;
-		 :isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
-		 :hasSubject :teacher-9e1c2630-6a90-43b3-bcd8-639079d43f4a .
+:pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668
+	rdf:type :Activity;
+	:hasName "Python Practical" ;
+	:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
+	time:hasTime :8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a ;
+	:hasObjective :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
+	:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
+	:isComposedOf :practical-fa779b89-5ec8-48f1-b5c3-bda3968382ca ;
+	:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
+	:hasSubject :teacher-9e1c2630-6a90-43b3-bcd8-639079d43f4a .
 
-:uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd rdf:type :Activity ;
-	  	     :hasName "UserInterface Course" ;
-	  	     time:hasTime :10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7 ;
-	  	     :hasObjective :objective-9a59e20a-60f0-4798-8895-50f6b79621c5 ;
-	  	     :hasLocation :computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4, :classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 ;
-		     :isComposedOf :lecturing-5923c0c5-fe15-4cf9-8dc1-e3f5e73ba02a ;
-		     :isBeneficialTo :bsc-a00ac66e-e5df-4a66-9691-42d318700616 ;
-		     :hasSubject :teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9.
+:uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd
+	rdf:type :Activity ;
+	:hasName "UserInterface Course" ;
+	time:hasTime :10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7 ;
+	:hasObjective :objective-9a59e20a-60f0-4798-8895-50f6b79621c5 ;
+	:hasLocation :computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4, :classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 ;
+	:isComposedOf :lecturing-5923c0c5-fe15-4cf9-8dc1-e3f5e73ba02a ;
+	:isBeneficialTo :bsc-a00ac66e-e5df-4a66-9691-42d318700616 ;
+	:hasSubject :teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9.
 
-:pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb rdf:type :Activity ;
-	  		 :hasName "ProjectManagement Course" ;
-	  		 time:hasTime :8AM-10AM-b139b467-7fbf-4298-9338-fa372b608e5e ;
-	  		 :hasObjective :objective-0b6e8fa9-d03d-4636-ab9c-b34578b4ea45 ;
-	  		 :hasLocation :classroom-3414ff41-3e7a-44de-a679-baac1ab873c2 ;
-			 :isComposedOf :lecturing-12b5c207-f470-4bf3-bb3d-e6b31c954954 ;
-			 :isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af .
+:pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb
+	rdf:type :Activity ;
+	:hasName "ProjectManagement Course" ;
+	time:hasTime :8AM-10AM-b139b467-7fbf-4298-9338-fa372b608e5e ;
+	:hasObjective :objective-0b6e8fa9-d03d-4636-ab9c-b34578b4ea45 ;
+	:hasLocation :classroom-3414ff41-3e7a-44de-a679-baac1ab873c2 ;
+	:isComposedOf :lecturing-12b5c207-f470-4bf3-bb3d-e6b31c954954 ;
+	:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af .
 
-:secourse-511f491d-ea2b-428f-900e-604ea778dab5 rdf:type :Activity;
-	  	   :hasName "SoftwareEng Course" ;
-	  	   time:hasDuration :120min-a9060078-c2de-48c9-b394-0a7809595597 ;
-	  	   :hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ; 
-	  	   :hasLocation  :classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9 ;
-	  	   :isFollowedBy :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
-		   :isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
-		   :isComposedOf :lecturing-14868c21-cca2-436b-9ccc-23c411ab22ca ; 
-	  	   :hasSubject :teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216 .
+:secourse-511f491d-ea2b-428f-900e-604ea778dab5
+	rdf:type :Activity;
+	:hasName "SoftwareEng Course" ;
+	time:hasDuration :120min-a9060078-c2de-48c9-b394-0a7809595597 ;
+	:hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ; 
+	:hasLocation  :classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9 ;
+	:isFollowedBy :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
+	:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
+	:isComposedOf :lecturing-14868c21-cca2-436b-9ccc-23c411ab22ca ; 
+	:hasSubject :teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216 .
 
+:setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9
+	rdf:type :Activity;
+	:hasName "SoftwareEng Tutorial" ;
+	time:hasDuration :120min-a9060078-c2de-48c9-b394-0a7809595597 ;
+	:hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
+	:hasLocation :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
+	:isFollowedBy :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
+	:isComposedOf :tutoring-bb6311ad-c7a3-412c-84f1-4f5cf76b4a75 ;
+	:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
+ 	:hasSubject :teacher-f6f76647-ad40-4a4e-93c0-6840ccec87d3 .
+	
+:sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b
+	rdf:type :Activity;
+	:hasName "SoftwareEng Practical" ;
+	:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
+	time:hasTime :10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 ;
+	:hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
+	:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
+	:isFollowedBy :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 ;
+	:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
+	:isCarriedOutWith :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b ;
+	:isComposedOf :practical-4f989887-eb53-431f-b188-c9662a042f51 ;
+	:hasSubject :teacher-019b097e-7eb4-4338-a2f5-f326477d7d20 .
 
-:setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 rdf:type :Activity;
-	  	     :hasName "SoftwareEng Tutorial" ;
-		     time:hasDuration :120min-a9060078-c2de-48c9-b394-0a7809595597 ;
-	  	     :hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
-	  	     :hasLocation :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
-	  	     :isFollowedBy :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
-		     :isComposedOf :tutoring-bb6311ad-c7a3-412c-84f1-4f5cf76b4a75 ;
-		     :isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
- 	     	     :hasSubject :teacher-f6f76647-ad40-4a4e-93c0-6840ccec87d3 .
-
-
-:sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b rdf:type :Activity;
-	  	      :hasName "SoftwareEng Practical" ;
-	  	      :hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
-		      time:hasTime :10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 ;
-	  	      :hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
-	  	      :hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
-	  	      :isFollowedBy :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 ;
-		      :isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
-		      :isCarriedOutWith :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b ;
-		      :isComposedOf :practical-4f989887-eb53-431f-b188-c9662a042f51 ;
-	  	      :hasSubject :teacher-019b097e-7eb4-4338-a2f5-f326477d7d20 .
-
-:seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 rdf:type :Activity;
-	  	    :hasName "SoftwareEng Project" ;
-		    time:hasDuration :180min-f19e10b8-5476-4d0a-8429-12d3042d407b ;
-	  	    :hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
-	  	    :hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
-		    :isBeneficialTo :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
-		    :isCarriedOutWith :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b ;
-		    :isComposedOf :supervision-b45158d0-f812-4ee9-976b-809df57824f2 ;
-	  	    :hasSubject :teacher-a90e1d36-c79f-47f1-a2b5-c805266e2bcc .
+:seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318
+	rdf:type :Activity;
+	:hasName "SoftwareEng Project" ;
+	time:hasDuration :180min-f19e10b8-5476-4d0a-8429-12d3042d407b ;
+	:hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
+	:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
+	:isBeneficialTo :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
+	:isCarriedOutWith :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b ;
+	:isComposedOf :supervision-b45158d0-f812-4ee9-976b-809df57824f2 ;
+	:hasSubject :teacher-a90e1d36-c79f-47f1-a2b5-c805266e2bcc .
 
 
 
@@ -856,26 +921,33 @@
 :tutoring-bb6311ad-c7a3-412c-84f1-4f5cf76b4a75 rdf:type :Action ;
 	    				       :hasName "Software Engineering tutorial" .
 	    
-:practical-fa779b89-5ec8-48f1-b5c3-bda3968382ca rdf:type :Action ;
-	     					:hasName "Python programming practical" .
+:practical-fa779b89-5ec8-48f1-b5c3-bda3968382ca
+	rdf:type :Action ;
+	:hasName "Python programming practical" .
 	     
-:practical-4f989887-eb53-431f-b188-c9662a042f51 rdf:type :Action ;
-	     					:hasName "Software Engineering practical" .
+:practical-4f989887-eb53-431f-b188-c9662a042f51
+	rdf:type :Action ;
+	:hasName "Software Engineering practical" .
 	     
-:supervision-b45158d0-f812-4ee9-976b-809df57824f2 rdf:type :Action ;
-	      					  :hasName "Software Engineering project"  .
+:supervision-b45158d0-f812-4ee9-976b-809df57824f2
+	rdf:type :Action ;
+	:hasName "Software Engineering project"  .
 
 
 ####################### Communities ################################
 
-:bsc-a00ac66e-e5df-4a66-9691-42d318700616 rdf:type :Students ;
-					  :hasName "Bsc year 1";
-					  rdfs:comment "Bsc 1 students" .
+:bsc-a00ac66e-e5df-4a66-9691-42d318700616
+	rdf:type :Students ;
+	:hasName "Bsc year 1";
+	rdfs:comment "Bsc 1 students" .
 
-:bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd  rdf:type :Students ;
-					   :hasName "Bsc year 2";
-       					   rdfs:comment "Bsc 2 students" .
+:bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd
+	rdf:type :Students ;
+	:hasName "Bsc year 2";
+       	rdfs:comment "Bsc 2 students" .
 
-:bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af  rdf:type :Students ;
- 					   :hasName "Bsc year 3";
-       					   rdfs:comment "Bsc 3 students" .
+:bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af
+	rdf:type :Students ;
+ 	:hasName "Bsc year 3";
+       	rdfs:comment "Bsc 3 students" .
+
