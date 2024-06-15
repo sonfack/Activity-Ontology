@@ -70,7 +70,7 @@
 :hasObjective rdf:type owl:ObjectProperty ;
           rdfs:domain :Activity ;
           rdfs:range :Object ;
-          rdfs:comment "The outcome of an activity"@en .
+          rdfs:comment "The outcome to be achieved of an activity"@en .
 
 :hasTemporality  rdf:type owl:ObjectProperty ;
 		 rdfs:domain :Activity ;
@@ -102,7 +102,6 @@
              rdfs:comment "Links a domain to a geographical position"@en .
 
 :isComposedOf rdf:type owl:ObjectProperty, owl:IrreflexiveProperty;
-	     owl:inverseOf  :isPartOf ;
 	     rdfs:domain :Activity ;
 	     rdfs:range :Action, :Operation ;
 	     rdfs:comment "An activity is composed of actions or operations" .
@@ -163,7 +162,7 @@
 
 :isPartOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
 	  rdfs:domain :Action ;
-	  rdfs:range  :Operation ;
+	  rdfs:range  :Operation, :Activity ;
 	  rdfs:comment "An action is part of an Operation"@en .
 
 
@@ -224,7 +223,7 @@
             rdfs:comment "The address of a location"@en .
 
 
-:isFoundIn  rdf:type owl:ObjectProperty ;
+:isFoundIn  rdf:type owl:ObjectProperty,  owl:TransitiveProperty  ;
 	      rdfs:domain :Location ;
 	      rdfs:range :Location;
 	      rdfs:comment "A location is found in another location" .
@@ -294,6 +293,11 @@
 :isSubjectOf  rdf:type owl:ObjectProperty ;
 	      rdfs:domain :Subject ;
 	      rdfs:range :Activity .
+
+:achieves  owl:propertyChainAxiom (:hasRole :carriesOut);
+	   owl:inverseOf :isCarriedOutBy;
+	   rdfs:domain :Subject ;
+	   rdfs:range :Activity .
 
 :hasRole rdf:type owl:ObjectProperty ;
       rdfs:domain :Subject ;

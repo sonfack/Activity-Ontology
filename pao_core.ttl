@@ -94,7 +94,6 @@
              rdfs:comment "Links a domain to a geographical position"@en .
 
 :isComposedOf rdf:type owl:ObjectProperty, owl:IrreflexiveProperty;
-	     owl:inverseOf  :isPartOf ;
 	     rdfs:domain :Activity ;
 	     rdfs:range :Action, :Operation ;
 	     rdfs:comment "An activity is composed of actions or operations" .
@@ -149,7 +148,7 @@
 
 :isPartOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
 	  rdfs:domain :Action ;
-	  rdfs:range  :Operation ;
+	  rdfs:range  :Operation , :Activity;
 	  rdfs:comment "An action is part of an Operation"@en .
 
 
