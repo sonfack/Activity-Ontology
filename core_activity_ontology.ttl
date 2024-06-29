@@ -1,4 +1,4 @@
-@prefix    :  <http://sonfack.com/2023/12/cao#> .
+@prefix    :  <http://sonfack.com/2023/12/cao/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -11,13 +11,15 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 
 
-<http://sonfack.com/2024/01/cao#>  rdf:type owl:Ontology ;
+<http://sonfack.com/2024/01/cao/>  rdf:type owl:Ontology ;
 				   dc:title "Core Activity Ontology" ;
 				   dct:created "2023-12-15"^^xsd:date ;
   				   dct:creator <https://orcid.org/0000-0002-6085-6818> ;
   				   dct:creator <mailto:sss.sonfack@gmail.com> ;
+				   rdfs:label "CAO" ;
 				   dc:licence "" ;
-				   dc:description """This ontology defines core concepts and their relations to represent activities knowledge within an organization.""" .
+				   dc:description """This ontology defines core concepts and their relations to represent activities knowledge within an organization."""@en ;
+				   skos:changeNote "2024-06-29 change # to / and revision of temporality management" .
 
 
 #################################################################
@@ -36,9 +38,10 @@
 ################# Activity #################
 ############################################
 
-:Activity rdf:type owl:Class ;
+:Activity owl:equivalentClass time:TemporalEntity;
+	  rdfs:subClassOf owl:Thing ;
 	  rdfs:label "Activity" ;
-          rdfs:comment """An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"""@en .
+          skos:definition """An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"""@en .
 
 
 ################ Activity data property #################
@@ -75,10 +78,14 @@
           rdfs:range :Object ;
           rdfs:comment "The outcome of an activity"@en .
 
-:hasTemporality  rdf:type owl:ObjectProperty ;
-		 rdfs:label "has temporality" ;
-		 rdfs:domain :Activity ;
-		 rdfs:range time:DateTimeInterval , time:Duration , time:Interval , time:TemporalDuration, time:Instance .
+
+time:hasTime rdfs:domain :Activity ;
+             rdfs:comment "Provides support for associating a time entity (instant or interval) to anything."@en ;
+	     rdfs:comment "An activity, action  has a time corresponding to when it started"@en ;
+             rdfs:label "has time"@en ;
+             skos:definition "Provides support for the association of a temporal entity (instant or interval) to anything."@en ;
+             skos:note "rdfs:range time:TemporalEntity and super property of time:hasEnd, time:hasBeginning ."@en .
+	     
 
 :isBeneficialTo rdf:type owl:ObjectProperty ;
 		rdfs:label "is beneficial to" ;
@@ -193,6 +200,7 @@
 ##############################################
 
 :Location rdf:type owl:Class ;
+	  rdfs:subClassOf owl:Thing ;
 	  rdfs:label "Location";
           rdfs:comment "A geographical location or places"@en .
 
@@ -215,6 +223,7 @@
 #############################################
 
 :Subject rdf:type owl:Class ;
+	 rdfs:subClassOf owl:Thing ;
 	 rdfs:label "Agent" ;
        	 rdfs:comment "An agent that carries out an activity"@en .
 
@@ -237,37 +246,41 @@
 ########################################
 
 :Resource rdf:type owl:Class ;
+	  rdfs:subClassOf owl:Thing ;
 	  rdfs:label "Tool" ;
           rdfs:comment "The tool used to carry out an activity"@en .
 
 ############## Tool data property ##############
 ################################################
 
-:hasDuration rdfs:subPropertyOf :hasTemporality ;
-	     rdfs:label "has duration" ;
-          rdfs:comment "Duration of an activity in minute"@en .
+time:after rdfs:comment "An activity can come after another activity"@en ;
+	   rdfs:label "after" ;
+	   skos:note "owl:inverseOf time:before"@en .
 
-:hasTime rdfs:subPropertyOf :hasTemporality ;
-	 rdfs:label "has time" ;
-            rdfs:comment "An activity, action  has a time corresponding to when it started"@en .
+time:before rdfs:comment "An activity can come before another activity"@en ;
+	    rdfs:label "before" ;
+	   skos:note "owl:inverseOf tiem:after"@en .
 
-:hasBeginTime rdf:type owl:ObjectProperty ;
-	      rdfs:label "has begin time" ;
-              rdfs:subPropertyOf :hasTime ;
-              rdfs:range time:Instance ;
-              rdfs:comment "An activity, an action or and operation has be begining time"@en .
+
+time:hasDuration rdfs:comment "Duration of an activity in minute"@en ;
+		 rdfs:label "has duration" ;
+	     skos:note "rdfs:subPropertyOf time:hasTemporalDuration"@en .
+
+
+time:hasBeginning rdfs:comment "An activity, an action or and operation has be begining time"@en ;
+		  rdfs:label "has beginning" ;
+		  skos:note "rdfs:subPropertyOf time:hasTime"@en .
 	      
-:hasEndTime rdf:type owl:ObjectProperty ;
-	    rdfs:label "has end time" ;
-            rdfs:subPropertyOf :hasTime ;
-            rdfs:range time:Instance ;
-            rdfs:comment "An activity, an action or and operation has an end time"@en .
+time:hasEnd rdfs:comment "An activity, an action or and operation has an end time"@en ;
+	    rdfs:label "has end" ;
+		  skos:note "rdfs:subPropertyOf time:hasTime"@en .
 
 
 ############## Governance Taxonomy ##############
 #################################################
 
 :Governance rdf:type owl:Class ;
+	    rdfs:subClassOf owl:Thing ;
 	    rdfs:label "Governance" ;
             rdfs:comment "Principles that guide activities run up"@en .
 
