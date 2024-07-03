@@ -249,6 +249,16 @@ time:hasTime rdfs:domain :Activity ;
 	  rdfs:label "Tool" ;
           rdfs:comment "The tool used to carry out an activity"@en .
 
+:HardResource rdf:type owl:Class ;
+	  rdfs:subClassOf :Resource ;
+	  rdfs:label "Tool" ;
+          rdfs:comment "Tangible resource"@en .
+
+:SoftResource rdf:type owl:Class ;
+	  rdfs:subClassOf :Resource ;
+	  rdfs:label "Tool" ;
+          rdfs:comment "Intangible resource"@en .
+
 ############## Tool data property ##############
 ################################################
 
