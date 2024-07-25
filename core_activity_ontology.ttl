@@ -25,8 +25,8 @@
 #################################################################
 #    Classes
 #################################################################
-[]  rdf:type owl:AllDisjointClasses ;
-    owl:members  ( :Activity :Location :Resource :Subject :Governance ) .
+###[]  rdf:type owl:AllDisjointClasses ;
+###    owl:members  ( :Activity :Location :Resource :Subject :Governance ) .
 
 
 :hasName rdf:type owl:DatatypeProperty ;
@@ -42,6 +42,8 @@
 	  rdfs:label "Activity" ;
           skos:definition """An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"""@en .
 
+
+time:TemporalEntity rdfs:label "Temporal Event" .
 
 ################ Activity data property #################
 #########################################################
@@ -79,18 +81,19 @@
 
 
 time:hasTime rdfs:domain :Activity ;
+	     rdfs:range time:Instant, time:Interval ;
              rdfs:comment "Provides support for associating a time entity (instant or interval) to anything."@en ;
 	     rdfs:comment "An activity, action  has a time corresponding to when it started"@en ;
              rdfs:label "has time"@en ;
              skos:definition "Provides support for the association of a temporal entity (instant or interval) to anything."@en ;
-             skos:note "rdfs:range time:TemporalEntity and super property of time:hasEnd, time:hasBeginning ."@en .
+             skos:note "rdfs:domain time:TemporalEntity and super property of time:hasEnd, time:hasBeginning ."@en .
 	     
 
 :isBeneficialTo rdf:type owl:ObjectProperty ;
 		rdfs:label "is beneficial to" ;
 	  rdfs:domain :Activity ;
 	  rdfs:range :Subject ;
-	  rdfs:comment "An activity is beneficial to a subject" .
+	  rdfs:comment "An activity is beneficial to a subject"@en .
 
 :isCarriedOutWith rdf:type owl:ObjectProperty ;
 		  rdfs:label "is carried out with" ;
@@ -173,7 +176,7 @@ time:hasTime rdfs:domain :Activity ;
 :isPartOf rdf:type owl:ObjectProperty , owl:IrreflexiveProperty ;
 	  rdfs:label "is part of" ;
 	  rdfs:domain :Action ;
-	  rdfs:range  :Operation ;
+	  rdfs:range  :Activity, :Operation ;
 	  rdfs:comment "An action is part of an Operation"@en .
 
 
@@ -185,7 +188,6 @@ time:hasTime rdfs:domain :Activity ;
 	   rdfs:label  "Operation" ;
            rdfs:subClassOf :Activity ;
            rdfs:comment "An operation is a work performed by an agent"@en .
-
 
 
 ################ Operation data property #################
@@ -235,11 +237,11 @@ time:hasTime rdfs:domain :Activity ;
 
 ############## Subject object property ##############
 #####################################################
-:isSubjectOf  rdf:type owl:ObjectProperty ;
-	      rdfs:label "is subject of" ;
+:carriesOut  rdf:type owl:ObjectProperty ;
+	      rdfs:label "carries out" ;
 	      rdfs:domain :Subject ;
-	      rdfs:range :Activity .
-
+	      rdfs:range :Action, :Operation ;
+	      rdfs:comment "A subject carries out an action or operations"@en .
 
 ############## Tool class ##############
 ########################################
@@ -251,13 +253,13 @@ time:hasTime rdfs:domain :Activity ;
 
 :HardResource rdf:type owl:Class ;
 	  rdfs:subClassOf :Resource ;
-	  rdfs:label "Tool" ;
-          rdfs:comment "Tangible resource"@en .
+	  rdfs:label "Tangible resource" ;
+          rdfs:comment "Resources that have physical existance"@en .
 
 :SoftResource rdf:type owl:Class ;
 	  rdfs:subClassOf :Resource ;
-	  rdfs:label "Tool" ;
-          rdfs:comment "Intangible resource"@en .
+	  rdfs:label "Intangible resource" ;
+          rdfs:comment "Resources not physically tangible"@en .
 
 ############## Tool data property ##############
 ################################################
@@ -268,22 +270,32 @@ time:after rdfs:comment "An activity can come after another activity"@en ;
 
 time:before rdfs:comment "An activity can come before another activity"@en ;
 	    rdfs:label "before" ;
-	   skos:note "owl:inverseOf tiem:after"@en .
+	    skos:note "owl:inverseOf tiem:after"@en .
 
 
 time:hasDuration rdfs:comment "Duration of an activity in minute"@en ;
 		 rdfs:label "has duration" ;
-	     skos:note "rdfs:subPropertyOf time:hasTemporalDuration"@en .
+	     	 skos:note "rdfs:subPropertyOf time:hasTemporalDuration"@en .
 
 
-time:hasBeginning rdfs:comment "An activity, an action or and operation has be begining time"@en ;
+time:hasBeginning rdfs:subPropertyOf time:hasTime;
+		  rdfs:comment "An activity, an action or and operation has be begining time"@en ;
 		  rdfs:label "has beginning" ;
 		  skos:note "rdfs:subPropertyOf time:hasTime"@en .
 	      
-time:hasEnd rdfs:comment "An activity, an action or and operation has an end time"@en ;
+time:hasEnd rdfs:subPropertyOf time:hasTime;
+	    rdfs:comment "An activity, an action or and operation has an end time"@en ;
 	    rdfs:label "has end" ;
-		  skos:note "rdfs:subPropertyOf time:hasTime"@en .
+	    skos:note "rdfs:subPropertyOf time:hasTime"@en .
 
+############## Tool object property ##############
+################################################
+
+:isUtilizedIn rdf:type owl:ObjectProperty ;
+	      rdfs:label "is utilized in" ;
+	      rdfs:domain :Resource ;
+	      rdfs:range :Action, :Operation ;
+	      rdfs:comment "A tool or resource is utilized in an action or operation"@en . 
 
 ############## Governance Taxonomy ##############
 #################################################
@@ -339,3 +351,17 @@ time:hasEnd rdfs:comment "An activity, an action or and operation has an end tim
                       rdfs:range xsd:string ;
                       rdfs:comment "The description of a rule"@en .
 		      
+
+############## Property chain ##############
+############################################
+
+:isSubjectOf owl:propertyChainAxiom (:carriesOut :isPartOf) ;
+	     rdfs:label "is subject of" ;
+	     owl:inverseOf :hasSubject ;
+	     rdfs:comment "A subject that carries out an action or operation of an activity is a subject of this activity" .
+
+
+:isUsedIn owl:propertyChainAxiom (:isUtilizedIn :isPartOf) ;
+	  rdfs:label "is used in" ;
+	  owl:inverseOf :isCarriedOutWith ;
+	  rdfs:comment "A subject that carries out an action or operation of an activity is a subject of this activity" .
