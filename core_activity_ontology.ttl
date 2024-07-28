@@ -9,6 +9,7 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix time: <http://www.w3.org/2006/time#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
 
 
 <http://sonfack.com/2024/01/cao/>  rdf:type owl:Ontology ;
@@ -25,9 +26,6 @@
 #################################################################
 #    Classes
 #################################################################
-###[]  rdf:type owl:AllDisjointClasses ;
-###    owl:members  ( :Activity :Location :Resource :Subject :Governance ) .
-
 
 :hasName rdf:type owl:DatatypeProperty ;
 	 rdfs:label "has name" ;
@@ -47,8 +45,11 @@ time:TemporalEntity rdfs:label "Temporal Event" .
 
 ################ Activity data property #################
 #########################################################
-
-
+:activityDescription rdf:type owl:DatatypeProperty ;
+		     rdfs:label "activity description" ;
+		     rdfs:domain :Activity ;
+		     rdfs:range xsd:string ;
+		     rdfs:comment "An activity should be described" .
 
 
 ################ Activity object property #################
@@ -365,3 +366,27 @@ time:hasEnd rdfs:subPropertyOf time:hasTime;
 	  rdfs:label "is used in" ;
 	  owl:inverseOf :isCarriedOutWith ;
 	  rdfs:comment "A subject that carries out an action or operation of an activity is a subject of this activity" .
+
+
+################### Shape ##################
+############################################
+
+:ActivityShape rdf:type sh:Shape ;
+	       sh:targetClass :Activity ;
+	       sh:property [
+	       		   sh:predicate  :hasSubject ;
+			   sh:minCount 1 ;
+			   sh:class :Subject ;
+			   sh:description "An activity should have at least one subject to whom it is assigned" ;
+	       		   ] ;
+	       sh:property [
+	       		   sh:predicate :activityDescription ;
+			   sh:minCount 1 ;
+			   sh:datatype xsd:string ;
+			   sh:description "Any activity should have at least one description" ;
+	       		   ] ;
+	       sh:property [
+	       		   sh:predicate time:hasTime ;
+  			   sh:maxCount 1 ;
+			   sh:description "An activity should at most on time relate entity" ;
+	       		   ].
