@@ -1,0 +1,29 @@
+@prefix    :  <http://sonfack.com/2023/12/cao/> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+################### Shape ##################
+############################################
+
+:ActivityShape rdf:type sh:Shape ;
+	       sh:targetClass :Activity ;
+	       sh:property [
+	       		   sh:predicate  :hasSubject ;
+			   sh:minCount 1 ;
+			   sh:class :Subject ;
+			   sh:description "An activity should have at least one subject to whom it is assigned" ;
+	       		   ] ;
+	       sh:property [
+	       		   sh:predicate :activityDescription ;
+			   sh:minCount 1 ;
+			   sh:datatype xsd:string ;
+			   sh:description "Any activity should have at least one description" ;
+	       		   ] ;
+	       sh:property [
+	       		   sh:predicate time:hasTime ;
+  			   sh:maxCount 1 ;
+			   sh:description "An activity should at most on time relate entity" ;
+	       		   ] ;
+	       sh:property [
+	       		   sh:predicate :hasName ;
+  			   sh:maxCount 1 ;
+			   sh:description "An activity should at least a name" ;
+	       		   ].

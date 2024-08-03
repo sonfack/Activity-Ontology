@@ -8,11 +8,11 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix time: <https://w3id.org/MON/time.owl#> .
 
 
 <http://sonfack.com/2024/01/cao/>  rdf:type owl:Ontology ;
+				   owl:imports <time.owl> ;
 				   dc:title "Core Activity Ontology" ;
 				   dct:created "2023-12-15"^^xsd:date ;
   				   dct:creator <https://orcid.org/0000-0002-6085-6818> ;
@@ -20,7 +20,8 @@
 				   rdfs:label "CAO" ;
 				   dc:licence "" ;
 				   dc:description """This ontology defines core concepts and their relations to represent activities knowledge within an organization."""@en ;
-				   skos:changeNote "2024-06-29 change # to / and revision of temporality management" .
+				   skos:changeNote "2024-06-29 change # to / and revision of temporality management" ;
+				   skos:changeNote "2024-07-03 use and import https://w3id.org/MON/time.owl time ontology which is a reduced version of the owl time ontology " .
 
 
 #################################################################
@@ -36,12 +37,10 @@
 ################# Activity #################
 ############################################
 
-:Activity rdfs:subClassOf time:TemporalEntity;
+:Activity rdfs:subClassOf owl:Thing;
 	  rdfs:label "Activity" ;
           skos:definition """An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"""@en .
 
-
-time:TemporalEntity rdfs:label "Temporal Event" .
 
 ################ Activity data property #################
 #########################################################
@@ -80,14 +79,11 @@ time:TemporalEntity rdfs:label "Temporal Event" .
           rdfs:range :Object ;
           rdfs:comment "The outcome of an activity"@en .
 
-
-time:hasTime rdfs:domain :Activity ;
-	     rdfs:range time:Instant, time:Interval ;
-             rdfs:comment "Provides support for associating a time entity (instant or interval) to anything."@en ;
-	     rdfs:comment "An activity, action  has a time corresponding to when it started"@en ;
-             rdfs:label "has time"@en ;
-             skos:definition "Provides support for the association of a temporal entity (instant or interval) to anything."@en ;
-             skos:note "rdfs:domain time:TemporalEntity and super property of time:hasEnd, time:hasBeginning ."@en .
+:hasTime rdf:type owl:ObjectProperty ;
+	 rdfs:domain :Activity ;
+	 rdfs:range time:TemporalEntity ;
+         rdfs:comment "An activity, action  has a time corresponding to when it started"@en ;
+         rdfs:label "has time"@en .
 	     
 
 :isBeneficialTo rdf:type owl:ObjectProperty ;
@@ -265,29 +261,40 @@ time:hasTime rdfs:domain :Activity ;
 ############## Tool data property ##############
 ################################################
 
-time:after rdfs:comment "An activity can come after another activity"@en ;
-	   rdfs:label "after" ;
-	   skos:note "owl:inverseOf time:before"@en .
+:isAfter rdf:type owl:ObjectProperty ;
+	 rdfs:domain :Activity ;
+	 rdfs:range time:Instant, :Activity ;
+       	 rdfs:comment "An activity can come after another activity"@en ;
+       	 rdfs:label "is after" ;
+       	 owl:inverseOf :before .
 
-time:before rdfs:comment "An activity can come before another activity"@en ;
-	    rdfs:label "before" ;
-	    skos:note "owl:inverseOf tiem:after"@en .
+:isBefore rdf:type owl:ObjectProperty ;
+ 	rdfs:domain :Activity ;
+	rdfs:range time:Instant, :Activity ; 
+	rdfs:comment "An activity can come before another activity"@en ;
+	rdfs:label "is before"  .
 
 
-time:hasDuration rdfs:comment "Duration of an activity in minute"@en ;
-		 rdfs:label "has duration" ;
-	     	 skos:note "rdfs:subPropertyOf time:hasTemporalDuration"@en .
+:hasDuration rdf:type owl:ObjectProperty ;
+	     rdfs:domain :Activity ;
+	     rdfs:range  time:TemporalEntity ;
+	     rdfs:comment "Duration of an activity in minute"@en ;
+	     rdfs:label "has duration"  .
 
 
-time:hasBeginning rdfs:subPropertyOf time:hasTime;
-		  rdfs:comment "An activity, an action or and operation has be begining time"@en ;
-		  rdfs:label "has beginning" ;
-		  skos:note "rdfs:subPropertyOf time:hasTime"@en .
+:hasBeginTime rdf:type owl:ObjectProperty ;
+	      rdfs:domain :Activity ;
+	      rdfs:range time:TemporalEntity ;
+	      rdfs:subPropertyOf :hasTime;
+	      rdfs:comment "An activity, an action or and operation has be begining time"@en ;
+	      rdfs:label "has beginning time" .
 	      
-time:hasEnd rdfs:subPropertyOf time:hasTime;
-	    rdfs:comment "An activity, an action or and operation has an end time"@en ;
-	    rdfs:label "has end" ;
-	    skos:note "rdfs:subPropertyOf time:hasTime"@en .
+:hasEndTime rdf:type owl:ObjectProperty ;
+	rdfs:domain :Activity ;
+	rdfs:range time:TemporalEntity ;
+	rdfs:subPropertyOf :hasTime;
+	rdfs:comment "An activity, an action or and operation has an end time"@en ;
+	rdfs:label "has end time" .
 
 ############## Tool object property ##############
 ################################################
@@ -368,25 +375,7 @@ time:hasEnd rdfs:subPropertyOf time:hasTime;
 	  rdfs:comment "A subject that carries out an action or operation of an activity is a subject of this activity" .
 
 
-################### Shape ##################
-############################################
 
-:ActivityShape rdf:type sh:Shape ;
-	       sh:targetClass :Activity ;
-	       sh:property [
-	       		   sh:predicate  :hasSubject ;
-			   sh:minCount 1 ;
-			   sh:class :Subject ;
-			   sh:description "An activity should have at least one subject to whom it is assigned" ;
-	       		   ] ;
-	       sh:property [
-	       		   sh:predicate :activityDescription ;
-			   sh:minCount 1 ;
-			   sh:datatype xsd:string ;
-			   sh:description "Any activity should have at least one description" ;
-	       		   ] ;
-	       sh:property [
-	       		   sh:predicate time:hasTime ;
-  			   sh:maxCount 1 ;
-			   sh:description "An activity should at most on time relate entity" ;
-	       		   ].
+
+
+
