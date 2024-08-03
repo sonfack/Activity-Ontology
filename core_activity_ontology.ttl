@@ -294,7 +294,7 @@
 	rdfs:range time:TemporalEntity ;
 	rdfs:subPropertyOf :hasTime;
 	rdfs:comment "An activity, an action or and operation has an end time"@en ;
-	rdfs:label "has end time" ;.
+	rdfs:label "has end time" .
 
 ############## Tool object property ##############
 ################################################
