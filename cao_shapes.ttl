@@ -25,5 +25,22 @@
 	       sh:property [
 	       		   sh:predicate :hasName ;
   			   sh:maxCount 1 ;
+			   sh:minCount 1 ;
+			   sh:datatype xsd:string ;
 			   sh:description "An activity should at least a name" ;
 	       		   ].
+
+:LocationShape rdf:type sh:Shape ;
+	       sh:targetClass :Location ;
+	       sh:property [
+	       		   sh:predicate  :hasName ;
+			   sh:minCount 1 ;
+			   sh:maxCount 1 ;
+			   sh:datatype xsd:string ;
+			   ] ;
+	       sh:property [
+	       		   sh:predicate :hasAddress ;
+			   sh:maxCount 1 ;
+			   sh:datatype xsd:string ;
+			   sh:description "A location should have at most one address" ;
+	       		   ]. 
