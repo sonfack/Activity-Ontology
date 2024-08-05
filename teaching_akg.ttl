@@ -66,24 +66,8 @@
 	     rdfs:range cao:Action, cao:Operation ;
 	     rdfs:comment "An activity is composed of actions or operations" .
 
-:precedes rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
-	 rdfs:domain cao:Activity ;
-	 rdfs:range cao:Activity ;
-	 owl:inverseOf :follows ;
-	 rdfs:comment "An activity precedes another activity"@en .
-
-:follows rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
-	 rdfs:domain cao:Activity ;
-	 rdfs:range cao:Activity ;
-	 rdfs:comment "An activity follows another activity"@en .
-
-:simultaneouslyWith rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
-	 rdfs:domain cao:Activity ;
-	 rdfs:range cao:Activity ;
-	 rdfs:comment "An activity is carried out simultaneously with another activity"@en .
-
 :isFollowedBy rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
-	      owl:inverseOf  :follows ;
+	      owl:inverseOf  cao:follows ;
 	      rdfs:domain cao:Activity ;
 	      rdfs:range cao:Activity ;
 	      rdfs:comment "An activity is followed by another activity"@en .
