@@ -275,9 +275,9 @@
 	rdfs:label "is before"  .
 
 
-:hasDuration rdf:type owl:ObjectProperty ;
+:hasDuration rdf:type owl:DatatypeProperty ;
 	     rdfs:domain :Activity ;
-	     rdfs:range  time:TemporalEntity ;
+	     rdfs:range  xsd:integer ;
 	     rdfs:comment "Duration of an activity in minute"@en ;
 	     rdfs:label "has duration"  .
 
