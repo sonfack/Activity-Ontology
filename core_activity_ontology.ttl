@@ -266,7 +266,7 @@
 	 rdfs:range time:Instant, :Activity ;
        	 rdfs:comment "An activity can come after another activity"@en ;
        	 rdfs:label "is after" ;
-       	 owl:inverseOf :before .
+       	 owl:inverseOf :isBefore .
 
 :isBefore rdf:type owl:ObjectProperty ;
  	rdfs:domain :Activity ;
@@ -364,12 +364,16 @@
 ############################################
 
 :isSubjectOf owl:propertyChainAxiom (:carriesOut :isPartOf) ;
+	     rdfs:domain :Subject ;
+	     rdfs:range :Activity ;
 	     rdfs:label "is subject of" ;
 	     owl:inverseOf :hasSubject ;
 	     rdfs:comment "A subject that carries out an action or operation of an activity is a subject of this activity" .
 
 
 :isUsedIn owl:propertyChainAxiom (:isUtilizedIn :isPartOf) ;
+	  rdfs:domain :Resource ;
+	  rdfs:range :Activity ;
 	  rdfs:label "is used in" ;
 	  owl:inverseOf :isCarriedOutWith ;
 	  rdfs:comment "A subject that carries out an action or operation of an activity is a subject of this activity" .
