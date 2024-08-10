@@ -377,7 +377,7 @@ cao:Resource rdf:type owl:Class ;
 	rdf:type :Teacher ;
 	cao:carriesOut :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 
-:practical-4f989887-eb53-431f-b188-c9662a042f51Supervisor
+:practical-4f989887-eb53-431f-b188-c9662a042f51
 	rdf:type :Teacher ;
 	cao:carriesOut :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b .
 
@@ -436,7 +436,7 @@ cao:Resource rdf:type owl:Class ;
 
 :teacher-019b097e-7eb4-4338-a2f5-f326477d7d20
 	rdf:type :Human ;
-	:hasRole :practical-4f989887-eb53-431f-b188-c9662a042f51Supervisor ;
+	:hasRole :practical-4f989887-eb53-431f-b188-c9662a042f51 ;
 	:hasName  "SE practical teacher".
 
 :teacher-a90e1d36-c79f-47f1-a2b5-c805266e2bcc
@@ -461,47 +461,47 @@ cao:Resource rdf:type owl:Class ;
 					  
 :8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85
 	rdf:type time:Instant ;
-	cao:inXSDDateTime "2002-05-06-08:00"^^xsd:dateTime .
+	cao:inXSDDateTime "2002-05-06T08:00:00"^^xsd:dateTime .
 
 :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-06-10:00"^^xsd:dateTime .
+					  cao:inXSDDateTime "2002-05-06T10:00:00"^^xsd:dateTime .
 
 :10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 rdf:type time:TemporalEntity ;
 					  cao:hasBeginning :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec ;
 					  cao:hasEnd :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f .
 
 :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f  rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-06-12:00"^^xsd:dateTime .
+					  cao:inXSDDateTime "2002-05-06T12:00:00"^^xsd:dateTime .
 
 :8AM-10AM-b139b467-7fbf-4298-9338-fa372b608e5e rdf:type  time:TemporalEntity ;
 					  cao:hasBeginning :8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5 ;
 					  cao:hasEnd :10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7 .
 
 :8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5  rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-09-08:00"^^xsd:dateTime .
+					  cao:inXSDDateTime "2002-05-09T08:00:00"^^xsd:dateTime .
 
 :10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7  rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-09-10:00"^^xsd:dateTime .
+					  cao:inXSDDateTime "2002-05-09T10:00:00"^^xsd:dateTime .
 
 :10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7 rdf:type time:TemporalEntity ;
 					  cao:hasBeginning :10AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a ;
 					  cao:hasEnd :12AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a .
 
 :10AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-08-10:00"^^xsd:dateTime .
+					  cao:inXSDDateTime "2002-05-08T10:00:00"^^xsd:dateTime .
 					  
 :12AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-08-12:00"^^xsd:dateTime .
+					  cao:inXSDDateTime "2002-05-08T12:00:00"^^xsd:dateTime .
 
 :8AM-10AM-0ea7a574-e6be-4dc7-abe1-85a6b8ce2e3d rdf:type time:TemporalEntity ;
 					  cao:hasBeginning :8AM-a1285744-ddb3-4875-8e77-ed1a7033ccd2 ;
 					  cao:hasEnd :10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a .
 
 :8AM-a1285744-ddb3-4875-8e77-ed1a7033ccd2  rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-10-08:00"^^xsd:dateTime .
+					  cao:inXSDDateTime "2002-05-10T08:00:00"^^xsd:dateTime .
 
 :10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-10-10:00"^^xsd:dateTime .
+					  cao:inXSDDateTime "2002-05-10T10:00:00"^^xsd:dateTime .
 
 
 
