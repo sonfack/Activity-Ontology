@@ -382,7 +382,7 @@ cao:Resource rdf:type owl:Class ;
 	rdf:type :Teacher ;
 	cao:carriesOut :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 
-:practical-4f989887-eb53-431f-b188-c9662a042f51Supervisor
+:practical-4f989887-eb53-431f-b188-c9662a042f51
 	rdf:type :Teacher ;
 	cao:carriesOut :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b .
 
@@ -441,7 +441,7 @@ cao:Resource rdf:type owl:Class ;
 
 :teacher-019b097e-7eb4-4338-a2f5-f326477d7d20
 	rdf:type :Human ;
-	:hasRole :practical-4f989887-eb53-431f-b188-c9662a042f51Supervisor ;
+	:hasRole :practical-4f989887-eb53-431f-b188-c9662a042f51 ;
 	:hasName  "SE practical teacher".
 
 :teacher-a90e1d36-c79f-47f1-a2b5-c805266e2bcc
