@@ -230,14 +230,9 @@ cao:Resource rdf:type owl:Class ;
 	  rdfs:label "Tool" ;
           rdfs:comment "The tool used to carry out an activity"@en .
 
-
-:SoftResource rdf:type owl:Class ;
-	   rdfs:label  "Soft Resource" ;
-           rdfs:subClassOf cao:Resource .
-
 :DigitalResource rdf:type owl:Class ;
 	   rdfs:label  "Digital Resource" ;
-           rdfs:subClassOf :SoftResource .
+           rdfs:subClassOf cao:SoftResource .
 
 :Software rdf:type owl:Class ;
 	   rdfs:label  "Software" ;
@@ -253,19 +248,16 @@ cao:Resource rdf:type owl:Class ;
 
 :Communication rdf:type owl:Class ;
 	   rdfs:label  "Communication" ;
-           rdfs:subClassOf :SoftResource .
+           rdfs:subClassOf cao:SoftResource .
 
-:HardResource rdf:type owl:Class ;
-	   rdfs:label  "Hard Resource" ;
-           rdfs:subClassOf cao:Resource .
 
 :TeachingMaterial rdf:type owl:Class ;
 	   rdfs:label  "Teaching Material" ;
-           rdfs:subClassOf :HardResource .
+           rdfs:subClassOf cao:HardResource .
 
 :Electronic rdf:type owl:Class ;
 	   rdfs:label  "Electronic" ;
-           rdfs:subClassOf :HardResource .
+           rdfs:subClassOf cao:HardResource .
 
 :Computer rdf:type owl:Class ;
 	   rdfs:label  "Computer" ;
@@ -276,7 +268,7 @@ cao:Resource rdf:type owl:Class ;
            rdfs:subClassOf :Electronic .
 
 :Desktop rdf:type owl:Class ;
-	   rdfs:label  "Computer" ;
+	   rdfs:label  "Desktop" ;
            rdfs:subClassOf :Computer .
 
 :Laptop rdf:type owl:Class ;
@@ -285,7 +277,7 @@ cao:Resource rdf:type owl:Class ;
 
 :HardDocument rdf:type owl:Class ;
 	   rdfs:label  "Hard Document" ;
-           rdfs:subClassOf :HardResource .
+           rdfs:subClassOf cao:HardResource .
 	   
 ############## Tool data property ##############
 ################################################
