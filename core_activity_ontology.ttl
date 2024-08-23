@@ -100,9 +100,9 @@
 
 :isCarriedOutBy rdf:type owl:ObjectProperty ;
 		rdfs:label "is carried out by" ;
-      rdfs:domain :Activity ;
-      rdfs:range :Subject ;
-      rdfs:comment "An activity is carried out by a subject"@en .
+      		rdfs:domain :Activity ;
+      		rdfs:range :Subject ;
+      		rdfs:comment "An activity is carried out by a subject"@en .
 
 :hasLocation rdf:type owl:ObjectProperty ;
 	     rdfs:label "has location" ;
