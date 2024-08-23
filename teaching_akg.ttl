@@ -302,52 +302,64 @@
 
 ####################### Role ###################################
 
-:itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 rdf:type :Management .
+:itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 rdf:type :Management ;
+	cao:hasName  "IT unit head".
 
-:director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398 rdf:type :TopManagement .
+:director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398 rdf:type :TopManagement ;
+					       cao:hasName  "Director" .
 
 
 ##################### Teacher ################################
 
 :lecturer-c83b7873-f908-484d-a044-2802814f87d1
 	rdf:type :Teacher;
-	cao:carriesOut :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
+	cao:carriesOut :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 ;
+		cao:hasName  "DB course teacher".
 
 :lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645
 	rdf:type :Teacher ;
-	cao:carriesOut :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b .
+	cao:carriesOut :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b ;
+	cao:hasName  "Python course teacher".
 
 :lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2
 	rdf:type :Teacher ;
-	cao:carriesOut :secourse-511f491d-ea2b-428f-900e-604ea778dab5 .
+	cao:carriesOut :secourse-511f491d-ea2b-428f-900e-604ea778dab5 ;
+	cao:hasName  "SE course teacher".
 
 :lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0
 	rdf:type :Teacher ;
-	cao:carriesOut :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd .
+	cao:carriesOut :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd ;
+	cao:hasName  "UI course teacher".
 
 :lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667
 	rdf:type :Teacher ;
-	cao:carriesOut :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb .
+	cao:carriesOut :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb ;
+	cao:hasName  "Project management teacher".
 
 :supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e
 	rdf:type :Teacher ; 
-	cao:carriesOut :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 .
+	cao:carriesOut :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 ;
+	cao:hasName  "SE project supervisor".
 
 :supervisor-1339002e-3ef1-4e12-8eec-8feff0a82a67
 	rdf:type :Teacher ;
-	cao:carriesOut :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 .
+	cao:carriesOut :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 ;
+	cao:hasName  "Python project supervisor".
 
 :practical-4f989887-eb53-431f-b188-c9662a042f51
 	rdf:type :Teacher ;
-	cao:carriesOut :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b .
+	cao:carriesOut :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
+	cao:hasName  "SE practical teacher".
 
 :tutor-e4449e8b-a090-4652-9b91-231d9e7a070a
 	rdf:type :Tutor ;
-	cao:carriesOut :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 .
+	cao:carriesOut :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
+	cao:hasName  "SE tutorial teacher".
 
 :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf
 	rdf:type :Teacher ;
-	cao:carriesOut :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 .
+	cao:carriesOut :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 ;
+	cao:hasName  "DB tutorial teacher .
 
 
 
@@ -356,53 +368,44 @@
 
 :teacher-09c4175e-f119-4d66-ac53-920a5c9dc796
 	rdf:type :Human ;
-	:hasRole :lecturer-c83b7873-f908-484d-a044-2802814f87d1, :director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398 ;
-	cao:hasName  "DB course teacher".
+	:hasRole :lecturer-c83b7873-f908-484d-a044-2802814f87d1, :director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398.
 
 :teacher-04ccbc2a-0abe-4d78-90a4-514e8adfda7a
 	rdf:type :Human ;
-	:hasRole :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf ;
-	cao:hasName  "DB tutorial teacher".
+	:hasRole :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf" .
 
 :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8
 	rdf:type :Human ;
-	:hasRole :lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645 ;
-	cao:hasName  "Python course teacher".
+	:hasRole :lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645 .
 
 :teacher-9e1c2630-6a90-43b3-bcd8-639079d43f4a
 	rdf:type :Human ;
 	:hasRole :supervisor-1339002e-3ef1-4e12-8eec-8feff0a82a67 ;
-	cao:hasName  "Python practical teacher".
+	cao:isSubjectOf :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668.
 
 :teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9
 	rdf:type :Human ;
-	:hasRole :lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0 ;
-	cao:hasName  "UI course teacher".
+	:hasRole :lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0 .
 
 :teacher-270696cb-b304-42d7-91d9-694e5e8c0a7b
 	rdf:type :Human ;
-	:hasRole :lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667, :itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 ;
-	cao:hasName  "PM course teacher".
+	:hasRole :lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667, :itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 .
 
 :teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216
 	rdf:type :Human ;
-	:hasRole :lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2 ;
-	cao:hasName  "SE course teacher".
+	:hasRole :lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2 .
 
 :teacher-f6f76647-ad40-4a4e-93c0-6840ccec87d3
 	rdf:type :Human ;
-	:hasRole :tutor-e4449e8b-a090-4652-9b91-231d9e7a070a ;
-	cao:hasName  "SE tutorial teacher".
+	:hasRole :tutor-e4449e8b-a090-4652-9b91-231d9e7a070a .
 
 :teacher-019b097e-7eb4-4338-a2f5-f326477d7d20
 	rdf:type :Human ;
-	:hasRole :practical-4f989887-eb53-431f-b188-c9662a042f51 ;
-	cao:hasName  "SE practical teacher".
+	:hasRole :practical-4f989887-eb53-431f-b188-c9662a042f51 .
 
 :teacher-a90e1d36-c79f-47f1-a2b5-c805266e2bcc
 	rdf:type :Human ;
-	:hasRole :supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e ;
-	cao:hasName  "SE project teacher".
+	:hasRole :supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e .
 
 
 ############################### Rule ##########################3
@@ -619,7 +622,8 @@
 
 :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272
 	rdf:type cao:Activity ;
-	cao:hasName "DataBase Course" ;
+	cao:hasName "CSC 1002" ;
+	rdfs:label "DataBase Course" ;
 	cao:hasDuration "120"^^xsd:integer ;
 	cao:hasObjective :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
 	:hasLocation :classroom-b2c326d0-8551-41c4-aee5-11365e117523 ;
@@ -630,7 +634,8 @@
 
 :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19
 	rdf:type cao:Activity ;
-	cao:hasName "DataBase Tutorial" ;
+	cao:hasName "CSC 1022" ;
+	rdfs:label "DataBase Tutorial" ;
 	cao:hasDuration "120"^^xsd:integer ;
 	cao:hasObjectiveive :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
 	:hasLocation :computerroom-4ecbe47c-8f8e-4835-93ac-16d2392e30a2, :classroom-c1a5b39b-992c-49fb-9c7e-a1ffaa92e884 ;
@@ -640,7 +645,8 @@
 
 :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b
 	rdf:type cao:Activity;
-	cao:hasName "Python Course" ;
+	cao:hasName "CSC 1001" ;
+	rdfs:label "Python Course" ;
 	cao:hasTime :8AM-10AM-0ea7a574-e6be-4dc7-abe1-85a6b8ce2e3d ;
 	cao:hasObjectiveive :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
 	cao:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
@@ -651,18 +657,19 @@
 
 :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668
 	rdf:type cao:Activity;
-	cao:hasName "Python Practical" ;
+	cao:hasName "CSC 1011" ; 
+	rdfs:label "Python Practical" ;
 	cao:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
 	cao:hasTime :8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a ;
 	cao:hasObjectiveive :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
 	cao:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
 	cao:isComposedOf :practical-fa779b89-5ec8-48f1-b5c3-bda3968382ca ;
-	cao:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
-	cao:hasSubject :teacher-9e1c2630-6a90-43b3-bcd8-639079d43f4a .
+	cao:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd  .
 
 :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd
 	rdf:type cao:Activity ;
-	cao:hasName "UserInterface Course" ;
+	cao:hasName "CSC 1006" ;
+	rdfs:label "UserInterface Course" ;
 	cao:hasTime :10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7 ;
 	cao:hasObjectiveive :objective-9a59e20a-60f0-4798-8895-50f6b79621c5 ;
 	cao:hasLocation :computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4, :classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 ;
@@ -681,7 +688,8 @@
 
 :secourse-511f491d-ea2b-428f-900e-604ea778dab5
 	rdf:type cao:Activity;
-	cao:hasName "SoftwareEng Course" ;
+	cao:hasName "CSC 1003" ;
+	rdfs:label "SoftwareEng Course" ;
 	cao:hasDuration "120"^^xsd:integer ;
 	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ; 
 	cao:hasLocation  :classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9 ;
@@ -692,7 +700,8 @@
 
 :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9
 	rdf:type cao:Activity;
-	cao:hasName "SoftwareEng Tutorial" ;
+	cao:hasName "CSC 1023" ;
+	rdfs:label "SoftwareEng Tutorial" ;
 	cao:hasDuration "120"^^xsd:integer ;
 	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
 	cao:hasLocation :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
@@ -703,7 +712,8 @@
 	
 :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b
 	rdf:type cao:Activity;
-	cao:hasName "SoftwareEng Practical" ;
+	cao:hasName "CSC 1013" ;
+	rdfs:label "SoftwareEng Practical" ;
 	cao:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
 	cao:hasTime :10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 ;
 	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
@@ -716,7 +726,8 @@
 
 :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318
 	rdf:type cao:Activity;
-	cao:hasName "SoftwareEng Project" ;
+	rdfs:label "SoftwareEng Project" ;
+	cao:hasName "CSC 1005" ;
 	cao:hasDuration "180"^^xsd:integer ;
 	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
 	cao:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
