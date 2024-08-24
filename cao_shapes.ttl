@@ -9,49 +9,66 @@
 
 cao:ActivityShape rdf:type sh:NodeShape ;
 	sh:targetClass cao:Activity ;
-	sh:property [
-		sh:path  cao:hasSubject ;
-                sh:minCount 1 ;
-                sh:nodeKind sh:IRI ;
-                sh:class cao:Subject ;
-		sh:description "An activity should have at least one subject to whom it is assigned" ;
+	sh:or (
+	[
+		[
+			sh:path  cao:hasSubject ;
+		        sh:minCount 1 ;
+		        sh:nodeKind sh:IRI ;
+		        sh:class cao:Subject ;
+			sh:description "An activity should have at least one subject to whom it is assigned" ;
 
-	];
+		]
+	
+		[
+			sh:inversePath   cao:isSubjectOf ;
+		        sh:minCount 1 ;
+		        sh:nodeKind sh:IRI ;
+		        sh:class cao:Subject ;
+			sh:description "An activity should have at least one subject to whom it is assigned" ;
+
+		]
+	]
+	);
 	sh:property [
 		sh:path cao:activityDescription ;
 		sh:minCount 1 ;
 		sh:datatype xsd:string ;
 		sh:description "Any activity should have at least one description" ;
 	];
-	sh:xone (
-	[
-		sh:property[
+	
+	sh:xone(
+           [
+                 sh:property [
 			sh:path cao:hasBeginTime ;
+                        sh:minCount 1;
 			sh:maxCount 1 ;
 		        sh:nodeKind sh:IRI ;
 		        sh:class time:Instance ; 
-			sh:description "An activity should at most one beginning time relate entity" ;
+			
 		] ;
-		sh:property[
+sh:property [
 			sh:path cao:hasEndTime ;
+                        sh:minCount 1;
 			sh:maxCount 1 ;
 		        sh:nodeKind sh:IRI ;
 		        sh:class time:Instance ; 
-			sh:description "An activity should at most one end time relate entity" ;
+			
 		] 
-	]
-	[
-		sh:property [
+	 
+	 
+           ]
+           [
+		sh:property[
 			sh:path cao:hasTime ;
 			sh:minCount 1 ;
 			sh:maxCount 1 ;
 		        sh:nodeKind sh:IRI ;
 		        sh:class time:Interval ; 
 			sh:description "An activity should at most one beginning time relate entity" ;
-		]
-	] 
+		   ]
+           ]
 	);
-	
 	sh:property [
 		sh:path cao:hasName ;
 		sh:maxCount 1 ;

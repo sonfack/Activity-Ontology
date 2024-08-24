@@ -81,7 +81,7 @@
 
 :hasTime rdf:type owl:ObjectProperty ;
 	 rdfs:domain :Activity ;
-	 rdfs:range time:TemporalEntity ;
+	 rdfs:range time:Interval ;
          rdfs:comment "An activity, action  has a time corresponding to when it started"@en ;
          rdfs:label "has time"@en .
 	     
@@ -284,14 +284,14 @@
 
 :hasBeginTime rdf:type owl:ObjectProperty ;
 	      rdfs:domain :Activity ;
-	      rdfs:range time:TemporalEntity ;
+	      rdfs:range time:Instant ;
 	      rdfs:subPropertyOf :hasTime;
 	      rdfs:comment "An activity, an action or and operation has be begining time"@en ;
 	      rdfs:label "has beginning time" .
 	      
 :hasEndTime rdf:type owl:ObjectProperty ;
 	rdfs:domain :Activity ;
-	rdfs:range time:TemporalEntity ;
+	rdfs:range time:Instant ;
 	rdfs:subPropertyOf :hasTime;
 	rdfs:comment "An activity, an action or and operation has an end time"@en ;
 	rdfs:label "has end time" .
