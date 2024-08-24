@@ -314,52 +314,44 @@
 
 :lecturer-c83b7873-f908-484d-a044-2802814f87d1
 	rdf:type :Teacher;
-	cao:carriesOut :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 ;
-		cao:hasName  "DB course teacher".
+	cao:hasName  "DB course teacher".
 
 :lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645
 	rdf:type :Teacher ;
-	cao:carriesOut :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b ;
 	cao:hasName  "Python course teacher".
 
 :lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2
 	rdf:type :Teacher ;
-	cao:carriesOut :secourse-511f491d-ea2b-428f-900e-604ea778dab5 ;
 	cao:hasName  "SE course teacher".
 
 :lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0
 	rdf:type :Teacher ;
-	cao:carriesOut :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd ;
 	cao:hasName  "UI course teacher".
 
 :lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667
 	rdf:type :Teacher ;
-	cao:carriesOut :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb ;
 	cao:hasName  "Project management teacher".
 
 :supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e
 	rdf:type :Teacher ; 
-	cao:carriesOut :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 ;
 	cao:hasName  "SE project supervisor".
 
 :supervisor-1339002e-3ef1-4e12-8eec-8feff0a82a67
 	rdf:type :Teacher ;
-	cao:carriesOut :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 ;
+	cao:isSubjectOf :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 ;
 	cao:hasName  "Python project supervisor".
 
 :practical-4f989887-eb53-431f-b188-c9662a042f51
 	rdf:type :Teacher ;
-	cao:carriesOut :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
+	cao:isSubjectOf :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
 	cao:hasName  "SE practical teacher".
 
 :tutor-e4449e8b-a090-4652-9b91-231d9e7a070a
 	rdf:type :Tutor ;
-	cao:carriesOut :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
 	cao:hasName  "SE tutorial teacher".
 
 :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf
 	rdf:type :Teacher ;
-	cao:carriesOut :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 ;
 	cao:hasName  "DB tutorial teacher" .
 
 
@@ -759,8 +751,7 @@
 	:isFollowedBy :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 ;
 	cao:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
 	cao:isCarriedOutWith :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b ;
-	cao:isComposedOf :practical-4f989887-eb53-431f-b188-c9662a042f51 ;
-	cao:hasSubject :teacher-019b097e-7eb4-4338-a2f5-f326477d7d20 .
+	cao:isComposedOf :practical-4f989887-eb53-431f-b188-c9662a042f51 .
 
 :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318
 	rdf:type cao:Activity;
