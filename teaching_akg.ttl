@@ -18,7 +18,8 @@
 				   dct:created "2023-12-15"^^xsd:date ;
   				   dct:creator <https://orcid.org/0000-0002-6085-6818> ;
   				   dct:creator <mailto:sss.sonfack@gmail.com> ;
-   				   dc:description """This ontology defines concepts and their relations to represent teaching activities knowledge within an organization.""" .
+				   dc:licence "" ;
+   				   dc:description """This ontology extends the core activity ontology (CAO) and defines concepts and their relations to represent teaching activities knowledge within an organization.""" .
 
 
 
@@ -359,7 +360,7 @@
 :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf
 	rdf:type :Teacher ;
 	cao:carriesOut :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 ;
-	cao:hasName  "DB tutorial teacher .
+	cao:hasName  "DB tutorial teacher" .
 
 
 
@@ -372,7 +373,7 @@
 
 :teacher-04ccbc2a-0abe-4d78-90a4-514e8adfda7a
 	rdf:type :Human ;
-	:hasRole :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf" .
+	:hasRole :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf .
 
 :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8
 	rdf:type :Human ;
@@ -418,9 +419,9 @@
 ####################### Time ###################################
 
 :8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a
-	rdf:type time:TemporalEntity ;
-	cao:hasBeginning :8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85 ;
-	cao:hasEndTime :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec .
+	rdf:type time:Interval ;
+	time:hasBeginning :8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85 ;
+	time:hasEnd :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec .
 					  
 :8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85
 	rdf:type time:Instant ;
@@ -429,42 +430,67 @@
 :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec rdf:type time:Instant  ;
 					 time:inXSDDateTime "2002-05-06T10:00:00"^^xsd:dateTime .
 
-:10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 rdf:type time:TemporalEntity ;
-					  cao:hasBeginning :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec ;
-					  cao:hasEndTime :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f .
+:10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 rdf:type time:Interval ;
+					  time:hasBeginning :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec ;
+					  time:hasEnd :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f .
 
 :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f  rdf:type time:Instant  ;
 					 time:inXSDDateTime "2002-05-06T12:00:00"^^xsd:dateTime .
 
-:8AM-10AM-b139b467-7fbf-4298-9338-fa372b608e5e rdf:type  time:TemporalEntity ;
-					  cao:hasBeginning :8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5 ;
-					  cao:hasEndTime :10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7 .
+:8AM-10AM-b139b467-7fbf-4298-9338-fa372b608e5e
+	rdf:type  time:Interval ;
+	time:hasBeginning :8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5 ;
+	time:hasEnd :10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7 .
 
-:8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5  rdf:type time:Instant  ;
-					 time:inXSDDateTime "2002-05-09T08:00:00"^^xsd:dateTime .
 
-:10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7  rdf:type time:Instant  ;
-					 time:inXSDDateTime "2002-05-09T10:00:00"^^xsd:dateTime .
+############# 08:00-10:00 2002-05-09 ############
+:08AM-10AM-35e7d9ed-4694-48e0-a6b6-394bd4155a13
+	rdf:type time:Interval ;
+	time:hasBeginning :8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5 ;
+	time:hasEnd :10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7 .
+############# 2002-05-0 ############
+###### 08:00 2002-05-09
+:8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-09T08:00:00"^^xsd:dateTime .
+###### 10:00 2002-05-09
+:10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-09T10:00:00"^^xsd:dateTime .
 
-:10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7 rdf:type time:TemporalEntity ;
-					  cao:hasBeginning :10AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a ;
-					  cao:hasEndTime :12AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a .
 
-:10AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a rdf:type time:Instant  ;
-					 time:inXSDDateTime "2002-05-08T10:00:00"^^xsd:dateTime .
+
+############# 10:00-12:00 2002-05-08 ############
+:10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7
+	rdf:type time:Interval ;
+	time:hasBeginning :10AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a ;
+	time:hasEnd :12AM-1461e790-cd81-4f7b-96dc-3a2431e32eb0 .
+############# 2002-05-08 ############
+###### 10:00 2002-05-08
+:10AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-08T10:00:00"^^xsd:dateTime .
+###### 12:00 2002-05-08					  
+:12AM-1461e790-cd81-4f7b-96dc-3a2431e32eb0
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-08T12:00:00"^^xsd:dateTime .
+
+
+############# 08:00-10:00 2002-05-10 ############
+:8AM-10AM-0ea7a574-e6be-4dc7-abe1-85a6b8ce2e3d
+	rdf:type time:Interval ;
+	time:hasBeginning  :8AM-a1285744-ddb3-4875-8e77-ed1a7033ccd2 ;
+	time:hasEndT    :10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a .
 					  
-:12AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a rdf:type time:Instant  ;
-					 time:inXSDDateTime "2002-05-08T12:00:00"^^xsd:dateTime .
-
-:8AM-10AM-0ea7a574-e6be-4dc7-abe1-85a6b8ce2e3d rdf:type time:TemporalEntity ;
-					  cao:hasBeginning :8AM-a1285744-ddb3-4875-8e77-ed1a7033ccd2 ;
-					  cao:hasEndTime :10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a .
-
-:8AM-a1285744-ddb3-4875-8e77-ed1a7033ccd2  rdf:type time:Instant  ;
-					 time:inXSDDateTime "2002-05-10T08:00:00"^^xsd:dateTime .
-
-:10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a rdf:type time:Instant  ;
-					 time:inXSDDateTime "2002-05-10T10:00:00"^^xsd:dateTime .
+############# 2002-05-10 ############
+###### 08:00 2002-05-10
+:8AM-a1285744-ddb3-4875-8e77-ed1a7033ccd2
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-10T08:00:00"^^xsd:dateTime .
+###### 10:00 2002-05-10
+:10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-10T10:00:00"^^xsd:dateTime .
 
 
 
@@ -624,7 +650,8 @@
 	rdf:type cao:Activity ;
 	cao:hasName "CSC 1002" ;
 	rdfs:label "DataBase Course" ;
-	cao:hasDuration "120"^^xsd:integer ;
+	cao:activityDescription "This course introduces the database concept to level 1 student" ;
+	cao:hasTime :8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a;
 	cao:hasObjective :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
 	:hasLocation :classroom-b2c326d0-8551-41c4-aee5-11365e117523 ;
 	:isFollowedBy  :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 ;
@@ -636,6 +663,8 @@
 	rdf:type cao:Activity ;
 	cao:hasName "CSC 1022" ;
 	rdfs:label "DataBase Tutorial" ;
+	cao:hasBeginTime :10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a ;
+	cao:activityDescription "This tutorial answers database question to level 1 student" ;
 	cao:hasDuration "120"^^xsd:integer ;
 	cao:hasObjectiveive :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
 	:hasLocation :computerroom-4ecbe47c-8f8e-4835-93ac-16d2392e30a2, :classroom-c1a5b39b-992c-49fb-9c7e-a1ffaa92e884 ;
@@ -647,6 +676,7 @@
 	rdf:type cao:Activity;
 	cao:hasName "CSC 1001" ;
 	rdfs:label "Python Course" ;
+	cao:activityDescription "This course introduces the python programming to level 1 student" ;
 	cao:hasTime :8AM-10AM-0ea7a574-e6be-4dc7-abe1-85a6b8ce2e3d ;
 	cao:hasObjectiveive :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
 	cao:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
@@ -659,6 +689,7 @@
 	rdf:type cao:Activity;
 	cao:hasName "CSC 1011" ; 
 	rdfs:label "Python Practical" ;
+	cao:activityDescription "This course is for monitoring python programming practicals for level 1 student" ;
 	cao:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
 	cao:hasTime :8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a ;
 	cao:hasObjectiveive :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
@@ -670,6 +701,7 @@
 	rdf:type cao:Activity ;
 	cao:hasName "CSC 1006" ;
 	rdfs:label "UserInterface Course" ;
+	cao:activityDescription "This course introduces the user interface design principles to level 1 student" ;
 	cao:hasTime :10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7 ;
 	cao:hasObjectiveive :objective-9a59e20a-60f0-4798-8895-50f6b79621c5 ;
 	cao:hasLocation :computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4, :classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 ;
@@ -680,6 +712,7 @@
 :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb
 	rdf:type cao:Activity ;
 	cao:hasName "ProjectManagement Course" ;
+	cao:activityDescription "This course introduces project management concepts to level 1 student" ;
 	cao:hasTime :8AM-10AM-b139b467-7fbf-4298-9338-fa372b608e5e ;
 	cao:hasObjectiveive :objective-0b6e8fa9-d03d-4636-ab9c-b34578b4ea45 ;
 	cao:hasLocation :classroom-3414ff41-3e7a-44de-a679-baac1ab873c2 ;
@@ -690,7 +723,9 @@
 	rdf:type cao:Activity;
 	cao:hasName "CSC 1003" ;
 	rdfs:label "SoftwareEng Course" ;
+	cao:activityDescription "This course introduces software engineering to level 1 student" ;
 	cao:hasDuration "120"^^xsd:integer ;
+	cao:hasEndTime :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f ;
 	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ; 
 	cao:hasLocation  :classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9 ;
 	:isFollowedBy :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
@@ -702,6 +737,8 @@
 	rdf:type cao:Activity;
 	cao:hasName "CSC 1023" ;
 	rdfs:label "SoftwareEng Tutorial" ;
+	cao:activityDescription "This tutorial answers level 1 student questions on software engineering" ;
+	cao:hasBeginTime  :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec ;
 	cao:hasDuration "120"^^xsd:integer ;
 	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
 	cao:hasLocation :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
@@ -714,6 +751,7 @@
 	rdf:type cao:Activity;
 	cao:hasName "CSC 1013" ;
 	rdfs:label "SoftwareEng Practical" ;
+	cao:activityDescription "This course monitor software engineering practical questions for level 1 student" ;
 	cao:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
 	cao:hasTime :10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 ;
 	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
@@ -727,8 +765,9 @@
 :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318
 	rdf:type cao:Activity;
 	rdfs:label "SoftwareEng Project" ;
+	cao:activityDescription "This course is for follow up of software engineering projects of level 1 student" ;
 	cao:hasName "CSC 1005" ;
-	cao:hasDuration "180"^^xsd:integer ;
+	cao:hasTime :08AM-10AM-35e7d9ed-4694-48e0-a6b6-394bd4155a13 ;
 	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
 	cao:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
 	cao:isBeneficialTo :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
