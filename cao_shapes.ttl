@@ -1,46 +1,76 @@
-@prefix    :  <http://sonfack.com/2023/12/cao/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh:    <http://www.w3.org/ns/shacl#> .
-################### Shape ##################
-############################################
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix cao:   <http://sonfack.com/2023/12/cao/> .
+@prefix tao:  <http://sonfack.com/2023/12/tao/> .
+@prefix time: <https://w3id.org/MON/time.owl#> .
 
-:ActivityShape rdf:type sh:Shape ;
-	       sh:targetClass :Activity ;
-	       sh:property [
-	       		   sh:predicate  :hasSubject ;
-			   sh:minCount 1 ;
-			   sh:class :Subject ;
-			   sh:description "An activity should have at least one subject to whom it is assigned" ;
-	       		   ] ;
-	       sh:property [
-	       		   sh:predicate :activityDescription ;
-			   sh:minCount 1 ;
-			   sh:datatype xsd:string ;
-			   sh:description "Any activity should have at least one description" ;
-	       		   ] ;
-	       sh:property [
-	       		   sh:predicate time:hasTime ;
-  			   sh:maxCount 1 ;
-			   sh:description "An activity should at most on time relate entity" ;
-	       		   ] ;
-	       sh:property [
-	       		   sh:predicate :hasName ;
-  			   sh:maxCount 1 ;
-			   sh:minCount 1 ;
-			   sh:datatype xsd:string ;
-			   sh:description "An activity should at least a name" ;
-	       		   ].
+cao:ActivityShape rdf:type sh:NodeShape ;
+	sh:targetClass cao:Activity ;
+	sh:property [
+		sh:path  cao:hasSubject ;
+                sh:minCount 1 ;
+                sh:nodeKind sh:IRI ;
+                sh:class cao:Subject ;
+		sh:description "An activity should have at least one subject to whom it is assigned" ;
 
-:LocationShape rdf:type sh:Shape ;
-	       sh:targetClass :Location ;
-	       sh:property [
-	       		   sh:predicate  :hasName ;
-			   sh:minCount 1 ;
-			   sh:maxCount 1 ;
-			   sh:datatype xsd:string ;
-			   ] ;
-	       sh:property [
-	       		   sh:predicate :hasAddress ;
-			   sh:maxCount 1 ;
-			   sh:datatype xsd:string ;
-			   sh:description "A location should have at most one address" ;
-	       		   ]. 
+	];
+	sh:property [
+		sh:path cao:activityDescription ;
+		sh:minCount 1 ;
+		sh:datatype xsd:string ;
+		sh:description "Any activity should have at least one description" ;
+	];
+	sh:xone (
+	[
+		sh:property[
+			sh:path cao:hasBeginTime ;
+			sh:maxCount 1 ;
+		        sh:nodeKind sh:IRI ;
+		        sh:class time:Instance ; 
+			sh:description "An activity should at most one beginning time relate entity" ;
+		] ;
+		sh:property[
+			sh:path cao:hasEndTime ;
+			sh:maxCount 1 ;
+		        sh:nodeKind sh:IRI ;
+		        sh:class time:Instance ; 
+			sh:description "An activity should at most one end time relate entity" ;
+		] 
+	]
+	[
+		sh:property [
+			sh:path cao:hasTime ;
+			sh:minCount 1 ;
+			sh:maxCount 1 ;
+		        sh:nodeKind sh:IRI ;
+		        sh:class time:Interval ; 
+			sh:description "An activity should at most one beginning time relate entity" ;
+		]
+	] 
+	);
+	
+	sh:property [
+		sh:path cao:hasName ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:datatype xsd:string ;
+		sh:description "An activity should at least a name" ;
+	].
+
+cao:LocationShape rdf:type sh:NodeShape ;
+	sh:targetClass cao:Location ;
+	sh:property [
+		sh:path  cao:hasName ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path cao:hasAddress ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:string ;
+		sh:description "A location should have at most one address" ;
+	]. 
