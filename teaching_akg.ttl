@@ -183,7 +183,8 @@
 ############## Subject object property ##############
 #####################################################
 
-:achieves  owl:propertyChainAxiom (:hasRole cao:carriesOut);
+
+:achieves  owl:propertyChainAxiom (:hasRole :isResponsibleFor);
 	   rdfs:label "achieves" ;
 	   owl:inverseOf cao:isCarriedOutBy;
 	   rdfs:domain cao:Subject ;
@@ -195,6 +196,12 @@
       	 rdfs:range :Role;
       	 rdfs:comment "A subject has role a role"@en .
 
+
+:isResponsibleOf  rdf:type owl:ObjectProperty ;
+	      rdfs:label "responsibility" ;
+	      rdfs:domain :Role ;
+	      rdfs:range cao:Activity ;
+	      rdfs:comment "A role is responsible of an activity"@en .
 
 ############## Tool class ##############
 ########################################
