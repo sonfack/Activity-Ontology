@@ -18,7 +18,8 @@
 				   dct:created "2023-12-15"^^xsd:date ;
   				   dct:creator <https://orcid.org/0000-0002-6085-6818> ;
   				   dct:creator <mailto:sss.sonfack@gmail.com> ;
-   				   dc:description """This ontology defines concepts and their relations to represent teaching activities knowledge within an organization.""" .
+				   dc:licence "" ;
+   				   dc:description """This ontology extends the core activity ontology (CAO) and defines concepts and their relations to represent teaching activities knowledge within an organization.""" .
 
 
 
@@ -46,50 +47,24 @@
 
 
 
-:isUsedFor owl:inverseOf :isCarriedOutWith ;
+:isUsedFor owl:inverseOf cao:isCarriedOutWith ;
+	   rdfs:label "is used for" ;
 	   rdfs:domain cao:Resource ;
 	   rdfs:range cao:Activity ;
 	   rdfs:comment "A resource is used for an activity"@en .
-
-:isCarriedOutWith  rdf:type owl:ObjectProperty ;
-		   rdfs:domain cao:Activity ;
-		   rdfs:range cao:Resource ;
-		   rdfs:comment "An activity is carried out with a given resource"@en .
-		   
-:isCarriedOutBy rdf:type owl:ObjectProperty ;
-      rdfs:domain cao:Activity ;
-      rdfs:range cao:Subject ;
-      rdfs:comment "An activity is carried out by a subject"@en .
-
-:hasLocation rdf:type owl:ObjectProperty ;
-             rdfs:domain cao:Activity ;
-             rdfs:range cao:Location ;
-             rdfs:comment "Links a domain to a geographical position"@en .
-
-:isComposedOf rdf:type owl:ObjectProperty, owl:IrreflexiveProperty;
-	     rdfs:domain cao:Activity ;
-	     rdfs:range cao:Action, cao:Operation ;
-	     rdfs:comment "An activity is composed of actions or operations" .
+	   
 
 :isFollowedBy rdf:type owl:ObjectProperty, owl:TransitiveProperty  ;
+	      rdfs:label "is followed by" ;
 	      owl:inverseOf  cao:follows ;
 	      rdfs:domain cao:Activity ;
 	      rdfs:range cao:Activity ;
 	      rdfs:comment "An activity is followed by another activity"@en .
 
-:hasConstraint rdf:type owl:ObjectProperty;
-	 rdfs:domain cao:Activity ;
-	 rdfs:range cao:Constraint ;
-	 rdfs:comment "An activity has a constraint"@en .
-
 ################ Action class #################
 ###############################################
 
-cao:Action rdf:type owl:Class ;
-	rdfs:label "Action" ;
-        rdfs:subClassOf cao:Activity ;
-        rdfs:comment """A well define and specific work that one can carry out in an action. It is the means to implement an action."""@en .
-	
+
 ################ Action data property #################
 #########################################################
 
@@ -104,10 +79,6 @@ cao:Action rdf:type owl:Class ;
 ################ Operation class #################
 ##################################################
 
-cao:Operation rdf:type owl:Class ;
-	   rdfs:label  "Operation" ;
-           rdfs:subClassOf cao:Activity ;
-           rdfs:comment "An operation is a work performed by an agent"@en .
 
 
 
@@ -121,9 +92,6 @@ cao:Operation rdf:type owl:Class ;
 ################ Location class ##############
 ##############################################
 
-cao:Location rdf:type owl:Class ;
-	  rdfs:lable "Location";
-          rdfs:comment "A geographical location or places"@en .
 
 :Building rdf:type owl:Class ;
 	  rdfs:subClassOf cao:Location ;
@@ -150,9 +118,10 @@ cao:Location rdf:type owl:Class ;
 #########################################################
 
 :isFoundIn  rdf:type owl:ObjectProperty,  owl:TransitiveProperty  ;
-	      rdfs:domain cao:Location ;
-	      rdfs:range cao:Location;
-	      rdfs:comment "A location is found in another location" .
+	    rdfs:label "is found in" ;
+	    rdfs:domain cao:Location ;
+	    rdfs:range cao:Location;
+	    rdfs:comment "A location is found in another location" .
 
 
 ############### Subject class ###############
@@ -213,36 +182,33 @@ cao:Location rdf:type owl:Class ;
 
 ############## Subject object property ##############
 #####################################################
-:isSubjectOf  rdf:type owl:ObjectProperty ;
-	      rdfs:domain cao:Subject ;
-	      rdfs:range cao:Activity .
 
-:achieves  owl:propertyChainAxiom (:hasRole cao:carriesOut);
-	   owl:inverseOf :isCarriedOutBy;
+
+:achieves  owl:propertyChainAxiom (:hasRole :isResponsibleFor);
+	   rdfs:label "achieves" ;
+	   owl:inverseOf cao:isCarriedOutBy;
 	   rdfs:domain cao:Subject ;
 	   rdfs:range cao:Activity .
 
 :hasRole rdf:type owl:ObjectProperty ;
-      rdfs:domain cao:Subject ;
-      rdfs:range :Role;
-      rdfs:comment "A subject has role a role"@en .
+	 rdfs:label "has role" ;
+      	 rdfs:domain cao:Subject ;
+      	 rdfs:range :Role;
+      	 rdfs:comment "A subject has role a role"@en .
 
+
+:isResponsibleFor  rdf:type owl:ObjectProperty ;
+	      rdfs:label "responsibility" ;
+	      rdfs:domain :Role ;
+	      rdfs:range cao:Activity ;
+	      rdfs:comment "A role is responsible of an activity"@en .
 
 ############## Tool class ##############
 ########################################
 
-cao:Resource rdf:type owl:Class ;
-	  rdfs:label "Tool" ;
-          rdfs:comment "The tool used to carry out an activity"@en .
-
-
-:SoftResource rdf:type owl:Class ;
-	   rdfs:label  "Soft Resource" ;
-           rdfs:subClassOf cao:Resource .
-
 :DigitalResource rdf:type owl:Class ;
 	   rdfs:label  "Digital Resource" ;
-           rdfs:subClassOf :SoftResource .
+           rdfs:subClassOf cao:SoftResource .
 
 :Software rdf:type owl:Class ;
 	   rdfs:label  "Software" ;
@@ -258,19 +224,16 @@ cao:Resource rdf:type owl:Class ;
 
 :Communication rdf:type owl:Class ;
 	   rdfs:label  "Communication" ;
-           rdfs:subClassOf :SoftResource .
+           rdfs:subClassOf cao:SoftResource .
 
-:HardResource rdf:type owl:Class ;
-	   rdfs:label  "Hard Resource" ;
-           rdfs:subClassOf cao:Resource .
 
 :TeachingMaterial rdf:type owl:Class ;
 	   rdfs:label  "Teaching Material" ;
-           rdfs:subClassOf :HardResource .
+           rdfs:subClassOf cao:HardResource .
 
 :Electronic rdf:type owl:Class ;
 	   rdfs:label  "Electronic" ;
-           rdfs:subClassOf :HardResource .
+           rdfs:subClassOf cao:HardResource .
 
 :Computer rdf:type owl:Class ;
 	   rdfs:label  "Computer" ;
@@ -281,7 +244,7 @@ cao:Resource rdf:type owl:Class ;
            rdfs:subClassOf :Electronic .
 
 :Desktop rdf:type owl:Class ;
-	   rdfs:label  "Computer" ;
+	   rdfs:label  "Desktop" ;
            rdfs:subClassOf :Computer .
 
 :Laptop rdf:type owl:Class ;
@@ -290,7 +253,7 @@ cao:Resource rdf:type owl:Class ;
 
 :HardDocument rdf:type owl:Class ;
 	   rdfs:label  "Hard Document" ;
-           rdfs:subClassOf :HardResource .
+           rdfs:subClassOf cao:HardResource .
 	   
 ############## Tool data property ##############
 ################################################
@@ -347,52 +310,55 @@ cao:Resource rdf:type owl:Class ;
 
 ####################### Role ###################################
 
-:itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 rdf:type :Management .
+:itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 rdf:type :Management ;
+	cao:hasName  "IT unit head".
 
-:director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398 rdf:type :TopManagement .
+:director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398 rdf:type :TopManagement ;
+					       cao:hasName  "Director" .
 
 
 ##################### Teacher ################################
 
 :lecturer-c83b7873-f908-484d-a044-2802814f87d1
 	rdf:type :Teacher;
-	cao:carriesOut :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
+	cao:hasName  "DB course teacher".
 
 :lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645
 	rdf:type :Teacher ;
-	cao:carriesOut :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b .
+	cao:hasName  "Python course teacher".
 
 :lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2
 	rdf:type :Teacher ;
-	cao:carriesOut :secourse-511f491d-ea2b-428f-900e-604ea778dab5 .
+	cao:hasName  "SE course teacher".
 
 :lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0
 	rdf:type :Teacher ;
-	cao:carriesOut :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd .
+	cao:hasName  "UI course teacher".
 
 :lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667
 	rdf:type :Teacher ;
-	cao:carriesOut :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb .
+	cao:hasName  "Project management teacher".
 
 :supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e
 	rdf:type :Teacher ; 
-	cao:carriesOut :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 .
+	cao:hasName  "SE project supervisor".
 
 :supervisor-1339002e-3ef1-4e12-8eec-8feff0a82a67
 	rdf:type :Teacher ;
-	cao:carriesOut :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 .
+	cao:hasName  "Python project supervisor".
 
 :practical-4f989887-eb53-431f-b188-c9662a042f51
 	rdf:type :Teacher ;
-	cao:carriesOut :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b .
+	:isResponsibleFor :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
+	cao:hasName  "SE practical teacher".
 
 :tutor-e4449e8b-a090-4652-9b91-231d9e7a070a
 	rdf:type :Tutor ;
-	cao:carriesOut :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 .
+	cao:hasName  "SE tutorial teacher".
 
 :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf
 	rdf:type :Teacher ;
-	cao:carriesOut :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 .
+	cao:hasName  "DB tutorial teacher" .
 
 
 
@@ -401,53 +367,44 @@ cao:Resource rdf:type owl:Class ;
 
 :teacher-09c4175e-f119-4d66-ac53-920a5c9dc796
 	rdf:type :Human ;
-	:hasRole :lecturer-c83b7873-f908-484d-a044-2802814f87d1, :director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398 ;
-	:hasName  "DB course teacher".
+	:hasRole :lecturer-c83b7873-f908-484d-a044-2802814f87d1, :director-bf3b0ecc-3e6e-4d7b-9cb1-ec05ba5be398.
 
 :teacher-04ccbc2a-0abe-4d78-90a4-514e8adfda7a
 	rdf:type :Human ;
-	:hasRole :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf ;
-	:hasName  "DB tutorial teacher".
+	:hasRole :tutor-c502603b-7818-4b1f-9c62-83986bfb17bf .
 
 :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8
 	rdf:type :Human ;
-	:hasRole :lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645 ;
-	:hasName  "Python course teacher".
+	:hasRole :lecturer-1c787fcc-3ef9-43c6-bfa3-f05823b50645 .
 
 :teacher-9e1c2630-6a90-43b3-bcd8-639079d43f4a
 	rdf:type :Human ;
 	:hasRole :supervisor-1339002e-3ef1-4e12-8eec-8feff0a82a67 ;
-	:hasName  "Python practical teacher".
+	cao:isSubjectOf :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668.
 
 :teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9
 	rdf:type :Human ;
-	:hasRole :lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0 ;
-	:hasName  "UI course teacher".
+	:hasRole :lecturer-9cc8c82a-a80e-4edc-a50d-771413af9ee0 .
 
 :teacher-270696cb-b304-42d7-91d9-694e5e8c0a7b
 	rdf:type :Human ;
-	:hasRole :lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667, :itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 ;
-	:hasName  "PM course teacher".
+	:hasRole :lecturer-13aa62db-f676-48d5-97dd-8e81b5c70667, :itunithead-d89141ba-4b2d-41e4-b1a5-65bc2d409817 .
 
 :teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216
 	rdf:type :Human ;
-	:hasRole :lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2 ;
-	:hasName  "SE course teacher".
+	:hasRole :lecturer-a5bed203-9120-4d40-b108-6df44a78d3a2 .
 
 :teacher-f6f76647-ad40-4a4e-93c0-6840ccec87d3
 	rdf:type :Human ;
-	:hasRole :tutor-e4449e8b-a090-4652-9b91-231d9e7a070a ;
-	:hasName  "SE tutorial teacher".
+	:hasRole :tutor-e4449e8b-a090-4652-9b91-231d9e7a070a .
 
 :teacher-019b097e-7eb4-4338-a2f5-f326477d7d20
 	rdf:type :Human ;
-	:hasRole :practical-4f989887-eb53-431f-b188-c9662a042f51 ;
-	:hasName  "SE practical teacher".
+	:hasRole :practical-4f989887-eb53-431f-b188-c9662a042f51 .
 
 :teacher-a90e1d36-c79f-47f1-a2b5-c805266e2bcc
 	rdf:type :Human ;
-	:hasRole :supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e ;
-	:hasName  "SE project teacher".
+	:hasRole :supervisor-accb038e-58dd-4967-9ab1-2648fcdc5e5e .
 
 
 ############################### Rule ##########################3
@@ -460,77 +417,102 @@ cao:Resource rdf:type owl:Class ;
 ####################### Time ###################################
 
 :8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a
-	rdf:type time:TemporalEntity ;
-	cao:hasBeginning :8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85 ;
-	cao:hasEnd :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec .
+	rdf:type time:Interval ;
+	time:hasBeginning :8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85 ;
+	time:hasEnd :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec .
 					  
 :8AM-7cc55976-df08-47d5-a37f-cfc9b7c04f85
 	rdf:type time:Instant ;
 	cao:inXSDDateTime "2002-05-06T08:00:00"^^xsd:dateTime .
 
 :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-06T10:00:00"^^xsd:dateTime .
+					 time:inXSDDateTime "2002-05-06T10:00:00"^^xsd:dateTime .
 
-:10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 rdf:type time:TemporalEntity ;
-					  cao:hasBeginning :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec ;
-					  cao:hasEnd :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f .
+:10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 rdf:type time:Interval ;
+					  time:hasBeginning :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec ;
+					  time:hasEnd :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f .
 
 :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f  rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-06T12:00:00"^^xsd:dateTime .
+					 time:inXSDDateTime "2002-05-06T12:00:00"^^xsd:dateTime .
 
-:8AM-10AM-b139b467-7fbf-4298-9338-fa372b608e5e rdf:type  time:TemporalEntity ;
-					  cao:hasBeginning :8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5 ;
-					  cao:hasEnd :10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7 .
+:8AM-10AM-b139b467-7fbf-4298-9338-fa372b608e5e
+	rdf:type  time:Interval ;
+	time:hasBeginning :8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5 ;
+	time:hasEnd :10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7 .
 
-:8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5  rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-09T08:00:00"^^xsd:dateTime .
 
-:10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7  rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-09T10:00:00"^^xsd:dateTime .
+############# 08:00-10:00 2002-05-09 ############
+:08AM-10AM-35e7d9ed-4694-48e0-a6b6-394bd4155a13
+	rdf:type time:Interval ;
+	time:hasBeginning :8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5 ;
+	time:hasEnd :10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7 .
+############# 2002-05-0 ############
+###### 08:00 2002-05-09
+:8AM-04c94b0b-5095-4f06-9f5c-b8f980385df5
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-09T08:00:00"^^xsd:dateTime .
+###### 10:00 2002-05-09
+:10AM-ee0a6d0b-38a2-4203-b06b-6e551cf6e8a7
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-09T10:00:00"^^xsd:dateTime .
 
-:10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7 rdf:type time:TemporalEntity ;
-					  cao:hasBeginning :10AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a ;
-					  cao:hasEnd :12AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a .
 
-:10AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-08T10:00:00"^^xsd:dateTime .
+
+############# 10:00-12:00 2002-05-08 ############
+:10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7
+	rdf:type time:Interval ;
+	time:hasBeginning :10AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a ;
+	time:hasEnd :12AM-1461e790-cd81-4f7b-96dc-3a2431e32eb0 .
+############# 2002-05-08 ############
+###### 10:00 2002-05-08
+:10AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-08T10:00:00"^^xsd:dateTime .
+###### 12:00 2002-05-08					  
+:12AM-1461e790-cd81-4f7b-96dc-3a2431e32eb0
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-08T12:00:00"^^xsd:dateTime .
+
+
+############# 08:00-10:00 2002-05-10 ############
+:8AM-10AM-0ea7a574-e6be-4dc7-abe1-85a6b8ce2e3d
+	rdf:type time:Interval ;
+	time:hasBeginning  :8AM-a1285744-ddb3-4875-8e77-ed1a7033ccd2 ;
+	time:hasEndT    :10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a .
 					  
-:12AM-b1f89d0f-6774-4ff6-838e-bf9738c1ff9a rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-08T12:00:00"^^xsd:dateTime .
-
-:8AM-10AM-0ea7a574-e6be-4dc7-abe1-85a6b8ce2e3d rdf:type time:TemporalEntity ;
-					  cao:hasBeginning :8AM-a1285744-ddb3-4875-8e77-ed1a7033ccd2 ;
-					  cao:hasEnd :10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a .
-
-:8AM-a1285744-ddb3-4875-8e77-ed1a7033ccd2  rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-10T08:00:00"^^xsd:dateTime .
-
-:10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a rdf:type time:Instant  ;
-					  cao:inXSDDateTime "2002-05-10T10:00:00"^^xsd:dateTime .
+############# 2002-05-10 ############
+###### 08:00 2002-05-10
+:8AM-a1285744-ddb3-4875-8e77-ed1a7033ccd2
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-10T08:00:00"^^xsd:dateTime .
+###### 10:00 2002-05-10
+:10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a
+	rdf:type time:Instant  ;
+	time:inXSDDateTime "2002-05-10T10:00:00"^^xsd:dateTime .
 
 
 
 ####################### Objective ###################################
 
 :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e rdf:type cao:Object ;
-		 				:hasName "Python course objective" ;
+		 				cao:hasName "Python course objective" ;
 						:objectiveDescription "This course is intended to introduce Python programming to level 01 students" .
 
 :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 rdf:type cao:Object ;
-		 				:hasName "Database course objective" ;
+		 				cao:hasName "Database course objective" ;
 						:objectiveDescription "This course is intended to introduce Database modeling to level 03 students" .
 
 :objective-9a59e20a-60f0-4798-8895-50f6b79621c5 rdf:type cao:Object ;
-	        				:hasName "HTML course objective" ;
+	        				cao:hasName "HTML course objective" ;
 						:objectiveDescription """This course is intended to introduce Web interface programming to level 02 students. It will enables them to designer and display elements such as text, images, forms and interactive functions in a web browser""" .
 
 
 :objective-f4de69e1-e2ba-41a6-a268-803293e73080 rdf:type cao:Object ;
-		       				:hasName "Software engineering course objective" ;
+		       				cao:hasName "Software engineering course objective" ;
 	      					:objectiveDescription """This course will enable level 03 students to systematic procedures  large-scale softwares so that their specifications correspond to the real needs of the customers""" .
 
 :objective-0b6e8fa9-d03d-4636-ab9c-b34578b4ea45 rdf:type cao:Object ;
-		        			:hasName "Project management course objective" ;
+		        			cao:hasName "Project management course objective" ;
 	      					:objectiveDescription """ The main  objective of this course is to let students acquire a global vision of projects, provide then with practical tools for anticipating drifts in costs, deadlines and performance of industrial projects""" .
 
 
@@ -539,304 +521,321 @@ cao:Resource rdf:type owl:Class ;
 
 :classroom-b2c326d0-8551-41c4-aee5-11365e117523
 	rdf:type :ClassRoom ;
-	:hasName "CR001" .
+	cao:hasName "CR001" .
 	
 :classroom-c1a5b39b-992c-49fb-9c7e-a1ffaa92e884
 	rdf:type :ClassRoom ;
-	:hasName "CR002" .
+	cao:hasName "CR002" .
 
 :classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7
 	rdf:type :ClassRoom ;
-	:hasName "CR003" .
+	cao:hasName "CR003" .
 
 :classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9
 	rdf:type :ClassRoom ;
-	:hasName "CR004" .
+	cao:hasName "CR004" .
 
 :classroom-3414ff41-3e7a-44de-a679-baac1ab873c2
 	rdf:type :ClassRoom ;
-	:hasName "CR005" .
+	cao:hasName "CR005" .
 
 :computerroom-4ecbe47c-8f8e-4835-93ac-16d2392e30a2
 	rdf:type :PracticalRoom ;
-	:hasName "PR001" .
+	cao:hasName "PR001" .
 
 :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39
 	rdf:type :PracticalRoom ;
-	:hasName "PR002" .
+	cao:hasName "PR002" .
 
 :computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4
 	rdf:type :PracticalRoom ;
-	:hasName "PR003" .
+	cao:hasName "PR003" .
 
 :tutorialroom-57179062-99d4-4da0-88b4-e800809fac73
 	rdf:type :TutorialRoom ;
-	:hasName "TR001" .
+	cao:hasName "TR001" .
 
 :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe
 	rdf:type :TutorialRoom ;
-	:hasName "TR002" .
+	cao:hasName "TR002" .
 
 
 
 ####################### Resource ###################################
 
 
-##############
+
 :book-b4d784d0-8be6-473f-a4cc-3c5ff8a80b6d rdf:type :HardDocument ;
-	   				   :hasName "Introduction to MYSQL";
+	   				   cao:hasName "Introduction to MYSQL";
 	   				   :isUsedFor :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
-
-#book-38877fe0-f0d4-4f8a-a5d1-a98b8b70e10c#
-:book-38877fe0-f0d4-4f8a-a5d1-a98b8b70e10c rdf:type :HardDocument ;
-	   				   :hasName "MYSQL introduction";
-	   				   :isUsedFor :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
-###############
-
 
 :laptop-a0268cf3-8b2b-4f83-a467-eefe3a392639 rdf:type :Laptop ;
-	  				     :hasName "Dell laptop";
+	  				     cao:hasName "Dell laptop";
 	  				     :isUsedFor :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b .
 
 :laptop-bf775e20-71f6-4587-a518-2c0e73fa7470 rdf:type :Laptop ;
-	  				     :hasName "HP laptop";
+	  				     cao:hasName "HP laptop";
 	  				     :isUsedFor :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
 :laptop-a206be12-21fb-4fbf-b40b-4459b1cf4348 rdf:type :Laptop ;
-	  				     :hasName "Lenovo laptop";
+	  				     cao:hasName "Lenovo laptop";
 	  				     :isUsedFor  :secourse-511f491d-ea2b-428f-900e-604ea778dab5.
 
 :desktop-b71a8e25-db09-46b4-92a2-fef44f77d87b rdf:type :Desktop ;
-	 				      :hasName "IBM desktop computer";
+	 				      cao:hasName "IBM desktop computer";
 	 				      :isUsedFor :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9, :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 
 :book-5afdf1f7-b15f-450b-be5f-e6e5d0505cb5 rdf:type :HardDocument ;
-					   :hasName "Master project management";
+					   cao:hasName "Master project management";
 					   :isUsedFor :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb .
 
 :book-b2806065-7423-429f-bddd-b2208121325f rdf:type :HardDocument ;
-	    				   :hasName "Python programming for intermediate";
+	    				   cao:hasName "Python programming for intermediate";
 	    				   :isUsedFor :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b, :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668  .
 
 :book-0626b11e-a0d8-4eab-9485-4d42a51e8581 rdf:type  :HardDocument ;
-	  				   :hasName "Web interface with HTML";
+	  				   cao:hasName "Web interface with HTML";
 	  				   :isUsedFor  :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
 :book-236fb61b-0908-4892-9ded-974bdbf1c653 rdf:type :HardDocument ;
-		      			   :hasName "Computer architecture";
+		      			   cao:hasName "Computer architecture";
 		      			   :isUsedFor :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b, :secourse-511f491d-ea2b-428f-900e-604ea778dab5 .
 
 :book-acca8da0-a675-4e21-bbae-ff60772105d0 rdf:type :HardDocument ;
-		  			   :hasName "Assembly language";
+		  			   cao:hasName "Assembly language";
 		  			   :isUsedFor  :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b .
 
 :book-9d0de03c-dcc8-4a6c-8dd3-3b921cba2d1b rdf:type :HardDocument ;
-		  			   :hasName "Computer hardware";
+		  			   cao:hasName "Computer hardware";
 		  			   :isUsedFor :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b .
 
 :software-7b5f05b1-0701-43bb-ad0f-a98a27dc9312 rdf:type :DigitalResource ;
-	       				       :hasName "MySQL 8.0";
+	       				       cao:hasName "MySQL 8.0";
 	       				       :isUsedFor :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
 :digital-ab422ef5-9bd5-451f-8ab7-9274ffdf5739 rdf:type :DigitalResource ;
-		     			      :hasName "Introduction to sofware engineering";
+		     			      cao:hasName "Introduction to sofware engineering";
 	       	     			      :isUsedFor :secourse-511f491d-ea2b-428f-900e-604ea778dab5 .
 
 :digital-8df1b194-5e61-489b-ab31-366843c55775 rdf:type :Video ;
-	     				      :hasName "Learn Python - Full Course for Beginners";
+	     				      cao:hasName "Learn Python - Full Course for Beginners";
 	     				      :isUsedFor :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 .
 
 :digital-b611ffdb-144f-4858-8519-9d6feec9f928 rdf:type :SoftDocument ;
-	 				      :hasName "HTML Presentation";
+	 				      cao:hasName "HTML Presentation";
 	 				      :isUsedFor :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
 :digital-2d8642f5-f270-4d47-9d3c-8132f4fa2668 rdf:type :Video ;
-	   				      :hasName "HTML in 100 Seconds";
+	   				      cao:hasName "HTML in 100 Seconds";
 	   				      :isUsedFor :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd .
 
 :digital-9840998a-2a10-46c4-a1d8-b7262bb88c76 rdf:type :SoftDocument ;
-	  				      :hasName "Begining database with MySQL";
+	  				      cao:hasName "Begining database with MySQL";
 	  				      :isUsedFor :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272, :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 .
 
 :digital-f76fbf2e-b9a1-46ec-b446-b76389636810 rdf:type :SoftDocument ;
-	   				      :hasName "Microsoft excel course";
+	   				      cao:hasName "Microsoft excel course";
 	   				      :isUsedFor  :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272 .
 
 
 :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b
 	rdf:type :Projector ;
-	:hasName "Panasonic LCD Projector" .
+	cao:hasName "Panasonic LCD Projector" .
 
 ####################### Activity ###################################
-#dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272#
+
 :dbcourse-b63a9944-19f6-4f41-bcbd-9333ede86272
 	rdf:type cao:Activity ;
-	:hasName "DataBase Course" ;
-	cao:hasDuration "120"^^xsd:integer ;
-	:hasObject :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
+	cao:hasName "CSC 1002" ;
+	rdfs:label "DataBase Course" ;
+	cao:activityDescription "This course introduces the database concept to level 1 student" ;
+	cao:hasTime :8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a;
+	cao:hasObjective :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
 	:hasLocation :classroom-b2c326d0-8551-41c4-aee5-11365e117523 ;
 	:isFollowedBy  :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 ;
-	:isComposedOf :lecturing-9246b9e2-d557-4869-885a-c541257280eb ;
-	:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
-	:isCarriedOutWith :book-b4d784d0-8be6-473f-a4cc-3c5ff8a80b6d ;
-	:hasSubject :teacher-09c4175e-f119-4d66-ac53-920a5c9dc796.
+	cao:isComposedOf :lecturing-9246b9e2-d557-4869-885a-c541257280eb ;
+	cao:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
+	cao:isCarriedOutWith :book-b4d784d0-8be6-473f-a4cc-3c5ff8a80b6d, :laptop-a0268cf3-8b2b-4f83-a467-eefe3a392639, :digital-9840998a-2a10-46c4-a1d8-b7262bb88c76 ;
+	cao:hasSubject :teacher-09c4175e-f119-4d66-ac53-920a5c9dc796.
 
-#:dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19#
 :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19
 	rdf:type cao:Activity ;
-	:hasName "DataBase Tutorial" ;
+	cao:hasName "CSC 1022" ;
+	rdfs:label "DataBase Tutorial" ;
+	cao:hasBeginTime :10AM-f5ee7bc0-fb61-4d4e-9a32-565a5a7df03a ;
+	cao:activityDescription "This tutorial answers database question to level 1 student" ;
 	cao:hasDuration "120"^^xsd:integer ;
-	:hasObjective :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
+	cao:hasObjectiveive :objective-ddd7e420-9347-4a53-8f06-d30d3efd8398 ;
 	:hasLocation :computerroom-4ecbe47c-8f8e-4835-93ac-16d2392e30a2, :classroom-c1a5b39b-992c-49fb-9c7e-a1ffaa92e884 ;
-	:isComposedOf :tutoring-75f9b050-39ca-4751-83d0-1298ec31bbdf ;
-	:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
-	:isCarriedOutWith :book-b4d784d0-8be6-473f-a4cc-3c5ff8a80b6d ;
-	:hasSubject :teacher-04ccbc2a-0abe-4d78-90a4-514e8adfda7a .
+	cao:isComposedOf :tutoring-75f9b050-39ca-4751-83d0-1298ec31bbdf ;
+	cao:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
+	cao:isCarriedOutWith :book-b4d784d0-8be6-473f-a4cc-3c5ff8a80b6d ;
+	cao:hasSubject :teacher-04ccbc2a-0abe-4d78-90a4-514e8adfda7a .
 
 :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b
 	rdf:type cao:Activity;
-	:hasName "Python Course" ;
+	cao:hasName "CSC 1001" ;
+	rdfs:label "Python Course" ;
+	cao:activityDescription "This course introduces the python programming to level 1 student" ;
 	cao:hasTime :8AM-10AM-0ea7a574-e6be-4dc7-abe1-85a6b8ce2e3d ;
-	:hasObjective :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
-	:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
+	cao:hasObjectiveive :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
+	cao:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
 	:isFollowedBy :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 ;
-	:isComposedOf :lecturing-5737c363-39a6-405a-87d1-9f15bee9e464 ;
-	:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
-	:hasSubject :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8.
+	cao:isComposedOf :lecturing-5737c363-39a6-405a-87d1-9f15bee9e464 ;
+	cao:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
+	cao:isCarriedOutWith :laptop-bf775e20-71f6-4587-a518-2c0e73fa7470 ;
+	cao:hasSubject :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8.
 
 :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668
 	rdf:type cao:Activity;
-	:hasName "Python Practical" ;
-	:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
+	cao:hasName "CSC 1011" ; 
+	rdfs:label "Python Practical" ;
+	cao:activityDescription "This course is for monitoring python programming practicals for level 1 student" ;
+	cao:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
 	cao:hasTime :8AM-10AM-1470781d-1128-4f43-ab61-4088953f071a ;
-	:hasObjective :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
-	:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
-	:isComposedOf :practical-fa779b89-5ec8-48f1-b5c3-bda3968382ca ;
-	:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
-	:hasSubject :teacher-9e1c2630-6a90-43b3-bcd8-639079d43f4a .
+	cao:hasObjectiveive :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
+	cao:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
+	cao:isComposedOf :practical-fa779b89-5ec8-48f1-b5c3-bda3968382ca ;
+	cao:isCarriedOutWith :digital-8df1b194-5e61-489b-ab31-366843c55775 ;
+	cao:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd  .
 
 :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd
 	rdf:type cao:Activity ;
-	:hasName "UserInterface Course" ;
+	cao:hasName "CSC 1006" ;
+	rdfs:label "UserInterface Course" ;
+	cao:activityDescription "This course introduces the user interface design principles to level 1 student" ;
 	cao:hasTime :10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7 ;
-	:hasObjective :objective-9a59e20a-60f0-4798-8895-50f6b79621c5 ;
-	:hasLocation :computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4, :classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 ;
-	:isComposedOf :lecturing-5923c0c5-fe15-4cf9-8dc1-e3f5e73ba02a ;
-	:isBeneficialTo :bsc-a00ac66e-e5df-4a66-9691-42d318700616 ;
-	:hasSubject :teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9.
+	cao:hasObjectiveive :objective-9a59e20a-60f0-4798-8895-50f6b79621c5 ;
+	cao:hasLocation :computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4, :classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 ;
+	cao:isComposedOf :lecturing-5923c0c5-fe15-4cf9-8dc1-e3f5e73ba02a ;
+	cao:isBeneficialTo :bsc-a00ac66e-e5df-4a66-9691-42d318700616 ;
+	cao:isCarriedOutWith :digital-2d8642f5-f270-4d47-9d3c-8132f4fa2668 ;
+	cao:hasSubject :teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9.
 
 :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb
 	rdf:type cao:Activity ;
-	:hasName "ProjectManagement Course" ;
+	cao:hasName "ProjectManagement Course" ;
+	cao:activityDescription "This course introduces project management concepts to level 1 student" ;
 	cao:hasTime :8AM-10AM-b139b467-7fbf-4298-9338-fa372b608e5e ;
-	:hasObjective :objective-0b6e8fa9-d03d-4636-ab9c-b34578b4ea45 ;
-	:hasLocation :classroom-3414ff41-3e7a-44de-a679-baac1ab873c2 ;
-	:isComposedOf :lecturing-12b5c207-f470-4bf3-bb3d-e6b31c954954 ;
-	:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af .
+	cao:hasObjectiveive :objective-0b6e8fa9-d03d-4636-ab9c-b34578b4ea45 ;
+	cao:hasLocation :classroom-3414ff41-3e7a-44de-a679-baac1ab873c2 ;
+	cao:isComposedOf :lecturing-12b5c207-f470-4bf3-bb3d-e6b31c954954 ;
+	cao:isCarriedOutWith :book-5afdf1f7-b15f-450b-be5f-e6e5d0505cb5 ;
+	cao:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af .
 
 :secourse-511f491d-ea2b-428f-900e-604ea778dab5
 	rdf:type cao:Activity;
-	:hasName "SoftwareEng Course" ;
+	cao:hasName "CSC 1003" ;
+	rdfs:label "Software Engineering Course" ;
+	cao:activityDescription "This course introduces software engineering to level 1 student" ;
 	cao:hasDuration "120"^^xsd:integer ;
-	:hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ; 
-	:hasLocation  :classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9 ;
+	cao:hasEndTime :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f ;
+	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ; 
+	cao:hasLocation  :classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9 ;
 	:isFollowedBy :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
-	:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
-	:isComposedOf :lecturing-14868c21-cca2-436b-9ccc-23c411ab22ca ; 
-	:hasSubject :teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216 .
+	cao:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
+	cao:isComposedOf :lecturing-14868c21-cca2-436b-9ccc-23c411ab22ca ;
+	cao:isCarriedOutWith :digital-ab422ef5-9bd5-451f-8ab7-9274ffdf5739 ;
+	cao:hasSubject :teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216 .
 
 :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9
 	rdf:type cao:Activity;
-	:hasName "SoftwareEng Tutorial" ;
+	cao:hasName "CSC 1023" ;
+	rdfs:label "Software Engineering Tutorial" ;
+	cao:activityDescription "This tutorial answers level 1 student questions on software engineering" ;
+	cao:hasBeginTime  :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec ;
 	cao:hasDuration "120"^^xsd:integer ;
-	:hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
-	:hasLocation :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
+	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
+	cao:hasLocation :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
 	:isFollowedBy :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
-	:isComposedOf :tutoring-bb6311ad-c7a3-412c-84f1-4f5cf76b4a75 ;
-	:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
- 	:hasSubject :teacher-f6f76647-ad40-4a4e-93c0-6840ccec87d3 .
+	cao:isComposedOf :tutoring-bb6311ad-c7a3-412c-84f1-4f5cf76b4a75 ;
+	cao:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
+ 	cao:hasSubject :teacher-f6f76647-ad40-4a4e-93c0-6840ccec87d3 .
 	
 :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b
 	rdf:type cao:Activity;
-	:hasName "SoftwareEng Practical" ;
-	:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
+	cao:hasName "CSC 1013" ;
+	rdfs:label "Software Engineering Practical" ;
+	cao:activityDescription "This course monitor software engineering practical questions for level 1 student" ;
+	cao:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
 	cao:hasTime :10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 ;
-	:hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
-	:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
+	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
+	cao:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
 	:isFollowedBy :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318 ;
-	:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
-	:isCarriedOutWith :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b ;
-	:isComposedOf :practical-4f989887-eb53-431f-b188-c9662a042f51 ;
-	:hasSubject :teacher-019b097e-7eb4-4338-a2f5-f326477d7d20 .
+	cao:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
+	cao:isCarriedOutWith :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b ;
+	cao:isComposedOf :practical-4f989887-eb53-431f-b188-c9662a042f51 .
 
 :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318
 	rdf:type cao:Activity;
-	:hasName "SoftwareEng Project" ;
-	cao:hasDuration "180"^^xsd:integer ;
-	:hasObjective :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
-	:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
-	:isBeneficialTo :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
-	:isCarriedOutWith :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b ;
-	:isComposedOf :supervision-b45158d0-f812-4ee9-976b-809df57824f2 ;
-	:hasSubject :teacher-a90e1d36-c79f-47f1-a2b5-c805266e2bcc .
+	rdfs:label "Software Engineering Project" ;
+	cao:activityDescription "This course is for follow up of software engineering projects of level 1 student" ;
+	cao:hasName "CSC 1005" ;
+	cao:hasTime :08AM-10AM-35e7d9ed-4694-48e0-a6b6-394bd4155a13 ;
+	cao:hasObjectiveive :objective-f4de69e1-e2ba-41a6-a268-803293e73080 ;
+	cao:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39 ;
+	cao:isBeneficialTo :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
+	cao:isCarriedOutWith :projector-6579cf57-4d1d-498d-bd51-bbc0caa7105b ;
+	cao:isComposedOf :supervision-b45158d0-f812-4ee9-976b-809df57824f2 ;
+	cao:hasSubject :teacher-a90e1d36-c79f-47f1-a2b5-c805266e2bcc .
 
 
 
 ####################### Action ################################
 
 :lecturing-9246b9e2-d557-4869-885a-c541257280eb rdf:type cao:Action ;
-	     					:hasName "Database lecture" ;
-	     					:isCarriedOutBy :teacher-09c4175e-f119-4d66-ac53-920a5c9dc796 .
+	     					cao:hasName "Database lecture" ;
+	     					cao:isCarriedOutBy :teacher-09c4175e-f119-4d66-ac53-920a5c9dc796 .
 	     
 :lecturing-5737c363-39a6-405a-87d1-9f15bee9e464 rdf:type cao:Action ;
-	     					:hasName "Python programming lecture" ;
-	     					:isCarriedOutBy :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8 .
+	     					cao:hasName "Python programming lecture" ;
+	     					cao:isCarriedOutBy :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8 .
 	     
 :lecturing-5923c0c5-fe15-4cf9-8dc1-e3f5e73ba02a rdf:type cao:Action ;
-	     					:hasName "User Interface designing lecture" ;
-	     					:isCarriedOutBy :teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9 .
+	     					cao:hasName "User Interface designing lecture" ;
+	     					cao:isCarriedOutBy :teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9 .
 	     
 :lecturing-12b5c207-f470-4bf3-bb3d-e6b31c954954 rdf:type cao:Action ;
-	     					:hasName "Project management lecture" ;
-	     					:isCarriedOutBy :teacher-270696cb-b304-42d7-91d9-694e5e8c0a7b .
+	     					cao:hasName "Project management lecture" ;
+	     					cao:isCarriedOutBy :teacher-270696cb-b304-42d7-91d9-694e5e8c0a7b .
 	     
 :lecturing-14868c21-cca2-436b-9ccc-23c411ab22ca rdf:type cao:Action ;
-	     					:hasName "Software Engineering lecture" ;
-	     					:isCarriedOutBy :teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216 .
+	     					cao:hasName "Software Engineering lecture" ;
+	     					cao:isCarriedOutBy :teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216 .
 	     
 :tutoring-75f9b050-39ca-4751-83d0-1298ec31bbdf rdf:type cao:Action ;
-	    				       :hasName "Database tutorial" .
+	    				       cao:hasName "Database tutorial" .
 	    
 :tutoring-bb6311ad-c7a3-412c-84f1-4f5cf76b4a75 rdf:type cao:Action ;
-	    				       :hasName "Software Engineering tutorial" .
+	    				       cao:hasName "Software Engineering tutorial" .
 	    
 :practical-fa779b89-5ec8-48f1-b5c3-bda3968382ca
 	rdf:type cao:Action ;
-	:hasName "Python programming practical" .
+	cao:hasName "Python programming practical" .
 	     
-:practical-4f989887-eb53-431f-b188-c9662a042f51
+:practical-7e92043f-3f76-4e10-a885-971d415f4861
 	rdf:type cao:Action ;
-	:hasName "Software Engineering practical" .
+	cao:hasName "Software Engineering practical" .
 	     
 :supervision-b45158d0-f812-4ee9-976b-809df57824f2
 	rdf:type cao:Action ;
-	:hasName "Software Engineering project"  .
+	cao:hasName "Software Engineering project"  .
 
 
 ####################### Communities ################################
 
 :bsc-a00ac66e-e5df-4a66-9691-42d318700616
 	rdf:type :Students ;
-	:hasName "Bsc year 1";
+	cao:hasName "Bsc year 1";
 	rdfs:comment "Bsc 1 students" .
 
 :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd
 	rdf:type :Students ;
-	:hasName "Bsc year 2";
+	cao:hasName "Bsc year 2";
        	rdfs:comment "Bsc 2 students" .
 
 :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af
 	rdf:type :Students ;
- 	:hasName "Bsc year 3";
+ 	cao:hasName "Bsc year 3";
        	rdfs:comment "Bsc 3 students" .
 

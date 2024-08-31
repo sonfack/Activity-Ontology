@@ -197,7 +197,7 @@
       	 rdfs:comment "A subject has role a role"@en .
 
 
-:isResponsibleOf  rdf:type owl:ObjectProperty ;
+:isResponsibleFor  rdf:type owl:ObjectProperty ;
 	      rdfs:label "responsibility" ;
 	      rdfs:domain :Role ;
 	      rdfs:range cao:Activity ;
@@ -345,12 +345,11 @@
 
 :supervisor-1339002e-3ef1-4e12-8eec-8feff0a82a67
 	rdf:type :Teacher ;
-	cao:isSubjectOf :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 ;
 	cao:hasName  "Python project supervisor".
 
 :practical-4f989887-eb53-431f-b188-c9662a042f51
 	rdf:type :Teacher ;
-	cao:isSubjectOf :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
+	:isResponsibleFor :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b ;
 	cao:hasName  "SE practical teacher".
 
 :tutor-e4449e8b-a090-4652-9b91-231d9e7a070a
@@ -656,6 +655,7 @@
 	:isFollowedBy  :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19 ;
 	cao:isComposedOf :lecturing-9246b9e2-d557-4869-885a-c541257280eb ;
 	cao:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
+	cao:isCarriedOutWith :book-b4d784d0-8be6-473f-a4cc-3c5ff8a80b6d, :laptop-a0268cf3-8b2b-4f83-a467-eefe3a392639, :digital-9840998a-2a10-46c4-a1d8-b7262bb88c76 ;
 	cao:hasSubject :teacher-09c4175e-f119-4d66-ac53-920a5c9dc796.
 
 :dbtutorial-78aca3f8-53fd-4f47-9406-414b493efe19
@@ -669,6 +669,7 @@
 	:hasLocation :computerroom-4ecbe47c-8f8e-4835-93ac-16d2392e30a2, :classroom-c1a5b39b-992c-49fb-9c7e-a1ffaa92e884 ;
 	cao:isComposedOf :tutoring-75f9b050-39ca-4751-83d0-1298ec31bbdf ;
 	cao:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
+	cao:isCarriedOutWith :book-b4d784d0-8be6-473f-a4cc-3c5ff8a80b6d ;
 	cao:hasSubject :teacher-04ccbc2a-0abe-4d78-90a4-514e8adfda7a .
 
 :pycourse-3f993bf5-1c2f-4f58-b85a-7b6b92bcf64b
@@ -682,6 +683,7 @@
 	:isFollowedBy :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668 ;
 	cao:isComposedOf :lecturing-5737c363-39a6-405a-87d1-9f15bee9e464 ;
 	cao:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd ;
+	cao:isCarriedOutWith :laptop-bf775e20-71f6-4587-a518-2c0e73fa7470 ;
 	cao:hasSubject :teacher-45b1d68b-d33c-4eaf-93af-7c44f8ef3fa8.
 
 :pypractical-f18f0361-3f12-4b3d-9459-ce2a019b4668
@@ -694,6 +696,7 @@
 	cao:hasObjectiveive :objective-969f073e-1e01-4ad0-a0f0-fb806ba5a50e ;
 	cao:hasLocation :computerroom-5a2454c8-c664-401c-86b7-425e75dddc39, :tutorialroom-351e99f6-c93b-4377-b987-511652d2eefe ;
 	cao:isComposedOf :practical-fa779b89-5ec8-48f1-b5c3-bda3968382ca ;
+	cao:isCarriedOutWith :digital-8df1b194-5e61-489b-ab31-366843c55775 ;
 	cao:isBeneficialTo :bsc-09c739e7-2a77-4b4c-9197-cdba96c340dd  .
 
 :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd
@@ -706,6 +709,7 @@
 	cao:hasLocation :computerroom-9cd6c49c-e52f-48ef-9d23-d868af4802c4, :classroom-9b1749fc-8ce7-42ce-89d6-4e7ff8b826c7 ;
 	cao:isComposedOf :lecturing-5923c0c5-fe15-4cf9-8dc1-e3f5e73ba02a ;
 	cao:isBeneficialTo :bsc-a00ac66e-e5df-4a66-9691-42d318700616 ;
+	cao:isCarriedOutWith :digital-2d8642f5-f270-4d47-9d3c-8132f4fa2668 ;
 	cao:hasSubject :teacher-39c687e2-5671-4ade-90b1-8f1c45096ea9.
 
 :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb
@@ -716,12 +720,13 @@
 	cao:hasObjectiveive :objective-0b6e8fa9-d03d-4636-ab9c-b34578b4ea45 ;
 	cao:hasLocation :classroom-3414ff41-3e7a-44de-a679-baac1ab873c2 ;
 	cao:isComposedOf :lecturing-12b5c207-f470-4bf3-bb3d-e6b31c954954 ;
+	cao:isCarriedOutWith :book-5afdf1f7-b15f-450b-be5f-e6e5d0505cb5 ;
 	cao:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af .
 
 :secourse-511f491d-ea2b-428f-900e-604ea778dab5
 	rdf:type cao:Activity;
 	cao:hasName "CSC 1003" ;
-	rdfs:label "SoftwareEng Course" ;
+	rdfs:label "Software Engineering Course" ;
 	cao:activityDescription "This course introduces software engineering to level 1 student" ;
 	cao:hasDuration "120"^^xsd:integer ;
 	cao:hasEndTime :12AM-6ec5a9a1-54b9-4310-96f4-9ecbdbf8344f ;
@@ -729,13 +734,14 @@
 	cao:hasLocation  :classroom-25eafa60-5f87-4e1f-9609-93bcdcfbb0c9 ;
 	:isFollowedBy :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9 ;
 	cao:isBeneficialTo  :bsc-410688e8-e5d3-4e9c-9ca4-c28bf92827af ;
-	cao:isComposedOf :lecturing-14868c21-cca2-436b-9ccc-23c411ab22ca ; 
+	cao:isComposedOf :lecturing-14868c21-cca2-436b-9ccc-23c411ab22ca ;
+	cao:isCarriedOutWith :digital-ab422ef5-9bd5-451f-8ab7-9274ffdf5739 ;
 	cao:hasSubject :teacher-b4e46cbe-e682-4132-a2d7-ca92e404c216 .
 
 :setutorial-adbef907-11e0-40c1-8dd2-37eb02899ea9
 	rdf:type cao:Activity;
 	cao:hasName "CSC 1023" ;
-	rdfs:label "SoftwareEng Tutorial" ;
+	rdfs:label "Software Engineering Tutorial" ;
 	cao:activityDescription "This tutorial answers level 1 student questions on software engineering" ;
 	cao:hasBeginTime  :10AM-0fbdca75-5c06-4a88-9181-ee1a035a7fec ;
 	cao:hasDuration "120"^^xsd:integer ;
@@ -749,7 +755,7 @@
 :sepractical-88ca540f-fd64-4a3c-92fd-590a12f1f46b
 	rdf:type cao:Activity;
 	cao:hasName "CSC 1013" ;
-	rdfs:label "SoftwareEng Practical" ;
+	rdfs:label "Software Engineering Practical" ;
 	cao:activityDescription "This course monitor software engineering practical questions for level 1 student" ;
 	cao:hasRule :rule-cdc19603-45e5-4c06-8d5a-47624147f67e ;
 	cao:hasTime :10AM-12AM-f4e589a5-aac9-42b7-b498-706732141ca1 ;
@@ -762,7 +768,7 @@
 
 :seproject-d3e90a3c-f550-45eb-b00e-59a3c6120318
 	rdf:type cao:Activity;
-	rdfs:label "SoftwareEng Project" ;
+	rdfs:label "Software Engineering Project" ;
 	cao:activityDescription "This course is for follow up of software engineering projects of level 1 student" ;
 	cao:hasName "CSC 1005" ;
 	cao:hasTime :08AM-10AM-35e7d9ed-4694-48e0-a6b6-394bd4155a13 ;
@@ -807,7 +813,7 @@
 	rdf:type cao:Action ;
 	cao:hasName "Python programming practical" .
 	     
-:practical-4f989887-eb53-431f-b188-c9662a042f51
+:practical-7e92043f-3f76-4e10-a885-971d415f4861
 	rdf:type cao:Action ;
 	cao:hasName "Software Engineering practical" .
 	     
