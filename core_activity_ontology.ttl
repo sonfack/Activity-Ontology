@@ -76,7 +76,6 @@
 	rdfs:comment "An activity, an action or and operation has an end time"@en ;
 	rdfs:label "has end time" .
 
-
 :isAfter rdf:type owl:ObjectProperty ;
 	 rdfs:domain :Activity ;
 	 rdfs:range time:Instant, :Activity ;
