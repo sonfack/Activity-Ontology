@@ -37,7 +37,8 @@
 ################# Activity #################
 ############################################
 
-:Activity rdfs:subClassOf owl:Thing;
+:Activity rdf:type owl:Class ;
+	  rdfs:subClassOf owl:Thing;
 	  rdfs:label "Activity" ;
           skos:definition """An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"""@en .
 
