@@ -1,71 +1,85 @@
 import pandas as pd
-import numpy as np
 import json
+
 
 def load_data(filepath):
     """Charge les données depuis un fichier Excel."""
     return pd.read_excel(filepath)
 
-def count_activities(dataframe):
-    """Compte le nombre de participations à chaque activité par personne."""
-    return dataframe.groupby(['Nom', 'Activity']).size().reset_index(name='Counts')
 
-def calculate_log_ratings(activity_counts):
-    """Calcule les ratings basés sur la logique logarithmique pour toutes les activités."""
-    activity_counts['Log_Counts'] = np.log10(activity_counts['Counts'] + 1)  # Ajoute 1 pour éviter le log de 0
-    max_log = activity_counts.groupby('Activity')['Log_Counts'].transform(max)
-    activity_counts['Normalized_Ratings'] = (activity_counts['Log_Counts'] / max_log) * 5
-    return activity_counts
+def count_total_activity_occurrences(dataframe):
+    """Compte le nombre total d'occurrences pour chaque activité pour toutes les personnes."""
+    return dataframe.groupby('Activity').size().rename('Total_Occurrences')
 
-def aggregate_person_ratings(activity_counts):
-    """Agrège les ratings pour chaque personne en calculant le rating moyen et trie par rating moyen."""
-    person_ratings = activity_counts.groupby('Nom')['Normalized_Ratings'].mean().reset_index()
-    person_ratings.rename(columns={'Normalized_Ratings': 'Average_Rating'}, inplace=True)
-    person_ratings.sort_values(by='Average_Rating', ascending=False, inplace=True)
-    return person_ratings
 
-def get_min_max_ratings(person_ratings):
-    """Extrait les ratings minimum et maximum des ratings agrégés."""
-    min_rating = person_ratings['Average_Rating'].min()
-    max_rating = person_ratings['Average_Rating'].max()
-    return min_rating, max_rating
+def calculate_person_activity_ratio(dataframe, total_occurrences, person_name=None):
+    """Calcule le ratio du nombre de fois qu'une personne fait une activité par rapport au total des occurrences de cette activité."""
+    # Compte le nombre de fois que chaque personne fait chaque activité
+    person_activity_counts = dataframe.groupby(['Nom', 'Activity']).size().rename(
+        'Person_Activity_Counts').reset_index()
 
-def get_activity_list(activity_counts):
-    """Retourne la liste unique des activités."""
-    return activity_counts['Activity'].unique().tolist()
+    # Fusionne les occurrences totales des activités pour toutes les personnes avec les données
+    merged_data = person_activity_counts.merge(total_occurrences, left_on='Activity', right_index=True, how='left')
 
-def save_to_file(data, min_rating, max_rating, activities, filename, format='json'):
-    """Sauvegarde les données dans un fichier JSON ou TXT, incluant les ratings extrêmes et la liste des activités."""
-    output = {
-        "Person_Ratings": data.to_dict(orient='records'),
-        "Min_Rating": min_rating,
-        "Max_Rating": max_rating,
-        "Activities": activities
-    }
-    if format == 'json':
-        with open(filename, 'w') as file:
-            json.dump(output, file, indent=4)
-    elif format == 'txt':
-        with open(filename, 'w') as file:
-            file.write(str(output))
+    # Calcule le ratio pour chaque personne
+    merged_data['Activity_Ratio'] = merged_data['Person_Activity_Counts'] / merged_data['Total_Occurrences']
 
-def main(filepath, filename='ratings.json', format='json'):
-    """Fonction principale pour charger les données, calculer et exporter les ratings."""
+    # Normalisation des ratios pour toutes les personnes
+    max_ratios = merged_data['Activity_Ratio'].max()
+    merged_data['Normalized_Rating'] = ((merged_data['Activity_Ratio'] / max_ratios) * 5).round().astype(int)
+
+    # Si une personne spécifique est mentionnée, ne garde que ses données
+    if person_name:
+        merged_data = merged_data[merged_data['Nom'] == person_name]
+
+    return merged_data
+
+
+def normalize_ratings(activity_data):
+    """Normalise les ratings pour être entre 0 et 5 et arrondit les résultats à des entiers, normalisé par activité."""
+    max_ratios = activity_data.groupby('Activity')['Activity_Ratio'].transform('max')
+
+    # Vérifier si le maximum des ratios est nul
+    activity_data['Normalized_Rating'] = 0  # Initialiser à 0 par défaut
+    activity_data.loc[max_ratios > 0, 'Normalized_Rating'] = (
+            (activity_data['Activity_Ratio'] / max_ratios) * 5
+    ).round().astype(int)
+
+    return activity_data
+
+
+def save_to_files(activity_data, base_filename):
+    """Sauvegarde les données dans un fichier CSV, JSON et TXT."""
+    csv_filename = f"{base_filename}.csv"
+    json_filename = f"{base_filename}.json"
+    txt_filename = f"{base_filename}.txt"
+
+    activity_data.to_csv(csv_filename, index=False)
+    activity_data.to_json(json_filename, orient='records', lines=True)
+    with open(txt_filename, 'w') as file:
+        for idx, row in activity_data.iterrows():
+            file.write(str(row.to_dict()) + '\n')
+
+
+def main(filepath, base_filename='normalized_ratings', person_name=None):
     df = load_data(filepath)
-    activity_counts = count_activities(df)
-    rated_activities = calculate_log_ratings(activity_counts)
-    person_ratings = aggregate_person_ratings(rated_activities)
-    min_rating, max_rating = get_min_max_ratings(person_ratings)
-    activities = get_activity_list(activity_counts)
-    save_to_file(person_ratings, min_rating, max_rating, activities, filename, format)
-    return person_ratings
 
-def run_analysis():
-    filepath = 'PKG_Dev.xlsx'
-    output_file = 'ratings.json'
-    file_format = 'json'
-    results = main(filepath, output_file, file_format)
-    print("Ratings exportés dans:", output_file)
+    # Calcul des occurrences totales d'activités sur toutes les personnes
+    total_occurrences = count_total_activity_occurrences(df)
+
+    # Calcul des ratios, tout en tenant compte de toutes les occurrences
+    person_activity_ratio = calculate_person_activity_ratio(df, total_occurrences, person_name)
+
+    # Normalisation des données
+    normalized_data = normalize_ratings(person_activity_ratio)
+
+    # Sauvegarde des résultats
+    save_to_files(normalized_data, base_filename)
+
 
 if __name__ == "__main__":
-    run_analysis()
+    # Example usage: Generate data for "John Doe" or for everyone if no name is provided
+    import sys
+    # person_name = None if len(sys.argv) < 2 else sys.argv[1]
+    person_name = None
+    main('PKG_Dev.xlsx', 'normalized_ratings', person_name=person_name)

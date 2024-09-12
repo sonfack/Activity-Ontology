@@ -1,0 +1,349 @@
+Nom,Activity,Person_Activity_Counts,Total_Occurrences,Activity_Ratio,Normalized_Rating
+Person 1,Conférence: DevOps Summit,3,69,0.043478260869565216,5
+Person 10,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 100,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 100,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 101,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 101,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 102,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 102,Webinar: Modern Web Development with React,2,65,0.03076923076923077,5
+Person 103,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 103,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 103,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 104,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 105,Hackathon: Open Source Software,2,67,0.029850746268656716,5
+Person 105,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 106,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 106,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 107,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 108,Conférence: DevOps Summit,2,69,0.028985507246376812,3
+Person 109,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 11,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 11,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 11,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 110,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 111,Conférence: DevOps Summit,2,69,0.028985507246376812,3
+Person 111,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 112,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 112,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 112,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 113,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 114,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 115,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 115,Webinar: Modern Web Development with React,2,65,0.03076923076923077,5
+Person 116,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 116,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 117,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 117,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 118,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 119,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 119,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 119,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 12,Atelier: Kubernetes for Developers,2,71,0.028169014084507043,3
+Person 12,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 120,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 120,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 121,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 122,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 122,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 123,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 123,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 123,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 124,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 124,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 124,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 125,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 126,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 127,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 127,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 128,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 129,Cours: Advanced Java Programming,2,60,0.03333333333333333,5
+Person 129,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 13,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 130,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 130,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 130,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 131,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 132,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 133,Hackathon: Open Source Software,2,67,0.029850746268656716,5
+Person 133,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 134,Projet: Full Stack Web Development,2,61,0.03278688524590164,5
+Person 135,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 136,Cours: Advanced Java Programming,2,60,0.03333333333333333,5
+Person 136,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 137,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 138,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 139,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 139,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 14,Atelier: Kubernetes for Developers,2,71,0.028169014084507043,3
+Person 140,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 140,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 140,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 141,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 142,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 143,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 144,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 145,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 145,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 146,Hackathon: Open Source Software,2,67,0.029850746268656716,5
+Person 147,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 148,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 149,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 149,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 15,Cours: Advanced Java Programming,2,60,0.03333333333333333,5
+Person 15,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 150,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 151,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 151,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 152,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 153,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 154,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 154,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 155,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 156,Conférence: DevOps Summit,2,69,0.028985507246376812,3
+Person 156,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 157,Projet: Full Stack Web Development,2,61,0.03278688524590164,5
+Person 158,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 158,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 159,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 159,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 16,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 160,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 160,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 160,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 161,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 162,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 162,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 163,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 163,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 164,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 165,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 166,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 167,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 167,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 167,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 168,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 168,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 168,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 169,Conférence: DevOps Summit,2,69,0.028985507246376812,3
+Person 169,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 17,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 170,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 170,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 171,Conférence: DevOps Summit,2,69,0.028985507246376812,3
+Person 172,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 172,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 173,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 173,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 174,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 175,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 175,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 176,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 176,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 177,Conférence: DevOps Summit,2,69,0.028985507246376812,3
+Person 177,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 178,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 179,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 179,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 18,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 180,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 180,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 181,Conférence: DevOps Summit,2,69,0.028985507246376812,3
+Person 181,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 182,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 183,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 183,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 184,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 184,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 185,Projet: Full Stack Web Development,2,61,0.03278688524590164,5
+Person 185,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 186,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 186,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 187,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 188,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 189,Conférence: DevOps Summit,2,69,0.028985507246376812,3
+Person 189,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 19,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 19,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 190,Atelier: Kubernetes for Developers,2,71,0.028169014084507043,3
+Person 191,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 191,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 191,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 192,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 192,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 193,Cours: Advanced Java Programming,2,60,0.03333333333333333,5
+Person 194,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 194,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 194,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 195,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 196,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 196,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 196,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 197,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 197,Projet: Full Stack Web Development,2,61,0.03278688524590164,5
+Person 198,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 198,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 199,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 199,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 2,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 20,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 20,Webinar: Modern Web Development with React,2,65,0.03076923076923077,5
+Person 200,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 200,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 21,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 21,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 22,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 22,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 22,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 23,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 23,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 23,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 24,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 24,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 25,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 26,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 26,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 27,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 27,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 27,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 28,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 29,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 3,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 3,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 30,Cours: Advanced Java Programming,2,60,0.03333333333333333,5
+Person 30,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 31,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 31,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 31,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 32,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 33,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 33,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 33,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 34,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 35,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 35,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 35,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 36,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 37,Atelier: Kubernetes for Developers,3,71,0.04225352112676056,5
+Person 38,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 38,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 39,Conférence: DevOps Summit,2,69,0.028985507246376812,3
+Person 39,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 4,Hackathon: Open Source Software,2,67,0.029850746268656716,5
+Person 40,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 40,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 40,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 41,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 41,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 42,Atelier: Kubernetes for Developers,2,71,0.028169014084507043,3
+Person 43,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 44,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 45,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 45,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 46,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 46,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 47,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 47,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 48,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 48,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 49,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 49,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 49,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 5,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 5,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 50,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 51,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 52,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 52,Cours: Advanced Java Programming,2,60,0.03333333333333333,5
+Person 53,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 53,Projet: Full Stack Web Development,2,61,0.03278688524590164,5
+Person 54,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 54,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 54,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 55,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 55,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 56,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 56,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 57,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 57,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 58,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 59,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 59,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 59,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 6,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 6,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 6,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 60,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 61,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 61,Hackathon: Open Source Software,2,67,0.029850746268656716,5
+Person 62,Hackathon: Open Source Software,2,67,0.029850746268656716,5
+Person 62,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 63,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 63,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 63,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 64,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 65,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 65,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 65,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 66,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 66,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 66,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 67,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 67,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 67,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 68,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 69,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 7,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 7,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 7,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 70,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 70,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 71,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 71,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 72,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 72,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 73,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 74,Atelier: Kubernetes for Developers,3,71,0.04225352112676056,5
+Person 75,Conférence: DevOps Summit,2,69,0.028985507246376812,3
+Person 75,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 76,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 76,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 77,Atelier: Kubernetes for Developers,2,71,0.028169014084507043,3
+Person 77,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 78,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 79,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 79,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 8,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 8,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 8,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 80,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 80,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 80,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 81,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 81,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 82,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 82,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 83,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 84,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 85,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 86,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 86,Webinar: Modern Web Development with React,2,65,0.03076923076923077,5
+Person 87,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 87,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 88,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 89,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 89,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 89,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 9,Conférence: DevOps Summit,1,69,0.014492753623188406,2
+Person 9,Hackathon: Open Source Software,2,67,0.029850746268656716,5
+Person 90,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 91,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 91,Webinar: Modern Web Development with React,2,65,0.03076923076923077,5
+Person 92,Atelier: Kubernetes for Developers,1,71,0.014084507042253521,2
+Person 93,Cours: Advanced Java Programming,1,60,0.016666666666666666,2
+Person 94,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 95,Projet: Full Stack Web Development,1,61,0.01639344262295082,2
+Person 96,Webinar: Modern Web Development with React,1,65,0.015384615384615385,2
+Person 97,Webinar: Modern Web Development with React,2,65,0.03076923076923077,5
+Person 98,Hackathon: Open Source Software,1,67,0.014925373134328358,2
+Person 99,Cours: Advanced Java Programming,1,60,0.016666666666666666,2

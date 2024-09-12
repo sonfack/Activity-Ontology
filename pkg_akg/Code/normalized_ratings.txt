@@ -1,0 +1,348 @@
+{'Nom': 'Person 1', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 3, 'Total_Occurrences': 69, 'Activity_Ratio': 0.043478260869565216, 'Normalized_Rating': 5}
+{'Nom': 'Person 10', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 100', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 100', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 101', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 101', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 102', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 102', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 2, 'Total_Occurrences': 65, 'Activity_Ratio': 0.03076923076923077, 'Normalized_Rating': 5}
+{'Nom': 'Person 103', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 103', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 103', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 104', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 105', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 2, 'Total_Occurrences': 67, 'Activity_Ratio': 0.029850746268656716, 'Normalized_Rating': 5}
+{'Nom': 'Person 105', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 106', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 106', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 107', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 108', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 2, 'Total_Occurrences': 69, 'Activity_Ratio': 0.028985507246376812, 'Normalized_Rating': 3}
+{'Nom': 'Person 109', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 11', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 11', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 11', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 110', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 111', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 2, 'Total_Occurrences': 69, 'Activity_Ratio': 0.028985507246376812, 'Normalized_Rating': 3}
+{'Nom': 'Person 111', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 112', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 112', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 112', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 113', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 114', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 115', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 115', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 2, 'Total_Occurrences': 65, 'Activity_Ratio': 0.03076923076923077, 'Normalized_Rating': 5}
+{'Nom': 'Person 116', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 116', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 117', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 117', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 118', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 119', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 119', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 119', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 12', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 2, 'Total_Occurrences': 71, 'Activity_Ratio': 0.028169014084507043, 'Normalized_Rating': 3}
+{'Nom': 'Person 12', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 120', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 120', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 121', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 122', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 122', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 123', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 123', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 123', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 124', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 124', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 124', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 125', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 126', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 127', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 127', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 128', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 129', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 2, 'Total_Occurrences': 60, 'Activity_Ratio': 0.03333333333333333, 'Normalized_Rating': 5}
+{'Nom': 'Person 129', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 13', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 130', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 130', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 130', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 131', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 132', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 133', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 2, 'Total_Occurrences': 67, 'Activity_Ratio': 0.029850746268656716, 'Normalized_Rating': 5}
+{'Nom': 'Person 133', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 134', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 2, 'Total_Occurrences': 61, 'Activity_Ratio': 0.03278688524590164, 'Normalized_Rating': 5}
+{'Nom': 'Person 135', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 136', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 2, 'Total_Occurrences': 60, 'Activity_Ratio': 0.03333333333333333, 'Normalized_Rating': 5}
+{'Nom': 'Person 136', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 137', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 138', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 139', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 139', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 14', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 2, 'Total_Occurrences': 71, 'Activity_Ratio': 0.028169014084507043, 'Normalized_Rating': 3}
+{'Nom': 'Person 140', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 140', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 140', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 141', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 142', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 143', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 144', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 145', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 145', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 146', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 2, 'Total_Occurrences': 67, 'Activity_Ratio': 0.029850746268656716, 'Normalized_Rating': 5}
+{'Nom': 'Person 147', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 148', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 149', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 149', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 15', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 2, 'Total_Occurrences': 60, 'Activity_Ratio': 0.03333333333333333, 'Normalized_Rating': 5}
+{'Nom': 'Person 15', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 150', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 151', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 151', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 152', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 153', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 154', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 154', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 155', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 156', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 2, 'Total_Occurrences': 69, 'Activity_Ratio': 0.028985507246376812, 'Normalized_Rating': 3}
+{'Nom': 'Person 156', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 157', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 2, 'Total_Occurrences': 61, 'Activity_Ratio': 0.03278688524590164, 'Normalized_Rating': 5}
+{'Nom': 'Person 158', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 158', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 159', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 159', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 16', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 160', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 160', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 160', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 161', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 162', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 162', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 163', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 163', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 164', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 165', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 166', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 167', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 167', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 167', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 168', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 168', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 168', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 169', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 2, 'Total_Occurrences': 69, 'Activity_Ratio': 0.028985507246376812, 'Normalized_Rating': 3}
+{'Nom': 'Person 169', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 17', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 170', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 170', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 171', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 2, 'Total_Occurrences': 69, 'Activity_Ratio': 0.028985507246376812, 'Normalized_Rating': 3}
+{'Nom': 'Person 172', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 172', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 173', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 173', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 174', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 175', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 175', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 176', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 176', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 177', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 2, 'Total_Occurrences': 69, 'Activity_Ratio': 0.028985507246376812, 'Normalized_Rating': 3}
+{'Nom': 'Person 177', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 178', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 179', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 179', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 18', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 180', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 180', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 181', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 2, 'Total_Occurrences': 69, 'Activity_Ratio': 0.028985507246376812, 'Normalized_Rating': 3}
+{'Nom': 'Person 181', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 182', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 183', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 183', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 184', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 184', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 185', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 2, 'Total_Occurrences': 61, 'Activity_Ratio': 0.03278688524590164, 'Normalized_Rating': 5}
+{'Nom': 'Person 185', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 186', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 186', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 187', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 188', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 189', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 2, 'Total_Occurrences': 69, 'Activity_Ratio': 0.028985507246376812, 'Normalized_Rating': 3}
+{'Nom': 'Person 189', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 19', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 19', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 190', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 2, 'Total_Occurrences': 71, 'Activity_Ratio': 0.028169014084507043, 'Normalized_Rating': 3}
+{'Nom': 'Person 191', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 191', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 191', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 192', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 192', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 193', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 2, 'Total_Occurrences': 60, 'Activity_Ratio': 0.03333333333333333, 'Normalized_Rating': 5}
+{'Nom': 'Person 194', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 194', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 194', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 195', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 196', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 196', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 196', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 197', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 197', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 2, 'Total_Occurrences': 61, 'Activity_Ratio': 0.03278688524590164, 'Normalized_Rating': 5}
+{'Nom': 'Person 198', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 198', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 199', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 199', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 2', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 20', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 20', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 2, 'Total_Occurrences': 65, 'Activity_Ratio': 0.03076923076923077, 'Normalized_Rating': 5}
+{'Nom': 'Person 200', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 200', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 21', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 21', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 22', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 22', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 22', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 23', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 23', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 23', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 24', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 24', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 25', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 26', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 26', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 27', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 27', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 27', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 28', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 29', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 3', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 3', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 30', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 2, 'Total_Occurrences': 60, 'Activity_Ratio': 0.03333333333333333, 'Normalized_Rating': 5}
+{'Nom': 'Person 30', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 31', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 31', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 31', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 32', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 33', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 33', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 33', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 34', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 35', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 35', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 35', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 36', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 37', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 3, 'Total_Occurrences': 71, 'Activity_Ratio': 0.04225352112676056, 'Normalized_Rating': 5}
+{'Nom': 'Person 38', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 38', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 39', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 2, 'Total_Occurrences': 69, 'Activity_Ratio': 0.028985507246376812, 'Normalized_Rating': 3}
+{'Nom': 'Person 39', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 4', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 2, 'Total_Occurrences': 67, 'Activity_Ratio': 0.029850746268656716, 'Normalized_Rating': 5}
+{'Nom': 'Person 40', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 40', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 40', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 41', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 41', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 42', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 2, 'Total_Occurrences': 71, 'Activity_Ratio': 0.028169014084507043, 'Normalized_Rating': 3}
+{'Nom': 'Person 43', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 44', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 45', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 45', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 46', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 46', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 47', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 47', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 48', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 48', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 49', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 49', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 49', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 5', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 5', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 50', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 51', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 52', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 52', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 2, 'Total_Occurrences': 60, 'Activity_Ratio': 0.03333333333333333, 'Normalized_Rating': 5}
+{'Nom': 'Person 53', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 53', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 2, 'Total_Occurrences': 61, 'Activity_Ratio': 0.03278688524590164, 'Normalized_Rating': 5}
+{'Nom': 'Person 54', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 54', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 54', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 55', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 55', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 56', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 56', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 57', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 57', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 58', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 59', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 59', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 59', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 6', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 6', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 6', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 60', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 61', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 61', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 2, 'Total_Occurrences': 67, 'Activity_Ratio': 0.029850746268656716, 'Normalized_Rating': 5}
+{'Nom': 'Person 62', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 2, 'Total_Occurrences': 67, 'Activity_Ratio': 0.029850746268656716, 'Normalized_Rating': 5}
+{'Nom': 'Person 62', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 63', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 63', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 63', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 64', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 65', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 65', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 65', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 66', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 66', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 66', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 67', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 67', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 67', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 68', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 69', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 7', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 7', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 7', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 70', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 70', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 71', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 71', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 72', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 72', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 73', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 74', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 3, 'Total_Occurrences': 71, 'Activity_Ratio': 0.04225352112676056, 'Normalized_Rating': 5}
+{'Nom': 'Person 75', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 2, 'Total_Occurrences': 69, 'Activity_Ratio': 0.028985507246376812, 'Normalized_Rating': 3}
+{'Nom': 'Person 75', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 76', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 76', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 77', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 2, 'Total_Occurrences': 71, 'Activity_Ratio': 0.028169014084507043, 'Normalized_Rating': 3}
+{'Nom': 'Person 77', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 78', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 79', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 79', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 8', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 8', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 8', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 80', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 80', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 80', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 81', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 81', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 82', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 82', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 83', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 84', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 85', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 86', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 86', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 2, 'Total_Occurrences': 65, 'Activity_Ratio': 0.03076923076923077, 'Normalized_Rating': 5}
+{'Nom': 'Person 87', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 87', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 88', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 89', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 89', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 89', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 9', 'Activity': 'Conférence: DevOps Summit', 'Person_Activity_Counts': 1, 'Total_Occurrences': 69, 'Activity_Ratio': 0.014492753623188406, 'Normalized_Rating': 2}
+{'Nom': 'Person 9', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 2, 'Total_Occurrences': 67, 'Activity_Ratio': 0.029850746268656716, 'Normalized_Rating': 5}
+{'Nom': 'Person 90', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 91', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 91', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 2, 'Total_Occurrences': 65, 'Activity_Ratio': 0.03076923076923077, 'Normalized_Rating': 5}
+{'Nom': 'Person 92', 'Activity': 'Atelier: Kubernetes for Developers', 'Person_Activity_Counts': 1, 'Total_Occurrences': 71, 'Activity_Ratio': 0.014084507042253521, 'Normalized_Rating': 2}
+{'Nom': 'Person 93', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
+{'Nom': 'Person 94', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 95', 'Activity': 'Projet: Full Stack Web Development', 'Person_Activity_Counts': 1, 'Total_Occurrences': 61, 'Activity_Ratio': 0.01639344262295082, 'Normalized_Rating': 2}
+{'Nom': 'Person 96', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 1, 'Total_Occurrences': 65, 'Activity_Ratio': 0.015384615384615385, 'Normalized_Rating': 2}
+{'Nom': 'Person 97', 'Activity': 'Webinar: Modern Web Development with React', 'Person_Activity_Counts': 2, 'Total_Occurrences': 65, 'Activity_Ratio': 0.03076923076923077, 'Normalized_Rating': 5}
+{'Nom': 'Person 98', 'Activity': 'Hackathon: Open Source Software', 'Person_Activity_Counts': 1, 'Total_Occurrences': 67, 'Activity_Ratio': 0.014925373134328358, 'Normalized_Rating': 2}
+{'Nom': 'Person 99', 'Activity': 'Cours: Advanced Java Programming', 'Person_Activity_Counts': 1, 'Total_Occurrences': 60, 'Activity_Ratio': 0.016666666666666666, 'Normalized_Rating': 2}
