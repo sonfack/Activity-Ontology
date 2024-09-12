@@ -3,3 +3,5 @@ src/
 
 *~
 env
+.idea
+.vscode
