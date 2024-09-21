@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://sonfack.com/2023/12/cao/Action> rdfs:subClassOf <http://sonfack.com/2023/12/cao/Activity> .
+
+<http://sonfack.com/2023/12/cao/Constraint> rdfs:subClassOf <http://sonfack.com/2023/12/cao/Rule> .
+
+<http://sonfack.com/2023/12/cao/Goal> rdfs:subClassOf <http://sonfack.com/2023/12/cao/Governance> .
+
+<http://sonfack.com/2023/12/cao/HardResource> rdfs:subClassOf <http://sonfack.com/2023/12/cao/Resource> .
+
+<http://sonfack.com/2023/12/cao/Motive> rdfs:subClassOf <http://sonfack.com/2023/12/cao/Governance> .
+
+<http://sonfack.com/2023/12/cao/Object> rdfs:subClassOf <http://sonfack.com/2023/12/cao/Governance> .
+
+<http://sonfack.com/2023/12/cao/Operation> rdfs:subClassOf <http://sonfack.com/2023/12/cao/Activity> .
+
+<http://sonfack.com/2023/12/cao/SoftResource> rdfs:subClassOf <http://sonfack.com/2023/12/cao/Resource> .
+
+<http://sonfack.com/2023/12/cao/Rule> a owl:Class ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Governance> .
+
+<http://sonfack.com/2023/12/cao/Activity> a owl:Class .
+
+<http://sonfack.com/2023/12/cao/Resource> a owl:Class .
+
+<http://sonfack.com/2023/12/cao/Governance> a owl:Class .
+

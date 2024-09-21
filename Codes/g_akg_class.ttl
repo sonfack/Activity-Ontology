@@ -1,0 +1,152 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://sonfack.com/2023/12/tao/AdministrativeStaff> a owl:Class ;
+    rdfs:label "Administrative staff" ;
+    rdfs:comment "Administrator subject community"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Community> .
+
+<http://sonfack.com/2023/12/tao/Automaton> a owl:Class ;
+    rdfs:label "Automaton subject" ;
+    rdfs:comment "Automaton subject of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Physical> .
+
+<http://sonfack.com/2023/12/tao/ClassRoom> a owl:Class ;
+    rdfs:comment "A geographical located classroom"@en ;
+    rdfs:lable "Classroom Location" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Building> .
+
+<http://sonfack.com/2023/12/tao/Communication> a owl:Class ;
+    rdfs:label "Communication" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/SoftResource> .
+
+<http://sonfack.com/2023/12/tao/Desktop> a owl:Class ;
+    rdfs:label "Desktop" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Computer> .
+
+<http://sonfack.com/2023/12/tao/HardDocument> a owl:Class ;
+    rdfs:label "Hard Document" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/HardResource> .
+
+<http://sonfack.com/2023/12/tao/Human> a owl:Class ;
+    rdfs:label "Human subject" ;
+    rdfs:comment "Human subject of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Physical> .
+
+<http://sonfack.com/2023/12/tao/Laptop> a owl:Class ;
+    rdfs:label "Laptop" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Computer> .
+
+<http://sonfack.com/2023/12/tao/Organization> a owl:Class ;
+    rdfs:label "Organization subject" ;
+    rdfs:comment "Organization subject of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Moral> .
+
+<http://sonfack.com/2023/12/tao/PracticalRoom> a owl:Class ;
+    rdfs:comment "A geographical located practicalroom"@en ;
+    rdfs:lable "Practicalroom Location" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Building> .
+
+<http://sonfack.com/2023/12/tao/Projector> a owl:Class ;
+    rdfs:label "Projector" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Electronic> .
+
+<http://sonfack.com/2023/12/tao/SoftDocument> a owl:Class ;
+    rdfs:label "Soft Document" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/DigitalResource> .
+
+<http://sonfack.com/2023/12/tao/Software> a owl:Class ;
+    rdfs:label "Software" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/DigitalResource> .
+
+<http://sonfack.com/2023/12/tao/Students> a owl:Class ;
+    rdfs:label "Students" ;
+    rdfs:comment "Students subject community"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Community> .
+
+<http://sonfack.com/2023/12/tao/Teacher> a owl:Class ;
+    rdfs:comment "Teaching role "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Tutor> .
+
+<http://sonfack.com/2023/12/tao/TeachingMaterial> a owl:Class ;
+    rdfs:label "Teaching Material" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/HardResource> .
+
+<http://sonfack.com/2023/12/tao/TeachingStaff> a owl:Class ;
+    rdfs:label "Teaching staff" ;
+    rdfs:comment "Teachers subject community"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Community> .
+
+<http://sonfack.com/2023/12/tao/TopManagement> a owl:Class ;
+    rdfs:comment "TopManagement role "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Management> .
+
+<http://sonfack.com/2023/12/tao/TutorialRoom> a owl:Class ;
+    rdfs:comment "A geographical located tutorialroom"@en ;
+    rdfs:lable "Tutorialroom Location" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Building> .
+
+<http://sonfack.com/2023/12/tao/Video> a owl:Class ;
+    rdfs:label "Video" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/DigitalResource> .
+
+<http://sonfack.com/2023/12/tao/projectObject> a owl:Class ;
+    rdfs:label "projects objective" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Object> .
+
+<http://sonfack.com/2023/12/tao/teachingObject> a owl:Class ;
+    rdfs:label "teaching objective" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Object> .
+
+<http://sonfack.com/2023/12/tao/tutorialObject> a owl:Class ;
+    rdfs:label "tutorial objective" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Object> .
+
+<http://sonfack.com/2023/12/tao/Management> a owl:Class ;
+    rdfs:comment "Management role "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Role> .
+
+<http://sonfack.com/2023/12/tao/Operator> a owl:Class ;
+    rdfs:comment "Operator role "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Role> .
+
+<http://sonfack.com/2023/12/tao/Tutor> a owl:Class ;
+    rdfs:comment "Tuto role "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Operator> .
+
+<http://sonfack.com/2023/12/tao/Computer> a owl:Class ;
+    rdfs:label "Computer" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Electronic> .
+
+<http://sonfack.com/2023/12/tao/Electronic> a owl:Class ;
+    rdfs:label "Electronic" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/HardResource> .
+
+<http://sonfack.com/2023/12/tao/Moral> a owl:Class ;
+    rdfs:label "Moral subject" ;
+    rdfs:comment "Moral subject of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Subject> .
+
+<http://sonfack.com/2023/12/tao/Physical> a owl:Class ;
+    rdfs:label "Physical subject" ;
+    rdfs:comment "Physical subject of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Subject> .
+
+<http://sonfack.com/2023/12/tao/Role> a owl:Class ;
+    rdfs:comment "The role of a suject in an organization "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Governance> .
+
+<http://sonfack.com/2023/12/tao/Building> a owl:Class ;
+    rdfs:comment "A geographical located building"@en ;
+    rdfs:lable "Building Location" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Location> .
+
+<http://sonfack.com/2023/12/tao/Community> a owl:Class ;
+    rdfs:label "Community subject" ;
+    rdfs:comment "Community subject of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Moral> .
+
+<http://sonfack.com/2023/12/tao/DigitalResource> a owl:Class ;
+    rdfs:label "Digital Resource" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/SoftResource> .
+

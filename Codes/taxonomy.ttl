@@ -1,0 +1,541 @@
+@prefix : <http://sonfack.com/2023/12/cao/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time1: <https://w3id.org/MON/time.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dc:description a owl:AnnotationProperty .
+
+dc:title a owl:AnnotationProperty .
+
+:activityDescription a owl:DatatypeProperty ;
+    rdfs:label "activity description" ;
+    rdfs:comment "An activity should be described" ;
+    rdfs:domain :Activity ;
+    rdfs:range xsd:string .
+
+:governanceDescription a owl:DatatypeProperty ;
+    rdfs:label "governance description" ;
+    rdfs:comment "The description of an governance"@en ;
+    rdfs:domain :Governance ;
+    rdfs:range xsd:string .
+
+:hasAddress a owl:DatatypeProperty ;
+    rdfs:label "has address" ;
+    rdfs:comment "The address of a location"@en ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:string .
+
+:hasBeginTime a owl:ObjectProperty ;
+    rdfs:label "has beginning time" ;
+    rdfs:comment "An activity, an action or and operation has be begining time"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range time1:Instant ;
+    rdfs:subPropertyOf :hasTime .
+
+:hasConstraint a owl:ObjectProperty ;
+    rdfs:label "has constraint" ;
+    rdfs:comment "An activity has a constraint"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Constraint .
+
+:hasDuration a owl:DatatypeProperty ;
+    rdfs:label "has duration" ;
+    rdfs:comment "Duration of an activity in minute"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range xsd:integer .
+
+:hasEndTime a owl:ObjectProperty ;
+    rdfs:label "has end time" ;
+    rdfs:comment "An activity, an action or and operation has an end time"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range time1:Instant ;
+    rdfs:subPropertyOf :hasTime .
+
+:hasGoal a owl:ObjectProperty ;
+    rdfs:label "has goal" ;
+    rdfs:comment "An action has a goal"@en ;
+    rdfs:domain :Action ;
+    rdfs:range :Goal .
+
+:hasLocation a owl:ObjectProperty ;
+    rdfs:label "has location" ;
+    rdfs:comment "Links a domain to a geographical position"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Location .
+
+:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name" ;
+    rdfs:comment "Activity, Location, Governance, Subject and Resource  has a name"@en ;
+    rdfs:domain :Activity,
+        :Governance,
+        :Location,
+        :Resource,
+        :Subject ;
+    rdfs:range xsd:string .
+
+:hasObjective a owl:ObjectProperty ;
+    rdfs:label "has object" ;
+    rdfs:comment "The outcome of an activity"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Object .
+
+:hasRule a owl:ObjectProperty ;
+    rdfs:label "has rule" ;
+    rdfs:comment "An activity is governed by a rule"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Rule .
+
+:isAfter a owl:ObjectProperty ;
+    rdfs:label "is after" ;
+    rdfs:comment "An activity can come after another activity"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Activity,
+        time1:Instant ;
+    owl:inverseOf :isBefore .
+
+:isBeneficialTo a owl:ObjectProperty ;
+    rdfs:label "is beneficial to" ;
+    rdfs:comment "An activity is beneficial to a subject"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Subject .
+
+:isCarriedOutBy a owl:ObjectProperty ;
+    rdfs:label "is carried out by" ;
+    rdfs:comment "An activity is carried out by a subject"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Subject .
+
+:isComposedOf a owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "is composed of" ;
+    rdfs:comment "An activity is composed of actions or operations" ;
+    rdfs:domain :Activity ;
+    rdfs:range :Action,
+        :Operation .
+
+:isMotivatedBy a owl:ObjectProperty ;
+    rdfs:label "is motivated by" ;
+    rdfs:comment "What motivated an activity"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Motive .
+
+:isPerformedBy a owl:ObjectProperty ;
+    rdfs:label "is perfomed by" ;
+    rdfs:comment "A subject performs an operation or an  action"@en ;
+    rdfs:domain :Action ;
+    rdfs:range :Subject ;
+    rdfs:subPropertyOf :hasSubject .
+
+:isUsedIn rdfs:label "is used in" ;
+    rdfs:comment "A subject that carries out an action or operation of an activity is a subject of this activity" ;
+    rdfs:domain :Resource ;
+    rdfs:range :Activity ;
+    owl:inverseOf :isCarriedOutWith ;
+    owl:propertyChainAxiom ( :isUtilizedIn :isPartOf ) .
+
+:objectDescription a owl:DatatypeProperty ;
+    rdfs:label "objective description" ;
+    rdfs:comment "The description of an object"@en ;
+    rdfs:domain :Object ;
+    rdfs:range xsd:string .
+
+:precedes a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "precedes" ;
+    rdfs:comment "An activity precedes another activity"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Activity ;
+    owl:inverseOf :follows .
+
+:ruleDescription a owl:DatatypeProperty ;
+    rdfs:label "rule description" ;
+    rdfs:comment "The description of a rule"@en ;
+    rdfs:domain :Rule ;
+    rdfs:range xsd:string .
+
+:simultaneouslyWith a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "simultaneously with" ;
+    rdfs:comment "An activity is carried out simultaneously with another activity"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Activity .
+
+<http://sonfack.com/2023/12/tao/AdministrativeStaff> a owl:Class ;
+    rdfs:label "Administrative staff" ;
+    rdfs:comment "Administrator subject community"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Community> .
+
+<http://sonfack.com/2023/12/tao/Automaton> a owl:Class ;
+    rdfs:label "Automaton subject" ;
+    rdfs:comment "Automaton subject of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Physical> .
+
+<http://sonfack.com/2023/12/tao/ClassRoom> a owl:Class ;
+    rdfs:comment "A geographical located classroom"@en ;
+    rdfs:lable "Classroom Location" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Building> .
+
+<http://sonfack.com/2023/12/tao/Communication> a owl:Class ;
+    rdfs:label "Communication" ;
+    rdfs:subClassOf :SoftResource .
+
+<http://sonfack.com/2023/12/tao/Desktop> a owl:Class ;
+    rdfs:label "Desktop" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Computer> .
+
+<http://sonfack.com/2023/12/tao/HardDocument> a owl:Class ;
+    rdfs:label "Hard Document" ;
+    rdfs:subClassOf :HardResource .
+
+<http://sonfack.com/2023/12/tao/Human> a owl:Class ;
+    rdfs:label "Human subject" ;
+    rdfs:comment "Human subject of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Physical> .
+
+<http://sonfack.com/2023/12/tao/Laptop> a owl:Class ;
+    rdfs:label "Laptop" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Computer> .
+
+<http://sonfack.com/2023/12/tao/Organization> a owl:Class ;
+    rdfs:label "Organization subject" ;
+    rdfs:comment "Organization subject of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Moral> .
+
+<http://sonfack.com/2023/12/tao/PracticalRoom> a owl:Class ;
+    rdfs:comment "A geographical located practicalroom"@en ;
+    rdfs:lable "Practicalroom Location" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Building> .
+
+<http://sonfack.com/2023/12/tao/Projector> a owl:Class ;
+    rdfs:label "Projector" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Electronic> .
+
+<http://sonfack.com/2023/12/tao/SoftDocument> a owl:Class ;
+    rdfs:label "Soft Document" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/DigitalResource> .
+
+<http://sonfack.com/2023/12/tao/Software> a owl:Class ;
+    rdfs:label "Software" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/DigitalResource> .
+
+<http://sonfack.com/2023/12/tao/Students> a owl:Class ;
+    rdfs:label "Students" ;
+    rdfs:comment "Students subject community"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Community> .
+
+<http://sonfack.com/2023/12/tao/Teacher> a owl:Class ;
+    rdfs:comment "Teaching role "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Tutor> .
+
+<http://sonfack.com/2023/12/tao/TeachingMaterial> a owl:Class ;
+    rdfs:label "Teaching Material" ;
+    rdfs:subClassOf :HardResource .
+
+<http://sonfack.com/2023/12/tao/TeachingStaff> a owl:Class ;
+    rdfs:label "Teaching staff" ;
+    rdfs:comment "Teachers subject community"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Community> .
+
+<http://sonfack.com/2023/12/tao/TopManagement> a owl:Class ;
+    rdfs:comment "TopManagement role "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Management> .
+
+<http://sonfack.com/2023/12/tao/TutorialRoom> a owl:Class ;
+    rdfs:comment "A geographical located tutorialroom"@en ;
+    rdfs:lable "Tutorialroom Location" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Building> .
+
+<http://sonfack.com/2023/12/tao/Video> a owl:Class ;
+    rdfs:label "Video" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/DigitalResource> .
+
+<http://sonfack.com/2023/12/tao/projectObject> a owl:Class ;
+    rdfs:label "projects objective" ;
+    rdfs:subClassOf :Object .
+
+<http://sonfack.com/2023/12/tao/teachingObject> a owl:Class ;
+    rdfs:label "teaching objective" ;
+    rdfs:subClassOf :Object .
+
+<http://sonfack.com/2023/12/tao/tutorialObject> a owl:Class ;
+    rdfs:label "tutorial objective" ;
+    rdfs:subClassOf :Object .
+
+<http://sonfack.com/2024/01/cao/> a owl:Ontology ;
+    rdfs:label "CAO" ;
+    dc:description "This ontology defines core concepts and their relations to represent activities knowledge within an organization."@en ;
+    dc:licence "" ;
+    dc:title "Core Activity Ontology" ;
+    dcterms:created "2023-12-15"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0002-6085-6818>,
+        <mailto:sss.sonfack@gmail.com> ;
+    owl:imports <file:///home/serge/Documents/Articles/PKO-Onto/time.owl> ;
+    skos:changeNote "2024-06-29 change # to / and revision of temporality management",
+        "2024-07-03 use and import https://w3id.org/MON/time.owl time ontology which is a reduced version of the owl time ontology " .
+
+<https://w3id.org/MON/time.owl> a owl:Ontology ;
+    dc:description <https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Time.png>,
+        """This ontology provides a vocabulary for expressing time. It is a simplified version of the W3C's Time Ontology.
+
+<b>Example Of Usage</b>
+
+Representing a day, e.g. April 23 2015, as an interval.
+
+<pre>
+@prefix time: &#60;https://w3id.org/MON/time.owl#&#62;
+
+:April23015Beg a time:Instant ;
+   time:inXSDDateTime "2015-04-23T00:00:00+02:00" .
+
+
+:April23015End a time:Instant ;
+   time:inXSDDateTime "2015-04-23T23:59:00+02:00" .
+
+:April23015 a time:Interval ;
+   time:hasBeginning :April23015Beg ;
+   time:hasEnd  :April23015End .
+</pre>
+
+
+<b>References</b>
+
+- W3C's Time Ontology https://www.w3.org/TR/owl-time/"""@en ;
+    dc:title "Time Ontology"@en .
+
+time1:atTime a owl:ObjectProperty ;
+    rdfs:label "at time"@en ;
+    rdfs:comment "It associates something with a temporal entity (for any reason)."@en ;
+    rdfs:range time1:TemporalEntity ;
+    rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion> .
+
+:Constraint a owl:Class ;
+    rdfs:label "Constraint" ;
+    rdfs:comment "A constraint is a hard rule that impede an activity"@en ;
+    rdfs:subClassOf :Rule .
+
+:Goal a owl:Class ;
+    rdfs:label "Goal" ;
+    rdfs:comment " The goal of an activity"@en ;
+    rdfs:subClassOf :Governance .
+
+:Motive a owl:Class ;
+    rdfs:label "Motive" ;
+    rdfs:comment " The motivation behind an activity"@en ;
+    rdfs:subClassOf :Governance .
+
+:carriesOut a owl:ObjectProperty ;
+    rdfs:label "carries out" ;
+    rdfs:comment "A subject carries out an action or operations"@en ;
+    rdfs:domain :Subject ;
+    rdfs:range :Action,
+        :Operation .
+
+:follows a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "follows" ;
+    rdfs:comment "An activity follows another activity"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Activity .
+
+:isBefore a owl:ObjectProperty ;
+    rdfs:label "is before" ;
+    rdfs:comment "An activity can come before another activity"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Activity,
+        time1:Instant .
+
+:isCarriedOutWith a owl:ObjectProperty ;
+    rdfs:label "is carried out with" ;
+    rdfs:comment "A subject uses a resource for an activity"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Resource .
+
+:isSubjectOf rdfs:label "is subject of" ;
+    rdfs:comment "A subject that carries out an action or operation of an activity is a subject of this activity" ;
+    rdfs:domain :Subject ;
+    rdfs:range :Activity ;
+    owl:inverseOf :hasSubject ;
+    owl:propertyChainAxiom ( :carriesOut :isPartOf ) .
+
+:isUtilizedIn a owl:ObjectProperty ;
+    rdfs:label "is utilized in" ;
+    rdfs:comment "A tool or resource is utilized in an action or operation"@en ;
+    rdfs:domain :Resource ;
+    rdfs:range :Action,
+        :Operation .
+
+<http://sonfack.com/2023/12/tao/Management> a owl:Class ;
+    rdfs:comment "Management role "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Role> .
+
+<http://sonfack.com/2023/12/tao/Operator> a owl:Class ;
+    rdfs:comment "Operator role "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Role> .
+
+<http://sonfack.com/2023/12/tao/Tutor> a owl:Class ;
+    rdfs:comment "Tuto role "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Operator> .
+
+time1:hasBeginning a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has beginning"@en ;
+    rdfs:comment "It associates an Interval with the Instant when it begins."@en ;
+    rdfs:domain time1:Interval ;
+    rdfs:range time1:Instant ;
+    rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion> .
+
+time1:hasEnd a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has end"@en ;
+    rdfs:comment "It associates an Interval with the Instant when it ends."@en ;
+    rdfs:domain time1:Interval ;
+    rdfs:range time1:Instant ;
+    rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion> .
+
+time1:inXSDDateTime a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "in XSD date time" ;
+    rdfs:domain time1:Instant ;
+    rdfs:range xsd:dateTime .
+
+:SoftResource a owl:Class ;
+    rdfs:label "Intangible resource" ;
+    rdfs:comment "Resources not physically tangible"@en ;
+    rdfs:subClassOf :Resource .
+
+:hasSubject a owl:ObjectProperty ;
+    rdfs:label "has subject" ;
+    rdfs:comment "A subject carries out an activity"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range :Subject ;
+    owl:inverseOf :isSubjectOf .
+
+:hasTime a owl:ObjectProperty ;
+    rdfs:label "has time"@en ;
+    rdfs:comment "An activity, action  has a time corresponding to when it started"@en ;
+    rdfs:domain :Activity ;
+    rdfs:range time1:Interval .
+
+:isPartOf a owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "is part of" ;
+    rdfs:comment "An action is part of an Operation"@en ;
+    rdfs:domain :Action ;
+    rdfs:range :Activity,
+        :Operation .
+
+<http://sonfack.com/2023/12/tao/Computer> a owl:Class ;
+    rdfs:label "Computer" ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Electronic> .
+
+<http://sonfack.com/2023/12/tao/Electronic> a owl:Class ;
+    rdfs:label "Electronic" ;
+    rdfs:subClassOf :HardResource .
+
+<http://sonfack.com/2023/12/tao/Moral> a owl:Class ;
+    rdfs:label "Moral subject" ;
+    rdfs:comment "Moral subject of an activity"@en ;
+    rdfs:subClassOf :Subject .
+
+<http://sonfack.com/2023/12/tao/Physical> a owl:Class ;
+    rdfs:label "Physical subject" ;
+    rdfs:comment "Physical subject of an activity"@en ;
+    rdfs:subClassOf :Subject .
+
+<http://sonfack.com/2023/12/tao/Role> a owl:Class ;
+    rdfs:comment "The role of a suject in an organization "@en ;
+    rdfs:subClassOf :Governance .
+
+time1:TemporalEntity a owl:Class ;
+    rdfs:label "Time"@en ;
+    rdfs:comment "This class represents any entity describing a time period."@en ;
+    rdfs:subClassOf owl:Thing .
+
+:HardResource a owl:Class ;
+    rdfs:label "Tangible resource" ;
+    rdfs:comment "Resources that have physical existance"@en ;
+    rdfs:subClassOf :Resource .
+
+:Rule a owl:Class ;
+    rdfs:label "Rule" ;
+    rdfs:comment "The rule that governs an activity"@en ;
+    rdfs:subClassOf :Governance .
+
+<http://sonfack.com/2023/12/tao/Building> a owl:Class ;
+    rdfs:comment "A geographical located building"@en ;
+    rdfs:lable "Building Location" ;
+    rdfs:subClassOf :Location .
+
+<http://sonfack.com/2023/12/tao/Community> a owl:Class ;
+    rdfs:label "Community subject" ;
+    rdfs:comment "Community subject of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Moral> .
+
+<http://sonfack.com/2023/12/tao/DigitalResource> a owl:Class ;
+    rdfs:label "Digital Resource" ;
+    rdfs:subClassOf :SoftResource .
+
+:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "A geographical location or places"@en ;
+    rdfs:subClassOf owl:Thing .
+
+:Operation a owl:Class ;
+    rdfs:label "Operation" ;
+    rdfs:comment "An operation is a work performed by an agent"@en ;
+    rdfs:subClassOf :Activity .
+
+time1:Interval a owl:Class ;
+    rdfs:label "Interval"@en ;
+    rdfs:comment "A segment of time."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty time1:hasEnd ;
+            owl:someValuesFrom time1:Instant ],
+        [ a owl:Restriction ;
+            owl:onProperty time1:hasBeginning ;
+            owl:someValuesFrom time1:Instant ],
+        time1:TemporalEntity .
+
+:Object a owl:Class ;
+    rdfs:label "Object" ;
+    rdfs:comment "Objective leading to outcome "@en ;
+    rdfs:subClassOf :Governance .
+
+:Action a owl:Class ;
+    rdfs:label "Action" ;
+    rdfs:comment "A well define and specific work that one can carry out in an action. It is the means to implement an action."@en ;
+    rdfs:subClassOf :Activity .
+
+:Resource a owl:Class ;
+    rdfs:label "Tool" ;
+    rdfs:comment "The tool used to carry out an activity"@en ;
+    rdfs:subClassOf owl:Thing .
+
+:Governance a owl:Class ;
+    rdfs:label "Governance" ;
+    rdfs:comment "Principles that guide activities run up"@en ;
+    rdfs:subClassOf owl:Thing .
+
+:Subject a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:comment "An agent that carries out an activity"@en ;
+    rdfs:subClassOf owl:Thing .
+
+time1:Instant a owl:Class ;
+    rdfs:label "Instant"@en ;
+    rdfs:comment "A very short segment of time."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty time1:inXSDDateTime ;
+            owl:someValuesFrom xsd:dateTime ],
+        time1:Interval .
+
+:Activity a owl:Class ;
+    rdfs:label "Activity" ;
+    rdfs:subClassOf owl:Thing ;
+    skos:definition "An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"@en .
+

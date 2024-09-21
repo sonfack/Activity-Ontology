@@ -1,0 +1,64 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://sonfack.com/2023/12/tao/AdministrativeStaff> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Community> .
+
+<http://sonfack.com/2023/12/tao/Automaton> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Physical> .
+
+<http://sonfack.com/2023/12/tao/ClassRoom> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Building> .
+
+<http://sonfack.com/2023/12/tao/Desktop> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Computer> .
+
+<http://sonfack.com/2023/12/tao/Human> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Physical> .
+
+<http://sonfack.com/2023/12/tao/Laptop> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Computer> .
+
+<http://sonfack.com/2023/12/tao/Organization> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Moral> .
+
+<http://sonfack.com/2023/12/tao/PracticalRoom> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Building> .
+
+<http://sonfack.com/2023/12/tao/Projector> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Electronic> .
+
+<http://sonfack.com/2023/12/tao/SoftDocument> rdfs:subClassOf <http://sonfack.com/2023/12/tao/DigitalResource> .
+
+<http://sonfack.com/2023/12/tao/Software> rdfs:subClassOf <http://sonfack.com/2023/12/tao/DigitalResource> .
+
+<http://sonfack.com/2023/12/tao/Students> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Community> .
+
+<http://sonfack.com/2023/12/tao/Teacher> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Tutor> .
+
+<http://sonfack.com/2023/12/tao/TeachingStaff> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Community> .
+
+<http://sonfack.com/2023/12/tao/TopManagement> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Management> .
+
+<http://sonfack.com/2023/12/tao/TutorialRoom> rdfs:subClassOf <http://sonfack.com/2023/12/tao/Building> .
+
+<http://sonfack.com/2023/12/tao/Video> rdfs:subClassOf <http://sonfack.com/2023/12/tao/DigitalResource> .
+
+<http://sonfack.com/2023/12/tao/Management> a owl:Class ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Role> .
+
+<http://sonfack.com/2023/12/tao/Operator> a owl:Class ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Role> .
+
+<http://sonfack.com/2023/12/tao/Tutor> a owl:Class ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Operator> .
+
+<http://sonfack.com/2023/12/tao/Computer> a owl:Class ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Electronic> .
+
+<http://sonfack.com/2023/12/tao/Electronic> a owl:Class .
+
+<http://sonfack.com/2023/12/tao/Moral> a owl:Class .
+
+<http://sonfack.com/2023/12/tao/Physical> a owl:Class .
+
+<http://sonfack.com/2023/12/tao/Role> a owl:Class .
+
+<http://sonfack.com/2023/12/tao/Building> a owl:Class .
+
+<http://sonfack.com/2023/12/tao/Community> a owl:Class ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/tao/Moral> .
+
+<http://sonfack.com/2023/12/tao/DigitalResource> a owl:Class .
+
