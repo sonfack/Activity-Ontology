@@ -1,9 +1,13 @@
 from rdflib import Namespace, Graph, URIRef
 from rdflib.namespace import RDF, OWL, RDFS
 
-akg_file = "../core_activity_ontology.ttl"
-g = Graph()
-g.parse(akg_file)
+
+g_time = Graph()
+g_time.parse("../time.owl")
+g_core = Graph()
+g_core.parse("../core_activity_ontology.ttl")
+g_teaching = Graph()
+g_teaching.parse("../teaching_akg.ttl")
 akg_namespace = Namespace("http://sonfack.com/2023/12/tao/")
 cao_namespace = Namespace("http://sonfack.com/2023/12/cao/")
 
@@ -49,27 +53,51 @@ def read_akg_node(node_uri: str, akg: Graph, as_str=True) -> dict:
     return activity_info
 
 
-def ontology_extraction(akg: Graph) -> None:
-    onto_g = Graph()
-    owl_class = f"<{OWL.Class}>"
-    rdf_type = f"<{RDF.type}>"
-    rdfs_subclass = f"<{RDFS.subClassOf}>"
-    print(owl_class)
-    q_1 = """CONSTRUCT
-            WHERE { ?class """+rdf_type+""" """+owl_class+""".
+def ontology_taxonomy(akg: Graph, core: Graph, time: Graph) -> None:
+    """
+    This function generates the taxonomy of a given activity knowledge graph.
+    - akg: the activity knowledge graph 
+    - core: the core activity ontology
+    - time: the time ontology
+    Example: ontology_taxonomy(g_teaching, g_core, g_time)
+    """
+    q_1 = """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+            CONSTRUCT
+            WHERE { ?class rdf:type owl:Class.
                           ?class ?predicate ?object .
             }"""
-    q_2 = """CONSTRUCT
-            WHERE { ?class """+rdf_type+""" """+owl_class+""".
-                    ?subclass """+rdfs_subclass+""" ?class.
-                    ?subclass ?subpred ?subobj .   
-                }"""
-    resp_1 = g.query(q_1)
-    print(len(resp_1))
-    resp_1.serialize(destination="g_1.ttl", format="turtle")
-    resp_2 = g.query(q_2)
-    print(len(resp_2))
-    resp_2.serialize(destination="g_2.ttl", format="turtle")
+    q_2 = """
+           PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+           PREFIX owl: <http://www.w3.org/2002/07/owl#>
+           PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+           PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-    
-ontology_extraction(g)
+           CONSTRUCT
+           WHERE {
+               ?class rdf:type owl:Class .
+               ?subclass rdfs:subClassOf ?class
+              }
+          """
+    akg_class = akg.query(q_1)
+    print(len(akg_class))
+    akg_class.serialize(destination="g_akg_class.ttl", format="turtle")
+    g_akg_class = Graph()
+    g_akg_class.parse("g_akg_class.ttl")
+    akg_class_subclass = akg.query(q_2)
+    print(len(akg_class_subclass))
+    akg_class_subclass.serialize(destination="g_akg_class_subclass.ttl", format="turtle")
+    g_akg_class_subclass = Graph()
+    g_akg_class_subclass.parse("g_akg_class_subclass.ttl")
+    core_class = core.query(q_1)
+    print(len(core_class))
+    resp = Graph()
+    resp = g_core + g_time + g_akg_class_subclass + g_akg_class
+    resp.serialize(destination="taxonomy.ttl", format="turtle")
+
+
+ontology_taxonomy(g_teaching, g_core, g_time)

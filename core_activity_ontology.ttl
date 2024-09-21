@@ -352,7 +352,7 @@
                       rdfs:comment "The description of an governance"@en .
 
 :objectDescription rdf:type owl:DatatypeProperty ;
-		   rdfs:label "object description" ;
+		   rdfs:label "objective description" ;
                       rdfs:domain :Object ;
                       rdfs:range xsd:string ;
                       rdfs:comment "The description of an object"@en .

@@ -1,0 +1,74 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://sonfack.com/2023/12/cao/Action> a owl:Class ;
+    rdfs:label "Action" ;
+    rdfs:comment "A well define and specific work that one can carry out in an action. It is the means to implement an action."@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Activity> .
+
+<http://sonfack.com/2023/12/cao/Constraint> a owl:Class ;
+    rdfs:label "Constraint" ;
+    rdfs:comment "A constraint is a hard rule that impede an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Rule> .
+
+<http://sonfack.com/2023/12/cao/Goal> a owl:Class ;
+    rdfs:label "Goal" ;
+    rdfs:comment " The goal of an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Governance> .
+
+<http://sonfack.com/2023/12/cao/HardResource> a owl:Class ;
+    rdfs:label "Tangible resource" ;
+    rdfs:comment "Resources that have physical existance"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Resource> .
+
+<http://sonfack.com/2023/12/cao/Location> a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "A geographical location or places"@en ;
+    rdfs:subClassOf owl:Thing .
+
+<http://sonfack.com/2023/12/cao/Motive> a owl:Class ;
+    rdfs:label "Motive" ;
+    rdfs:comment " The motivation behind an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Governance> .
+
+<http://sonfack.com/2023/12/cao/Object> a owl:Class ;
+    rdfs:label "Object" ;
+    rdfs:comment "Objective leading to outcome "@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Governance> .
+
+<http://sonfack.com/2023/12/cao/Operation> a owl:Class ;
+    rdfs:label "Operation" ;
+    rdfs:comment "An operation is a work performed by an agent"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Activity> .
+
+<http://sonfack.com/2023/12/cao/SoftResource> a owl:Class ;
+    rdfs:label "Intangible resource" ;
+    rdfs:comment "Resources not physically tangible"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Resource> .
+
+<http://sonfack.com/2023/12/cao/Subject> a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:comment "An agent that carries out an activity"@en ;
+    rdfs:subClassOf owl:Thing .
+
+<http://sonfack.com/2023/12/cao/Rule> a owl:Class ;
+    rdfs:label "Rule" ;
+    rdfs:comment "The rule that governs an activity"@en ;
+    rdfs:subClassOf <http://sonfack.com/2023/12/cao/Governance> .
+
+<http://sonfack.com/2023/12/cao/Activity> a owl:Class ;
+    rdfs:label "Activity" ;
+    rdfs:subClassOf owl:Thing ;
+    skos:definition "An action directed to an object, carried out by an agent not necessarily conscious. An activity can be made up of other activities or tasks"@en .
+
+<http://sonfack.com/2023/12/cao/Resource> a owl:Class ;
+    rdfs:label "Tool" ;
+    rdfs:comment "The tool used to carry out an activity"@en ;
+    rdfs:subClassOf owl:Thing .
+
+<http://sonfack.com/2023/12/cao/Governance> a owl:Class ;
+    rdfs:label "Governance" ;
+    rdfs:comment "Principles that guide activities run up"@en ;
+    rdfs:subClassOf owl:Thing .
+

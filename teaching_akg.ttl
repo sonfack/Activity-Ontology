@@ -727,7 +727,7 @@
 :uicourse-eaf2d283-4eb8-4024-a2c5-539984984fdd
 	rdf:type cao:Activity ;
 	cao:hasName "CSC 1006" ;
-	rdfs:label "UserInterface Course" ;
+	rdfs:label "User Interface Course" ;
 	cao:activityDescription "This course introduces the user interface design principles to level 1 student" ;
 	cao:hasTime :10AM-12AM-6ab82d7d-72dc-40f2-a209-8bc6b4bb04e7 ;
 	cao:hasObjectiveive :objective-9a59e20a-60f0-4798-8895-50f6b79621c5 ;
@@ -739,7 +739,8 @@
 
 :pmcourse-adee0f07-9e90-412b-95d4-b45d7a7476bb
 	rdf:type cao:Activity ;
-	cao:hasName "ProjectManagement Course" ;
+	cao:hasName "PM 1001" ;
+	rdfs:label "Project Management Course" ;
 	cao:activityDescription "This course introduces project management concepts to level 1 student" ;
 	cao:hasTime :8AM-10AM-b139b467-7fbf-4298-9338-fa372b608e5e ;
 	cao:hasObjective  :objective-0b6e8fa9-d03d-4636-ab9c-b34578b4ea45 ;
