@@ -18,7 +18,7 @@
   				   dct:creator <https://orcid.org/0000-0002-6085-6818> ;
   				   dct:creator <mailto:sss.sonfack@gmail.com> ;
 				   rdfs:label "CAO" ;
-				   dc:licence "" ;
+				   dc:licence "https://creativecommons.org/licenses/by/4.0/" ;
 				   dc:description """This ontology defines core concepts and their relations to represent activities knowledge within an organization."""@en ;
 				   skos:changeNote "2024-06-29 change # to / and revision of temporality management" ;
 				   skos:changeNote "2024-07-03 use and import https://w3id.org/MON/time.owl time ontology which is a reduced version of the owl time ontology " .
